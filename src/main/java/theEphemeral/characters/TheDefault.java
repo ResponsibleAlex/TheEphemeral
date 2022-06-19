@@ -1,22 +1,27 @@
 package theEphemeral.characters;
 
 import basemod.abstracts.CustomPlayer;
+import basemod.animations.SpineAnimation;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -61,11 +66,11 @@ public class TheDefault extends CustomPlayer {
     // =============== BASE STATS =================
 
     public static final int ENERGY_PER_TURN = 3;
-    public static final int STARTING_HP = 75;
-    public static final int MAX_HP = 75;
+    public static final int STARTING_HP = 70;
+    public static final int MAX_HP = 70;
     public static final int STARTING_GOLD = 99;
-    public static final int CARD_DRAW = 9;
-    public static final int ORB_SLOTS = 3;
+    public static final int CARD_DRAW = 5;
+    public static final int ORB_SLOTS = 0;
 
     // =============== /BASE STATS/ =================
 
@@ -102,8 +107,11 @@ public class TheDefault extends CustomPlayer {
     public TheDefault(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
                 "theEphemeralResources/images/char/defaultCharacter/orb/vfx.png", null,
-                new SpriterAnimation(
-                        "theEphemeralResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
+                new SpineAnimation(
+                        THE_DEFAULT_SKELETON_ATLAS,
+                        THE_DEFAULT_SKELETON_JSON,
+                        Settings.renderScale
+                ));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
@@ -120,11 +128,7 @@ public class TheDefault extends CustomPlayer {
 
         // =============== ANIMATIONS =================  
 
-        loadAnimation(
-                THE_DEFAULT_SKELETON_ATLAS,
-                THE_DEFAULT_SKELETON_JSON,
-                1.0f);
-        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
+        AnimationState.TrackEntry e = state.setAnimation(0, "idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());
 
         // =============== /ANIMATIONS/ =================
@@ -137,6 +141,28 @@ public class TheDefault extends CustomPlayer {
 
         // =============== /TEXT BUBBLE LOCATION/ =================
 
+    }
+
+    @Override
+    public void renderPlayerImage(SpriteBatch sb)
+    {
+        sr.setPremultipliedAlpha(false);
+        super.renderPlayerImage(sb);
+        sr.setPremultipliedAlpha(true);
+    }
+
+    @Override
+    public void damage(DamageInfo info) {
+        if (null != info.owner && DamageInfo.DamageType.THORNS != info.type
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
+                && info.output > currentBlock) {
+
+            AnimationState.TrackEntry e = state.setAnimation(0, "hit", false);
+            state.addAnimation(0, "idle", true, 0.0f);
+            e.setTimeScale(1f);
+        }
+
+        super.damage(info);
     }
 
     // =============== /CHARACTER CLASS END/ =================
