@@ -43,6 +43,8 @@ public class Omen extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
+
+        fated = true;
     }
 
     // Actions the card should do.

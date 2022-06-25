@@ -65,6 +65,44 @@
     ]
   },
 
+  "theEphemeral:Phantaplasm": {
+    "NAME": "Phantaplasm",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Ethereal."
+  },
+  "theEphemeral:PiercingMist": {
+    "NAME": "Piercing Mist",
+    "DESCRIPTION": "Deal !D! damage twice. NL Add 2 Dazed to your discard pile."
+  },
+  "theEphemeral:Ambush": {
+    "NAME": "Ambush",
+    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Fated: deals double damage."
+  },
+  "theEphemeral:Cataclysm": {
+    "NAME": "Cataclysm",
+    "DESCRIPTION": "Deal !D! damage. NL Discard the top 3 cards of your draw pile."
+  },
+  "theEphemeral:CastStones": {
+    "NAME": "Cast Stones",
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy is attacking, gain !M! Augury and add 1 Fleeting Dodge to your hand."
+  },
+  "theEphemeral:BlindFury": {
+    "NAME": "Blind Fury",
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle your draw pile. NL Play 1 random theephemeral:Revealed Attack.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle your draw pile. NL Play 2 random theephemeral:Revealed Attacks."
+  },
+  "theEphemeral:SpectralThief": {
+    "NAME": "Spectral Thief",
+    "DESCRIPTION": "Deal !D! damage to a random target 2 times. NL If Fatal, gain !M! Gold. NL theephemeral:Vanishing !theEphemeral:SecondMagic!."
+  },
+  "theEphemeral:Degeneration": {
+    "NAME": "Degeneration",
+    "DESCRIPTION": "Deal !D! damage twice. NL theephemeral:Entropy."
+  },
+  "theEphemeral:Image": {
+    "NAME": "Image",
+    "DESCRIPTION": "Deal !D! damage. NL If you have triggered theephemeral:Fated this turn, gain [E] and draw a card."
+  },
+
   "theEphemeral:FleetingStrike": {
     "NAME": "Fleeting Strike",
     "DESCRIPTION": "Ethereal. NL Discard the top card of your draw pile. NL Deal !D! damage. NL Exhaust."
