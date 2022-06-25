@@ -1,17 +1,16 @@
 package theEphemeral.cards;
 
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theEphemeral.EphemeralMod;
+
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class AbstractDynamicCard extends AbstractDefaultCard {
 
-    // "How come DefaultCommonAttack extends CustomCard and not DynamicCard like all the rest?"
-
-    // Well every card, at the end of the day, extends CustomCard.
-    // Abstract Default Card extends CustomCard and builds up on it, adding a second magic number. Your card can extend it and
-    // bam - you can have a second magic number in that card (Learn Java inheritance if you want to know how that works).
-    // Abstract Dynamic Card builds up on Abstract Default Card even more and makes it so that you don't need to add
-    // the NAME and the DESCRIPTION into your card - it'll get it automatically. Of course, this functionality could have easily
-    // Been added to the default card rather than creating a new Dynamic one, but was done so to deliberately.
+    protected boolean fated = false;
 
     public AbstractDynamicCard(final String id,
                                final String img,
@@ -22,6 +21,45 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
                                final CardTarget target) {
 
         super(id, languagePack.getCardStrings(id).NAME, img, cost, languagePack.getCardStrings(id).DESCRIPTION, type, color, rarity, target);
+        if (type == CardType.ATTACK && target == CardTarget.ALL_ENEMY) {
+            isMultiDamage = true;
+        }
+    }
 
+    @Override
+    public void triggerOnGlowCheck() {
+        if (willTriggerFated()) {
+            glowColor = Color.FIREBRICK.cpy();
+        } else {
+            glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
+    protected boolean willTriggerFated() {
+        if (!fated)
+            return false;
+
+        int maxFated = 1;
+
+        AbstractPlayer p = AbstractDungeon.player;
+        //if (p.hasPower(SoothsayerPower.POWER_ID)) {
+        //  maxFated += p.getPower(SoothsayerPower.POWER_ID).amount;
+        //}
+
+        return EphemeralMod.fatedThisTurn < maxFated;
+    }
+
+    protected  boolean triggerFated() {
+        if (willTriggerFated()) {
+            EphemeralMod.fatedThisTurn++;
+
+            //if (AbstractDungeon.player.hasRelic(SilkyBandage.ID)) {
+            //    addToBot(new GainBlockAction(SilkyBandage.Block));
+            //}
+
+            return true;
+        }
+
+        return false;
     }
 }

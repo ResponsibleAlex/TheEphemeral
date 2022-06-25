@@ -1,53 +1,81 @@
 {
-  "theEphemeral:DefaultCommonAttack": {
+  "theEphemeral:Strike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage. NL [#0000ff]This[] [#ff0000]Is[] [#ffff00]How[] [#88888]color[] [#ff00ff]works.[]"
+    "DESCRIPTION": "Deal !D! damage."
   },
-  "theEphemeral:DefaultCommonSkill": {
+  "theEphemeral:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block. NL theephemeral:Multiword_Keyword."
+    "DESCRIPTION": "Gain !B! Block."
   },
-  "theEphemeral:DefaultCommonPower": {
-    "NAME": "Hold Place",
-    "DESCRIPTION": "Gain !M! theephemeral:Keyword.",
-    "UPGRADE_DESCRIPTION": "Gain !M! theephemeral:Keywords."
+  "theEphemeral:ReadTheStars": {
+    "NAME": "Read the Stars",
+    "DESCRIPTION": "Gain !B! Block. NL Gain 2 Augury."
   },
-  "theEphemeral:DefaultUncommonAttack": {
-    "NAME": "Big slap",
-    "DESCRIPTION": "Deal !D! damage."
+  "theEphemeral:ThroughTheVeil": {
+    "NAME": "Through the Veil",
+    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Fated: add !M! Fleeting Dodge to your hand."
   },
-  "theEphemeral:DefaultUncommonSkill": {
-    "NAME": "A Better Defend",
-    "DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
+
+  "theEphemeral:ThrowBones": {
+    "NAME": "Throw Bones",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 2 Augury."
   },
-  "theEphemeral:DefaultUncommonPower": {
-    "NAME": "Weirdness",
-    "DESCRIPTION": "Gain X theephemeral:Keywords.",
-    "UPGRADE_DESCRIPTION": "Gain X +1 theephemeral:Keywords."
+  "theEphemeral:StranglingMist": {
+    "NAME": "Strangling Mist",
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle a Dazed into to your draw pile."
   },
-  "theEphemeral:DefaultRareAttack": {
-    "NAME": "TOUCH",
-    "DESCRIPTION": "Deal !D! damage."
+  "theEphemeral:Silhouette": {
+    "NAME": "Silhouette",
+    "DESCRIPTION": "Deal !D! damage. NL Add !M! Fleeting Strike to your hand."
   },
-  "theEphemeral:DefaultRareSkill": {
-    "NAME": "For Each Loop x2",
-    "DESCRIPTION": "Apply !M! Vulnerable to all enemies, 2 times.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to all enemies, 3 times."
+  "theEphemeral:ChillingTouch": {
+    "NAME": "Chilling Touch",
+    "DESCRIPTION": "Deal !D! damage. NL Apply 1 Weak for each theephemeral:Revealed Attack."
   },
-  "theEphemeral:DefaultRarePower": {
-    "NAME": "In-Progress Form",
-    "DESCRIPTION": "At the start of your turn, play a TOUCH."
+  "theEphemeral:PsychicStrike": {
+    "NAME": "Psychic Strike",
+    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Fated: !M! Fleeting Thought to your hand."
   },
-  "theEphemeral:DefaultAttackWithVariable": {
-    "NAME": "Special Strike",
-    "DESCRIPTION": "Deal !D! damage [E] times. NL (Deal !theEphemeral:ENERGY_DAMAGE! damage total.)"
+  "theEphemeral:BlindSwipe": {
+    "NAME": "Blind Swipe",
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle your draw pile."
   },
-  "theEphemeral:DefaultSecondMagicNumberSkill": {
-    "NAME": "Cool 2 Number Card",
-    "DESCRIPTION": "Apply !M! Vulnerable and !theEphemeral:SecondMagic! poison to an enemy."
+  "theEphemeral:SpectralGrasp": {
+    "NAME": "Spectral Grasp",
+    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Vanishing !theEphemeral:SecondMagic!."
   },
-  "theEphemeral:OrbSkill": {
-    "NAME": "Get Orb",
-    "DESCRIPTION": "Channel 1 Default Orb."
+  "theEphemeral:Omen": {
+    "NAME": "Omen",
+    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Fated: apply !M! Vulnerable."
+  },
+  "theEphemeral:DrainSoul": {
+    "NAME": "Drain Soul",
+    "DESCRIPTION": "Deal 8 damage to ALL enemies. NL Upgrade ALL cards that are theephemeral:Revealed for the rest of combat.",
+    "UPGRADE_DESCRIPTION": "Deal 8 damage to ALL enemies. NL Upgrade ALL cards that are theephemeral:Revealed and in your hand for the rest of combat."
+  },
+  "theEphemeral:Discord": {
+    "NAME": "Discord",
+    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Entropy."
+  },
+  "theEphemeral:VeiledEdge": {
+    "NAME": "Veiled Edge",
+    "DESCRIPTION": "Can only be played if you have an Ethereal card theephemeral:Revealed or in your hand. NL Deal !D! damage.",
+    "EXTENDED_DESCRIPTION": [
+      "I have no Ethereal cards Revealed or in my hand."
+    ]
+  },
+
+  "theEphemeral:FleetingStrike": {
+    "NAME": "Fleeting Strike",
+    "DESCRIPTION": "Ethereal. NL Discard the top card of your draw pile. NL Deal !D! damage. NL Exhaust."
+  },
+  "theEphemeral:FleetingDodge": {
+    "NAME": "Fleeting Dodge",
+    "DESCRIPTION": "Ethereal. NL Discard the top card of your draw pile. NL Gain !B! Block. NL Exhaust."
+  },
+  "theEphemeral:FleetingThought": {
+    "NAME": "Fleeting Thought",
+    "DESCRIPTION": "Ethereal. NL Discard the top card of your draw pile. NL Draw 1 card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Discard the top card of your draw pile. NL Draw 2 cards. NL Exhaust."
   }
 }

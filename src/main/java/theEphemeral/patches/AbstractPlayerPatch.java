@@ -42,4 +42,15 @@ public class AbstractPlayerPatch {
             EphemeralMod.renderPreviewWidget(sb);
         }
     }
+
+    @SpirePatch(
+            clz=AbstractPlayer.class,
+            method="applyStartOfTurnRelics"
+    )
+    public static class ApplyStartOfTurnRelics
+    {
+        public static void Prefix(AbstractPlayer __instance) {
+            EphemeralMod.startOfTurn();
+        }
+    }
 }

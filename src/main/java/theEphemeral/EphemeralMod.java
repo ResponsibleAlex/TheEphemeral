@@ -1,6 +1,9 @@
 package theEphemeral;
 
-import basemod.*;
+import basemod.AutoAdd;
+import basemod.BaseMod;
+import basemod.ModLabeledToggleButton;
+import basemod.ModPanel;
 import basemod.eventUtil.AddEventParams;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
@@ -21,8 +24,8 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import theEphemeral.cards.*;
-import theEphemeral.characters.TheDefault;
+import theEphemeral.cards.AbstractDefaultCard;
+import theEphemeral.characters.TheEphemeral;
 import theEphemeral.events.IdentityCrisisEvent;
 import theEphemeral.potions.PlaceholderPotion;
 import theEphemeral.previewWidget.PreviewWidget;
@@ -32,7 +35,6 @@ import theEphemeral.relics.PlaceholderRelic;
 import theEphemeral.relics.PlaceholderRelic2;
 import theEphemeral.util.IDCheckDontTouchPls;
 import theEphemeral.util.TextureLoader;
-import theEphemeral.variables.DefaultCustomVariable;
 import theEphemeral.variables.DefaultSecondMagicNumber;
 
 import java.io.InputStream;
@@ -158,6 +160,10 @@ public class EphemeralMod implements
     public static String makePowerPath(String resourcePath) {
         return getModID() + "Resources/images/powers/" + resourcePath;
     }
+
+    public static String makeEffectPath(String resourcePath) {
+        return modID + "Resources/images/vfx/" + resourcePath;
+    }
     
     public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
@@ -204,9 +210,9 @@ public class EphemeralMod implements
         
         logger.info("Done subscribing");
         
-        logger.info("Creating the color " + TheDefault.Enums.COLOR_GRAY.toString());
+        logger.info("Creating the color " + TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE.toString());
         
-        BaseMod.addColor(TheDefault.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
+        BaseMod.addColor(TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
                 DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
                 ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
                 ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
@@ -288,13 +294,13 @@ public class EphemeralMod implements
     
     @Override
     public void receiveEditCharacters() {
-        logger.info("Beginning to edit characters. " + "Add " + TheDefault.Enums.THE_DEFAULT.toString());
+        logger.info("Beginning to edit characters. " + "Add " + TheEphemeral.Enums.THE_DEFAULT.toString());
         
-        BaseMod.addCharacter(new TheDefault("the Default", TheDefault.Enums.THE_DEFAULT),
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheDefault.Enums.THE_DEFAULT);
+        BaseMod.addCharacter(new TheEphemeral("the Default", TheEphemeral.Enums.THE_DEFAULT),
+                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheEphemeral.Enums.THE_DEFAULT);
         
         receiveEditPotions();
-        logger.info("Added " + TheDefault.Enums.THE_DEFAULT.toString());
+        logger.info("Added " + TheEphemeral.Enums.THE_DEFAULT.toString());
     }
     
     // =============== /LOAD THE CHARACTER/ =================
@@ -352,7 +358,7 @@ public class EphemeralMod implements
         // Since this is a builder these method calls (outside of create()) can be skipped/added as necessary
         AddEventParams eventParams = new AddEventParams.Builder(IdentityCrisisEvent.ID, IdentityCrisisEvent.class) // for this specific event
             .dungeonID(TheCity.ID) // The dungeon (act) this event will appear in
-            .playerClass(TheDefault.Enums.THE_DEFAULT) // Character specific event
+            .playerClass(TheEphemeral.Enums.THE_DEFAULT) // Character specific event
             .create();
 
         // Add the event
@@ -372,7 +378,7 @@ public class EphemeralMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
+        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheEphemeral.Enums.THE_DEFAULT);
         
         logger.info("Done editing potions");
     }
@@ -394,9 +400,9 @@ public class EphemeralMod implements
         // in order to automatically differentiate which pool to add the relic too.
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE);
+        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE);
+        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
         BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
@@ -421,7 +427,6 @@ public class EphemeralMod implements
         // Add the Custom Dynamic Variables
         logger.info("Add variables");
         // Add the Custom Dynamic variables
-        BaseMod.addDynamicVariable(new DefaultCustomVariable());
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
         
         logger.info("Adding cards");
@@ -527,6 +532,13 @@ public class EphemeralMod implements
 
 
     // =========================================================
+
+    public static int fatedThisTurn = 0;
+
+    public static void startOfTurn() {
+        fatedThisTurn = 0;
+    }
+
     public static void resetPreviewWidget() {
         //int amount = 0;
         //if (AbstractDungeon.player.hasPower()) {
@@ -541,5 +553,13 @@ public class EphemeralMod implements
 
     public static void renderPreviewWidget(SpriteBatch sb) {
         PreviewWidget.Render(sb);
+    }
+
+    public static void atEndOfTurn() {
+        //if (AbstractDungeon.player.hasPower(HarbingerForm.ID)) {
+        //    int amount = AbstractDungeon.player.getPower(HarbingerForm.ID).amount;
+        //for (int i = 0; i < amount; i++)
+        //    AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng), false));
+        //}
     }
 }
