@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.actions.common.ShuffleAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.StarBounceEffect;
 import com.megacrit.cardcrawl.vfx.combat.ViolentAttackEffect;
@@ -63,7 +62,7 @@ public class BlindFury extends AbstractDynamicCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 
         // Shuffle draw pile
-        addToBot(new ShuffleAction(AbstractDungeon.player.drawPile, true));
+        addToBot(new ShuffleAction(p.drawPile, true));
 
         // Play 1 or 2 random revealed attacks
         addToBot(new PlayRandomRevealedAttackAction());

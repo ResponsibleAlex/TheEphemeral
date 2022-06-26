@@ -27,7 +27,7 @@ public class DiscardTopCardAction extends AbstractGameAction {
             if (player.drawPile.size() > 0) {
                 AbstractCard c = player.drawPile.getTopCard();
                 player.drawPile.removeTopCard();
-                c.didDiscard();
+                c.triggerOnManualDiscard();
                 AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(c, (float)Settings.WIDTH / 2.0F + PADDING + AbstractCard.IMG_WIDTH, (float)Settings.HEIGHT / 2.0F));
             }
         }

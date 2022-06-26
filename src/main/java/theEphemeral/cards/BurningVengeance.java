@@ -1,9 +1,7 @@
 package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.ShuffleAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
@@ -11,32 +9,32 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
-public class BlindSwipe extends AbstractDynamicCard {
+public class BurningVengeance extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/
 
-    public static final String ID = EphemeralMod.makeID(BlindSwipe.class.getSimpleName());
-    public static final String IMG = makeCardPath("BlindSwipe.png");
+    public static final String ID = EphemeralMod.makeID(BurningVengeance.class.getSimpleName());
+    public static final String IMG = makeCardPath("BurningVengeance.png");
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 1;
+    private static final int COST = 5;
     // private static final int UPGRADED_COST = 0;
-    private static final int DAMAGE = 8;
-    private static final int UPGRADE_PLUS_DMG = 3;
+    private static final int DAMAGE = 50;
+    private static final int UPGRADE_PLUS_DMG = 10;
 
     // /STAT DECLARATION/
 
 
-    public BlindSwipe() {
+    public BurningVengeance() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
     }
@@ -44,8 +42,7 @@ public class BlindSwipe extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        addToBot(new ShuffleAction(p.drawPile, true));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
     }
 
     // Upgraded stats.

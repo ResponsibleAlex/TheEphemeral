@@ -103,6 +103,101 @@
     "DESCRIPTION": "Deal !D! damage. NL If you have triggered theephemeral:Fated this turn, gain [E] and draw a card."
   },
 
+  "theEphemeral:Bladestorm": {
+    "NAME": "Bladestorm",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies twice. NL theephemeral:Fated: deals damage four times instead."
+  },
+  "theEphemeral:Banshee": {
+    "NAME": "Banshee",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL theephemeral:Vanishing !theEphemeral:SecondMagic!."
+  },
+  "theEphemeral:RealityFracture": {
+    "NAME": "Reality Fracture",
+    "DESCRIPTION": "Deal X damage X+!M! times. NL theephemeral:Entropy."
+  },
+  "theEphemeral:Disaster": {
+    "NAME": "Disaster",
+    "DESCRIPTION": "Deal !D! damage. NL If you have 7 theephemeral:Augury, deals triple damage."
+  },
+  "theEphemeral:BurningVengeance": {
+    "NAME": "Burning Vengeance",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+  },
+  "theEphemeral:Ravenous": {
+    "NAME": "Ravenous",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, gain !M! health."
+  },
+
+  "theEphemeral:TimeSkip": {
+    "NAME": "Time Skip",
+    "DESCRIPTION": "Play the top card of your draw pile. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Play the top card of your draw pile."
+  },
+  "theEphemeral:Fade": {
+    "NAME": "Fade",
+    "DESCRIPTION": "Gain !B! Block. NL theephemeral:Entropy."
+  },
+  "theEphemeral:Portent": {
+    "NAME": "Portent",
+    "DESCRIPTION": "theephemeral:Fated: draw 3 cards."
+  },
+  "theEphemeral:Delay": {
+    "NAME": "Delay",
+    "DESCRIPTION": "Gain !B! Block. NL Put a card from your hand on top of your draw pile."
+  },
+  "theEphemeral:Dowse": {
+    "NAME": "Dowse",
+    "DESCRIPTION": "Gain 3 theephemeral:Augury. NL Add !M! Fleeting Dodge to your hand."
+  },
+  "theEphemeral:Remembrance": {
+    "NAME": "Remembrance",
+    "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile on top of your draw pile."
+  },
+  "theEphemeral:SpiritGuide": {
+    "NAME": "Spirit Guide",
+    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card. NL Discard 1 card."
+  },
+  "theEphemeral:SpectralWall": {
+    "NAME": "Spectral Wall",
+    "DESCRIPTION": "Gain !B! Block. NL theephemeral:Vanishing !theEphemeral:SecondMagic!."
+  },
+
+  "theEphemeral:LostToAges": {
+    "NAME": "Lost to Ages",
+    "DESCRIPTION": "Draw !M! card. NL Exhaust a card in your hand. NL Add a copy of this to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Exhaust a card in your hand. NL Add a copy of this to your discard pile."
+  },
+  "theEphemeral:BoonOfTheSpinner": {
+    "NAME": "Boon of the Spinner",
+    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain [E].",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain [E][E]."
+  },
+  "theEphemeral:BoonOfTheAlloter": {
+    "NAME": "Boon of the Alloter",
+    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, draw !M! cards."
+  },
+  "theEphemeral:BoonOfTheInflexible": {
+    "NAME": "Boon of the Inflexible",
+    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain !M! Block."
+  },
+  "theEphemeral:BlindFaith": {
+    "NAME": "Blind Faith",
+    "DESCRIPTION": "Shuffle your discard pile into your draw pile, then add !M! Fleeting Thought to your hand."
+  },
+  "theEphemeral:BlindingBlock": {
+    "NAME": "Blinding Block",
+    "DESCRIPTION": "Gain !B! Block. NL Shuffle your draw pile."
+  },
+  "theEphemeral:Tasseomancy": {
+    "NAME": "Tasseomancy",
+    "DESCRIPTION": "Gain !M! theephemeral:Augury. NL Exhaust."
+  },
+  "theEphemeral:RecurringNightmare": {
+    "NAME": "Recurring Nightmare",
+    "DESCRIPTION": "Choose a card in your discard pile and play it."
+  },
+
   "theEphemeral:FleetingStrike": {
     "NAME": "Fleeting Strike",
     "DESCRIPTION": "Ethereal. NL Discard the top card of your draw pile. NL Deal !D! damage. NL Exhaust."

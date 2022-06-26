@@ -23,14 +23,16 @@ public class AuguryPower extends AbstractPower implements CloneablePowerInterfac
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Augury84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Augury32.png"));
 
+    public static final int MaxAugury = 7;
+
     public AuguryPower(final int amount) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 7) {
-            this.amount = 7;
+        if (this.amount >= MaxAugury) {
+            this.amount = MaxAugury;
         }
 
         type = PowerType.BUFF;
@@ -43,8 +45,8 @@ public class AuguryPower extends AbstractPower implements CloneablePowerInterfac
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 7) {
-            this.amount = 7;
+        if (this.amount >= MaxAugury) {
+            this.amount = MaxAugury;
         }
 
         updatePower();
