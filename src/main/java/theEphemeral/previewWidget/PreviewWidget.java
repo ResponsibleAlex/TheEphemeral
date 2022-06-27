@@ -58,14 +58,18 @@ public class PreviewWidget {
             drawPileCopy.group = (ArrayList<AbstractCard>) drawPile.group.clone();
 
             // reset the previews based on the new draw pile
-            int amount = 0;
-            if (AbstractDungeon.player.hasPower(AuguryPower.POWER_ID)) {
-                amount = AbstractDungeon.player.getPower(AuguryPower.POWER_ID).amount;
-            }
-            Reset(amount);
+            Reset(AuguryCount());
         }
 
         previews.update();
+    }
+
+    public static int AuguryCount() {
+        int amount = 0;
+        if (AbstractDungeon.player.hasPower(AuguryPower.POWER_ID)) {
+            amount = AbstractDungeon.player.getPower(AuguryPower.POWER_ID).amount;
+        }
+        return amount;
     }
 
     public static void Render(SpriteBatch sb) {

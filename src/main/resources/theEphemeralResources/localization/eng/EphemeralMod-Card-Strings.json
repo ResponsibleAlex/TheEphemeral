@@ -197,6 +197,49 @@
     "NAME": "Recurring Nightmare",
     "DESCRIPTION": "Choose a card in your discard pile and play it."
   },
+  "theEphemeral:PeerThroughMists": {
+    "NAME": "Peer Through Mists",
+    "DESCRIPTION": "Exhaust all Status and Curse cards that are theephemeral:Revealed or in your hand. Gain !B! Block for each card Exhausted."
+  },
+  "theEphemeral:Pirouette": {
+    "NAME": "Pirouette",
+    "DESCRIPTION": "Add 2 Fleeting Dodge to your hand.",
+    "UPGRADE_DESCRIPTION": "Add 2 Fleeting Dodge to your hand. NL Draw a card."
+  },
+  "theEphemeral:FrigidAura": {
+    "NAME": "Frigid Aura",
+    "DESCRIPTION": "Gain !B! Block. NL theephemeral:Fated: apply !M! Weak to ALL enemies."
+  },
+  "theEphemeral:Premonition": {
+    "NAME": "Premonition",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! theephemeral:Augury. NL theephemeral:Fated: gain [E]."
+  },
+  "theEphemeral:Dissipate": {
+    "NAME": "Dissipate",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "theEphemeral:SpectralBinding": {
+    "NAME": "Spectral Binding",
+    "DESCRIPTION": "Enemy loses !M! Strength. NL Apply !M! Weak and Vulnerable. NL theephemeral:Vanishing !theEphemeral:SecondMagic!."
+  },
+  "theEphemeral:Revelation": {
+    "NAME": "Revelation",
+    "DESCRIPTION": "Gain [E][E]. NL Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Gain [E][E][E]. NL Draw !M! cards."
+  },
+  "theEphemeral:StrengthFromBeyond": {
+    "NAME": "Strength from Beyond",
+    "DESCRIPTION": "Add 2 Fleeting Strike to your hand. NL Gain !M! Temporary Strength."
+  },
+  "theEphemeral:FortuneForetold": {
+    "NAME": "Fortune Foretold",
+    "DESCRIPTION": "Gain [E] equal to your theephemeral:Augury."
+  },
+  "theEphemeral:Cartomancy": {
+    "NAME": "Cartomancy",
+    "DESCRIPTION": "Choose 1 of 3 random cards to add to the top of your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random cards to add to the top of your draw pile. NL It costs 0 this combat. NL Exhaust."
+  },
 
   "theEphemeral:FleetingStrike": {
     "NAME": "Fleeting Strike",
