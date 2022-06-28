@@ -241,6 +241,36 @@
     "UPGRADE_DESCRIPTION": "Choose 1 of 3 random cards to add to the top of your draw pile. NL It costs 0 this combat. NL Exhaust."
   },
 
+  "theEphemeral:Wasting": {
+    "NAME": "Wasting",
+    "DESCRIPTION": "Enemy loses Strength equal to your theephemeral:Augury. NL Exhaust."
+  },
+  "theEphemeral:TemptFate": {
+    "NAME": "Tempt Fate",
+    "DESCRIPTION": "Discard all theephemeral:Revealed cards, then draw that many cards. NL Exhaust."
+  },
+  "theEphemeral:BrokenMirror": {
+    "NAME": "Broken Mirror",
+    "DESCRIPTION": "Choose a card in your hand. Add a copy to the top of your draw pile."
+  },
+  "theEphemeral:Numerology": {
+    "NAME": "Numerology",
+    "DESCRIPTION": "Draw X cards. NL They cost X less this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw X+1 cards. NL They cost X less this turn. NL Exhaust."
+  },
+  "theEphemeral:SpectralForge": {
+    "NAME": "Spectral Forge",
+    "DESCRIPTION": "Choose a card in your hand and permanently Upgrade it. NL theephemeral:Vanishing !theEphemeral:SecondMagic!.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Choose a card in your hand and permanently Upgrade it. NL theephemeral:Vanishing !theEphemeral:SecondMagic!.",
+    "EXTENDED_DESCRIPTION": [
+      "I have no cards that can upgrade."
+    ]
+  },
+  "theEphemeral:TemporalSurge": {
+    "NAME": "Temporal Surge",
+    "DESCRIPTION": "Play all theephemeral:Revealed Attacks and Skills. NL Exhaust."
+  },
+
   "theEphemeral:FleetingStrike": {
     "NAME": "Fleeting Strike",
     "DESCRIPTION": "Ethereal. NL Discard the top card of your draw pile. NL Deal !D! damage. NL Exhaust."
