@@ -285,6 +285,15 @@
     "DESCRIPTION": "At the start of your turn, add a Fleeting Thought to your hand.",
     "UPGRADE_DESCRIPTION": "Now and at the start of your turn, add a Fleeting Thought to your hand."
   },
+  "theEphemeral:SwirlingMists": {
+    "NAME": "Swirling Mists",
+    "DESCRIPTION": "Whenever an Ethereal card is Exhausted, gain !M! Block."
+  },
+  "theEphemeral:ScryingPool": {
+    "NAME": "Scrying Pool",
+    "DESCRIPTION": "Whenever you shuffle your draw pile, draw a card.",
+    "UPGRADE_DESCRIPTION": "Now and whenever you shuffle your draw pile, draw a card."
+  },
 
   "theEphemeral:FleetingStrike": {
     "NAME": "Fleeting Strike",

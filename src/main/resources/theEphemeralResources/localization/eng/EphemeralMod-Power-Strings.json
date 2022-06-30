@@ -9,7 +9,7 @@
         "theEphemeral:PhantomWingsPower": {
                 "NAME": "Phantom Wings",
                 "DESCRIPTIONS": [
-                        "#yFleeting #yDodge blocks for an additional #b",
+                        "#yFleeting #yDodge #yBlocks for an additional #b",
                         "."
                 ]
         },
@@ -19,6 +19,21 @@
                         "At the start of your turn, add #b",
                         " #yFleeting #yThought to your hand.",
                         " #yFleeting #yThoughts to your hand."
+                ]
+        },
+        "theEphemeral:SwirlingMistsPower": {
+                "NAME": "Swirling Mists",
+                "DESCRIPTIONS": [
+                        "Whenever an #yEthereal card is #yExhausted, gain #b",
+                        " #yBlock."
+                ]
+        },
+        "theEphemeral:ScryingPoolPower": {
+                "NAME": "Scrying Pool",
+                "DESCRIPTIONS": [
+                        "Whenever you shuffle your draw pile, draw #b",
+                        " card.",
+                        " cards."
                 ]
         }
 }
