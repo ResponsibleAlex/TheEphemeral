@@ -294,6 +294,19 @@
     "DESCRIPTION": "Whenever you shuffle your draw pile, draw a card.",
     "UPGRADE_DESCRIPTION": "Now and whenever you shuffle your draw pile, draw a card."
   },
+  "theEphemeral:Soothsayer": {
+    "NAME": "Soothsayer",
+    "DESCRIPTION": "An additional card may trigger theephemeral:Fated each turn."
+  },
+  "theEphemeral:Maelstrom": {
+    "NAME": "Maelstrom",
+    "DESCRIPTION": "Every time you play 5 cards in a single turn, apply 1 Weak and 1 Vulnerable to ALL enemies."
+  },
+  "theEphemeral:ImpendingDoom": {
+    "NAME": "ImpendingDoom",
+    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to your theephemeral:Augury.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to 2 times your theephemeral:Augury."
+  },
 
   "theEphemeral:FleetingStrike": {
     "NAME": "Fleeting Strike",

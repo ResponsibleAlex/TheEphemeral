@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theEphemeral.EphemeralMod;
+import theEphemeral.powers.SoothsayerPower;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -42,9 +43,9 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         int maxFated = 1;
 
         AbstractPlayer p = AbstractDungeon.player;
-        //if (p.hasPower(SoothsayerPower.POWER_ID)) {
-        //  maxFated += p.getPower(SoothsayerPower.POWER_ID).amount;
-        //}
+        if (p.hasPower(SoothsayerPower.POWER_ID)) {
+          maxFated += p.getPower(SoothsayerPower.POWER_ID).amount;
+        }
 
         return EphemeralMod.fatedThisTurn < maxFated;
     }

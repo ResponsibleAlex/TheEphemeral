@@ -35,5 +35,31 @@
                         " card.",
                         " cards."
                 ]
+        },
+        "theEphemeral:SoothsayerPower": {
+                "NAME": "Soothsayer",
+                "DESCRIPTIONS": [
+                        "An additional #b",
+                        " card may trigger #yFated each turn.",
+                        " cards may trigger #yFated each turn."
+                ]
+        },
+        "theEphemeral:MaelstromPower": {
+                "NAME": "Maelstrom",
+                "DESCRIPTIONS": [
+                        "If you play #b",
+                        " more card this turn, apply #b",
+                        " more cards this turn, apply #b",
+                        " #yWeak and #b",
+                        " #yVulnerable to ALL enemies."
+                ]
+        },
+        "theEphemeral:ImpendingDoomPower": {
+                "NAME": "Impending Doom",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, deal damage to ALL enemies equal to your #yAugury.",
+                        "At the end of your turn, deal damage to ALL enemies equal to #b",
+                        " times your #yAugury."
+                ]
         }
 }
