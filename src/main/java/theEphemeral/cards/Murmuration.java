@@ -1,62 +1,59 @@
 package theEphemeral.cards;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
-import theEphemeral.actions.DiscardTopCardAction;
 import theEphemeral.characters.TheEphemeral;
+import theEphemeral.powers.MurmurationPower;
 import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
-public class TemptFate extends AbstractDynamicCard {
+@SuppressWarnings("unused")
+public class Murmuration extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = EphemeralMod.makeID(TemptFate.class.getSimpleName());
-    public static final String IMG = makeCardPath("TemptFate.png");
+    public static final String ID = EphemeralMod.makeID(Murmuration.class.getSimpleName());
+    public static final String IMG = makeCardPath("Murmuration.png");
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
-
+    private static final int MAGIC_NUMBER = 2;
+    //private static final int UPGRADE_PLUS_MAGIC_NUMBER = 2;
 
     // /STAT DECLARATION/
 
-
-    public TemptFate() {
+    public Murmuration() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        exhaust = true;
+        magicNumber = baseMagicNumber = MAGIC_NUMBER;
     }
 
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int revealed = PreviewWidget.GetRevealed();
-
-        for (int i = 0; i < revealed; i++) {
-            addToBot(new DiscardTopCardAction());
+        if (upgraded) {
+            PreviewWidget.AddAugury(magicNumber);
         }
 
-        addToBot(new DrawCardAction(revealed));
+        addToBot(new ApplyPowerAction(p, p,
+                new MurmurationPower(magicNumber), magicNumber));
     }
 
-    //Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            //upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
             initializeDescription();
         }
     }

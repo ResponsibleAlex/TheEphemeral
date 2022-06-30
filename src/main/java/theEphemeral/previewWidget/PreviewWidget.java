@@ -1,6 +1,6 @@
 package theEphemeral.previewWidget;
 
-import theEphemeral.powers.AuguryPower;
+import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -9,8 +9,11 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PreviewWidget {
+    public static final int MAX_AUGURY = 7;
+
     // CardGroup that is actually getting displayed
     private static final CardGroup previews = new CardGroup(CardGroupType.UNSPECIFIED);
 
@@ -18,23 +21,24 @@ public class PreviewWidget {
     private static final CardGroup drawPileCopy = new CardGroup(CardGroupType.UNSPECIFIED);
 
     private static final float drawScale = 0.5f;
-    public static int revealed = 0;
 
-    public static void Reset() {
-        Reset(0);
+    private static int augury = 0;
+    private static int startOfTurnMod = 0;
+
+    public static void Clear() {
+        augury = 0;
+        SetCards();
     }
-    public static void Reset(int amount) {
-        CardGroup drawPile = AbstractDungeon.player.drawPile;
 
-        // only show the amount that actually exist
-        revealed = Math.min(amount, drawPile.size());
+    public static void SetCards() {
+        CardGroup drawPile = AbstractDungeon.player.drawPile;
 
         // clear old previews
         previews.clear();
 
         // add copies to the CardGroup and initialize visuals
-        if (revealed > 0) {
-            for (int i = revealed - 1; i >= 0; i--) {
+        if (GetRevealed() > 0) {
+            for (int i = GetRevealedIndex(); i >= 0; i--) {
                 AbstractCard c = drawPile.group.get(i);
                 AbstractCard cpy = c.makeStatEquivalentCopy();
 
@@ -58,26 +62,62 @@ public class PreviewWidget {
             drawPileCopy.group = (ArrayList<AbstractCard>) drawPile.group.clone();
 
             // reset the previews based on the new draw pile
-            Reset(AuguryCount());
+            SetCards();
         }
 
         previews.update();
     }
 
-    public static int AuguryCount() {
-        int amount = 0;
-        if (AbstractDungeon.player.hasPower(AuguryPower.POWER_ID)) {
-            amount = AbstractDungeon.player.getPower(AuguryPower.POWER_ID).amount;
-        }
-        return amount;
+    public static int GetAugury() {
+        return augury;
     }
 
-    public static void Render(SpriteBatch sb) {
-        previews.render(sb);
+    public static void SetAugury(int newValue) {
+        augury = newValue;
+
+        if (augury < 0)
+            augury = 0;
+        if (augury > MAX_AUGURY)
+            augury = MAX_AUGURY;
+    }
+
+    public static void AddAugury(int amount) {
+        SetAugury(amount + augury);
+    }
+
+    public static void StartOfTurn() {
+        startOfTurnMod = 0;
+    }
+    public static void StartOfTurnIncrease(int amount) {
+        startOfTurnMod += amount;
+    }
+
+    public static void StartOfTurnAccounting() {
+        if (!AbstractDungeon.player.hasRelic(FrozenEye.ID)) {
+            startOfTurnMod -= 2;
+        }
+
+        AddAugury(startOfTurnMod);
+    }
+
+    public static int GetRevealed() {
+        return Math.min(augury, AbstractDungeon.player.drawPile.size());
+    }
+
+    private static int GetRevealedIndex() {
+        return GetRevealed() - 1;
+    }
+
+    public static List<AbstractCard> GetRevealedCards() {
+        return AbstractDungeon.player.drawPile.group.subList(0, PreviewWidget.GetRevealedIndex());
     }
 
     public static int GetRevealedAttacksCount() {
         return (int) previews.group.stream().filter(x -> x.type == AbstractCard.CardType.ATTACK).count();
+    }
+
+    public static void Render(SpriteBatch sb) {
+        previews.render(sb);
     }
 
 }

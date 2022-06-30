@@ -1,12 +1,11 @@
 package theEphemeral.relics;
 
-import theEphemeral.powers.AuguryPower;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theEphemeral.EphemeralMod;
+import theEphemeral.previewWidget.PreviewWidget;
 import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makeRelicOutlinePath;
@@ -28,7 +27,7 @@ public class PlaceholderRelic extends CustomRelic {
     @Override
     public void atBattleStart() {
         flash();
-        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AuguryPower(2), 2));
+        PreviewWidget.AddAugury(2);
         this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     }
 

@@ -58,8 +58,7 @@ public class PeerThroughMists extends AbstractDynamicCard {
         });
 
         ArrayList<AbstractCard> drawPileCardsToRemove = new ArrayList<>();
-        int revealedIndex = PreviewWidget.revealed - 1;
-        p.drawPile.group.subList(0, revealedIndex).forEach(x -> {
+        PreviewWidget.GetRevealedCards().forEach(x -> {
             if (x.type == CardType.CURSE || x.type == CardType.STATUS) {
                 drawPileCardsToRemove.add(x);
             }

@@ -63,8 +63,7 @@ public class VeiledEdge extends AbstractDynamicCard {
         if (!canUse) {
             return false;
         } else {
-            int revealedIndex = PreviewWidget.revealed - 1;
-            for (AbstractCard c : player.drawPile.group.subList(0, revealedIndex)) {
+            for (AbstractCard c : PreviewWidget.GetRevealedCards()) {
                 if (c.isEthereal) {
                     return true;
                 }

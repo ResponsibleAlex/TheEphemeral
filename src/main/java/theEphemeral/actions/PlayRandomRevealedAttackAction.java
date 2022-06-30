@@ -18,10 +18,9 @@ public class PlayRandomRevealedAttackAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        int revealedIndex = PreviewWidget.revealed - 1;
         CardGroup candidates = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
-        for (AbstractCard c : player.drawPile.group.subList(0, revealedIndex)) {
+        for (AbstractCard c : PreviewWidget.GetRevealedCards()) {
             if (c.type == AbstractCard.CardType.ATTACK) {
                 candidates.addToRandomSpot(c);
             }

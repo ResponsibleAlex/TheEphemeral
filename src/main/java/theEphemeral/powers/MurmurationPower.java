@@ -1,38 +1,37 @@
 package theEphemeral.powers;
 
-import theEphemeral.EphemeralMod;
-import theEphemeral.previewWidget.PreviewWidget;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import theEphemeral.EphemeralMod;
+import theEphemeral.previewWidget.PreviewWidget;
 import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
 
-public class AuguryPower extends AbstractPower implements CloneablePowerInterface {
-    public static final String POWER_ID = EphemeralMod.makeID(AuguryPower.class.getSimpleName());
+public class MurmurationPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = EphemeralMod.makeID(MurmurationPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Augury84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Augury32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Murmuration84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Murmuration32.png"));
 
-    public static final int MaxAugury = 7;
+    public static final int MaxStackAmount = 999;
 
-    public AuguryPower(final int amount) {
+    public MurmurationPower(final int amount) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= MaxAugury) {
-            this.amount = MaxAugury;
+        if (this.amount >= MaxStackAmount) {
+            this.amount = MaxStackAmount;
         }
 
         type = PowerType.BUFF;
@@ -40,32 +39,22 @@ public class AuguryPower extends AbstractPower implements CloneablePowerInterfac
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
-        updatePower();
+        updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= MaxAugury) {
-            this.amount = MaxAugury;
+        if (this.amount >= MaxStackAmount) {
+            this.amount = MaxStackAmount;
         }
 
-        updatePower();
+        updateDescription();
     }
 
     @Override
     public void atStartOfTurn() {
-        amount -= 2;
-
-        if (amount <= 0) {
-            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, ID));
-        } else {
-            updatePower();
-        }
-    }
-
-    private void updatePower() {
-        updateDescription();
-        PreviewWidget.Reset(this.amount);
+        flash();
+        PreviewWidget.StartOfTurnIncrease(amount);
     }
 
     @Override
@@ -79,6 +68,6 @@ public class AuguryPower extends AbstractPower implements CloneablePowerInterfac
 
     @Override
     public AbstractPower makeCopy() {
-        return new AuguryPower(amount);
+        return new MurmurationPower(amount);
     }
 }

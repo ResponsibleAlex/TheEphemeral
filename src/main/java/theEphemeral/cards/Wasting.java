@@ -43,7 +43,7 @@ public class Wasting extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int str = PreviewWidget.AuguryCount();
+        int str = PreviewWidget.GetAugury();
         addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -str), -str));
     }
 

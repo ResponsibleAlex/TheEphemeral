@@ -1,11 +1,10 @@
 package theEphemeral.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
-import theEphemeral.powers.AuguryPower;
+import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
@@ -43,7 +42,7 @@ public class Tasseomancy extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new AuguryPower(magicNumber), magicNumber));
+        PreviewWidget.AddAugury(magicNumber);
     }
 
     //Upgraded stats.

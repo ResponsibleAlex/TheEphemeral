@@ -1,10 +1,24 @@
 {
-"theEphemeral:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
-},
-"theEphemeral:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
-}
+        "theEphemeral:MurmurationPower": {
+                "NAME": "Murmuration",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, gain #b",
+                        " #yAugury."
+                ]
+        },
+        "theEphemeral:PhantomWingsPower": {
+                "NAME": "Phantom Wings",
+                "DESCRIPTIONS": [
+                        "#yFleeting #yDodge blocks for an additional #b",
+                        "."
+                ]
+        },
+        "theEphemeral:ClairvoyancePower": {
+                "NAME": "Clairvoyance",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, add #b",
+                        " #yFleeting #yThought to your hand.",
+                        " #yFleeting #yThoughts to your hand."
+                ]
+        }
 }

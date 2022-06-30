@@ -1,56 +1,52 @@
 package theEphemeral.cards;
 
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.fleetingCards.FleetingDodge;
-import theEphemeral.previewWidget.PreviewWidget;
+import theEphemeral.powers.PhantomWingsPower;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
-public class Dowse extends AbstractDynamicCard {
+@SuppressWarnings("unused")
+public class PhantomWings extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = EphemeralMod.makeID(Dowse.class.getSimpleName());
-    public static final String IMG = makeCardPath("Dowse.png");
+    public static final String ID = EphemeralMod.makeID(PhantomWings.class.getSimpleName());
+    public static final String IMG = makeCardPath("PhantomWings.png");
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 1;
-    private static final int MAGIC_NUMBER = 1;
+    private static final int MAGIC_NUMBER = 3;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
-    private static final int AUGURY = 3;
-
 
     // /STAT DECLARATION/
 
-
-    public Dowse() {
+    public PhantomWings() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC_NUMBER;
+        magicNumber = baseMagicNumber = MAGIC_NUMBER;
 
         cardsToPreview = new FleetingDodge();
     }
 
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        PreviewWidget.AddAugury(AUGURY);
-        addToBot(new MakeTempCardInHandAction(new FleetingDodge(), magicNumber));
+        addToBot(new ApplyPowerAction(p, p,
+                new PhantomWingsPower(magicNumber), magicNumber));
     }
 
-    //Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {

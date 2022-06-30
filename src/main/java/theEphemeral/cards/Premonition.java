@@ -1,13 +1,12 @@
 package theEphemeral.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
-import theEphemeral.powers.AuguryPower;
+import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
@@ -50,7 +49,7 @@ public class Premonition extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
-        addToBot(new ApplyPowerAction(p, p, new AuguryPower(magicNumber), magicNumber));
+        PreviewWidget.AddAugury(magicNumber);
 
         if (triggerFated()) {
             addToBot(new GainEnergyAction(1));

@@ -537,14 +537,15 @@ public class EphemeralMod implements
 
     public static void startOfTurn() {
         fatedThisTurn = 0;
+        PreviewWidget.StartOfTurn();
     }
 
-    public static void resetPreviewWidget() {
-        //int amount = 0;
-        //if (AbstractDungeon.player.hasPower()) {
-        //    amount = AbstractDungeon.player.getPower().amount;
-        //}
-        PreviewWidget.Reset();
+    public static void startOfTurnPostDraw() {
+        PreviewWidget.StartOfTurnAccounting();
+    }
+
+    public static void clearPreviewWidget() {
+        PreviewWidget.Clear();
     }
 
     public static void updatePreviewWidget() {

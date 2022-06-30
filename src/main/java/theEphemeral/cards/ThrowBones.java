@@ -1,14 +1,12 @@
 package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
-import theEphemeral.powers.AuguryPower;
+import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
@@ -34,19 +32,22 @@ public class ThrowBones extends AbstractDynamicCard {
     private static final int DAMAGE = 6;
     private static final int UPGRADE_PLUS_DMG = 3;
 
+    private static final int AUGURY = 2;
+
     // /STAT DECLARATION/
 
 
     public ThrowBones() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        baseMagicNumber = magicNumber = AUGURY;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AuguryPower(2), 2));
+        PreviewWidget.AddAugury(magicNumber);
     }
 
     // Upgraded stats.

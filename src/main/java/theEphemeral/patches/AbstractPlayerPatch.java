@@ -13,7 +13,7 @@ public class AbstractPlayerPatch {
             method="onVictory"
     )
     public static class OnVictory {
-        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.resetPreviewWidget(); }
+        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.clearPreviewWidget(); }
     }
 
     @SpirePatch(
@@ -21,7 +21,7 @@ public class AbstractPlayerPatch {
             method="preBattlePrep"
     )
     public static class PreBattlePrep {
-        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.resetPreviewWidget(); }
+        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.clearPreviewWidget(); }
     }
 
     @SpirePatch(
@@ -51,6 +51,17 @@ public class AbstractPlayerPatch {
     {
         public static void Prefix(AbstractPlayer __instance) {
             EphemeralMod.startOfTurn();
+        }
+    }
+
+    @SpirePatch(
+            clz=AbstractPlayer.class,
+            method="applyStartOfTurnPostDrawPowers"
+    )
+    public static class ApplyStartOfTurnPostDrawPowers
+    {
+        public static void Prefix(AbstractPlayer __instance) {
+            EphemeralMod.startOfTurnPostDraw();
         }
     }
 }

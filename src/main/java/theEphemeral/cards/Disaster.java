@@ -6,12 +6,11 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.VerticalImpactEffect;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
-import theEphemeral.powers.AuguryPower;
+import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
@@ -45,10 +44,7 @@ public class Disaster extends AbstractDynamicCard {
     }
 
     private boolean hasMaxAugury() {
-        if (AbstractDungeon.player.hasPower(AuguryPower.POWER_ID)) {
-            return AbstractDungeon.player.getPower(AuguryPower.POWER_ID).amount >= AuguryPower.MaxAugury;
-        }
-        return false;
+        return PreviewWidget.GetAugury() == PreviewWidget.MAX_AUGURY;
     }
 
     @Override

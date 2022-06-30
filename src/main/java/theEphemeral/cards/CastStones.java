@@ -1,7 +1,6 @@
 package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.fleetingCards.FleetingDodge;
-import theEphemeral.powers.AuguryPower;
+import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
@@ -68,7 +67,7 @@ public class CastStones extends AbstractDynamicCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
         if (m != null && !m.isDeadOrEscaped() && m.getIntentBaseDmg() >= 0) {
-            addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AuguryPower(magicNumber), magicNumber));
+            PreviewWidget.AddAugury(magicNumber);
             addToBot(new MakeTempCardInHandAction(new FleetingDodge(), 1));
         }
     }
