@@ -11,6 +11,7 @@ import theEphemeral.fleetingCards.FleetingThought;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class BlindFaith extends AbstractDynamicCard {
 
     // TEXT DECLARATION

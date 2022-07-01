@@ -8,6 +8,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Cartomancy extends AbstractDynamicCard {
 
     // TEXT DECLARATION

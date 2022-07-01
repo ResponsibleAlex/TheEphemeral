@@ -14,6 +14,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Bladestorm extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/

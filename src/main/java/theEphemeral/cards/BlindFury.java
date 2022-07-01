@@ -17,6 +17,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class BlindFury extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/

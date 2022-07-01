@@ -61,5 +61,12 @@
                         "At the end of your turn, deal damage to ALL enemies equal to #b",
                         " times your #yAugury."
                 ]
+        },
+        "theEphemeral:DarkContractPower": {
+                "NAME": "Dark Contract",
+                "DESCRIPTIONS": [
+                        "Whenever you #yExhaust a card, gain #b",
+                        " #yAugury."
+                ]
         }
 }

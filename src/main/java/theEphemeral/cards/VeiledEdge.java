@@ -17,6 +17,7 @@ import theEphemeral.previewWidget.PreviewWidget;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class VeiledEdge extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/
@@ -59,10 +60,7 @@ public class VeiledEdge extends AbstractDynamicCard {
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        boolean canUse = super.canUse(p, m);
-        if (!canUse) {
-            return false;
-        } else {
+        if (super.canUse(p, m)) {
             for (AbstractCard c : PreviewWidget.GetRevealedCards()) {
                 if (c.isEthereal) {
                     return true;
@@ -76,8 +74,8 @@ public class VeiledEdge extends AbstractDynamicCard {
             }
 
             cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-            return false;
         }
+        return false;
     }
 
     // Upgraded stats.

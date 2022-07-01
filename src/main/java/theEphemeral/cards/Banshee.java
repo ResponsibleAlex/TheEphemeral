@@ -13,6 +13,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Banshee extends AbstractVanishingCard {
 
     // /TEXT DECLARATION/

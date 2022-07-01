@@ -11,6 +11,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Degeneration extends AbstractEntropyCard {
 
     // /TEXT DECLARATION/

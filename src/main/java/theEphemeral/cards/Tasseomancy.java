@@ -8,6 +8,7 @@ import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Tasseomancy extends AbstractDynamicCard {
 
     // TEXT DECLARATION

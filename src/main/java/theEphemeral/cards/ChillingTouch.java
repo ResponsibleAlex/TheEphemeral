@@ -15,6 +15,7 @@ import theEphemeral.vfx.FrostEffect;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class ChillingTouch extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/

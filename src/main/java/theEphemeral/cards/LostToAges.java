@@ -10,6 +10,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class LostToAges extends AbstractDynamicCard {
 
     // TEXT DECLARATION

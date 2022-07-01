@@ -12,6 +12,7 @@ import theEphemeral.fleetingCards.FleetingStrike;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class StrengthFromBeyond extends AbstractDynamicCard {
 
     // TEXT DECLARATION

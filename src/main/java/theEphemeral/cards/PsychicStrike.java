@@ -12,6 +12,7 @@ import theEphemeral.fleetingCards.FleetingThought;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class PsychicStrike extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/

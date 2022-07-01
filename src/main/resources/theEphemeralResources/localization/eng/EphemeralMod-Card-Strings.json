@@ -303,9 +303,13 @@
     "DESCRIPTION": "Every time you play 5 cards in a single turn, apply 1 Weak and 1 Vulnerable to ALL enemies."
   },
   "theEphemeral:ImpendingDoom": {
-    "NAME": "ImpendingDoom",
+    "NAME": "Impending Doom",
     "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to your theephemeral:Augury.",
     "UPGRADE_DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to 2 times your theephemeral:Augury."
+  },
+  "theEphemeral:DarkContract": {
+    "NAME": "Dark Contract",
+    "DESCRIPTION": "Whenever you Exhaust a card, gain !M! theephemeral:Augury."
   },
 
   "theEphemeral:FleetingStrike": {

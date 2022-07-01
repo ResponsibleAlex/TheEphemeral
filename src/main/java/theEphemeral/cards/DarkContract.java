@@ -1,58 +1,54 @@
 package theEphemeral.cards;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
+import theEphemeral.powers.DarkContractPower;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class Dissipate extends AbstractDynamicCard {
+public class DarkContract extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = EphemeralMod.makeID(Dissipate.class.getSimpleName());
-    public static final String IMG = makeCardPath("Dissipate.png");
+    public static final String ID = EphemeralMod.makeID(DarkContract.class.getSimpleName());
+    public static final String IMG = makeCardPath("DarkContract.png");
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 3;
-    // private static final int UPGRADED_COST = 0;
-    private static final int BLOCK = 18;
-    private static final int UPGRADE_PLUS_BLOCK = 6;
-
+    private static final int COST = 2;
+    private static final int UPGRADE_COST = 1;
+    private static final int EFFECT = 1;
 
     // /STAT DECLARATION/
 
-
-    public Dissipate() {
+    public DarkContract() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = BLOCK;
+        magicNumber = baseMagicNumber = EFFECT;
     }
 
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new ApplyPowerAction(p, p,
+                new DarkContractPower(magicNumber), magicNumber));
     }
 
-    //Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
-            //upgradeBaseCost(UPGRADED_COST);
+            upgradeBaseCost(UPGRADE_COST);
             initializeDescription();
         }
     }

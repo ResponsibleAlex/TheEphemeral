@@ -12,6 +12,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class SpectralBinding extends AbstractVanishingCard {
 
     // TEXT DECLARATION

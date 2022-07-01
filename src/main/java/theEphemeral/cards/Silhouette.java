@@ -8,11 +8,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
-import theEphemeral.fleetingCards.FleetingDodge;
 import theEphemeral.fleetingCards.FleetingStrike;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Silhouette extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/

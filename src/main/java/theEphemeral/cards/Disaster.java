@@ -14,6 +14,7 @@ import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Disaster extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/

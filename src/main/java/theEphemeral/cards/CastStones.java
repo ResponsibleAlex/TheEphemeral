@@ -15,6 +15,7 @@ import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class CastStones extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/

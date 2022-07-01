@@ -12,6 +12,7 @@ import theEphemeral.fleetingCards.FleetingDodge;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class ThroughTheVeil extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/

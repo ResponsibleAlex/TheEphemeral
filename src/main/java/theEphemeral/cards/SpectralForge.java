@@ -10,6 +10,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class SpectralForge extends AbstractVanishingCard {
 
     // TEXT DECLARATION

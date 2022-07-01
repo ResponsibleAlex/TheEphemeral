@@ -9,6 +9,7 @@ import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class FortuneForetold extends AbstractDynamicCard {
 
     // TEXT DECLARATION

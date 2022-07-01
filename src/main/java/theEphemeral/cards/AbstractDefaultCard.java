@@ -46,6 +46,7 @@ public abstract class AbstractDefaultCard extends CustomCard {
 
     }
 
+    @SuppressWarnings("unused")
     public void upgradeDefaultSecondMagicNumber(int amount) { // If we're upgrading (read: changing) the number. Note "upgrade" and NOT "upgraded" - 2 different things. One is a boolean, and then this one is what you will usually use - change the integer by how much you want to upgrade.
         defaultBaseSecondMagicNumber += amount; // Upgrade the number by the amount you provide in your card.
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber; // Set the number to be equal to the base value.

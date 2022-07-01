@@ -9,6 +9,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Delay extends AbstractDynamicCard {
 
     // TEXT DECLARATION

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class PeerThroughMists extends AbstractDynamicCard {
 
     // TEXT DECLARATION

@@ -10,6 +10,7 @@ import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Dowse extends AbstractDynamicCard {
 
     // TEXT DECLARATION

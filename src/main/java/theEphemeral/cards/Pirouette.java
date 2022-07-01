@@ -10,6 +10,7 @@ import theEphemeral.fleetingCards.FleetingDodge;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Pirouette extends AbstractDynamicCard {
 
     // TEXT DECLARATION

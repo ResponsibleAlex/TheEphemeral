@@ -12,6 +12,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Omen extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/

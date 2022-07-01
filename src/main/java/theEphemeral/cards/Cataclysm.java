@@ -14,6 +14,7 @@ import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
+@SuppressWarnings("unused")
 public class Cataclysm extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/
