@@ -40,8 +40,8 @@
                 "NAME": "Soothsayer",
                 "DESCRIPTIONS": [
                         "An additional #b",
-                        " card may trigger #yFated each turn.",
-                        " cards may trigger #yFated each turn."
+                        " card may trigger #yFated this turn.",
+                        " cards may trigger #yFated this turn."
                 ]
         },
         "theEphemeral:MaelstromPower": {
@@ -67,6 +67,43 @@
                 "DESCRIPTIONS": [
                         "Whenever you #yExhaust a card, gain #b",
                         " #yAugury."
+                ]
+        },
+        "theEphemeral:TimeSpiralPower": {
+                "NAME": "Time Spiral",
+                "DESCRIPTIONS": [
+                        "Put the next card you play on top of your draw pile.",
+                        "Put the next #b",
+                        " cards you play on top of your draw pile."
+                ]
+        },
+        "theEphemeral:GrimResolvePower": {
+                "NAME": "Grim Resolve",
+                "DESCRIPTIONS": [
+                        "Whenever you would lose life, lose #b",
+                        " less."
+                ]
+        },
+        "theEphemeral:ReturnToAetherPower": {
+                "NAME": "Return to Aether",
+                "DESCRIPTIONS": [
+                        "Whenever you draw a card, it gains #yEthereal.",
+                        "Ethereal. NL "
+                ]
+        },
+        "theEphemeral:ChaosRiftPower": {
+                "NAME": "Chaos Rift",
+                "DESCRIPTIONS": [
+                        "Increase the #yEntropy bonus by #b",
+                        "."
+                ]
+        },
+        "theEphemeral:HarbingerFormPower": {
+                "NAME": "Harbinger Form",
+                "DESCRIPTIONS": [
+                        "At the end of each turn, play the top card of your draw pile.",
+                        "At the end of each turn, play the top #b",
+                        " cards of your draw pile."
                 ]
         }
 }

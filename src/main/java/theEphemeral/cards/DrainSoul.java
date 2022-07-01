@@ -9,6 +9,7 @@ import theEphemeral.EphemeralMod;
 import theEphemeral.actions.UpgradeRevealedAction;
 import theEphemeral.characters.TheEphemeral;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
@@ -57,7 +58,7 @@ public class DrainSoul extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            //upgradeBaseCost(UPGRADED_COST);
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

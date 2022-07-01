@@ -8,6 +8,7 @@ import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.fleetingCards.FleetingDodge;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
@@ -53,6 +54,7 @@ public class Pirouette extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

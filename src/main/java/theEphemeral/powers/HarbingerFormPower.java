@@ -1,7 +1,5 @@
 package theEphemeral.powers;
 
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import theEphemeral.EphemeralMod;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,19 +12,18 @@ import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
 
-public class SoothsayerPower extends AbstractPower implements CloneablePowerInterface {
-    public static final String POWER_ID = EphemeralMod.makeID(SoothsayerPower.class.getSimpleName());
+public class HarbingerFormPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = EphemeralMod.makeID(HarbingerFormPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Soothsayer84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Soothsayer32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("HarbingerForm84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("HarbingerForm32.png"));
 
     public static final int MaxStackAmount = 999;
-    private int fullAmount = 0;
 
-    public SoothsayerPower(final int amount) {
+    public HarbingerFormPower(final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -35,7 +32,6 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
         if (this.amount >= MaxStackAmount) {
             this.amount = MaxStackAmount;
         }
-        this.fullAmount = this.amount;
 
         type = PowerType.BUFF;
 
@@ -50,35 +46,21 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
         if (this.amount >= MaxStackAmount) {
             this.amount = MaxStackAmount;
         }
-        this.fullAmount = this.amount;
 
         updateDescription();
     }
 
     @Override
-    public void atStartOfTurn() {
-        this.amount = this.fullAmount;
-    }
-
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (amount > 0) {
-            --amount;
-            this.updateDescription();
-        }
-    }
-
-    @Override
     public void updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0];
         } else if (amount > 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
         }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new SoothsayerPower(amount);
+        return new HarbingerFormPower(amount);
     }
 }

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
@@ -52,6 +53,7 @@ public class TimeSkip extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             exhaust = false;
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

@@ -8,6 +8,7 @@ import theEphemeral.characters.TheEphemeral;
 import theEphemeral.powers.MurmurationPower;
 import theEphemeral.previewWidget.PreviewWidget;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
@@ -53,7 +54,7 @@ public class Murmuration extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            //upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

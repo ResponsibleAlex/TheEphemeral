@@ -16,7 +16,9 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -28,6 +30,7 @@ import theEphemeral.cards.AbstractDefaultCard;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.events.IdentityCrisisEvent;
 import theEphemeral.potions.PlaceholderPotion;
+import theEphemeral.powers.HarbingerFormPower;
 import theEphemeral.previewWidget.PreviewWidget;
 import theEphemeral.relics.BottledPlaceholderRelic;
 import theEphemeral.relics.DefaultClickableRelic;
@@ -557,10 +560,10 @@ public class EphemeralMod implements
     }
 
     public static void atEndOfTurn() {
-        //if (AbstractDungeon.player.hasPower(HarbingerForm.ID)) {
-        //    int amount = AbstractDungeon.player.getPower(HarbingerForm.ID).amount;
-        //for (int i = 0; i < amount; i++)
-        //    AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng), false));
-        //}
+        if (AbstractDungeon.player.hasPower(HarbingerFormPower.POWER_ID)) {
+            int amount = AbstractDungeon.player.getPower(HarbingerFormPower.POWER_ID).amount;
+            for (int i = 0; i < amount; i++)
+                AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
+        }
     }
 }

@@ -8,6 +8,7 @@ import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.powers.ScryingPoolPower;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
@@ -52,6 +53,7 @@ public class ScryingPool extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

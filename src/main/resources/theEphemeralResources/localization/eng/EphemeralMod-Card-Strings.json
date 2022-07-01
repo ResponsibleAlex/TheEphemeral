@@ -311,6 +311,32 @@
     "NAME": "Dark Contract",
     "DESCRIPTION": "Whenever you Exhaust a card, gain !M! theephemeral:Augury."
   },
+  "theEphemeral:TimeSpiral": {
+    "NAME": "Time Spiral",
+    "DESCRIPTION": "Put the first card you play each turn on top of your draw pile."
+  },
+  "theEphemeral:GrimResolve": {
+    "NAME": "Grim Resolve",
+    "DESCRIPTION": "Whenever you would lose life, lose !M! less."
+  },
+  "theEphemeral:ReturnToAether": {
+    "NAME": "Return to Aether",
+    "DESCRIPTION": "Whenever you draw a card, it gains Ethereal.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you draw a card, it gains Ethereal."
+  },
+  "theEphemeral:ChaosRift": {
+    "NAME": "Chaos Rift",
+    "DESCRIPTION": "Increase the theephemeral:Entropy bonus by 1."
+  },
+  "theEphemeral:SpectralPhalanx": {
+    "NAME": "Spectral Phalanx",
+    "DESCRIPTION": "Gain !M! Strength and !M! Dexterity. NL theephemeral:Vanishing !theEphemeral:SecondMagic!."
+  },
+  "theEphemeral:HarbingerForm": {
+    "NAME": "Harbinger Form",
+    "DESCRIPTION": "Ethereal. NL At the end of each turn, play the top card of your draw pile.",
+    "UPGRADE_DESCRIPTION": "At the end of each turn, play the top card of your draw pile."
+  },
 
   "theEphemeral:FleetingStrike": {
     "NAME": "Fleeting Strike",

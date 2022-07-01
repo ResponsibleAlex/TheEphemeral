@@ -14,19 +14,19 @@ import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
 
-public class SoothsayerPower extends AbstractPower implements CloneablePowerInterface {
-    public static final String POWER_ID = EphemeralMod.makeID(SoothsayerPower.class.getSimpleName());
+public class TimeSpiralPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = EphemeralMod.makeID(TimeSpiralPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Soothsayer84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Soothsayer32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("TimeSpiral84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("TimeSpiral32.png"));
 
     public static final int MaxStackAmount = 999;
     private int fullAmount = 0;
 
-    public SoothsayerPower(final int amount) {
+    public TimeSpiralPower(final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -56,16 +56,19 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
     }
 
     @Override
-    public void atStartOfTurn() {
-        this.amount = this.fullAmount;
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (amount > 0) {
+            action.reboundCard = true;
+
+            amount--;
+            flash();
+            updateDescription();
+        }
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (amount > 0) {
-            --amount;
-            this.updateDescription();
-        }
+    public void atStartOfTurn() {
+        this.amount = this.fullAmount;
     }
 
     @Override
@@ -79,6 +82,6 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public AbstractPower makeCopy() {
-        return new SoothsayerPower(amount);
+        return new TimeSpiralPower(amount);
     }
 }

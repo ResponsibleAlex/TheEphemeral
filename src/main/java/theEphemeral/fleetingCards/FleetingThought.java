@@ -9,6 +9,7 @@ import theEphemeral.actions.DiscardTopCardAction;
 import theEphemeral.cards.AbstractDynamicCard;
 import theEphemeral.characters.TheEphemeral;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 public class FleetingThought extends AbstractDynamicCard {
@@ -58,7 +59,7 @@ public class FleetingThought extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
-            //upgradeBaseCost(UPGRADED_COST);
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

@@ -8,6 +8,7 @@ import theEphemeral.EphemeralMod;
 import theEphemeral.actions.SpectralForgeAction;
 import theEphemeral.characters.TheEphemeral;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
@@ -70,11 +71,12 @@ public class SpectralForge extends AbstractVanishingCard {
         if (!upgraded) {
             upgradeName();
             retain = true;
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
 
     static {
-        cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+        cardStrings = languagePack.getCardStrings(ID);
     }
 }

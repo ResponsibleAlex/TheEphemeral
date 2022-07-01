@@ -6,12 +6,12 @@ public abstract class AbstractEntropyCard extends AbstractDynamicCard {
         super(id, img, cost, type, color, rarity, target);
     }
 
-    public void increaseEntropy() {
+    public void increaseEntropy(int increment) {
         if (baseDamage > 0) {
-            baseDamage++;
+            baseDamage += increment;
         }
         if (baseBlock > 0) {
-            baseBlock++;
+            baseBlock += increment;
         }
     }
 }

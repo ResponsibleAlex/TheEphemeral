@@ -37,17 +37,23 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
     }
 
     protected boolean willTriggerFated() {
+        // check if this card is set to "fated"
         if (!fated)
             return false;
 
-        int maxFated = 1;
-
-        AbstractPlayer p = AbstractDungeon.player;
-        if (p.hasPower(SoothsayerPower.POWER_ID)) {
-          maxFated += p.getPower(SoothsayerPower.POWER_ID).amount;
+        // if it's the first Fated card, always true
+        if (EphemeralMod.fatedThisTurn == 0) {
+            return true;
         }
 
-        return EphemeralMod.fatedThisTurn < maxFated;
+        // see if we have any Soothsayer amount left
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p.hasPower(SoothsayerPower.POWER_ID)) {
+            return p.getPower(SoothsayerPower.POWER_ID).amount > 0;
+        }
+
+        // not the first card, no Soothsayer
+        return false;
     }
 
     protected  boolean triggerFated() {

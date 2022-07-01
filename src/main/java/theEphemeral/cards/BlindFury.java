@@ -15,6 +15,7 @@ import theEphemeral.EphemeralMod;
 import theEphemeral.actions.PlayRandomRevealedAttackAction;
 import theEphemeral.characters.TheEphemeral;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
@@ -77,7 +78,7 @@ public class BlindFury extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            //upgradeBaseCost(UPGRADED_COST);
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
