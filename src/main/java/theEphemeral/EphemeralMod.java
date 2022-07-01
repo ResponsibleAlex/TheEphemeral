@@ -5,7 +5,6 @@ import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.eventUtil.AddEventParams;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -23,6 +22,7 @@ import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,10 +32,10 @@ import theEphemeral.events.IdentityCrisisEvent;
 import theEphemeral.potions.PlaceholderPotion;
 import theEphemeral.powers.HarbingerFormPower;
 import theEphemeral.previewWidget.PreviewWidget;
-import theEphemeral.relics.BottledPlaceholderRelic;
-import theEphemeral.relics.DefaultClickableRelic;
-import theEphemeral.relics.PlaceholderRelic;
-import theEphemeral.relics.PlaceholderRelic2;
+import theEphemeral.relics.Laurel;
+import theEphemeral.relics.Pincushion;
+import theEphemeral.relics.RitualAsh;
+import theEphemeral.relics.SilkyBandage;
 import theEphemeral.util.IDCheckDontTouchPls;
 import theEphemeral.util.TextureLoader;
 import theEphemeral.variables.DefaultSecondMagicNumber;
@@ -297,13 +297,13 @@ public class EphemeralMod implements
     
     @Override
     public void receiveEditCharacters() {
-        logger.info("Beginning to edit characters. " + "Add " + TheEphemeral.Enums.THE_DEFAULT.toString());
+        logger.info("Beginning to edit characters. " + "Add " + TheEphemeral.Enums.THE_EPHEMERAL.toString());
         
-        BaseMod.addCharacter(new TheEphemeral("the Default", TheEphemeral.Enums.THE_DEFAULT),
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheEphemeral.Enums.THE_DEFAULT);
+        BaseMod.addCharacter(new TheEphemeral("the Default", TheEphemeral.Enums.THE_EPHEMERAL),
+                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheEphemeral.Enums.THE_EPHEMERAL);
         
         receiveEditPotions();
-        logger.info("Added " + TheEphemeral.Enums.THE_DEFAULT.toString());
+        logger.info("Added " + TheEphemeral.Enums.THE_EPHEMERAL.toString());
     }
     
     // =============== /LOAD THE CHARACTER/ =================
@@ -361,7 +361,7 @@ public class EphemeralMod implements
         // Since this is a builder these method calls (outside of create()) can be skipped/added as necessary
         AddEventParams eventParams = new AddEventParams.Builder(IdentityCrisisEvent.ID, IdentityCrisisEvent.class) // for this specific event
             .dungeonID(TheCity.ID) // The dungeon (act) this event will appear in
-            .playerClass(TheEphemeral.Enums.THE_DEFAULT) // Character specific event
+            .playerClass(TheEphemeral.Enums.THE_EPHEMERAL) // Character specific event
             .create();
 
         // Add the event
@@ -381,7 +381,7 @@ public class EphemeralMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheEphemeral.Enums.THE_DEFAULT);
+        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
         
         logger.info("Done editing potions");
     }
@@ -395,26 +395,17 @@ public class EphemeralMod implements
     public void receiveEditRelics() {
         logger.info("Adding relics");
 
-        // Take a look at https://github.com/daviscook477/BaseMod/wiki/AutoAdd
-        // as well as
-        // https://github.com/kiooeht/Bard/blob/e023c4089cc347c60331c78c6415f489d19b6eb9/src/main/java/com/evacipated/cardcrawl/mod/bard/BardMod.java#L319
-        // for reference as to how to turn this into an "Auto-Add" rather than having to list every relic individually.
-        // Of note is that the bard mod uses it's own custom relic class (not dissimilar to our AbstractDefaultCard class for cards) that adds the 'color' field,
-        // in order to automatically differentiate which pool to add the relic too.
+        addRelic(new Laurel());
+        addRelic(new Pincushion());
+        addRelic(new SilkyBandage());
+        addRelic(new RitualAsh());
 
-        // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE);
-        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE);
-        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE);
-        
-        // This adds a relic to the Shared pool. Every character can find this relic.
-        BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
-        
-        // Mark relics as seen - makes it visible in the compendium immediately
-        // If you don't have this it won't be visible in the compendium until you see them in game
-        // (the others are all starters so they're marked as seen in the character file)
-        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
         logger.info("Done adding relics!");
+    }
+
+    private void addRelic(AbstractRelic r) {
+        BaseMod.addRelicToCustomPool(r, TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE);
+        UnlockTracker.markRelicAsSeen(r.relicId);
     }
     
     // ================ /ADD RELICS/ ===================
@@ -433,27 +424,11 @@ public class EphemeralMod implements
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
         
         logger.info("Adding cards");
-        // Add the cards
-        // Don't delete these default cards yet. You need 1 of each type and rarity (technically) for your game not to crash
-        // when generating card rewards/shop screen items.
 
-        // This method automatically adds any cards so you don't have to manually load them 1 by 1
-        // For more specific info, including how to exclude cards from being added:
-        // https://github.com/daviscook477/BaseMod/wiki/AutoAdd
-
-        // The ID for this function isn't actually your modid as used for prefixes/by the getModID() method.
-        // It's the mod id you give MTS in ModTheSpire.json - by default your artifact ID in your pom.xml
-
-        //TODO: Rename the "EphemeralMod" with the modid in your ModTheSpire.json file
-        //TODO: The artifact mentioned in ModTheSpire.json is the artifactId in pom.xml you should've edited earlier
         new AutoAdd("EphemeralMod") // ${project.artifactId}
             .packageFilter(AbstractDefaultCard.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
             .setDefaultSeen(true)
             .cards();
-
-        // .setDefaultSeen(true) unlocks the cards
-        // This is so that they are all "seen" in the library,
-        // for people who like to look at the card list before playing your mod
 
         logger.info("Done adding cards!");
     }

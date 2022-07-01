@@ -1,34 +1,37 @@
 {
-  "theEphemeral:PlaceholderRelic": {
-    "NAME": "Placeholder Energy Relic",
-    "FLAVOR": "The snake is a friend.",
+  "theEphemeral:FrozenEye": {
+    "NAME": "Frozen Eye",
+    "FLAVOR": "Staring into the eye, you see a glimpse of your future.",
     "DESCRIPTIONS": [
-      "Gain #b1 [E] ."
+      "#yAugury does not decrease each turn."
     ]
   },
-  "theEphemeral:PlaceholderRelic2": {
-    "NAME": "Placeholder Relic 2",
-    "FLAVOR": "You feel stronger.",
+  "theEphemeral:Laurel": {
+    "NAME": "Laurel",
+    "FLAVOR": "A bay laurel used in prophetic rituals.",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain #b1 #yStrength."
+      "Gain #b2 #yAugury at the start of combat."
     ]
   },
-  "theEphemeral:DefaultClickableRelic": {
-    "NAME": "Right-Clicky Relic",
-    "FLAVOR": "The more you right-click it, the more orbs you've evoked in your lifetime.",
+  "theEphemeral:Pincushion": {
+    "NAME": "Pincushion",
+    "FLAVOR": "A strangely cathartic sewing notion.",
     "DESCRIPTIONS": [
-      "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]turn.[] NL #yEvoke your rightmost Orb.",
-      "YOU ARE MINE!"
+      "Add a #yFleeting #yThought to your hand at the start of combat."
     ]
   },
-  "theEphemeral:BottledPlaceholderRelic": {
-    "NAME": "Bottled Placeholder",
-    "FLAVOR": "What is this?",
+  "theEphemeral:SilkyBandage": {
+    "NAME": "Silky Bandage",
+    "FLAVOR": "The diaphanous weave would be almost see-through... if you had sight.",
     "DESCRIPTIONS": [
-      "Choose a card. Whenever you take play any card, draw the chosen card.",
-      "Whenever you play a card, draw ",
-      ".",
-      "Select a card to bottle for "
+      "Whenever you trigger #yFated, gain #b4 #yBlock."
+    ]
+  },
+  "theEphemeral:RitualAsh": {
+    "NAME": "Ritual Ash",
+    "FLAVOR": "The remains of a burnt offering used to anoint a seer.",
+    "DESCRIPTIONS": [
+      "Whenever you #yExhaust an #yEthereal card, deal #b4 damage to a random enemy."
     ]
   }
 }

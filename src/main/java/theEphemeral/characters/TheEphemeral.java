@@ -22,14 +22,11 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theEphemeral.EphemeralMod;
 import theEphemeral.cards.*;
-import theEphemeral.relics.DefaultClickableRelic;
-import theEphemeral.relics.PlaceholderRelic;
-import theEphemeral.relics.PlaceholderRelic2;
+import theEphemeral.relics.Laurel;
 
 import java.util.ArrayList;
 
@@ -52,7 +49,7 @@ public class TheEphemeral extends CustomPlayer {
 
     public static class Enums {
         @SpireEnum
-        public static AbstractPlayer.PlayerClass THE_DEFAULT;
+        public static AbstractPlayer.PlayerClass THE_EPHEMERAL;
         @SpireEnum(name = "COLOR_EPHEMERAL_PURPLE") // These two HAVE to have the same absolutely identical name.
         public static AbstractCard.CardColor COLOR_EPHEMERAL_PURPLE;
         @SpireEnum(name = "COLOR_EPHEMERAL_PURPLE") @SuppressWarnings("unused")
@@ -199,15 +196,7 @@ public class TheEphemeral extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(PlaceholderRelic.ID);
-        retVal.add(PlaceholderRelic2.ID);
-        retVal.add(DefaultClickableRelic.ID);
-
-        // Mark relics as seen - makes it visible in the compendium immediately
-        // If you don't have this it won't be visible in the compendium until you see them in game
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
-        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
+        retVal.add(Laurel.ID);
 
         return retVal;
     }

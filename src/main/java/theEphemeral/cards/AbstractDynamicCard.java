@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theEphemeral.EphemeralMod;
 import theEphemeral.powers.SoothsayerPower;
+import theEphemeral.relics.SilkyBandage;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -60,9 +61,9 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         if (willTriggerFated()) {
             EphemeralMod.fatedThisTurn++;
 
-            //if (AbstractDungeon.player.hasRelic(SilkyBandage.ID)) {
-            //    addToBot(new GainBlockAction(SilkyBandage.Block));
-            //}
+            if (AbstractDungeon.player.hasRelic(SilkyBandage.ID)) {
+                AbstractDungeon.player.getRelic(SilkyBandage.ID).onTrigger();
+            }
 
             return true;
         }
