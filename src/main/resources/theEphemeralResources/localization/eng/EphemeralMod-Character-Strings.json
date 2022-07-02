@@ -1,13 +1,13 @@
 {
-  "theEphemeral:DefaultCharacter": {
+  "theEphemeral:EphemeralCharacter": {
     "NAMES": [
-      "The Default",
-      "the Default"
+      "The Ephemeral",
+      "the Ephemeral"
     ],
     "TEXT": [
-      "THE_DEFAULT exists and is valid. THE_DEFAULT wishes to T o uuuch# NL Second placeholder line of description text.",
-      "NL You TOUCH the heart.",
-      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~basic~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+      "A blind oracle betrayed by a cult whose ghost now NL haunts the Spire, seeking vengeance.",
+      "NL Your dagger pierces the heart.",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"One~ ~of~ ~us,~ ~one~ ~of~ ~us,~ ~one~ ~of~ ~us...\"~"
     ]
   }
 }

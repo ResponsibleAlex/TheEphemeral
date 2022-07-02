@@ -73,7 +73,7 @@ public class TheEphemeral extends CustomPlayer {
 
     // =============== STRINGS =================
 
-    private static final String ID = makeID("DefaultCharacter");
+    private static final String ID = makeID("EphemeralCharacter");
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
@@ -250,7 +250,7 @@ public class TheEphemeral extends CustomPlayer {
     //Which card should be obtainable from the Match and Keep event?
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Strike();
+        return new ThroughTheVeil();
     }
 
     // The class name as it appears next to your player name in-game

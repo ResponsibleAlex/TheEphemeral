@@ -1,6 +1,23 @@
 {
-"theEphemeral:PlaceholderPotion": {
-        "NAME": "Placeholder Potion",
-        "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
-}
+        "theEphemeral:PotionOfProphecy": {
+                "NAME": "Potion of Prophecy",
+                "DESCRIPTIONS": [
+                        "Gain #b",
+                        " #yAugury."
+                ]
+        },
+        "theEphemeral:TemporalTonic": {
+                "NAME": "Temporal Tonic",
+                "DESCRIPTIONS": [
+                        "Play the top card of your draw pile #b",
+                        " times."
+                ]
+        },
+        "theEphemeral:ElysianNectar": {
+                "NAME": "Elysian Nectar",
+                "DESCRIPTIONS": [
+                        "This turn, whenever you play a card, draw a card.",
+                        "This turn, whenever you play a card, draw #b2 cards."
+                ]
+        }
 }

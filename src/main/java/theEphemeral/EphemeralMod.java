@@ -29,7 +29,9 @@ import org.apache.logging.log4j.Logger;
 import theEphemeral.cards.AbstractDefaultCard;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.events.IdentityCrisisEvent;
-import theEphemeral.potions.PlaceholderPotion;
+import theEphemeral.potions.ElysianNectar;
+import theEphemeral.potions.PotionOfProphecy;
+import theEphemeral.potions.TemporalTonic;
 import theEphemeral.powers.HarbingerFormPower;
 import theEphemeral.previewWidget.PreviewWidget;
 import theEphemeral.relics.*;
@@ -99,11 +101,6 @@ public class EphemeralMod implements
     // Colors (RGB)
     // Character Color
     public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
-    
-    // Potion Colors in RGB
-    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
-    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
-    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
     
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
@@ -371,15 +368,19 @@ public class EphemeralMod implements
     // =============== / POST-INITIALIZE/ =================
     
     // ================ ADD POTIONS ===================
-    
+
+    // Potion Colors in RGB
+    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
+    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
+    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
+
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
         
-        // Class Specific Potion. If you want your potion to not be class-specific,
-        // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
-        // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
-        
+        BaseMod.addPotion(PotionOfProphecy.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PotionOfProphecy.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
+        BaseMod.addPotion(TemporalTonic.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, TemporalTonic.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
+        BaseMod.addPotion(ElysianNectar.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, ElysianNectar.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
+
         logger.info("Done editing potions");
     }
     

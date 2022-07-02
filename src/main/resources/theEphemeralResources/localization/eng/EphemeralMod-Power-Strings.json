@@ -105,5 +105,13 @@
                         "At the end of each turn, play the top #b",
                         " cards of your draw pile."
                 ]
+        },
+        "theEphemeral:ElysianNectarPower": {
+                "NAME": "Elysian Nectar",
+                "DESCRIPTIONS": [
+                        "This turn, whenever you play a card, draw a card.",
+                        "This turn, whenever you play a card, draw #b",
+                        " cards."
+                ]
         }
 }
