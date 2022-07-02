@@ -22,7 +22,6 @@ public class SilkyBandage extends CustomRelic {
         super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.MAGICAL);
     }
 
-    // Flash at the start of Battle.
     @Override
     public void onTrigger() {
         flash();

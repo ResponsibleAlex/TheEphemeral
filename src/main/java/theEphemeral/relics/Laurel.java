@@ -23,7 +23,6 @@ public class Laurel extends CustomRelic {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
-    // Flash at the start of Battle.
     @Override
     public void atBattleStart() {
         flash();

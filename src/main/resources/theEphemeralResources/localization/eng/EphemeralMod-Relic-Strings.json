@@ -33,5 +33,47 @@
     "DESCRIPTIONS": [
       "Whenever you #yExhaust an #yEthereal card, deal #b4 damage to a random enemy."
     ]
+  },
+  "theEphemeral:GlowingFeather": {
+    "NAME": "Glowing Feather",
+    "FLAVOR": "A feather that glows with an eerie light.",
+    "DESCRIPTIONS": [
+      "The first Power card you play each combat costs 0."
+    ]
+  },
+  "theEphemeral:CuriousTalon": {
+    "NAME": "Curious Talon",
+    "FLAVOR": "The presence of this broken claw fills you with an indescribable rage.",
+    "DESCRIPTIONS": [
+      "Whenever you play a #yPower card, gain #b1 #yStrength."
+    ]
+  },
+  "theEphemeral:HookAndYarn": {
+    "NAME": "Hook and Yarn",
+    "FLAVOR": "The magic of this yarn knits a mystical barrier around you.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #yBlock equal to your #yAugury."
+    ]
+  },
+  "theEphemeral:Pomegranate": {
+    "NAME": "Pomegranate",
+    "FLAVOR": "The fruit of the ancient gods and goddesses, fresh and juicy.",
+    "DESCRIPTIONS": [
+      "Upon pickup, raise your Max HP by #b21."
+    ]
+  },
+  "theEphemeral:AncientScroll": {
+    "NAME": "Ancient Scroll",
+    "FLAVOR": "The runes inscribed here curse you without even being read.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. Upon pickup, obtain #b2 #yWrithe #yCurses."
+    ]
+  },
+  "theEphemeral:StoneTablet": {
+    "NAME": "Stone Tablet",
+    "FLAVOR": "The tally marks scratched into the surface indicate this tablet was used for some sort of accounting.",
+    "DESCRIPTIONS": [
+      "Whenever you shuffle your draw pile, deal #b3 damage to ALL enemies."
+    ]
   }
 }

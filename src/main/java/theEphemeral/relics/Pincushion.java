@@ -24,7 +24,6 @@ public class Pincushion extends CustomRelic {
         super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
     }
 
-    // Flash at the start of Battle.
     @Override
     public void atBattleStart() {
         flash();

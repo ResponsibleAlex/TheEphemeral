@@ -32,10 +32,7 @@ import theEphemeral.events.IdentityCrisisEvent;
 import theEphemeral.potions.PlaceholderPotion;
 import theEphemeral.powers.HarbingerFormPower;
 import theEphemeral.previewWidget.PreviewWidget;
-import theEphemeral.relics.Laurel;
-import theEphemeral.relics.Pincushion;
-import theEphemeral.relics.RitualAsh;
-import theEphemeral.relics.SilkyBandage;
+import theEphemeral.relics.*;
 import theEphemeral.util.IDCheckDontTouchPls;
 import theEphemeral.util.TextureLoader;
 import theEphemeral.variables.DefaultSecondMagicNumber;
@@ -399,6 +396,13 @@ public class EphemeralMod implements
         addRelic(new Pincushion());
         addRelic(new SilkyBandage());
         addRelic(new RitualAsh());
+        addRelic(new GlowingFeather());
+        addRelic(new CuriousTalon());
+        addRelic(new HookAndYarn());
+        addRelic(new Pomegranate());
+        addRelic(new AncientScroll());
+        addRelic(new Basin());
+        addRelic(new StoneTablet());
 
         logger.info("Done adding relics!");
     }
