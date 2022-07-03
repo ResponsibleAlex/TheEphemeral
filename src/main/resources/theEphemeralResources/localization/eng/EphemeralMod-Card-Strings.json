@@ -34,7 +34,7 @@
   },
   "theEphemeral:PsychicStrike": {
     "NAME": "Psychic Strike",
-    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Fated: !M! Fleeting Thought to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Fated: add !M! Fleeting Thought to your hand."
   },
   "theEphemeral:BlindSwipe": {
     "NAME": "Blind Swipe",

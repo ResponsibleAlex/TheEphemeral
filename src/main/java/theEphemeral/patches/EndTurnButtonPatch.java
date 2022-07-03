@@ -10,7 +10,10 @@ import theEphemeral.EphemeralMod;
 public class EndTurnButtonPatch {
     @SpirePatch(
             clz= EndTurnButton.class,
-            method="disable"
+            method="disable",
+            paramtypez={
+                    boolean.class
+            }
     )
     public static class Disable {
         public static void Prefix(EndTurnButton __instance, boolean isEnemyTurn) { EphemeralMod.atEndOfTurn(); }

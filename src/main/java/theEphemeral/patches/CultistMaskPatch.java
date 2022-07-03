@@ -15,7 +15,7 @@ public class CultistMaskPatch {
             method="atBattleStart"
     )
     public static class AtBattleStart {
-        public static void Postfix(AbstractPlayer __instance) {
+        public static void Postfix(CultistMask __instance) {
             AbstractPlayer p = AbstractDungeon.player;
             if (p.chosenClass.toString().equals("THE_EPHEMERAL")) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RitualPower(p, 1, true), 1));

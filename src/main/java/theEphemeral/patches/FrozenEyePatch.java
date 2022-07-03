@@ -16,7 +16,9 @@ public class FrozenEyePatch {
     )
     public static class GetUpdatedDescription {
         public static SpireReturn Prefix(FrozenEye __instance) {
-            if (AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL")) {
+            if (AbstractDungeon.player != null &&
+                AbstractDungeon.player.chosenClass != null &&
+                AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL")) {
                 return SpireReturn.Return(languagePack.getRelicStrings("theEphemeral:FrozenEye"));
             }
             return SpireReturn.Continue();

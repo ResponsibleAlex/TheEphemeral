@@ -69,6 +69,13 @@
       "Gain [E] at the start of your turn. Upon pickup, obtain #b2 #yWrithe #yCurses."
     ]
   },
+  "theEphemeral:Basin": {
+    "NAME": "Basin",
+    "FLAVOR": "The pure water contained in this basin leaves you feeling cleansed inside and out.",
+    "DESCRIPTIONS": [
+      "Gain #b2 #yAugury each turn."
+    ]
+  },
   "theEphemeral:StoneTablet": {
     "NAME": "Stone Tablet",
     "FLAVOR": "The tally marks scratched into the surface indicate this tablet was used for some sort of accounting.",

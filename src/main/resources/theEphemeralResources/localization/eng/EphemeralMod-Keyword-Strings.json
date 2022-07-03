@@ -1,20 +1,37 @@
 [
   {
     "NAMES": [
-      "keyword",
-      "keywords"
+      "Augury",
+      "augury"
     ],
-    "DESCRIPTION": "Whenever you play a card, gain 1 dexterity this turn only."
+    "DESCRIPTION": "Reveal cards from the top of your draw pile equal to the amount of #yAugury, with a max of #b7."
   },
   {
-    "PROPER_NAME": "Multiword Keyword",
     "NAMES": [
-      "Multiword Keyword",
-      "multiword_keyword",
-      "multiword_keywords",
-      "multikey",
-      "multikeyword"
+      "Revealed",
+      "revealed"
     ],
-    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
+    "DESCRIPTION": "Cards from the top of your draw pile that are displayed by #yAugury."
+  },
+  {
+    "NAMES": [
+      "Fated",
+      "fated"
+    ],
+    "DESCRIPTION": "Gain the additional effect if this is the first #yFated card you play in a turn."
+  },
+  {
+    "NAMES": [
+      "Vanishing",
+      "vanishing"
+    ],
+    "DESCRIPTION": "#yExhausts when played and the value is reduced by 1. When this reaches 0, remove it from your deck completely."
+  },
+  {
+    "NAMES": [
+      "Entropy",
+      "entropy"
+    ],
+    "DESCRIPTION": "When played, ALL cards with #yEntropy will deal #b1 additional #ydamage or gain #b1 additional #yBlock for the rest of combat."
   }
 ]

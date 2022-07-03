@@ -53,15 +53,4 @@ public class AbstractPlayerPatch {
             EphemeralMod.startOfTurn();
         }
     }
-
-    @SpirePatch(
-            clz=AbstractPlayer.class,
-            method="applyStartOfTurnPostDrawPowers"
-    )
-    public static class ApplyStartOfTurnPostDrawPowers
-    {
-        public static void Prefix(AbstractPlayer __instance) {
-            EphemeralMod.startOfTurnPostDraw();
-        }
-    }
 }
