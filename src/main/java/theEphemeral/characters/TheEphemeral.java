@@ -231,7 +231,7 @@ public class TheEphemeral extends CustomPlayer {
     // Should return a color object to be used to color the trail of moving cards
     @Override
     public Color getCardTrailColor() {
-        return EphemeralMod.DEFAULT_GRAY;
+        return EphemeralMod.EPHEMERAL_PURPLE;
     }
 
     // Should return a BitmapFont object that you can use to customize how your
@@ -268,14 +268,14 @@ public class TheEphemeral extends CustomPlayer {
     // Should return a Color object to be used to color the miniature card images in run history.
     @Override
     public Color getCardRenderColor() {
-        return EphemeralMod.DEFAULT_GRAY;
+        return EphemeralMod.EPHEMERAL_PURPLE;
     }
 
     // Should return a Color object to be used as screen tint effect when your
     // character attacks the heart.
     @Override
     public Color getSlashAttackColor() {
-        return EphemeralMod.DEFAULT_GRAY;
+        return EphemeralMod.EPHEMERAL_PURPLE;
     }
 
     // Should return an AttackEffect array of any size greater than 0. These effects

@@ -28,7 +28,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theEphemeral.cards.AbstractDefaultCard;
 import theEphemeral.characters.TheEphemeral;
-import theEphemeral.events.IdentityCrisisEvent;
 import theEphemeral.potions.ElysianNectar;
 import theEphemeral.potions.PotionOfProphecy;
 import theEphemeral.potions.TemporalTonic;
@@ -100,7 +99,7 @@ public class EphemeralMod implements
     
     // Colors (RGB)
     // Character Color
-    public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
+    public static final Color EPHEMERAL_PURPLE = CardHelper.getColor(136.0f, 61.0f, 182.0f);
     
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
@@ -209,8 +208,8 @@ public class EphemeralMod implements
         
         logger.info("Creating the color " + TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE.toString());
         
-        BaseMod.addColor(TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
+        BaseMod.addColor(TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE,
+                EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE,
                 ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
                 ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
                 ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, CARD_ENERGY_ORB);
@@ -340,26 +339,6 @@ public class EphemeralMod implements
 
         
         // =============== EVENTS =================
-        // https://github.com/daviscook477/BaseMod/wiki/Custom-Events
-
-        // You can add the event like so:
-        // BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
-        // Then, this event will be exclusive to the City (act 2), and will show up for all characters.
-        // If you want an event that's present at any part of the game, simply don't include the dungeon ID
-
-        // If you want to have more specific event spawning (e.g. character-specific or so)
-        // deffo take a look at that basemod wiki link as well, as it explains things very in-depth
-        // btw if you don't provide event type, normal is assumed by default
-
-        // Create a new event builder
-        // Since this is a builder these method calls (outside of create()) can be skipped/added as necessary
-        AddEventParams eventParams = new AddEventParams.Builder(IdentityCrisisEvent.ID, IdentityCrisisEvent.class) // for this specific event
-            .dungeonID(TheCity.ID) // The dungeon (act) this event will appear in
-            .playerClass(TheEphemeral.Enums.THE_EPHEMERAL) // Character specific event
-            .create();
-
-        // Add the event
-        BaseMod.addEvent(eventParams);
 
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
@@ -370,16 +349,14 @@ public class EphemeralMod implements
     // ================ ADD POTIONS ===================
 
     // Potion Colors in RGB
-    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
-    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
-    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
+    public static final Color NECTAR_YELLOW = CardHelper.getColor(255.0f, 225.0f, 0.0f); // Gold
 
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
         
-        BaseMod.addPotion(PotionOfProphecy.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PotionOfProphecy.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
-        BaseMod.addPotion(TemporalTonic.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, TemporalTonic.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
-        BaseMod.addPotion(ElysianNectar.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, ElysianNectar.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
+        BaseMod.addPotion(PotionOfProphecy.class, Color.WHITE, EPHEMERAL_PURPLE, NECTAR_YELLOW, PotionOfProphecy.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
+        BaseMod.addPotion(TemporalTonic.class, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, TemporalTonic.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
+        BaseMod.addPotion(ElysianNectar.class, NECTAR_YELLOW, NECTAR_YELLOW, NECTAR_YELLOW, ElysianNectar.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
 
         logger.info("Done editing potions");
     }
@@ -460,10 +437,6 @@ public class EphemeralMod implements
         BaseMod.loadCustomStringsFile(RelicStrings.class,
                 getModID() + "Resources/localization/eng/EphemeralMod-Relic-Strings.json");
         
-        // Event Strings
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/eng/EphemeralMod-Event-Strings.json");
-        
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
                 getModID() + "Resources/localization/eng/EphemeralMod-Potion-Strings.json");
@@ -471,10 +444,6 @@ public class EphemeralMod implements
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
                 getModID() + "Resources/localization/eng/EphemeralMod-Character-Strings.json");
-        
-        // OrbStrings
-        BaseMod.loadCustomStringsFile(OrbStrings.class,
-                getModID() + "Resources/localization/eng/EphemeralMod-Orb-Strings.json");
         
         logger.info("Done edittting strings");
     }
