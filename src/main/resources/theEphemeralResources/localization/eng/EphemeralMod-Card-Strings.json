@@ -13,12 +13,12 @@
   },
   "theEphemeral:ThroughTheVeil": {
     "NAME": "Through the Veil",
-    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Fated: add !M! Fleeting Dodge to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Fated: add !M! theephemeral:Fleeting_Dodge to your hand."
   },
 
   "theEphemeral:ThrowBones": {
     "NAME": "Throw Bones",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !M! Augury."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !M! theephemeral:Augury."
   },
   "theEphemeral:StranglingMist": {
     "NAME": "Strangling Mist",
@@ -26,7 +26,7 @@
   },
   "theEphemeral:Silhouette": {
     "NAME": "Silhouette",
-    "DESCRIPTION": "Deal !D! damage. NL Add !M! Fleeting Strike to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Add !M! theephemeral:Fleeting_Strike to your hand."
   },
   "theEphemeral:ChillingTouch": {
     "NAME": "Chilling Touch",
@@ -34,7 +34,7 @@
   },
   "theEphemeral:PsychicStrike": {
     "NAME": "Psychic Strike",
-    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Fated: add !M! Fleeting Thought to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL theephemeral:Fated: add !M! theephemeral:Fleeting_Thought to your hand."
   },
   "theEphemeral:BlindSwipe": {
     "NAME": "Blind Swipe",
@@ -83,7 +83,7 @@
   },
   "theEphemeral:CastStones": {
     "NAME": "Cast Stones",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy is attacking, gain !M! Augury and add 1 Fleeting Dodge to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy is attacking, gain 2 Augury and add !M! theephemeral:Fleeting_Dodge to your hand."
   },
   "theEphemeral:BlindFury": {
     "NAME": "Blind Fury",
@@ -113,7 +113,8 @@
   },
   "theEphemeral:RealityFracture": {
     "NAME": "Reality Fracture",
-    "DESCRIPTION": "Deal X damage X+!M! times. NL theephemeral:Entropy."
+    "DESCRIPTION": "Deal X damage X+1 times. NL theephemeral:Entropy.",
+    "UPGRADE_DESCRIPTION": "Deal X damage X+2 times. NL theephemeral:Entropy."
   },
   "theEphemeral:Disaster": {
     "NAME": "Disaster",
@@ -147,7 +148,7 @@
   },
   "theEphemeral:Dowse": {
     "NAME": "Dowse",
-    "DESCRIPTION": "Gain 3 theephemeral:Augury. NL Add !M! Fleeting Dodge to your hand."
+    "DESCRIPTION": "Gain 2 theephemeral:Augury. NL Add !M! theephemeral:Fleeting_Thought to your hand."
   },
   "theEphemeral:Remembrance": {
     "NAME": "Remembrance",
@@ -170,7 +171,7 @@
   "theEphemeral:BoonOfTheSpinner": {
     "NAME": "Boon of the Spinner",
     "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain [E].",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain [E][E]."
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain [E] [E]."
   },
   "theEphemeral:BoonOfTheAlloter": {
     "NAME": "Boon of the Alloter",
@@ -179,11 +180,11 @@
   },
   "theEphemeral:BoonOfTheInflexible": {
     "NAME": "Boon of the Inflexible",
-    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain !M! Block."
+    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain !B! Block."
   },
   "theEphemeral:BlindFaith": {
     "NAME": "Blind Faith",
-    "DESCRIPTION": "Shuffle your discard pile into your draw pile, then add !M! Fleeting Thought to your hand."
+    "DESCRIPTION": "Shuffle your discard pile into your draw pile, then add !M! theephemeral:Fleeting_Thought to your hand."
   },
   "theEphemeral:BlindingBlock": {
     "NAME": "Blinding Block",
@@ -203,8 +204,8 @@
   },
   "theEphemeral:Pirouette": {
     "NAME": "Pirouette",
-    "DESCRIPTION": "Add 2 Fleeting Dodge to your hand.",
-    "UPGRADE_DESCRIPTION": "Add 2 Fleeting Dodge to your hand. NL Draw a card."
+    "DESCRIPTION": "Add 2 theephemeral:Fleeting_Dodge to your hand.",
+    "UPGRADE_DESCRIPTION": "Add 2 theephemeral:Fleeting_Dodge to your hand. NL Draw a card."
   },
   "theEphemeral:FrigidAura": {
     "NAME": "Frigid Aura",
@@ -224,12 +225,12 @@
   },
   "theEphemeral:Revelation": {
     "NAME": "Revelation",
-    "DESCRIPTION": "Gain [E][E]. NL Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Gain [E][E][E]. NL Draw !M! cards."
+    "DESCRIPTION": "Gain [E] [E]. NL Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E]. NL Draw !M! cards."
   },
   "theEphemeral:StrengthFromBeyond": {
     "NAME": "Strength from Beyond",
-    "DESCRIPTION": "Add 2 Fleeting Strike to your hand. NL Gain !M! Temporary Strength."
+    "DESCRIPTION": "Add 2 theephemeral:Fleeting_Strike to your hand. NL Gain !M! Temporary Strength."
   },
   "theEphemeral:FortuneForetold": {
     "NAME": "Fortune Foretold",
@@ -278,12 +279,12 @@
   },
   "theEphemeral:PhantomWings": {
     "NAME": "Phantom Wings",
-    "DESCRIPTION": "Fleeting Dodge Blocks for an additional !M!."
+    "DESCRIPTION": "theephemeral:Fleeting_Dodge Blocks for an additional !M!."
   },
   "theEphemeral:Clairvoyance": {
     "NAME": "Clairvoyance",
-    "DESCRIPTION": "At the start of your turn, add a Fleeting Thought to your hand.",
-    "UPGRADE_DESCRIPTION": "Now and at the start of your turn, add a Fleeting Thought to your hand."
+    "DESCRIPTION": "At the start of your turn, add a theephemeral:Fleeting_Thought to your hand.",
+    "UPGRADE_DESCRIPTION": "Now and at the start of your turn, add a theephemeral:Fleeting_Thought to your hand."
   },
   "theEphemeral:SwirlingMists": {
     "NAME": "Swirling Mists",

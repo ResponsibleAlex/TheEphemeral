@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.relics.SacredBark;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theEphemeral.EphemeralMod;
 import theEphemeral.powers.ElysianNectarPower;
@@ -31,7 +32,11 @@ public class ElysianNectar extends CustomPotion {
     public void initializeData() {
         potency = getPotency();
 
-        description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
+            description = DESCRIPTIONS[1];
+        } else {
+            description = DESCRIPTIONS[0];
+        }
 
         tips.add(new PowerTip(name, description));
     }

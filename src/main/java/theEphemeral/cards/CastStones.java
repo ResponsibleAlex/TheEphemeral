@@ -37,7 +37,8 @@ public class CastStones extends AbstractDynamicCard {
     // private static final int UPGRADED_COST = 0;
     private static final int DAMAGE = 8;
     private static final int UPGRADE_PLUS_DMG = 2;
-    private static final int MAGIC_NUMBER = 2;
+    private static final int AUGURY = 2;
+    private static final int MAGIC_NUMBER = 1;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 
     // /STAT DECLARATION/
@@ -68,8 +69,8 @@ public class CastStones extends AbstractDynamicCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
         if (m != null && !m.isDeadOrEscaped() && m.getIntentBaseDmg() >= 0) {
-            PreviewWidget.AddAugury(magicNumber);
-            addToBot(new MakeTempCardInHandAction(new FleetingDodge(), 1));
+            PreviewWidget.AddAugury(AUGURY);
+            addToBot(new MakeTempCardInHandAction(new FleetingDodge(), magicNumber));
         }
     }
 

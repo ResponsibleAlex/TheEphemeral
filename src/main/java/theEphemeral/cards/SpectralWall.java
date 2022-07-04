@@ -29,7 +29,7 @@ public class SpectralWall extends AbstractVanishingCard {
     private static final int COST = 1;
     // private static final int UPGRADED_COST = 0;
     private static final int BLOCK = 18;
-    private static final int UPGRADE_PLUS_BLOCK = 26;
+    private static final int UPGRADE_PLUS_BLOCK = 6;
     private static final int VANISHING = 3;
 
 

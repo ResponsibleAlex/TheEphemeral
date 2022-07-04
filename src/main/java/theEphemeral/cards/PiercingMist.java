@@ -41,6 +41,8 @@ public class PiercingMist extends AbstractDynamicCard {
     public PiercingMist() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+
+        cardsToPreview = new Dazed();
     }
 
     // Actions the card should do.

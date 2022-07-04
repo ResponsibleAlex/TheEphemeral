@@ -32,8 +32,8 @@ public class Banshee extends AbstractVanishingCard {
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 2;
-    // private static final int UPGRADED_COST = 0;
-    private static final int DAMAGE = 100;
+    private static final int DAMAGE = 75;
+    private static final int UPGRADE_PLUS_DAMAGE = 75;
 
     // /STAT DECLARATION/
 
@@ -61,8 +61,7 @@ public class Banshee extends AbstractVanishingCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            increaseVanishCount();
-            //upgradeBaseCost(UPGRADED_COST);
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }

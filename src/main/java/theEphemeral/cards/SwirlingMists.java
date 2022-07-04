@@ -29,7 +29,7 @@ public class SwirlingMists extends AbstractDynamicCard {
 
     private static final int COST = 2;
     private static final int UPGRADED_COST = 1;
-    private static final int MAGIC_NUMBER = 2;
+    private static final int MAGIC_NUMBER = 3;
 
     // /STAT DECLARATION/
 

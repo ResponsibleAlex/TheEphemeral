@@ -356,7 +356,7 @@ public class EphemeralMod implements
         
         BaseMod.addPotion(PotionOfProphecy.class, Color.WHITE, EPHEMERAL_PURPLE, NECTAR_YELLOW, PotionOfProphecy.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
         BaseMod.addPotion(TemporalTonic.class, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, TemporalTonic.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
-        BaseMod.addPotion(ElysianNectar.class, NECTAR_YELLOW, NECTAR_YELLOW, NECTAR_YELLOW, ElysianNectar.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
+        BaseMod.addPotion(ElysianNectar.class, NECTAR_YELLOW, NECTAR_YELLOW, null, ElysianNectar.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
 
         logger.info("Done editing potions");
     }
@@ -454,14 +454,7 @@ public class EphemeralMod implements
 
     @Override
     public void receiveEditKeywords() {
-        // Keywords on cards are supposed to be Capitalized, while in Keyword-String.json they're lowercase
-        //
-        // Multiword keywords on cards are done With_Underscores
-        //
-        // If you're using multiword keywords, the first element in your NAMES array in your keywords-strings.json has to be the same as the PROPER_NAME.
-        // That is, in Card-Strings.json you would have #yA_Long_Keyword (#y highlights the keyword in yellow).
-        // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
-        
+
         Gson gson = new Gson();
         String json = Gdx.files.internal(getModID() + "Resources/localization/eng/EphemeralMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
