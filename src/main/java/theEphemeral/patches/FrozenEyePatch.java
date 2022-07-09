@@ -19,7 +19,7 @@ public class FrozenEyePatch {
             if (AbstractDungeon.player != null &&
                 AbstractDungeon.player.chosenClass != null &&
                 AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL")) {
-                return SpireReturn.Return(languagePack.getRelicStrings("theEphemeral:FrozenEye"));
+                return SpireReturn.Return(languagePack.getRelicStrings("theEphemeral:FrozenEye").DESCRIPTIONS[0]);
             }
             return SpireReturn.Continue();
         }

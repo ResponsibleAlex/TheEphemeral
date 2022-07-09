@@ -113,5 +113,13 @@
                         "This turn, whenever you play a card, draw #b",
                         " cards."
                 ]
+        },
+        "theEphemeral:PreviewWidget": {
+                "NAME": "PreviewWidget",
+                "DESCRIPTIONS": [
+                        "Augury",
+                        "Up to #b",
+                        " cards from the top of your draw pile are displayed in order. Max of #b7, lose #b1 #yAugury at the start of each turn."
+                ]
         }
 }

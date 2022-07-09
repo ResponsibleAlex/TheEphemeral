@@ -4,7 +4,6 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.eventUtil.AddEventParams;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -18,7 +17,6 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -236,7 +234,8 @@ public class EphemeralMod implements
     // ====== NO EDIT AREA ======
     // DON'T TOUCH THIS STUFF. IT IS HERE FOR STANDARDIZATION BETWEEN MODS AND TO ENSURE GOOD CODE PRACTICES.
     // IF YOU MODIFY THIS I WILL HUNT YOU DOWN AND DOWNVOTE YOUR MOD ON WORKSHOP
-    
+
+    @SuppressWarnings("ConstantConditions")
     public static void setModID(String ID) { // DON'T EDIT
         Gson coolG = new Gson(); // EY DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i hate u Gdx.files
@@ -256,7 +255,8 @@ public class EphemeralMod implements
     public static String getModID() { // NO
         return modID; // DOUBLE NO
     } // NU-UH
-    
+
+    @SuppressWarnings("ConstantConditions")
     private static void pathCheck() { // ALSO NO
         Gson coolG = new Gson(); // NOPE DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i still hate u btw Gdx.files
@@ -489,8 +489,13 @@ public class EphemeralMod implements
         PreviewWidget.StartOfTurnAccounting();
     }
 
-    public static void clearPreviewWidget() {
+    public static void startOfCombat() {
+        PreviewWidget.StartOfCombat();
+    }
+
+    public static void endOfCombat() {
         PreviewWidget.Clear();
+        PreviewWidget.EndOfCombat();
     }
 
     public static void updatePreviewWidget() {

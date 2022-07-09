@@ -13,7 +13,7 @@ public class AbstractPlayerPatch {
             method="onVictory"
     )
     public static class OnVictory {
-        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.clearPreviewWidget(); }
+        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.endOfCombat(); }
     }
 
     @SpirePatch(
@@ -21,7 +21,7 @@ public class AbstractPlayerPatch {
             method="preBattlePrep"
     )
     public static class PreBattlePrep {
-        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.clearPreviewWidget(); }
+        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.startOfCombat(); }
     }
 
     @SpirePatch(

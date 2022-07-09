@@ -5,7 +5,7 @@
       "Augury",
       "augury"
     ],
-    "DESCRIPTION": "This amount of cards from the top of your draw pile are revealed. NL Max of #b7."
+    "DESCRIPTION": "This amount of cards from the top of your draw pile are revealed. NL Max of #b7, lose #b1 #yAugury at the start of each turn."
   },
   {
     "PROPER_NAME": "Revealed",
