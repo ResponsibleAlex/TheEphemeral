@@ -1,5 +1,6 @@
 package theEphemeral.previewWidget;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -16,6 +17,7 @@ import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import theEphemeral.EphemeralMod;
+import theEphemeral.vfx.FeatherEffect;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +54,7 @@ public class PreviewWidget {
     private final Hitbox hb;
     private final AbstractPlayer p;
     protected float fontScale;
+    private float timer = 0.0F;
 
     // instance of widget created at start of combat and destroyed at end of combat
     private static PreviewWidget widget;
@@ -106,6 +109,8 @@ public class PreviewWidget {
                     cpy.current_y = cpy.target_y = Settings.scale * (CARD_Y - (i * 40));
                     cpy.targetDrawScale = drawScale;
                     cpy.lighten(true);
+                    cpy.transparency = 0.0f;
+                    cpy.targetTransparency = 1.0f;
 
                     previews.addToBottom(cpy);
                 }
@@ -125,6 +130,14 @@ public class PreviewWidget {
                     TIP_NAME, TIP_DESC_1 + augury + TIP_DESC_2);
         }
         fontScale = MathHelper.scaleLerpSnap(fontScale, 0.7F);
+
+        if (augury > 0) {
+            timer -= Gdx.graphics.getDeltaTime();
+            if (0.0F > timer) {
+                timer += 0.2F;
+                AbstractDungeon.effectsQueue.add(new FeatherEffect(WIDGET_X, WIDGET_Y));
+            }
+        }
     }
 
     private boolean needUpdate() {
@@ -199,11 +212,11 @@ public class PreviewWidget {
         startOfTurnMod += amount;
     }
 
-    public static void StartOfTurnAccounting() {
+    public static void StartOfTurnPostDraw() {
         if (widget != null && widget.isActive())
-            widget.startOfTurnAccounting();
+            widget.startOfTurnPostDraw();
     }
-    public void startOfTurnAccounting() {
+    public void startOfTurnPostDraw() {
         if (!AbstractDungeon.player.hasRelic(FrozenEye.ID)) {
             startOfTurnMod -= AUGURY_MINUS_PER_TURN;
         }
@@ -252,9 +265,12 @@ public class PreviewWidget {
     private void render(SpriteBatch sb) {
         if (augury > 0) {
             sb.setColor(1.0f, 1.0f, 1.0f, 1.0f);
+
             for (AbstractCard c : previews.group) {
                 c.render(sb);
             }
+
+            sb.setColor(1.0f, 1.0f, 1.0f, 1.0f);
             drawHeader(sb);
             renderText(sb);
             hb.render(sb);

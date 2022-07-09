@@ -47,7 +47,7 @@ public class Degeneration extends AbstractEntropyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
-        addToBot(new EntropyAction());
+        entropyAction();
     }
 
     // Upgraded stats.

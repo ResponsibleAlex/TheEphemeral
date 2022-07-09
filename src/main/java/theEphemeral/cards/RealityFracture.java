@@ -46,8 +46,7 @@ public class RealityFracture extends AbstractEntropyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RealityFractureAction(p, m, damage, damageTypeForTurn, freeToPlayOnce, energyOnUse, magicNumber));
-
-        addToBot(new EntropyAction());
+        entropyAction();
     }
 
     // Upgraded stats.

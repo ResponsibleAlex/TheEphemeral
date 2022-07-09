@@ -486,7 +486,7 @@ public class EphemeralMod implements
     }
 
     public static void startOfTurnPostDraw() {
-        PreviewWidget.StartOfTurnAccounting();
+        PreviewWidget.StartOfTurnPostDraw();
     }
 
     public static void startOfCombat() {
