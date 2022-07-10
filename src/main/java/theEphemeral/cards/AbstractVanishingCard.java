@@ -11,7 +11,7 @@ public abstract class AbstractVanishingCard extends AbstractDynamicCard {
 
         defaultBaseSecondMagicNumber = defaultSecondMagicNumber = misc = vanishing;
         tags.add(CardTags.HEALING);
-        purgeOnUse = true;
+        exhaust = true;
     }
 
     @Override

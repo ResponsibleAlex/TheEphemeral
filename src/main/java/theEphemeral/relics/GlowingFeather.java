@@ -25,15 +25,20 @@ public class GlowingFeather extends CustomRelic {
 
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if (this.counter > 0) {
+        if (c.type == AbstractCard.CardType.POWER && this.counter > 0) {
             this.counter--;
             flash();
         }
     }
 
     @Override
-    public void justEnteredRoom(AbstractRoom room) {
+    public void atBattleStart() {
         this.counter = 1;
+    }
+
+    @Override
+    public void justEnteredRoom(AbstractRoom room) {
+        this.counter = -1;
     }
 
     // Description
