@@ -31,7 +31,6 @@ public class PreviewWidget {
     private static final float HEADER_WIDTH = 150.0f;
     private static final float HALF_HEADER_WIDTH = HEADER_WIDTH / 2.0f;
     private static final float HEADER_HEIGHT = 50.0f;
-    private static final float HALF_HEADER_HEIGHT = HEADER_HEIGHT / 2.0f;
     private static final Texture img = ImageMaster.loadImage(makeEffectPath("header.png"));
     private static final float WIDGET_X = 150.0f;
     private static final float WIDGET_VALUE_X = WIDGET_X + HALF_HEADER_WIDTH - 20.0f;
@@ -107,7 +106,7 @@ public class PreviewWidget {
                     cpy.setAngle(0.0F, true);
                     cpy.current_x = cpy.target_x = Settings.scale * WIDGET_X;
                     cpy.current_y = cpy.target_y = Settings.scale * (CARD_Y - (i * 40));
-                    cpy.targetDrawScale = drawScale;
+                    cpy.targetDrawScale = cpy.drawScale = drawScale;
                     cpy.lighten(true);
                     cpy.transparency = 0.0f;
                     cpy.targetTransparency = 1.0f;
@@ -134,7 +133,7 @@ public class PreviewWidget {
         if (augury > 0) {
             timer -= Gdx.graphics.getDeltaTime();
             if (0.0F > timer) {
-                timer += 0.2F;
+                timer += 0.3F;
                 AbstractDungeon.effectsQueue.add(new FeatherEffect(WIDGET_X, WIDGET_Y));
             }
         }
@@ -212,11 +211,11 @@ public class PreviewWidget {
         startOfTurnMod += amount;
     }
 
-    public static void StartOfTurnPostDraw() {
+    public static void StartOfTurnAccounting() {
         if (widget != null && widget.isActive())
-            widget.startOfTurnPostDraw();
+            widget.startOfTurnAccounting();
     }
-    public void startOfTurnPostDraw() {
+    public void startOfTurnAccounting() {
         if (!AbstractDungeon.player.hasRelic(FrozenEye.ID)) {
             startOfTurnMod -= AUGURY_MINUS_PER_TURN;
         }
@@ -239,13 +238,19 @@ public class PreviewWidget {
     }
 
     public static List<AbstractCard> GetRevealedCards() {
-        if (widget != null && widget.isActive())
+        if (AbstractDungeon.player != null
+           && AbstractDungeon.player.drawPile.size() == 0)
+            return new ArrayList<>();
+        else if (widget != null && widget.isActive())
             return widget.getRevealedCards();
         else
             return new ArrayList<>();
     }
     public List<AbstractCard> getRevealedCards() {
-        return p.drawPile.group.subList(0, getRevealedIndex());
+        int index = getRevealedIndex();
+        if (index < 0) index = 0;
+        if (index > p.drawPile.size() - 1) index = p.drawPile.size() - 1;
+        return p.drawPile.group.subList(0, index);
     }
 
     public static int GetRevealedAttacksCount() {
@@ -278,9 +283,9 @@ public class PreviewWidget {
     }
     private void drawHeader(SpriteBatch sb) {
         sb.draw(img,
-                Settings.scale * (WIDGET_X - HALF_HEADER_WIDTH),
-                Settings.scale * (WIDGET_Y - HALF_HEADER_HEIGHT),
-                HEADER_WIDTH / 2.0f, HEADER_HEIGHT / 2.0f,
+                hb.x,
+                hb.y,
+                0, 0,
                 HEADER_WIDTH, HEADER_HEIGHT,
                 Settings.scale,
                 Settings.scale,
@@ -293,7 +298,7 @@ public class PreviewWidget {
                 Integer.toString(augury),
                 Settings.scale * (WIDGET_VALUE_X),
                 Settings.scale * (WIDGET_Y),
-                new Color(1.0f, 1.0f, 1.0f, 1.0f), fontScale);
+                new Color(1.0f, 1.0f, 1.0f, 1.0f), fontScale * Settings.scale);
     }
 
     private boolean isActive() {

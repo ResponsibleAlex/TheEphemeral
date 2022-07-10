@@ -13,9 +13,9 @@ public class AbstractCreaturePatch {
     )
     public static class ApplyStartOfTurnPostDrawPowers
     {
-        public static void Prefix(AbstractCreature __instance) {
+        public static void Postfix(AbstractCreature __instance) {
             if (__instance.isPlayer) {
-                EphemeralMod.startOfTurnPostDraw();
+                EphemeralMod.startOfTurnPostOrbs();
             }
         }
     }

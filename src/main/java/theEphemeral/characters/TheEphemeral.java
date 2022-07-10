@@ -106,7 +106,7 @@ public class TheEphemeral extends CustomPlayer {
                 new SpineAnimation(
                         THE_DEFAULT_SKELETON_ATLAS,
                         THE_DEFAULT_SKELETON_JSON,
-                        Settings.renderScale
+                        1.0f
                 ));
 
 

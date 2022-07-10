@@ -53,4 +53,15 @@ public class AbstractPlayerPatch {
             EphemeralMod.startOfTurn();
         }
     }
+
+    @SpirePatch(
+            clz=AbstractPlayer.class,
+            method="applyStartOfTurnOrbs"
+    )
+    public static class ApplyStartOfTurnOrbs
+    {
+        public static void Postfix(AbstractPlayer __instance) {
+            EphemeralMod.startOfTurnPostOrbs();
+        }
+    }
 }

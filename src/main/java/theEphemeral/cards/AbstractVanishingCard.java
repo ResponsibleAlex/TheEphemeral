@@ -11,14 +11,19 @@ public abstract class AbstractVanishingCard extends AbstractDynamicCard {
 
         defaultBaseSecondMagicNumber = defaultSecondMagicNumber = misc = vanishing;
         tags.add(CardTags.HEALING);
-        exhaust = true;
+        purgeOnUse = true;
     }
 
     @Override
     public void applyPowers() {
-        defaultSecondMagicNumber = misc;
         super.applyPowers();
         initializeDescription();
+    }
+
+    @Override
+    public void initializeDescription() {
+        defaultBaseSecondMagicNumber = defaultSecondMagicNumber = misc;
+        super.initializeDescription();
     }
 
     protected void vanish() {
@@ -35,18 +40,6 @@ public abstract class AbstractVanishingCard extends AbstractDynamicCard {
         if (c.misc <= 0) {
             AbstractDungeon.player.masterDeck.removeCard(c);
         }
-    }
-
-    protected void increaseVanishCount() {
-        misc++;
-        applyPowers();
-
-        AbstractCard c = getMasterDeckCard(uuid);
-        if (c == null)
-            return;
-
-        c.misc = misc;
-        c.applyPowers();
     }
 
     private AbstractCard getMasterDeckCard(UUID uuid) {
