@@ -54,6 +54,8 @@ public class Banshee extends AbstractVanishingCard {
         }
 
         addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+
+        vanish();
     }
 
     // Upgraded stats.

@@ -1,14 +1,15 @@
 package theEphemeral.powers;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import theEphemeral.EphemeralMod;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import theEphemeral.EphemeralMod;
 import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
@@ -39,10 +40,11 @@ public class ReturnToAetherPower extends AbstractPower implements CloneablePower
     }
 
     @Override
-    public void onCardDraw(AbstractCard card) {
-        if (!card.isEthereal) {
-            card.isEthereal = true;
-            card.rawDescription = DESCRIPTIONS[1] + card.rawDescription;
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+        if (isPlayer) {
+            flash();
+            AbstractPlayer p = AbstractDungeon.player;
+            addToBot(new ExhaustAction(p, p, p.hand.size(), false));
         }
     }
 

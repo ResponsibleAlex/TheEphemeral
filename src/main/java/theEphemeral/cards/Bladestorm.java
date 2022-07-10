@@ -52,8 +52,6 @@ public class Bladestorm extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (triggerFated()) {
             for (int i = 0; i < 4; i++) {
-                addToBot(new SFXAction("ATTACK_WHIRLWIND"));
-                addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));
                 addToBot(new VFXAction(new DaggerSprayEffect(AbstractDungeon.getMonsters().shouldFlipVfx()), 0.0F));
                 addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
             }

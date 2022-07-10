@@ -496,6 +496,11 @@ public class EphemeralMod implements
     public static void endOfCombat() {
         PreviewWidget.Clear();
         PreviewWidget.EndOfCombat();
+
+        if (AbstractDungeon.player != null
+            && AbstractDungeon.player.hasRelic(GlowingFeather.ID)) {
+            AbstractDungeon.player.getRelic(GlowingFeather.ID).counter = -1;
+        }
     }
 
     public static void updatePreviewWidget() {

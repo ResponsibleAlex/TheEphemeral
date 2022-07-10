@@ -87,8 +87,7 @@
         "theEphemeral:ReturnToAetherPower": {
                 "NAME": "Return to Aether",
                 "DESCRIPTIONS": [
-                        "Whenever you draw a card, it gains #yEthereal.",
-                        "Ethereal. NL "
+                        "At the end of your turn, #yExhaust ALL cards in your hand."
                 ]
         },
         "theEphemeral:ChaosRiftPower": {

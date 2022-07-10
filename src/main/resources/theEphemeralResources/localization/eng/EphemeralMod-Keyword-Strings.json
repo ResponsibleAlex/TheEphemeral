@@ -29,7 +29,7 @@
       "Vanishing",
       "vanishing"
     ],
-    "DESCRIPTION": "#yExhausts when played and the value is reduced by 1. When this reaches 0, remove it from your deck completely."
+    "DESCRIPTION": "#yRemoved #yfrom #yCombat when played and the value is reduced by #b1. When this reaches #b0, remove it from your deck completely."
   },
   {
     "PROPER_NAME": "Entropy",

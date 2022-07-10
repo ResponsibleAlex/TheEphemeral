@@ -31,10 +31,10 @@ public class PreviewWidget {
     private static final float HEADER_WIDTH = 150.0f;
     private static final float HALF_HEADER_WIDTH = HEADER_WIDTH / 2.0f;
     private static final float HEADER_HEIGHT = 50.0f;
-    private static final Texture img = ImageMaster.loadImage(makeEffectPath("header.png"));
+    private static final Texture HEADER_IMG = ImageMaster.loadImage(makeEffectPath("header.png"));
     private static final float WIDGET_X = 150.0f;
     private static final float WIDGET_VALUE_X = WIDGET_X + HALF_HEADER_WIDTH - 20.0f;
-    private static final float WIDGET_Y = 750.0f;
+    private static final float WIDGET_Y = 780.0f;
     private static final float CARD_Y = WIDGET_Y - 150.0f;
 
     private static final String POWER_ID = EphemeralMod.makeID(PreviewWidget.class.getSimpleName());
@@ -96,7 +96,7 @@ public class PreviewWidget {
 
             // add copies to the CardGroup and initialize visuals
             if (getRevealed() > 0) {
-                int revealedIndex = getRevealedIndex();
+                int revealedIndex = getRevealed() - 1;
                 int drawPileIndexOffset = drawPile.size() - 1;
 
                 for (int i = revealedIndex; i >= 0; i--) {
@@ -108,8 +108,6 @@ public class PreviewWidget {
                     cpy.current_y = cpy.target_y = Settings.scale * (CARD_Y - (i * 40));
                     cpy.targetDrawScale = cpy.drawScale = drawScale;
                     cpy.lighten(true);
-                    cpy.transparency = 0.0f;
-                    cpy.targetTransparency = 1.0f;
 
                     previews.addToBottom(cpy);
                 }
@@ -146,7 +144,7 @@ public class PreviewWidget {
         if (previews.size() != getRevealed())
             return true;
 
-        int revealedIndex = getRevealedIndex();
+        int revealedIndex = getRevealed() - 1;
         int drawPileIndexOffset = p.drawPile.size() - 1;
 
         for (int i = revealedIndex; i >= 0; i--) {
@@ -229,28 +227,33 @@ public class PreviewWidget {
         else
             return 0;
     }
-    public int getRevealed() {
+    private int getRevealed() {
         return Math.min(augury, p.drawPile.size());
-    }
-
-    private int getRevealedIndex() {
-        return getRevealed() - 1;
     }
 
     public static List<AbstractCard> GetRevealedCards() {
         if (AbstractDungeon.player != null
            && AbstractDungeon.player.drawPile.size() == 0)
             return new ArrayList<>();
-        else if (widget != null && widget.isActive())
+
+        if (widget != null && widget.isActive())
             return widget.getRevealedCards();
         else
             return new ArrayList<>();
     }
-    public List<AbstractCard> getRevealedCards() {
-        int index = getRevealedIndex();
-        if (index < 0) index = 0;
-        if (index > p.drawPile.size() - 1) index = p.drawPile.size() - 1;
-        return p.drawPile.group.subList(0, index);
+    private List<AbstractCard> getRevealedCards() {
+        ArrayList<AbstractCard> cards = new ArrayList<>();
+
+        if (getRevealed() > 0) {
+            int revealedIndex = getRevealed() - 1;
+            int drawPileIndexOffset = p.drawPile.size() - 1;
+
+            for (int i = revealedIndex; i >= 0; i--) {
+                cards.add(p.drawPile.group.get(drawPileIndexOffset - i));
+            }
+        }
+
+        return cards;
     }
 
     public static int GetRevealedAttacksCount() {
@@ -259,7 +262,7 @@ public class PreviewWidget {
         else
             return 0;
     }
-    public int getRevealedAttacksCount() {
+    private int getRevealedAttacksCount() {
         return (int) previews.group.stream().filter(x -> x.type == AbstractCard.CardType.ATTACK).count();
     }
 
@@ -282,7 +285,7 @@ public class PreviewWidget {
         }
     }
     private void drawHeader(SpriteBatch sb) {
-        sb.draw(img,
+        sb.draw(HEADER_IMG,
                 hb.x,
                 hb.y,
                 0, 0,
