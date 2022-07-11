@@ -29,7 +29,7 @@ public class HookAndYarn extends CustomRelic {
         if (PreviewWidget.GetAugury() > 0) {
             this.flash();
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 6));
+            this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, PreviewWidget.GetAugury()));
         }
 
     }
