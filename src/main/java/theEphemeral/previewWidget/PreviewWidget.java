@@ -29,7 +29,7 @@ public class PreviewWidget {
     public static final int AUGURY_MINUS_PER_TURN = 1;
     private static final float PREVIEW_CARD_SCALE = 0.5f;
     private static final float HOVER_CARD_SCALE = 1.0f;
-    private static final float HOVER_CARD_SCALE_START = 0.9f;
+    private static final float HOVER_CARD_SCALE_START = 0.95f;
     private static final float HEADER_WIDTH = 150.0f;
     private static final float HALF_HEADER_WIDTH = HEADER_WIDTH / 2.0f;
     private static final float HEADER_HEIGHT = 50.0f;
@@ -54,7 +54,7 @@ public class PreviewWidget {
 
     private int augury = 0;
     private int startOfTurnMod = 0;
-    private boolean forceUpdate = false;
+    private boolean firstTurn = true;
 
     private final Hitbox hb;
     private final AbstractPlayer p;
@@ -94,9 +94,7 @@ public class PreviewWidget {
         // check to see if the draw pile has changed since last update
         CardGroup drawPile = p.drawPile;
 
-        if (forceUpdate || needUpdate()) {
-            forceUpdate = false;
-
+        if (needUpdate()) {
             // clear old previews
             previews.clear();
 
@@ -151,7 +149,7 @@ public class PreviewWidget {
         hb.move(Settings.scale * WIDGET_X, Settings.scale * WIDGET_Y);
         hb.update();
 
-        if (hb.hovered) {
+        if (augury > 0 && hb.hovered) {
             TipHelper.renderGenericTip(
                     Settings.scale * TOOLTIP_X,
                     Settings.scale * WIDGET_Y,
@@ -206,8 +204,6 @@ public class PreviewWidget {
             widget.setAugury(newValue);
     }
     public void setAugury(int newValue) {
-        forceUpdate = true;
-
         augury = newValue;
 
         if (augury < 0)
@@ -244,11 +240,15 @@ public class PreviewWidget {
             widget.startOfTurnAccounting();
     }
     public void startOfTurnAccounting() {
-        if (!AbstractDungeon.player.hasRelic(FrozenEye.ID)) {
-            startOfTurnMod -= AUGURY_MINUS_PER_TURN;
-        }
+        if (firstTurn) {
+            firstTurn = false;
+        } else {
+            if (!AbstractDungeon.player.hasRelic(FrozenEye.ID)) {
+                startOfTurnMod -= AUGURY_MINUS_PER_TURN;
+            }
 
-        AddAugury(startOfTurnMod);
+            AddAugury(startOfTurnMod);
+        }
     }
 
     public static int GetRevealed() {
