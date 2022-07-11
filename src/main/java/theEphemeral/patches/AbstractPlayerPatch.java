@@ -1,6 +1,5 @@
 package theEphemeral.patches;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import theEphemeral.EphemeralMod;
@@ -30,17 +29,6 @@ public class AbstractPlayerPatch {
     )
     public static class CombatUpdate {
         public static void Prefix(AbstractPlayer __instance) { EphemeralMod.updatePreviewWidget(); }
-    }
-
-    @SpirePatch(
-            clz=AbstractPlayer.class,
-            method="render"
-    )
-    public static class RenderPreviewWidget
-    {
-        public static void Postfix(AbstractPlayer __instance, SpriteBatch sb) {
-            EphemeralMod.renderPreviewWidget(sb);
-        }
     }
 
     @SpirePatch(

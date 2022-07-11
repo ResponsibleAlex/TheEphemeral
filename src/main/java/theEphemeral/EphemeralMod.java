@@ -499,7 +499,9 @@ public class EphemeralMod implements
 
         if (AbstractDungeon.player != null
             && AbstractDungeon.player.hasRelic(GlowingFeather.ID)) {
-            AbstractDungeon.player.getRelic(GlowingFeather.ID).counter = -1;
+            AbstractRelic feather = AbstractDungeon.player.getRelic(GlowingFeather.ID);
+            feather.grayscale = true;
+            feather.stopPulse();
         }
     }
 

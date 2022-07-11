@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ClashEffect;
@@ -59,23 +60,37 @@ public class VeiledEdge extends AbstractDynamicCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }
 
+    private boolean hasEthereal(AbstractPlayer p) {
+        for (AbstractCard c : PreviewWidget.GetRevealedCards()) {
+            if (c.isEthereal) {
+                return true;
+            }
+        }
+
+        for (AbstractCard c : player.hand.group) {
+            if (c.isEthereal) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         if (super.canUse(p, m)) {
-            for (AbstractCard c : PreviewWidget.GetRevealedCards()) {
-                if (c.isEthereal) {
-                    return true;
-                }
-            }
-
-            for (AbstractCard c : player.hand.group) {
-                if (c.isEthereal) {
-                    return true;
-                }
-            }
+            if (hasEthereal(p))
+                return true;
 
             cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
         }
         return false;
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        if (hasEthereal(AbstractDungeon.player))
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
     }
 
     // Upgraded stats.

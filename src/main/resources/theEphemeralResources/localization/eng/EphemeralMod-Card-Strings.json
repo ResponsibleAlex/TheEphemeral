@@ -322,8 +322,8 @@
   },
   "theEphemeral:ReturnToAether": {
     "NAME": "Return to Aether",
-    "DESCRIPTION": "Whenever you draw a card, it gains Ethereal.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you draw a card, it gains Ethereal."
+    "DESCRIPTION": "At the end of your turn, Exhaust ALL cards in your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the end of your turn, Exhaust ALL cards in your hand."
   },
   "theEphemeral:ChaosRift": {
     "NAME": "Chaos Rift",

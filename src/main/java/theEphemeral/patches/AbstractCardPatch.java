@@ -17,7 +17,7 @@ public class AbstractCardPatch {
         public static SpireReturn Prefix(AbstractCard __instance) {
             if (AbstractDungeon.player != null &&
                 AbstractDungeon.player.hasRelic(GlowingFeather.ID)
-                    && AbstractDungeon.player.getRelic(GlowingFeather.ID).counter > 0
+                    && !AbstractDungeon.player.getRelic(GlowingFeather.ID).grayscale
                     && __instance.type == AbstractCard.CardType.POWER) {
                 return SpireReturn.Return(true);
             }

@@ -2,7 +2,9 @@ package theEphemeral.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theEphemeral.EphemeralMod;
@@ -25,20 +27,23 @@ public class GlowingFeather extends CustomRelic {
 
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if (c.type == AbstractCard.CardType.POWER && this.counter > 0) {
-            this.counter--;
-            flash();
+        if (c.type == AbstractCard.CardType.POWER && !this.grayscale) {
+            this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            this.grayscale = true;
+            this.stopPulse();
         }
     }
 
     @Override
     public void atBattleStart() {
-        this.counter = 1;
+        this.grayscale = false;
+        this.beginLongPulse();
     }
 
     @Override
     public void justEnteredRoom(AbstractRoom room) {
-        this.counter = -1;
+        this.grayscale = true;
+        this.stopPulse();
     }
 
     // Description

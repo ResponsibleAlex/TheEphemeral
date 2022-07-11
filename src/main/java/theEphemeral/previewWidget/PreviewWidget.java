@@ -242,18 +242,18 @@ public class PreviewWidget {
             return new ArrayList<>();
     }
     private List<AbstractCard> getRevealedCards() {
-        ArrayList<AbstractCard> cards = new ArrayList<>();
+        CardGroup g = new CardGroup(CardGroupType.UNSPECIFIED);
 
         if (getRevealed() > 0) {
             int revealedIndex = getRevealed() - 1;
             int drawPileIndexOffset = p.drawPile.size() - 1;
 
             for (int i = revealedIndex; i >= 0; i--) {
-                cards.add(p.drawPile.group.get(drawPileIndexOffset - i));
+                g.addToBottom(p.drawPile.group.get(drawPileIndexOffset - i));
             }
         }
 
-        return cards;
+        return g.group;
     }
 
     public static int GetRevealedAttacksCount() {
