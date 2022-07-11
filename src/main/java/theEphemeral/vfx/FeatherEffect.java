@@ -33,6 +33,7 @@ public class FeatherEffect extends AbstractGameEffect {
         this.y_mod = 0;
 
         renderBehind = true;
+
         color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         scale = MathUtils.random(0.75F, 1.25F) * Settings.scale;
         startingDuration = duration = 4.0f;

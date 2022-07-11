@@ -27,15 +27,20 @@ import static theEphemeral.EphemeralMod.makeEffectPath;
 public class PreviewWidget {
     public static final int MAX_AUGURY = 7;
     public static final int AUGURY_MINUS_PER_TURN = 1;
-    private static final float drawScale = 0.5f;
+    private static final float PREVIEW_CARD_SCALE = 0.5f;
+    private static final float HOVER_CARD_SCALE = 1.0f;
+    private static final float HOVER_CARD_SCALE_START = 0.9f;
     private static final float HEADER_WIDTH = 150.0f;
     private static final float HALF_HEADER_WIDTH = HEADER_WIDTH / 2.0f;
     private static final float HEADER_HEIGHT = 50.0f;
     private static final Texture HEADER_IMG = ImageMaster.loadImage(makeEffectPath("header.png"));
     private static final float WIDGET_X = 150.0f;
-    private static final float WIDGET_VALUE_X = WIDGET_X + HALF_HEADER_WIDTH - 20.0f;
+    private static final float AMOUNT_TEXT_X = WIDGET_X + HALF_HEADER_WIDTH - 20.0f;
     private static final float WIDGET_Y = 780.0f;
     private static final float CARD_Y = WIDGET_Y - 150.0f;
+    private static final float X_PADDING = 25.0f;
+    private static final float TOOLTIP_X = WIDGET_X + HALF_HEADER_WIDTH + X_PADDING;
+    private static final float HOVER_X = WIDGET_X + HALF_HEADER_WIDTH + X_PADDING + 155.0f;
 
     private static final String POWER_ID = EphemeralMod.makeID(PreviewWidget.class.getSimpleName());
     private static final PowerStrings tipStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -43,8 +48,9 @@ public class PreviewWidget {
     private static final String TIP_DESC_1 = tipStrings.DESCRIPTIONS[1];
     private static final String TIP_DESC_2 = tipStrings.DESCRIPTIONS[2];
 
-    // CardGroup that is actually getting displayed
+    // CardGroup that is displayed
     private final CardGroup previews = new CardGroup(CardGroupType.UNSPECIFIED);
+    private AbstractCard hoveredCard;
 
     private int augury = 0;
     private int startOfTurnMod = 0;
@@ -106,7 +112,7 @@ public class PreviewWidget {
                     cpy.setAngle(0.0F, true);
                     cpy.current_x = cpy.target_x = Settings.scale * WIDGET_X;
                     cpy.current_y = cpy.target_y = Settings.scale * (CARD_Y - (i * 40));
-                    cpy.targetDrawScale = cpy.drawScale = drawScale;
+                    cpy.targetDrawScale = cpy.drawScale = PREVIEW_CARD_SCALE;
                     cpy.lighten(true);
 
                     previews.addToBottom(cpy);
@@ -116,13 +122,38 @@ public class PreviewWidget {
 
         previews.update();
 
+        boolean hovering = false;
+        if (previews.size() > 0) {
+            for (int i = previews.group.size() - 1; i >= 0; i--) {
+                AbstractCard c = previews.group.get(i);
+                if (c.isHoveredInHand(PREVIEW_CARD_SCALE)) {
+                    hovering = true;
+                    if (hoveredCard == null || notRoughlyEqual(hoveredCard, c)) {
+                        hoveredCard = c.makeStatEquivalentCopy();
+
+                        hoveredCard.setAngle(0.0F, true);
+                        hoveredCard.current_x = hoveredCard.target_x = Settings.scale * HOVER_X;
+                        hoveredCard.current_y = hoveredCard.target_y = Settings.scale * CARD_Y;
+                        hoveredCard.drawScale = HOVER_CARD_SCALE_START;
+                        hoveredCard.targetDrawScale = HOVER_CARD_SCALE;
+                        hoveredCard.lighten(true);
+                    }
+                    break;
+                }
+            }
+        }
+        if (hovering)
+            hoveredCard.update();
+        else
+            hoveredCard = null;
+
         hb.resize(HEADER_WIDTH * Settings.scale, HEADER_HEIGHT * Settings.scale);
         hb.move(Settings.scale * WIDGET_X, Settings.scale * WIDGET_Y);
         hb.update();
 
         if (hb.hovered) {
             TipHelper.renderGenericTip(
-                    Settings.scale * (WIDGET_X + HALF_HEADER_WIDTH),
+                    Settings.scale * TOOLTIP_X,
                     Settings.scale * WIDGET_Y,
                     TIP_NAME, TIP_DESC_1 + augury + TIP_DESC_2);
         }
@@ -148,17 +179,16 @@ public class PreviewWidget {
         int drawPileIndexOffset = p.drawPile.size() - 1;
 
         for (int i = revealedIndex; i >= 0; i--) {
-            if (!roughlyEqual(drawGroup.get(drawPileIndexOffset - i), preGroup.get(i)))
+            if (notRoughlyEqual(drawGroup.get(drawPileIndexOffset - i), preGroup.get(i)))
                 return true;
         }
 
         return false;
     }
-    private boolean roughlyEqual(AbstractCard a, AbstractCard b) {
-        return a.uuid == b.uuid
-                && a.name.equals(b.name)
-                && a.rawDescription.equals(b.rawDescription)
-                && a.costForTurn == b.costForTurn;
+    private boolean notRoughlyEqual(AbstractCard a, AbstractCard b) {
+        return !a.name.equals(b.name)
+                || !a.rawDescription.equals(b.rawDescription)
+                || a.costForTurn != b.costForTurn;
     }
 
     public static int GetAugury() {
@@ -278,7 +308,9 @@ public class PreviewWidget {
                 c.render(sb);
             }
 
-            sb.setColor(1.0f, 1.0f, 1.0f, 1.0f);
+            if (hoveredCard != null)
+                hoveredCard.render(sb);
+
             drawHeader(sb);
             renderText(sb);
             hb.render(sb);
@@ -299,7 +331,7 @@ public class PreviewWidget {
     protected void renderText(SpriteBatch sb) {
         FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L,
                 Integer.toString(augury),
-                Settings.scale * (WIDGET_VALUE_X),
+                Settings.scale * (AMOUNT_TEXT_X),
                 Settings.scale * (WIDGET_Y),
                 new Color(1.0f, 1.0f, 1.0f, 1.0f), fontScale * Settings.scale);
     }
