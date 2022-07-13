@@ -57,8 +57,10 @@ public class FrigidAura extends AbstractDynamicCard {
 
         if (triggerFated()) {
             AbstractDungeon.getCurrRoom().monsters.monsters.forEach(mo -> {
-                addToBot(new VFXAction(new FrostEffect(mo.hb.cX, mo.hb.cY)));
-                addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+                if (!mo.isDeadOrEscaped()) {
+                    addToBot(new VFXAction(new FrostEffect(mo.hb.cX, mo.hb.cY)));
+                    addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+                }
             });
         }
     }

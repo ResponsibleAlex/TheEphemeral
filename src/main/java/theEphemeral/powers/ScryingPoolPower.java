@@ -54,11 +54,12 @@ public class ScryingPoolPower extends AbstractShufflePower implements CloneableP
     @Override
     public void onShuffle() {
         int drawPileSize = AbstractDungeon.player.drawPile.size();
+        int discardPileSize = AbstractDungeon.player.discardPile.size();
 
-        if (drawPileSize > 0) {
+        if (drawPileSize > 0 || discardPileSize > 0) {
             flash();
 
-            int amountToDraw = Math.min(amount, drawPileSize);
+            int amountToDraw = Math.min(amount, drawPileSize + discardPileSize);
             addToBot(new DrawCardAction(amountToDraw));
         }
     }

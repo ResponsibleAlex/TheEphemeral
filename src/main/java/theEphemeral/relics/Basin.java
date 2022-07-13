@@ -25,6 +25,13 @@ public class Basin extends CustomRelic {
     }
 
     @Override
+    public void atBattleStart() {
+        flash();
+        PreviewWidget.AddAugury(2);
+        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+    }
+
+    @Override
     public void atTurnStart() {
         flash();
         this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));

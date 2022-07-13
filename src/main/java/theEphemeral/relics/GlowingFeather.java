@@ -25,31 +25,53 @@ public class GlowingFeather extends CustomRelic {
         super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.MAGICAL);
     }
 
+    public boolean Active = false;
+
+    private void activate() {
+        this.grayscale = false;
+        this.beginLongPulse();
+        this.Active = true;
+        this.counter = 1;
+    }
+    public void Deactivate() {
+        this.grayscale = true;
+        this.stopPulse();
+        this.Active = false;
+        this.counter = -2;
+    }
+
+
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         if (c.type == AbstractCard.CardType.POWER && !this.grayscale) {
             this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.grayscale = true;
-            this.stopPulse();
+            this.Deactivate();
         }
     }
 
     @Override
+    public void obtain() {
+        this.Deactivate();
+    }
+
+
+    @Override
     public void atBattleStart() {
-        this.grayscale = false;
-        this.beginLongPulse();
+        this.activate();
     }
 
     @Override
     public void justEnteredRoom(AbstractRoom room) {
-        this.grayscale = true;
-        this.stopPulse();
+        this.Deactivate();
     }
 
     // Description
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        if (this.Active)
+            return DESCRIPTIONS[1];
+        else
+            return DESCRIPTIONS[0];
     }
 
 }

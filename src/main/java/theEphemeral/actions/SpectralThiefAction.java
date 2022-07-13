@@ -24,6 +24,8 @@ public class SpectralThiefAction extends AbstractGameAction {
         } else {
             startDuration = duration = Settings.ACTION_DUR_FAST;
         }
+
+        source = AbstractDungeon.player;
     }
 
     @Override

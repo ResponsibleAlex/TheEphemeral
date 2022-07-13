@@ -53,7 +53,8 @@ public class ChillingTouch extends AbstractDynamicCard {
         addToBot(new VFXAction(new FrostEffect(m.hb.cX, m.hb.cY)));
 
         int weakAmount = PreviewWidget.GetRevealedAttacksCount();
-        addToBot(new ApplyPowerAction(m, p, new WeakPower(m, weakAmount, false), weakAmount));
+        if (weakAmount > 0)
+            addToBot(new ApplyPowerAction(m, p, new WeakPower(m, weakAmount, false), weakAmount));
     }
 
     // Upgraded stats.

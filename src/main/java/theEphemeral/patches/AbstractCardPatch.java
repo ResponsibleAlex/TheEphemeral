@@ -16,9 +16,9 @@ public class AbstractCardPatch {
     public static class FreeToPlay {
         public static SpireReturn Prefix(AbstractCard __instance) {
             if (AbstractDungeon.player != null &&
-                AbstractDungeon.player.hasRelic(GlowingFeather.ID)
-                    && !AbstractDungeon.player.getRelic(GlowingFeather.ID).grayscale
-                    && __instance.type == AbstractCard.CardType.POWER) {
+                    AbstractDungeon.player.hasRelic(GlowingFeather.ID) &&
+                    ((GlowingFeather)AbstractDungeon.player.getRelic(GlowingFeather.ID)).Active &&
+                    __instance.type == AbstractCard.CardType.POWER) {
                 return SpireReturn.Return(true);
             }
             return SpireReturn.Continue();

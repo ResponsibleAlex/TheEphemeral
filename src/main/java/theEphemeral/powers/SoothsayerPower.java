@@ -24,7 +24,7 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Soothsayer32.png"));
 
     public static final int MaxStackAmount = 999;
-    private int fullAmount = 0;
+    private int fullAmount;
 
     public SoothsayerPower(final int amount) {
         name = NAME;
@@ -58,21 +58,23 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
     @Override
     public void atStartOfTurn() {
         this.amount = this.fullAmount;
+        this.updateDescription();
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (amount > 0) {
+        // ignore the first Fated card each turn
+        if (EphemeralMod.fatedThisTurn > 1 && amount > 0)
             --amount;
-            this.updateDescription();
-        }
+
+        this.updateDescription();
     }
 
     @Override
     public void updateDescription() {
         if (amount == 1) {
             description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-        } else if (amount > 1) {
+        } else {
             description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
         }
     }

@@ -9,7 +9,7 @@
   },
   "theEphemeral:ReadTheStars": {
     "NAME": "Read the Stars",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Augury."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! theephemeral:Augury."
   },
   "theEphemeral:ThroughTheVeil": {
     "NAME": "Through the Veil",
@@ -140,7 +140,10 @@
   },
   "theEphemeral:Portent": {
     "NAME": "Portent",
-    "DESCRIPTION": "theephemeral:Fated: draw 3 cards."
+    "DESCRIPTION": "theephemeral:Fated: draw 3 cards.",
+    "EXTENDED_DESCRIPTION": [
+      "Can only be played when Fated."
+    ]
   },
   "theEphemeral:Delay": {
     "NAME": "Delay",

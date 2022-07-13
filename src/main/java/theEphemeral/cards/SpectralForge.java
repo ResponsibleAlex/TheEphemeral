@@ -1,7 +1,7 @@
 package theEphemeral.cards;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
@@ -48,7 +48,13 @@ public class SpectralForge extends AbstractVanishingCard {
         if (!canUse) {
             return false;
         } else {
-            canUse = p.hand.group.stream().filter(x -> !x.canUpgrade()).toArray().length != p.hand.group.size();
+            canUse = false; // default to false unless we find an upgradeable card
+            for (AbstractCard c : p.hand.group) {
+                if (c.uuid != this.uuid && c.canUpgrade()) {
+                    canUse = true;
+                    break;
+                }
+            }
 
             if (!canUse) {
                 cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];

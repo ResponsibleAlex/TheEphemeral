@@ -2,6 +2,8 @@ package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
@@ -15,6 +17,7 @@ public class Portent extends AbstractDynamicCard {
 
     public static final String ID = EphemeralMod.makeID(Portent.class.getSimpleName());
     public static final String IMG = makeCardPath("Portent.png");
+    private static final CardStrings cardStrings;
 
     // /TEXT DECLARATION/
 
@@ -38,7 +41,17 @@ public class Portent extends AbstractDynamicCard {
         fated = true;
     }
 
-    // Actions the card should do.
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (super.canUse(p, m)) {
+            if (willTriggerFated())
+                return true;
+
+            cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+        }
+        return false;
+    }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (triggerFated()) {
@@ -54,5 +67,9 @@ public class Portent extends AbstractDynamicCard {
             upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
+    }
+
+    static {
+        cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     }
 }

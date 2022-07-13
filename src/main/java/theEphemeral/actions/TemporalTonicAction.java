@@ -36,6 +36,7 @@ public class TemporalTonicAction extends AbstractGameAction {
 
             AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
             addToTop(new PlayTopCardAction(m, false));
+            isDone = true;
         }
     }
 

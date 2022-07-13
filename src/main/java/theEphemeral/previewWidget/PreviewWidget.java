@@ -67,6 +67,7 @@ public class PreviewWidget {
         widget = new PreviewWidget();
     }
     public static void EndOfCombat() {
+        Clear();
         widget = null;
     }
 
@@ -311,6 +312,7 @@ public class PreviewWidget {
             if (hoveredCard != null)
                 hoveredCard.render(sb);
 
+            sb.setColor(1.0f, 1.0f, 1.0f, 1.0f);
             drawHeader(sb);
             renderText(sb);
             hb.render(sb);

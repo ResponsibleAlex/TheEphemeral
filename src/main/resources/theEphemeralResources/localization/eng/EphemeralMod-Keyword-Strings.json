@@ -5,7 +5,7 @@
       "Augury",
       "augury"
     ],
-    "DESCRIPTION": "This amount of cards from the top of your draw pile are revealed. NL Max of #b7, lose #b1 #yAugury at the start of each turn."
+    "DESCRIPTION": "This number of cards from the top of your draw pile are revealed, maximum of #b7. NL Lose #b1 #yAugury at the start of each turn."
   },
   {
     "PROPER_NAME": "Revealed",
@@ -29,7 +29,7 @@
       "Vanishing",
       "vanishing"
     ],
-    "DESCRIPTION": "#yRemoved #yfrom #yCombat when played and the value is reduced by #b1. When this reaches #b0, remove it from your deck completely."
+    "DESCRIPTION": "Removed from Combat when played and the value is reduced by #b1. When this reaches #b0, remove it from your deck #ycompletely."
   },
   {
     "PROPER_NAME": "Entropy",
