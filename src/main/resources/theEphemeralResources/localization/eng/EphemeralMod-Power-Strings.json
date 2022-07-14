@@ -74,7 +74,8 @@
                 "DESCRIPTIONS": [
                         "Put the next card you play on top of your draw pile.",
                         "Put the next #b",
-                        " cards you play on top of your draw pile."
+                        " cards you play on top of your draw pile.",
+                        "Put the first card you play each turn on top of your draw pile."
                 ]
         },
         "theEphemeral:GrimResolvePower": {

@@ -29,7 +29,7 @@ public class RealityFracture extends AbstractEntropyCard {
 
     private static final int COST = -1;
     // private static final int UPGRADED_COST = 0;
-    private static final int DAMAGE = 0;
+    private static final int DAMAGE = 4;
     private static final int MAGIC_NUMBER = 1;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 

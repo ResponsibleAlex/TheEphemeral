@@ -68,10 +68,7 @@ public class GlowingFeather extends CustomRelic {
     // Description
     @Override
     public String getUpdatedDescription() {
-        if (this.Active)
-            return DESCRIPTIONS[1];
-        else
-            return DESCRIPTIONS[0];
+        return DESCRIPTIONS[0];
     }
 
 }

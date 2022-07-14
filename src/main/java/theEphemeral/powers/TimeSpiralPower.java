@@ -24,7 +24,7 @@ public class TimeSpiralPower extends AbstractPower implements CloneablePowerInte
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("TimeSpiral32.png"));
 
     public static final int MaxStackAmount = 999;
-    private int fullAmount = 0;
+    private int fullAmount;
 
     public TimeSpiralPower(final int amount) {
         name = NAME;
@@ -57,7 +57,7 @@ public class TimeSpiralPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (amount > 0) {
+        if (amount > 0 && card.type != AbstractCard.CardType.POWER) {
             action.reboundCard = true;
 
             amount--;
@@ -73,10 +73,12 @@ public class TimeSpiralPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void updateDescription() {
-        if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        if (amount == 0) {
+            description = DESCRIPTIONS[3];
+        } else if (amount == 1) {
+            description = DESCRIPTIONS[0];
         } else if (amount > 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
         }
     }
 

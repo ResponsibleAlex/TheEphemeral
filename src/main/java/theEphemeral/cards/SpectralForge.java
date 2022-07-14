@@ -2,6 +2,7 @@ package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
@@ -41,6 +42,15 @@ public class SpectralForge extends AbstractVanishingCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET, VANISHING);
     }
 
+    public static boolean CanUpgradeInDeck(AbstractCard card) {
+        for (AbstractCard masterDeckCard : AbstractDungeon.player.masterDeck.group) {
+            if (card.uuid == masterDeckCard.uuid)
+                return masterDeckCard.canUpgrade();
+        }
+
+        return false;
+    }
+
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         boolean canUse = super.canUse(p, m);
@@ -50,7 +60,7 @@ public class SpectralForge extends AbstractVanishingCard {
         } else {
             canUse = false; // default to false unless we find an upgradeable card
             for (AbstractCard c : p.hand.group) {
-                if (c.uuid != this.uuid && c.canUpgrade()) {
+                if (c.uuid != this.uuid && CanUpgradeInDeck(c)) {
                     canUse = true;
                     break;
                 }

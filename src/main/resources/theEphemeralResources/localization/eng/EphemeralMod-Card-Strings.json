@@ -113,8 +113,8 @@
   },
   "theEphemeral:RealityFracture": {
     "NAME": "Reality Fracture",
-    "DESCRIPTION": "Deal X damage X+1 times. NL theephemeral:Entropy.",
-    "UPGRADE_DESCRIPTION": "Deal X damage X+2 times. NL theephemeral:Entropy."
+    "DESCRIPTION": "Deal !D! damage X+1 times. NL theephemeral:Entropy.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage X+2 times. NL theephemeral:Entropy."
   },
   "theEphemeral:Disaster": {
     "NAME": "Disaster",

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+import theEphemeral.cards.SpectralForge;
 
 import java.util.ArrayList;
 
@@ -30,7 +31,7 @@ public class SpectralForgeAction extends AbstractGameAction {
         if (this.duration == Settings.ACTION_DUR_FAST) {
 
             for (AbstractCard c : this.p.hand.group) {
-                if (!c.canUpgrade()) {
+                if (!SpectralForge.CanUpgradeInDeck(c)) {
                     this.cannotUpgrade.add(c);
                 }
             }
@@ -42,7 +43,7 @@ public class SpectralForgeAction extends AbstractGameAction {
 
             if (this.p.hand.group.size() - this.cannotUpgrade.size() == 1) {
                 for (AbstractCard c : this.p.hand.group) {
-                    if (c.canUpgrade()) {
+                    if (SpectralForge.CanUpgradeInDeck(c)) {
                         doUpgrade(c);
                         this.isDone = true;
                         return;

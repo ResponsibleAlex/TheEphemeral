@@ -38,8 +38,7 @@
     "NAME": "Glowing Feather",
     "FLAVOR": "A feather that glows with an eerie light.",
     "DESCRIPTIONS": [
-      "The first #yPower card you play each combat costs #b0.",
-      "The next #yPower card you play this combat costs #b0."
+      "The first #yPower card you play each combat costs #b0."
     ]
   },
   "theEphemeral:CuriousTalon": {
