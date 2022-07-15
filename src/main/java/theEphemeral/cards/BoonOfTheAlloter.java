@@ -49,7 +49,7 @@ public class BoonOfTheAlloter extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(1));
+        addToBot(new DrawCardAction(2));
         addToBot(new DiscardAction(p, p, 1, false));
     }
 

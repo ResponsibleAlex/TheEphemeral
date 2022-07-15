@@ -2,6 +2,8 @@ package theEphemeral.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -23,7 +25,8 @@ public class RecurringNightmareAction extends AbstractGameAction {
         if (this.duration == this.startDuration) {
             if (this.player.discardPile.size() == 1) {
                 // only 1 card in discard, queue it and done
-                addToBot(new NewQueueCardAction(this.player.discardPile.getTopCard(), true, false, true));
+                playCard(this.player.discardPile.getTopCard());
+
                 this.isDone = true;
             } else if (this.player.discardPile.size() > 1) {
                 // more than 1 card in discard, open select screen and tick
@@ -35,7 +38,8 @@ public class RecurringNightmareAction extends AbstractGameAction {
             }
         } else {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-                addToBot(new NewQueueCardAction(AbstractDungeon.gridSelectScreen.selectedCards.get(0), true, false, true));
+
+                playCard(AbstractDungeon.gridSelectScreen.selectedCards.get(0));
 
                 for (AbstractCard c : this.player.discardPile.group) {
                     c.unhover();
@@ -47,6 +51,28 @@ public class RecurringNightmareAction extends AbstractGameAction {
             }
 
             this.tickDuration();
+        }
+    }
+
+    private void playCard(AbstractCard card) {
+        AbstractDungeon.getCurrRoom().souls.remove(card);
+        this.player.discardPile.removeCard(card);
+        this.player.limbo.group.add(card);
+        card.current_y = -200.0F * Settings.scale;
+        card.target_x = (float)Settings.WIDTH / 2.0F + 200.0F * Settings.xScale;
+        card.target_y = (float)Settings.HEIGHT / 2.0F;
+        card.angle = 90.0F;
+        card.targetAngle = 0.0F;
+        card.lighten(false);
+        card.drawScale = 0.12F;
+        card.targetDrawScale = 0.75F;
+        card.applyPowers();
+        this.addToTop(new NewQueueCardAction(card, true, false, true));
+        this.addToTop(new UnlimboAction(card));
+        if (!Settings.FAST_MODE) {
+            this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+        } else {
+            this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
         }
     }
 

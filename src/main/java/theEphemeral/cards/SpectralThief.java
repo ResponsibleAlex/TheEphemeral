@@ -32,6 +32,7 @@ public class SpectralThief extends AbstractVanishingCard {
     private static final int UPGRADE_PLUS_DMG = 5;
     private static final int VANISHING = 4;
     private static final int GOLD_GAINED = 35;
+    private static final int UPGRADE_PLUS_GOLD_GAINED = 10;
 
     // /STAT DECLARATION/
 
@@ -57,7 +58,7 @@ public class SpectralThief extends AbstractVanishingCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            //upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(UPGRADE_PLUS_GOLD_GAINED);
             initializeDescription();
         }
     }

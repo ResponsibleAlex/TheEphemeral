@@ -34,7 +34,7 @@ public class SpectralGrasp extends AbstractVanishingCard {
     private static final int COST = 1;
     // private static final int UPGRADED_COST = 0;
     private static final int DAMAGE = 15;
-    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int UPGRADE_PLUS_DMG = 10;
     private static final int VANISHING = 3;
 
     // /STAT DECLARATION/
