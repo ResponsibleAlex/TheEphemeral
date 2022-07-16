@@ -59,7 +59,7 @@ public class RecurringNightmareAction extends AbstractGameAction {
         this.player.discardPile.removeCard(card);
         this.player.limbo.group.add(card);
         card.current_y = -200.0F * Settings.scale;
-        card.target_x = (float)Settings.WIDTH / 2.0F;// + 200.0F * Settings.xScale;
+        card.target_x = (float)Settings.WIDTH / 2.0F;
         card.target_y = (float)Settings.HEIGHT / 2.0F;
         card.angle = 270.0F;
         card.targetAngle = 0.0F;
@@ -67,7 +67,7 @@ public class RecurringNightmareAction extends AbstractGameAction {
         card.drawScale = 0.12F;
         card.targetDrawScale = 0.75F;
         card.applyPowers();
-        this.addToTop(new UnlimboAction(card));
+        this.addToBot(new UnlimboAction(card));
         this.addToTop(new NewQueueCardAction(card, true, false, true));
         if (!Settings.FAST_MODE) {
             this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));

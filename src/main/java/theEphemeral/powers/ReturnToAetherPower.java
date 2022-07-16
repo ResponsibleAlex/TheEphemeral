@@ -4,6 +4,7 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,6 +12,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theEphemeral.EphemeralMod;
 import theEphemeral.util.TextureLoader;
+
+import java.util.ArrayList;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
 
@@ -43,6 +46,22 @@ public class ReturnToAetherPower extends AbstractPower implements CloneablePower
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
         if (isPlayer) {
             flash();
+            AbstractPlayer p = AbstractDungeon.player;
+            ArrayList<AbstractCard> cursesAndStatuses = new ArrayList<>();
+            for (AbstractCard c : p.hand.group) {
+                if (c.type == AbstractCard.CardType.CURSE || c.type == AbstractCard.CardType.STATUS)
+                    cursesAndStatuses.add(c);
+            }
+
+            for (AbstractCard c : cursesAndStatuses) {
+                p.hand.moveToExhaustPile(c);
+            }
+        }
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer) {
             AbstractPlayer p = AbstractDungeon.player;
             addToBot(new ExhaustAction(p, p, p.hand.size(), false));
         }

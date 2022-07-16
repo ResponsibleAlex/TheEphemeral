@@ -41,6 +41,7 @@ public class Banshee extends AbstractVanishingCard {
     public Banshee() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET, 1);
         baseDamage = DAMAGE;
+        tags.add(CardTags.HEALING);
     }
 
     // Actions the card should do.

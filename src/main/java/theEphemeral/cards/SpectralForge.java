@@ -40,6 +40,7 @@ public class SpectralForge extends AbstractVanishingCard {
 
     public SpectralForge() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET, VANISHING);
+        tags.add(CardTags.HEALING);
     }
 
     public static boolean CanUpgradeInDeck(AbstractCard card) {

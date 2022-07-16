@@ -42,6 +42,7 @@ public class SpectralThief extends AbstractVanishingCard {
         baseDamage = DAMAGE;
 
         baseMagicNumber = magicNumber = GOLD_GAINED;
+        tags.add(CardTags.HEALING);
     }
 
     // Actions the card should do.

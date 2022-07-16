@@ -2,7 +2,7 @@ package theEphemeral.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.curses.Writhe;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theEphemeral.EphemeralMod;
@@ -26,8 +26,11 @@ public class AncientScroll extends CustomRelic {
     @Override
     public void onEquip() {
         ++AbstractDungeon.player.energy.energyMaster;
-        AbstractDungeon.actionManager.addToBottom(new AddCardToDeckAction(new Writhe()));
-        AbstractDungeon.actionManager.addToBottom(new AddCardToDeckAction(new Writhe()));
+
+        CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        group.addToBottom(new Writhe());
+        group.addToBottom(new Writhe());
+        AbstractDungeon.gridSelectScreen.openConfirmationGrid(group, this.DESCRIPTIONS[1]);
     }
     @Override
     public void onUnequip() {
