@@ -45,6 +45,7 @@ public class Ravenous extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
+        tags.add(CardTags.HEALING);
     }
 
     // Actions the card should do.

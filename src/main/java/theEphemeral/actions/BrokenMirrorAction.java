@@ -37,7 +37,9 @@ public class BrokenMirrorAction extends AbstractGameAction {
         }
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-            duplicateToTop(AbstractDungeon.handCardSelectScreen.selectedCards.group.get(0));
+            AbstractCard chosen = AbstractDungeon.handCardSelectScreen.selectedCards.group.get(0);
+            duplicateToTop(chosen);
+            p.hand.addToTop(chosen);
 
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
@@ -50,7 +52,11 @@ public class BrokenMirrorAction extends AbstractGameAction {
     }
 
     private void duplicateToTop(AbstractCard c) {
-        AbstractDungeon.effectList.add(new ShowCardAndAddToDrawPileEffect(c.makeStatEquivalentCopy(), false, false));
+        AbstractCard cardToAdd = c.makeStatEquivalentCopy();
+        cardToAdd.current_x = -1000.0F * Settings.xScale;
+        AbstractDungeon.effectList.add(new ShowCardAndAddToDrawPileEffect(cardToAdd,
+                (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F,
+                false, false, false));
     }
 
     static {
