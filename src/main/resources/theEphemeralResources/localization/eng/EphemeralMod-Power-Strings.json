@@ -121,5 +121,13 @@
                         "Up to #b",
                         " cards from the top of your draw pile are displayed in order. Max of #b7, lose #b1 #yAugury at the start of each turn."
                 ]
+        },
+        "theEphemeral:BlindedViewScreen": {
+                "NAME": "BlindedViewScreen",
+                "DESCRIPTIONS": [
+                        "Draw Pile",
+                        "Discard Pile",
+                        "You are blind and must rely on your mystical powers."
+                ]
         }
 }
