@@ -38,7 +38,7 @@
   },
   "theEphemeral:BlindSwipe": {
     "NAME": "Blind Swipe",
-    "DESCRIPTION": "Deal !D! damage. NL Shuffle your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile."
   },
   "theEphemeral:SpectralGrasp": {
     "NAME": "Spectral Grasp",
@@ -87,8 +87,8 @@
   },
   "theEphemeral:BlindFury": {
     "NAME": "Blind Fury",
-    "DESCRIPTION": "Deal !D! damage. NL Shuffle your draw pile. NL Play 1 random theephemeral:Revealed Attack.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle your draw pile. NL Play 2 random theephemeral:Revealed Attacks."
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile. NL Play 1 random theephemeral:Revealed Attack.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile. NL Play 2 random theephemeral:Revealed Attacks."
   },
   "theEphemeral:SpectralThief": {
     "NAME": "Spectral Thief",
@@ -191,7 +191,7 @@
   },
   "theEphemeral:BlindingBlock": {
     "NAME": "Blinding Block",
-    "DESCRIPTION": "Gain !B! Block. NL Shuffle your draw pile."
+    "DESCRIPTION": "Gain !B! Block. NL Shuffle your discard pile into your draw pile."
   },
   "theEphemeral:Tasseomancy": {
     "NAME": "Tasseomancy",

@@ -32,8 +32,8 @@ public class StranglingMist extends AbstractDynamicCard {
 
     private static final int COST = 1;
     // private static final int UPGRADED_COST = 0;
-    private static final int DAMAGE = 10;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int DAMAGE = 12;
+    private static final int UPGRADE_PLUS_DMG = 5;
 
     // /STAT DECLARATION/
 

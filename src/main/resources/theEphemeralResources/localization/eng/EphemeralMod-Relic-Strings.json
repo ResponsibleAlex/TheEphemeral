@@ -66,7 +66,7 @@
     "NAME": "Ancient Scroll",
     "FLAVOR": "The runes inscribed here curse you without even being read.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. Upon pickup, obtain #b2 #yWrithe #yCurses.",
+      "Gain [E] at the start of your turn. Upon pickup, obtain #b2 #rWrithe #rCurses.",
       "Agony..."
     ]
   },

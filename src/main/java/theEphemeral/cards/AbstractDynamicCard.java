@@ -1,6 +1,8 @@
 package theEphemeral.cards;
 
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
+import com.megacrit.cardcrawl.actions.common.ShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -57,7 +59,7 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         return false;
     }
 
-    protected  boolean triggerFated() {
+    protected boolean triggerFated() {
         if (willTriggerFated()) {
             EphemeralMod.fatedThisTurn++;
 
@@ -69,5 +71,14 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         }
 
         return false;
+    }
+
+    protected void megaShuffle() {
+        if (AbstractDungeon.player.discardPile.size() > 0) {
+            addToBot(new EmptyDeckShuffleAction());
+            addToBot(new ShuffleAction(AbstractDungeon.player.drawPile, false));
+        } else if (AbstractDungeon.player.drawPile.size() > 0) {
+            addToBot(new ShuffleAction(AbstractDungeon.player.drawPile, true));
+        }
     }
 }

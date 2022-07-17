@@ -1,8 +1,6 @@
 package theEphemeral.cards;
 
-import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.common.ShuffleAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
@@ -47,10 +45,7 @@ public class BlindFaith extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (p.discardPile.size() > 0) {
-            addToBot(new EmptyDeckShuffleAction());
-            addToBot(new ShuffleAction(p.drawPile, false));
-        }
+        megaShuffle();
 
         addToBot(new MakeTempCardInHandAction(new FleetingThought(), magicNumber));
     }
