@@ -33,6 +33,7 @@ public class DrainSoul extends AbstractDynamicCard {
     private static final int COST = 1;
     // private static final int UPGRADED_COST = 0;
     private static final int DAMAGE = 8;
+    private static final int UPGRADE_PLUS_DAMAGE = 1;
 
     // /STAT DECLARATION/
 
@@ -58,6 +59,7 @@ public class DrainSoul extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

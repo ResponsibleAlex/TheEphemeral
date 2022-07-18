@@ -140,7 +140,7 @@
   },
   "theEphemeral:Portent": {
     "NAME": "Portent",
-    "DESCRIPTION": "theephemeral:Fated: draw 3 cards.",
+    "DESCRIPTION": "theephemeral:Fated: draw !M! cards.",
     "EXTENDED_DESCRIPTION": [
       "Can only be played when Fated."
     ]

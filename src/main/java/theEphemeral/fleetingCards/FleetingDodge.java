@@ -29,7 +29,7 @@ public class FleetingDodge extends AbstractDynamicCard {
 
     private static final int COST = 0;
     // private static final int UPGRADED_COST = 0;
-    private static final int BLOCK = 1;
+    private static final int BLOCK = 2;
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
 

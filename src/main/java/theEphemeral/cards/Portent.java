@@ -29,8 +29,10 @@ public class Portent extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
+    private static final int COST = 0;
+    private static final int CARDS_DRAWN = 2;
+    private static final int UPGRADE_CARDS_DRAWN = 1;
+
 
 
     // /STAT DECLARATION/
@@ -39,6 +41,8 @@ public class Portent extends AbstractDynamicCard {
     public Portent() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         fated = true;
+
+        magicNumber = baseMagicNumber = CARDS_DRAWN;
     }
 
     @Override
@@ -55,7 +59,7 @@ public class Portent extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (triggerFated()) {
-            addToBot(new DrawCardAction(3));
+            addToBot(new DrawCardAction(magicNumber));
         }
     }
 
@@ -64,7 +68,7 @@ public class Portent extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(UPGRADE_CARDS_DRAWN);
             initializeDescription();
         }
     }

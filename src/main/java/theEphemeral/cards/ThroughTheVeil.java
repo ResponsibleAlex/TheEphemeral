@@ -33,7 +33,7 @@ public class ThroughTheVeil extends AbstractDynamicCard {
     private static final int COST = 1;
     // private static final int UPGRADED_COST = 0;
     private static final int DAMAGE = 8;
-    //private static final int UPGRADE_PLUS_DMG = 2;
+    private static final int UPGRADE_PLUS_DMG = 2;
 
     private static final int MAGIC_NUMBER = 1;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
@@ -66,6 +66,7 @@ public class ThroughTheVeil extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
             initializeDescription();
         }
