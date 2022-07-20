@@ -436,6 +436,10 @@ public class EphemeralMod implements
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
                 getModID() + "Resources/localization/eng/EphemeralMod-Relic-Strings.json");
+
+        // Event Strings
+        BaseMod.loadCustomStringsFile(EventStrings.class,
+                getModID() + "Resources/localization/eng/EphemeralMod-Event-Strings.json");
         
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,

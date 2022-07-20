@@ -29,7 +29,7 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int BLOCK = 6;
     private static final int UPGRADE_PLUS_BLOCK = 4;
 
@@ -50,7 +50,7 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(2));
+        addToBot(new DrawCardAction(1));
         addToBot(new DiscardAction(p, p, 1, false));
     }
 

@@ -173,17 +173,17 @@
   },
   "theEphemeral:BoonOfTheSpinner": {
     "NAME": "Boon of the Spinner",
-    "DESCRIPTION": "Draw 2 cards. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain [E].",
-    "UPGRADE_DESCRIPTION": "Draw 2 cards. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain [E] [E]."
+    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded, gain [E].",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded, gain [E] [E]."
   },
   "theEphemeral:BoonOfTheAlloter": {
     "NAME": "Boon of the Alloter",
-    "DESCRIPTION": "Draw 2 cards. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Draw 2 cards. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, draw !M! cards."
+    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded, draw !M! cards."
   },
   "theEphemeral:BoonOfTheInflexible": {
     "NAME": "Boon of the Inflexible",
-    "DESCRIPTION": "Draw 2 cards. NL Discard 1 card. NL If this card is discarded from your hand or draw pile, gain !B! Block."
+    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded, gain !B! Block."
   },
   "theEphemeral:BlindFaith": {
     "NAME": "Blind Faith",
