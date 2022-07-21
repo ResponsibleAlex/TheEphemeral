@@ -39,11 +39,12 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
 
     public BoonOfTheInflexible() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = BLOCK;
+        baseBlock = block = BLOCK;
     }
 
     @Override
     public void triggerOnManualDiscard() {
+        applyPowers();
         addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
     }
 

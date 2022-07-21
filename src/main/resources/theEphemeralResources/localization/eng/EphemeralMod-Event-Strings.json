@@ -8,5 +8,14 @@
       "[Embrace] #gRemove #gall Strikes. #gReceive #g2 Ravenous. #rLose #r",
       " #rHP."
     ]
+  },
+  "theEphemeral:AwakenedOneDialog": {
+    "NAME": "AwakenedOneDialog",
+    "DESCRIPTIONS": [
+      "You... will... PAY!"
+    ],
+    "OPTIONS": [
+      ""
+    ]
   }
 }
