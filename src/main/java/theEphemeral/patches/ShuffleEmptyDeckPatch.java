@@ -10,8 +10,8 @@ import theEphemeral.powers.AbstractShufflePower;
 @SpirePatch(clz = EmptyDeckShuffleAction.class, method = SpirePatch.CLASS)
 public class ShuffleEmptyDeckPatch {
     @SpirePatch(
-            clz= EmptyDeckShuffleAction.class,
-            method=SpirePatch.CONSTRUCTOR
+            clz = EmptyDeckShuffleAction.class,
+            method = SpirePatch.CONSTRUCTOR
     )
     public static class EmptyDeckShuffleActionConstructor {
         public static void Postfix(EmptyDeckShuffleAction __instance) {
