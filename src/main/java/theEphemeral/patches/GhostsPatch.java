@@ -10,73 +10,69 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractEvent;
-import com.megacrit.cardcrawl.events.city.Vampires;
+import com.megacrit.cardcrawl.events.city.Ghosts;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import theEphemeral.cards.Ravenous;
+import theEphemeral.cards.GrimResolve;
 
 import java.util.ArrayList;
 
 @SuppressWarnings({"unused"})
-@SpirePatch(clz = Vampires.class, method = SpirePatch.CLASS)
-public class VampiresPatch {
-    private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString("theEphemeral:VampireEventMod");
+@SpirePatch(clz = Ghosts.class, method = SpirePatch.CLASS)
+public class GhostsPatch {
+    private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString("theEphemeral:GhostEventMod");
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
-    private static int ravenousSlot;
     private static int curHpLoss;
     private static final ArrayList<String> cardIds = new ArrayList<>();
 
     @SpirePatch(
-            clz = Vampires.class,
+            clz = Ghosts.class,
             method = SpirePatch.CONSTRUCTOR
     )
-    public static class VampiresConstructor {
-        public static void Postfix(Vampires __instance) {
+    public static class GhostsConstructor {
+        public static void Postfix(Ghosts __instance) {
             if (AbstractDungeon.player != null &&
                 AbstractDungeon.player.chosenClass != null &&
                 AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL")) {
 
-                curHpLoss = MathUtils.ceil((float)AbstractDungeon.player.currentHealth * 0.5F);
+                curHpLoss = MathUtils.ceil((float)AbstractDungeon.player.currentHealth * 0.15F);
                 if (curHpLoss >= AbstractDungeon.player.maxHealth) {
                     curHpLoss = AbstractDungeon.player.maxHealth - 1;
                 }
 
-                // get index of Refuse option
-                ravenousSlot = __instance.imageEventText.optionList.size() - 1;
-
                 // add another Refuse to the end
-                __instance.imageEventText.setDialogOption(Vampires.OPTIONS[2]);
+                __instance.imageEventText.setDialogOption(Ghosts.OPTIONS[2]);
 
                 // overwrite the first Refuse slot for our new option
-                __instance.imageEventText.updateDialogOption(ravenousSlot, OPTIONS[0] + curHpLoss + OPTIONS[1], new Ravenous());
+                __instance.imageEventText.updateDialogOption(1, OPTIONS[0] + curHpLoss + OPTIONS[1], new GrimResolve());
             }
         }
     }
 
     @SpirePatch(
-            clz = Vampires.class,
+            clz = Ghosts.class,
             method = "buttonEffect"
     )
     public static class ButtonEffect {
-        public static SpireReturn<Void> Prefix(Vampires __instance, int buttonPressed, @ByRef int[] ___screenNum) {
+        public static SpireReturn<Void> Prefix(Ghosts __instance, int buttonPressed, @ByRef int[] ___screenNum) {
 
             if (___screenNum[0] == 0 &&
                 AbstractDungeon.player != null &&
                 AbstractDungeon.player.chosenClass != null &&
                 AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL") &&
-                buttonPressed == ravenousSlot) {
+                buttonPressed == 1) {
 
-                CardCrawlGame.sound.play("EVENT_VAMP_BITE");
+                CardCrawlGame.sound.play("ATTACK_PIERCING_WAIL");
                 __instance.imageEventText.updateBodyText(DESCRIPTIONS[0]);
 
                 AbstractDungeon.player.damage(new DamageInfo(null, curHpLoss, DamageInfo.DamageType.HP_LOSS));
-                replaceAttacks();
-                AbstractEvent.logMetric("Vampires", "Became ravenous (Ephemeral)", cardIds, null, null, null, null, null, null, curHpLoss, 0, 0, 0, 0, 0);
+                gainResolve();
+                AbstractEvent.logMetric("Ghosts", "Gained Resolve (Ephemeral)", cardIds, null, null, null, null, null, null, curHpLoss, 0, 0, 0, 0, 0);
 
                 ___screenNum[0] = 1;
 
-                __instance.imageEventText.updateDialogOption(0, Vampires.OPTIONS[5]);
+                __instance.imageEventText.updateDialogOption(0, Ghosts.OPTIONS[5]);
                 __instance.imageEventText.clearRemainingOptions();
 
                 return SpireReturn.Return();
@@ -86,21 +82,9 @@ public class VampiresPatch {
         }
     }
 
-    private static void replaceAttacks() {
-        ArrayList<AbstractCard> masterDeck = AbstractDungeon.player.masterDeck.group;
-
-        int i;
-        for(i = masterDeck.size() - 1; i >= 0; --i) {
-            AbstractCard card = masterDeck.get(i);
-            if (card.tags.contains(AbstractCard.CardTags.STARTER_STRIKE)) {
-                AbstractDungeon.player.masterDeck.removeCard(card);
-            }
-        }
-
-        for(i = 0; i < 2; ++i) {
-            AbstractCard c = new Ravenous();
-            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
-            cardIds.add(c.cardID);
-        }
+    private static void gainResolve() {
+        AbstractCard c = new GrimResolve();
+        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+        cardIds.add(c.cardID);
     }
 }

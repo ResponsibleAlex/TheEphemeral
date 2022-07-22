@@ -2,10 +2,20 @@
   "theEphemeral:VampireEventMod": {
     "NAME": "VampireEventMod",
     "DESCRIPTIONS": [
-      "You open your arms wide and embrace the tall figure, who gently bites your neck. You feel a @dark@ @force@ enter your body and a deep and gnawing @hunger@ grow. NL ... NL You thank him for his gift. You feel dizzy, but strong. NL You #rmust #rfeed..."
+      "You open your arms wide and embrace the tall figure, who gently bites your neck. You feel a @dark@ @force@ enter your body and a deep and gnawing @hunger@ grow. NL ... NL You thank him for his gift. You feel dizzy, but #p~strong...~ NL You #rmust #rfeed..."
     ],
     "OPTIONS": [
       "[Embrace] #gRemove #gall Strikes. #gReceive #g2 Ravenous. #rLose #r",
+      " #rHP."
+    ]
+  },
+  "theEphemeral:GhostEventMod": {
+    "NAME": "GhostEventMod",
+    "DESCRIPTIONS": [
+      "#p\"I #pam #p~here~ NL ... NL #pby #pmy #pown NL ... NL #r@POWER!\"@ NL NL You charge the #yghosts, chasing them off. You are injured, but with a renewed #p~RESOLVE.~"
+    ],
+    "OPTIONS": [
+      "[Attack] #gReceive #g1 Grim Resolve. #rLose #r",
       " #rHP."
     ]
   },
