@@ -21,6 +21,8 @@ public class StoneTablet extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("StoneTablet.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("StoneTablet.png"));
 
+    private final static int DAMAGE = 4;
+
     public StoneTablet() {
         super(ID, IMG, OUTLINE, RelicTier.SHOP, LandingSound.HEAVY);
     }
@@ -29,7 +31,7 @@ public class StoneTablet extends CustomRelic {
     public void onShuffle() {
         flash();
         this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(3, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(DAMAGE, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
     // Description

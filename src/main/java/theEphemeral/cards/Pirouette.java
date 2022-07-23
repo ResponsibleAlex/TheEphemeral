@@ -1,6 +1,5 @@
 package theEphemeral.cards;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -8,7 +7,6 @@ import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.fleetingCards.FleetingDodge;
 
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
@@ -24,12 +22,14 @@ public class Pirouette extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 1;
+    private static final int UPGRADED_COST = 0;
+    private static final int MAGIC_NUMBER = 2;
 
 
     // /STAT DECLARATION/
@@ -38,15 +38,13 @@ public class Pirouette extends AbstractDynamicCard {
     public Pirouette() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         cardsToPreview = new FleetingDodge();
+        baseMagicNumber = magicNumber = MAGIC_NUMBER;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new MakeTempCardInHandAction(new FleetingDodge(), 2));
-        if (upgraded) {
-            addToBot(new DrawCardAction(1));
-        }
+        addToBot(new MakeTempCardInHandAction(new FleetingDodge(), magicNumber));
     }
 
     //Upgraded stats.
@@ -54,7 +52,7 @@ public class Pirouette extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

@@ -141,6 +141,10 @@
     "NAME": "Fade",
     "DESCRIPTION": "Gain !B! Block. NL theephemeral:Entropy."
   },
+  "theEphemeral:Pirouette": {
+    "NAME": "Pirouette",
+    "DESCRIPTION": "Add !M! theephemeral:Fleeting_Dodge to your hand."
+  },
   "theEphemeral:Portent": {
     "NAME": "Portent",
     "DESCRIPTION": "theephemeral:Fated: draw !M! cards.",
@@ -151,10 +155,6 @@
   "theEphemeral:Delay": {
     "NAME": "Delay",
     "DESCRIPTION": "Gain !B! Block. NL Put a card from your hand on top of your draw pile."
-  },
-  "theEphemeral:Dowse": {
-    "NAME": "Dowse",
-    "DESCRIPTION": "Gain 2 theephemeral:Augury. NL Add !M! theephemeral:Fleeting_Thought to your hand."
   },
   "theEphemeral:Remembrance": {
     "NAME": "Remembrance",
@@ -208,10 +208,9 @@
     "NAME": "Peer Through Mists",
     "DESCRIPTION": "Exhaust all Status and Curse cards that are theephemeral:Revealed or in your hand. Gain !B! Block for each card Exhausted."
   },
-  "theEphemeral:Pirouette": {
-    "NAME": "Pirouette",
-    "DESCRIPTION": "Add 2 theephemeral:Fleeting_Dodge to your hand.",
-    "UPGRADE_DESCRIPTION": "Add 2 theephemeral:Fleeting_Dodge to your hand. NL Draw a card."
+  "theEphemeral:Dowse": {
+    "NAME": "Dowse",
+    "DESCRIPTION": "Gain 2 theephemeral:Augury. NL Add !M! theephemeral:Fleeting_Thought to your hand."
   },
   "theEphemeral:FrigidAura": {
     "NAME": "Frigid Aura",
