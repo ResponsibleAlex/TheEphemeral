@@ -30,7 +30,10 @@
   },
   "theEphemeral:ChillingTouch": {
     "NAME": "Chilling Touch",
-    "DESCRIPTION": "Deal !D! damage. NL Apply 1 Weak for each theephemeral:Revealed Attack."
+    "DESCRIPTION": "Deal !D! damage. NL Apply 1 Weak for each theephemeral:Revealed Attack.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Apply !M! Weak.)"
+    ]
   },
   "theEphemeral:PsychicStrike": {
     "NAME": "Psychic Strike",
@@ -255,7 +258,8 @@
   },
   "theEphemeral:BrokenMirror": {
     "NAME": "Broken Mirror",
-    "DESCRIPTION": "Choose a card in your hand. Add a copy to the top of your draw pile."
+    "DESCRIPTION": "Choose a card in your hand. Add a copy to the top of your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose a card in your hand. Add a copy to the top of your draw pile."
   },
   "theEphemeral:Numerology": {
     "NAME": "Numerology",

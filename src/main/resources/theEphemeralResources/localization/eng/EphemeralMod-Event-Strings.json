@@ -19,6 +19,18 @@
       " #rHP."
     ]
   },
+  "theEphemeral:NestEventMod": {
+    "NAME": "NestEventMod",
+    "DESCRIPTIONS": [
+      "You've been here ~before~ ... you know these #rCultists!  NL They ignore you as they gleefully @chant@ and ~wave~ their weapons around. NL NL #r@\"MURDER!!@ #r@MURDER@ #r@MURDER!!\"@ NL #b~\"CAW~ #b~CAW~ #b~CAAAAAWWW!\"~ NL NL You also notice a #yDonation #yBox... NL One way or another, they must @pay.@",
+      "You get the drop on them. NL Several #rCultists lie dead before they can even react. NL NL In the ensuing chaos, many flee while others fight to the ~bitter~ ~end.~ NL NL ... NL NL You've sustained some #rinjuries, but the @REVENGE@ was worth it. NL Before leaving, you grab a #yDagger and their #ygold."
+    ],
+    "OPTIONS": [
+      "[Ambush] #gObtain Ritual Dagger. #gObtain #g",
+      " #gGold. #rLose #r",
+      " #rHP."
+    ]
+  },
   "theEphemeral:AwakenedOneDialog": {
     "NAME": "AwakenedOneDialog",
     "DESCRIPTIONS": [

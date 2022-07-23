@@ -108,6 +108,7 @@ public class PreviewWidget {
                     AbstractCard c = drawPile.group.get(drawPileIndexOffset - i);
                     AbstractCard cpy = c.makeSameInstanceOf();
 
+                    cpy.applyPowers();
                     cpy.setAngle(0.0F, true);
                     cpy.current_x = cpy.target_x = Settings.scale * WIDGET_X;
                     cpy.current_y = cpy.target_y = Settings.scale * (CARD_Y - (i * 40));
