@@ -3,6 +3,7 @@ package theEphemeral.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,6 +26,8 @@ public class PhantomWingsPower extends AbstractPower implements CloneablePowerIn
 
     public static final int MaxStackAmount = 999;
 
+    private int numberToMake;
+
     public PhantomWingsPower(final int amount) {
         name = NAME;
         ID = POWER_ID;
@@ -34,6 +37,7 @@ public class PhantomWingsPower extends AbstractPower implements CloneablePowerIn
         if (this.amount >= MaxStackAmount) {
             this.amount = MaxStackAmount;
         }
+        this.numberToMake = 1;
 
         type = PowerType.BUFF;
 
@@ -44,6 +48,8 @@ public class PhantomWingsPower extends AbstractPower implements CloneablePowerIn
     }
 
     public void stackPower(int stackAmount) {
+        this.numberToMake++;
+
         super.stackPower(stackAmount);
         if (this.amount >= MaxStackAmount) {
             this.amount = MaxStackAmount;
@@ -62,8 +68,18 @@ public class PhantomWingsPower extends AbstractPower implements CloneablePowerIn
     }
 
     @Override
+    public void atStartOfTurn() {
+        flash();
+        addToBot(new MakeTempCardInHandAction(new FleetingDodge(), amount));
+    }
+
+    @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        if (this.numberToMake == 1) {
+            description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.numberToMake + DESCRIPTIONS[2];
+        } else {
+            description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.numberToMake + DESCRIPTIONS[3];
+        }
     }
 
     @Override

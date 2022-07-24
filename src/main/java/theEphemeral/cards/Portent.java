@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
+import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
@@ -32,7 +33,7 @@ public class Portent extends AbstractDynamicCard {
     private static final int COST = 0;
     private static final int CARDS_DRAWN = 2;
     private static final int UPGRADE_CARDS_DRAWN = 1;
-
+    private static final int AUGURY = 2;
 
 
     // /STAT DECLARATION/
@@ -46,18 +47,9 @@ public class Portent extends AbstractDynamicCard {
     }
 
     @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (super.canUse(p, m)) {
-            if (willTriggerFated())
-                return true;
-
-            cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-        }
-        return false;
-    }
-
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        PreviewWidget.AddAugury(AUGURY);
+
         if (triggerFated()) {
             addToBot(new DrawCardAction(magicNumber));
         }

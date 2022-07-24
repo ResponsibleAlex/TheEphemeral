@@ -31,7 +31,7 @@ public class Discord extends AbstractEntropyCard {
 
     private static final int COST = 0;
     // private static final int UPGRADED_COST = 0;
-    private static final int DAMAGE = 3;
+    private static final int DAMAGE = 5;
     private static final int UPGRADE_PLUS_DMG = 2;
 
     // /STAT DECLARATION/

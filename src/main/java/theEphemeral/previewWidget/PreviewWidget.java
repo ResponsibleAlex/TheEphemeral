@@ -118,6 +118,10 @@ public class PreviewWidget {
                     previews.addToBottom(cpy);
                 }
             }
+
+            for (AbstractCard c : p.hand.group) {
+                c.applyPowers();
+            }
         }
 
         previews.update();

@@ -64,7 +64,7 @@ public class ChillingTouch extends AbstractDynamicCard {
 
     @Override
     public void atTurnStart() {
-        setDescription(true);
+        setDescription(false);
     }
 
     @Override

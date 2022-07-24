@@ -147,10 +147,7 @@
   },
   "theEphemeral:Portent": {
     "NAME": "Portent",
-    "DESCRIPTION": "theephemeral:Fated: draw !M! cards.",
-    "EXTENDED_DESCRIPTION": [
-      "Can only be played when Fated."
-    ]
+    "DESCRIPTION": "Gain 2 theephemeral:Augury. NL theephemeral:Fated: draw !M! cards."
   },
   "theEphemeral:Delay": {
     "NAME": "Delay",
@@ -176,17 +173,17 @@
   },
   "theEphemeral:BoonOfTheSpinner": {
     "NAME": "Boon of the Spinner",
-    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded, gain [E].",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded, gain [E] [E]."
+    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from anywhere, gain [E].",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from anywhere, gain [E] [E]."
   },
   "theEphemeral:BoonOfTheAlloter": {
     "NAME": "Boon of the Alloter",
-    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded, draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded, draw !M! cards."
+    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from anywhere, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from anywhere, draw !M! cards."
   },
   "theEphemeral:BoonOfTheInflexible": {
     "NAME": "Boon of the Inflexible",
-    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded, gain !B! Block."
+    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from anywhere, gain !B! Block."
   },
   "theEphemeral:BlindFaith": {
     "NAME": "Blind Faith",
@@ -285,7 +282,7 @@
   },
   "theEphemeral:PhantomWings": {
     "NAME": "Phantom Wings",
-    "DESCRIPTION": "theephemeral:Fleeting_Dodge Blocks for an additional !M!."
+    "DESCRIPTION": "At the start of your turn, add a theephemeral:Fleeting_Dodge to your hand. NL theephemeral:Fleeting_Dodge Blocks for an additional !M!."
   },
   "theEphemeral:Clairvoyance": {
     "NAME": "Clairvoyance",

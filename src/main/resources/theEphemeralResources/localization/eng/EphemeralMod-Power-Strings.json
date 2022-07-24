@@ -10,7 +10,9 @@
                 "NAME": "Phantom Wings",
                 "DESCRIPTIONS": [
                         "#yFleeting #yDodge #yBlocks for an additional #b",
-                        "."
+                        ". At the start of your turn, add #b",
+                        " #yFleeting #yDodge to your hand.",
+                        " #yFleeting #yDodges to your hand."
                 ]
         },
         "theEphemeral:ClairvoyancePower": {
