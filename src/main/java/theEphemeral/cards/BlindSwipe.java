@@ -29,7 +29,6 @@ public class BlindSwipe extends AbstractDynamicCard {
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 1;
-    // private static final int UPGRADED_COST = 0;
     private static final int DAMAGE = 9;
     private static final int UPGRADE_PLUS_DMG = 4;
 
@@ -41,7 +40,6 @@ public class BlindSwipe extends AbstractDynamicCard {
         baseDamage = DAMAGE;
     }
 
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
@@ -55,7 +53,6 @@ public class BlindSwipe extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            //upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

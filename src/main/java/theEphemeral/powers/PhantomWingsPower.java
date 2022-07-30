@@ -3,14 +3,13 @@ package theEphemeral.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theEphemeral.EphemeralMod;
-import theEphemeral.fleetingCards.FleetingDodge;
+import theEphemeral.previewWidget.PreviewWidget;
 import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
@@ -26,8 +25,6 @@ public class PhantomWingsPower extends AbstractPower implements CloneablePowerIn
 
     public static final int MaxStackAmount = 999;
 
-    private int numberToMake;
-
     public PhantomWingsPower(final int amount) {
         name = NAME;
         ID = POWER_ID;
@@ -37,7 +34,6 @@ public class PhantomWingsPower extends AbstractPower implements CloneablePowerIn
         if (this.amount >= MaxStackAmount) {
             this.amount = MaxStackAmount;
         }
-        this.numberToMake = 1;
 
         type = PowerType.BUFF;
 
@@ -48,8 +44,6 @@ public class PhantomWingsPower extends AbstractPower implements CloneablePowerIn
     }
 
     public void stackPower(int stackAmount) {
-        this.numberToMake++;
-
         super.stackPower(stackAmount);
         if (this.amount >= MaxStackAmount) {
             this.amount = MaxStackAmount;
@@ -59,26 +53,20 @@ public class PhantomWingsPower extends AbstractPower implements CloneablePowerIn
     }
 
     @Override
-    public float modifyBlock(float blockAmount, AbstractCard card) {
-        if (card instanceof FleetingDodge) {
-            return modifyBlock(blockAmount) + amount;
-        } else {
-            return modifyBlock(blockAmount);
+    public void atEndOfTurn(boolean isPlayer) {
+        int block = PreviewWidget.GetAugury() * amount;
+        if (block > 0) {
+            flash();
+            addToBot(new GainBlockAction(AbstractDungeon.player, block));
         }
     }
 
     @Override
-    public void atStartOfTurn() {
-        flash();
-        addToBot(new MakeTempCardInHandAction(new FleetingDodge(), amount));
-    }
-
-    @Override
     public void updateDescription() {
-        if (this.numberToMake == 1) {
-            description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.numberToMake + DESCRIPTIONS[2];
+        if (this.amount == 1) {
+            description = DESCRIPTIONS[0];
         } else {
-            description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.numberToMake + DESCRIPTIONS[3];
+            description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
         }
     }
 

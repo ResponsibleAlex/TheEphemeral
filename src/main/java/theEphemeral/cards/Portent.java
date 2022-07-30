@@ -32,8 +32,9 @@ public class Portent extends AbstractDynamicCard {
 
     private static final int COST = 0;
     private static final int CARDS_DRAWN = 2;
-    private static final int UPGRADE_CARDS_DRAWN = 1;
-    private static final int AUGURY = 2;
+    //private static final int UPGRADE_CARDS_DRAWN = 1;
+    private static final int AUGURY = 1;
+    private static final int UPGRADE_PLUS_AUGURY = 1;
 
 
     // /STAT DECLARATION/
@@ -43,15 +44,15 @@ public class Portent extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         fated = true;
 
-        magicNumber = baseMagicNumber = CARDS_DRAWN;
+        magicNumber = baseMagicNumber = AUGURY;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        PreviewWidget.AddAugury(AUGURY);
+        PreviewWidget.AddAugury(magicNumber);
 
         if (triggerFated()) {
-            addToBot(new DrawCardAction(magicNumber));
+            addToBot(new DrawCardAction(CARDS_DRAWN));
         }
     }
 
@@ -60,7 +61,7 @@ public class Portent extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_CARDS_DRAWN);
+            upgradeMagicNumber(UPGRADE_PLUS_AUGURY);
             initializeDescription();
         }
     }

@@ -1,7 +1,6 @@
 package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
@@ -31,6 +30,7 @@ public class ScryingPool extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int MAGIC_NUMBER = 1;
+    private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 
     // /STAT DECLARATION/
 
@@ -41,10 +41,6 @@ public class ScryingPool extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (upgraded) {
-            addToBot(new DrawCardAction(magicNumber));
-        }
-
         addToBot(new ApplyPowerAction(p, p,
                 new ScryingPoolPower(magicNumber), magicNumber));
     }
@@ -53,6 +49,7 @@ public class ScryingPool extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

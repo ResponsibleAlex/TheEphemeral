@@ -27,15 +27,16 @@ public class SwirlingMists extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 2;
-    private static final int UPGRADED_COST = 1;
-    private static final int MAGIC_NUMBER = 3;
+    private static final int COST = 1;
+    //private static final int UPGRADED_COST = 1;
+    private static final int BLOCK = 2;
+    private static final int UPGRADE_PLUS_BLOCK = 1;
 
     // /STAT DECLARATION/
 
     public SwirlingMists() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = MAGIC_NUMBER;
+        magicNumber = baseMagicNumber = BLOCK;
     }
 
     @Override
@@ -48,7 +49,7 @@ public class SwirlingMists extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(UPGRADE_PLUS_BLOCK);
             initializeDescription();
         }
     }

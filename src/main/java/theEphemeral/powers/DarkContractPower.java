@@ -1,15 +1,15 @@
 package theEphemeral.powers;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import theEphemeral.EphemeralMod;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import theEphemeral.previewWidget.PreviewWidget;
+import theEphemeral.EphemeralMod;
 import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
@@ -53,14 +53,23 @@ public class DarkContractPower extends AbstractPower implements CloneablePowerIn
     }
 
     @Override
-    public void onExhaust(AbstractCard card) {
+    public void onSpecificTrigger() {
         flash();
-        PreviewWidget.AddAugury(amount);
+        addToBot(new LoseHPAction(this.owner, this.owner, this.amount));
+        addToBot(new GainEnergyAction(this.amount));
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        StringBuilder energy = new StringBuilder();
+        if (amount <= 3) {
+            for (int i = 0; i < amount; i++) {
+                energy.append("[E] ");
+            }
+        } else {
+            energy.append("#b").append(amount).append(" [E] ");
+        }
+        description = DESCRIPTIONS[0] + energy + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
     }
 
     @Override

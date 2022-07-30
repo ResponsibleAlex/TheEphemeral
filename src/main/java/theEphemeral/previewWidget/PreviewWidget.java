@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import theEphemeral.EphemeralMod;
+import theEphemeral.powers.DarkContractPower;
 import theEphemeral.vfx.FeatherEffect;
 
 import java.util.ArrayList;
@@ -223,6 +224,10 @@ public class PreviewWidget {
             widget.addAugury(amount);
     }
     public void addAugury(int amount) {
+        if (amount > 0 && AbstractDungeon.player.hasPower(DarkContractPower.POWER_ID)) {
+            AbstractDungeon.player.getPower(DarkContractPower.POWER_ID).onSpecificTrigger();
+        }
+
         SetAugury(amount + augury);
     }
 

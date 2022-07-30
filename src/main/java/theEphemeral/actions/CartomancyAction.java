@@ -45,7 +45,9 @@ public class CartomancyAction extends AbstractGameAction {
                     }
 
                     disCard.current_x = -1000.0F * Settings.xScale;
-                    AbstractDungeon.effectList.add(new ShowCardAndAddToDrawPileEffect(disCard, false, false));
+                    float x = (float)Settings.WIDTH / 2.0F + 200.0F * Settings.xScale;
+                    float y = (float)Settings.HEIGHT / 2.0F;
+                    AbstractDungeon.effectList.add(new ShowCardAndAddToDrawPileEffect(disCard, x, y, false, true, false));
 
                     AbstractDungeon.cardRewardScreen.discoveryCard = null;
                 }

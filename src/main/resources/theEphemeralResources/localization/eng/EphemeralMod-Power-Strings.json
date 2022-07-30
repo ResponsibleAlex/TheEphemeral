@@ -9,10 +9,9 @@
         "theEphemeral:PhantomWingsPower": {
                 "NAME": "Phantom Wings",
                 "DESCRIPTIONS": [
-                        "#yFleeting #yDodge #yBlocks for an additional #b",
-                        ". At the start of your turn, add #b",
-                        " #yFleeting #yDodge to your hand.",
-                        " #yFleeting #yDodges to your hand."
+                        "At the end of your turn, gain #yBlock equal to your #yAugury.",
+                        "At the end of your turn, gain #yBlock equal to #b",
+                        " times your #yAugury."
                 ]
         },
         "theEphemeral:ClairvoyancePower": {
@@ -67,8 +66,9 @@
         "theEphemeral:DarkContractPower": {
                 "NAME": "Dark Contract",
                 "DESCRIPTIONS": [
-                        "Whenever you #yExhaust a card, gain #b",
-                        " #yAugury."
+                        "Whenever you gain #yAugury, gain ",
+                        "and lose #b",
+                        " life."
                 ]
         },
         "theEphemeral:TimeSpiralPower": {

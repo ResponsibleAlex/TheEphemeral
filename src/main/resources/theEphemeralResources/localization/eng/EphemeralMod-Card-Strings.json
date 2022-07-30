@@ -134,8 +134,8 @@
 
   "theEphemeral:TimeSkip": {
     "NAME": "Time Skip",
-    "DESCRIPTION": "Play the top card of your draw pile. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Play the top card of your draw pile."
+    "DESCRIPTION": "Play the top card of your draw pile. NL theephemeral:Fated: gain [E]. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Play the top card of your draw pile. NL theephemeral:Fated: gain [E]."
   },
   "theEphemeral:Fade": {
     "NAME": "Fade",
@@ -147,7 +147,7 @@
   },
   "theEphemeral:Portent": {
     "NAME": "Portent",
-    "DESCRIPTION": "Gain 2 theephemeral:Augury. NL theephemeral:Fated: draw !M! cards."
+    "DESCRIPTION": "Gain !M! theephemeral:Augury. NL theephemeral:Fated: draw 2 cards."
   },
   "theEphemeral:Delay": {
     "NAME": "Delay",
@@ -282,7 +282,7 @@
   },
   "theEphemeral:PhantomWings": {
     "NAME": "Phantom Wings",
-    "DESCRIPTION": "At the start of your turn, add a theephemeral:Fleeting_Dodge to your hand. NL theephemeral:Fleeting_Dodge Blocks for an additional !M!."
+    "DESCRIPTION": "At the end of your turn, gain Block equal to your theephemeral:Augury."
   },
   "theEphemeral:Clairvoyance": {
     "NAME": "Clairvoyance",
@@ -295,8 +295,8 @@
   },
   "theEphemeral:ScryingPool": {
     "NAME": "Scrying Pool",
-    "DESCRIPTION": "Whenever you shuffle your draw pile, draw a card.",
-    "UPGRADE_DESCRIPTION": "Now and whenever you shuffle your draw pile, draw a card."
+    "DESCRIPTION": "Whenever you shuffle your draw pile, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you shuffle your draw pile, draw !M! cards."
   },
   "theEphemeral:Soothsayer": {
     "NAME": "Soothsayer",
@@ -308,12 +308,11 @@
   },
   "theEphemeral:ImpendingDoom": {
     "NAME": "Impending Doom",
-    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to your theephemeral:Augury.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to 2 times your theephemeral:Augury."
+    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to your theephemeral:Augury."
   },
   "theEphemeral:DarkContract": {
     "NAME": "Dark Contract",
-    "DESCRIPTION": "Whenever you Exhaust a card, gain !M! theephemeral:Augury."
+    "DESCRIPTION": "Whenever you gain theephemeral:Augury, gain [E] and lose 1 life."
   },
   "theEphemeral:TimeSpiral": {
     "NAME": "Time Spiral",

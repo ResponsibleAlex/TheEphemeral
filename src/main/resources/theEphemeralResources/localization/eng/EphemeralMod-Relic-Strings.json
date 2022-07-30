@@ -81,7 +81,7 @@
     "NAME": "Stone Tablet",
     "FLAVOR": "The tally marks scratched into the surface indicate this tablet was used for some sort of accounting.",
     "DESCRIPTIONS": [
-      "Whenever you shuffle your draw pile, deal #b4 damage to ALL enemies."
+      "Whenever you shuffle your draw pile, deal #b6 damage to ALL enemies."
     ]
   }
 }

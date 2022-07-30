@@ -354,7 +354,7 @@ public class EphemeralMod implements
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
         
-        BaseMod.addPotion(PotionOfProphecy.class, Color.WHITE, EPHEMERAL_PURPLE, NECTAR_YELLOW, PotionOfProphecy.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
+        BaseMod.addPotion(PotionOfProphecy.class, Color.WHITE, Color.WHITE, NECTAR_YELLOW, PotionOfProphecy.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
         BaseMod.addPotion(TemporalTonic.class, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, TemporalTonic.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
         BaseMod.addPotion(ElysianNectar.class, NECTAR_YELLOW, NECTAR_YELLOW, null, ElysianNectar.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
 

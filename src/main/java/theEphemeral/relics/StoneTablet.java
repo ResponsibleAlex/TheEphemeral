@@ -21,7 +21,7 @@ public class StoneTablet extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("StoneTablet.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("StoneTablet.png"));
 
-    private final static int DAMAGE = 4;
+    private final static int DAMAGE = 6;
 
     public StoneTablet() {
         super(ID, IMG, OUTLINE, RelicTier.SHOP, LandingSound.HEAVY);
