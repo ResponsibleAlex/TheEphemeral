@@ -41,7 +41,22 @@ public abstract class AbstractVanishingCard extends AbstractDynamicCard {
         }
     }
 
+    protected void addVanish() {
+        misc += 2;
+        initializeDescription();
+
+        AbstractCard c = getMasterDeckCard(uuid);
+        if (c == null)
+            return;
+
+        c.misc = misc;
+        c.initializeDescription();
+    }
+
     private AbstractCard getMasterDeckCard(UUID uuid) {
+        if (AbstractDungeon.player == null)
+            return null;
+
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c.uuid.equals(uuid)) {
                 return c;

@@ -7,6 +7,7 @@ import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.powers.TimeSpiralPower;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
@@ -28,7 +29,6 @@ public class TimeSpiral extends AbstractDynamicCard {
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 1;
-    private static final int UPGRADE_COST = 0;
     private static final int MAGIC_NUMBER = 1;
 
     // /STAT DECLARATION/
@@ -48,7 +48,8 @@ public class TimeSpiral extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+            isInnate = true;
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

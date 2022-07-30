@@ -265,7 +265,6 @@
   "theEphemeral:SpectralForge": {
     "NAME": "Spectral Forge",
     "DESCRIPTION": "Choose a card in your hand and permanently Upgrade it. NL theephemeral:Vanishing !theEphemeral:SecondMagic!.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Choose a card in your hand and permanently Upgrade it. NL theephemeral:Vanishing !theEphemeral:SecondMagic!.",
     "EXTENDED_DESCRIPTION": [
       "I have no cards that can upgrade."
     ]
@@ -316,7 +315,8 @@
   },
   "theEphemeral:TimeSpiral": {
     "NAME": "Time Spiral",
-    "DESCRIPTION": "Put the first card you play each turn on top of your draw pile."
+    "DESCRIPTION": "Put the first card you play each turn on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Put the first card you play each turn on top of your draw pile."
   },
   "theEphemeral:GrimResolve": {
     "NAME": "Grim Resolve",

@@ -87,8 +87,7 @@ public class SpectralForge extends AbstractVanishingCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            retain = true;
-            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            addVanish();
             initializeDescription();
         }
     }
