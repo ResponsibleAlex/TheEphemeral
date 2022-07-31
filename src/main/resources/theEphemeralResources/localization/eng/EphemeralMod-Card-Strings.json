@@ -281,7 +281,8 @@
   },
   "theEphemeral:PhantomWings": {
     "NAME": "Phantom Wings",
-    "DESCRIPTION": "At the end of your turn, gain Block equal to your theephemeral:Augury."
+    "DESCRIPTION": "At the end of your turn, gain Block equal to your theephemeral:Augury.",
+    "UPGRADE_DESCRIPTION": "Now and at the end of your turn, gain Block equal to your theephemeral:Augury."
   },
   "theEphemeral:Clairvoyance": {
     "NAME": "Clairvoyance",
@@ -307,7 +308,8 @@
   },
   "theEphemeral:ImpendingDoom": {
     "NAME": "Impending Doom",
-    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to your theephemeral:Augury."
+    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to your theephemeral:Augury.",
+    "UPGRADE_DESCRIPTION": "Now and at the end of your turn, deal damage to ALL enemies equal to your theephemeral:Augury."
   },
   "theEphemeral:DarkContract": {
     "NAME": "Dark Contract",
