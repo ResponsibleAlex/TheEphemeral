@@ -3,6 +3,7 @@ package theEphemeral.characters;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -15,9 +16,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -29,6 +32,7 @@ import theEphemeral.cards.*;
 import theEphemeral.relics.Laurel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static theEphemeral.EphemeralMod.*;
 import static theEphemeral.characters.TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
@@ -305,4 +309,17 @@ public class TheEphemeral extends CustomPlayer {
         return TEXT[2];
     }
 
+    @Override
+    public Texture getCutsceneBg() {
+        return ImageMaster.loadImage("TheTemplarResources/images/char/defaultCharacter/cutscene/background.png");
+    }
+
+    @Override
+    public List<CutscenePanel> getCutscenePanels() {
+        List<CutscenePanel> panels = new ArrayList<>();
+        panels.add(new CutscenePanel("TheTemplarResources/images/char/defaultCharacter/cutscene/cutscene1.png"));
+        panels.add(new CutscenePanel("TheTemplarResources/images/char/defaultCharacter/cutscene/cutscene2.png", "ATTACK_HEAVY"));
+        panels.add(new CutscenePanel("TheTemplarResources/images/char/defaultCharacter/cutscene/cutscene3.png"));
+        return panels;
+    }
 }
