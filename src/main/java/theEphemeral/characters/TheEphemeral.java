@@ -311,15 +311,15 @@ public class TheEphemeral extends CustomPlayer {
 
     @Override
     public Texture getCutsceneBg() {
-        return ImageMaster.loadImage("TheTemplarResources/images/char/defaultCharacter/cutscene/background.png");
+        return ImageMaster.loadImage("theEphemeralResources/images/char/defaultCharacter/cutscene/background.png");
     }
 
     @Override
     public List<CutscenePanel> getCutscenePanels() {
         List<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel("TheTemplarResources/images/char/defaultCharacter/cutscene/cutscene1.png"));
-        panels.add(new CutscenePanel("TheTemplarResources/images/char/defaultCharacter/cutscene/cutscene2.png", "ATTACK_HEAVY"));
-        panels.add(new CutscenePanel("TheTemplarResources/images/char/defaultCharacter/cutscene/cutscene3.png"));
+        panels.add(new CutscenePanel("theEphemeralResources/images/char/defaultCharacter/cutscene/cutscene1.png"));
+        panels.add(new CutscenePanel("theEphemeralResources/images/char/defaultCharacter/cutscene/cutscene2.png", "ATTACK_MAGIC_BEAM_SHORT"));
+        panels.add(new CutscenePanel("theEphemeralResources/images/char/defaultCharacter/cutscene/cutscene3.png"));
         return panels;
     }
 }
