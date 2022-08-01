@@ -33,7 +33,7 @@ public abstract class AbstractVanishingCard extends AbstractDynamicCard {
         if (c == null)
             return;
 
-        c.misc = misc;
+        c.misc--;
         c.applyPowers();
 
         if (c.misc <= 0) {
@@ -44,13 +44,6 @@ public abstract class AbstractVanishingCard extends AbstractDynamicCard {
     protected void addVanish() {
         misc += 2;
         initializeDescription();
-
-        AbstractCard c = getMasterDeckCard(uuid);
-        if (c == null)
-            return;
-
-        c.misc = misc;
-        c.initializeDescription();
     }
 
     private AbstractCard getMasterDeckCard(UUID uuid) {

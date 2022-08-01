@@ -33,7 +33,7 @@ public class ThrowBones extends AbstractDynamicCard {
     private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DMG = 3;
 
-    private static final int AUGURY = 2;
+    private static final int AUGURY = 1;
 
     // /STAT DECLARATION/
 

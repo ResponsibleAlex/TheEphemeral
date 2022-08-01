@@ -19,7 +19,7 @@ public class TemporalSurgeAction extends AbstractGameAction {
 
         for (AbstractCard c : PreviewWidget.GetRevealedCards()) {
             if (c.type == AbstractCard.CardType.ATTACK || c.type == AbstractCard.CardType.SKILL) {
-                candidates.addToBottom(c);
+                candidates.addToTop(c);
             }
         }
 
