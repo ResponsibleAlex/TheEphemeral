@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import theEphemeral.cards.Ravenous;
+import theEphemeral.cards.Subsume;
 
 import java.util.ArrayList;
 
@@ -49,7 +49,7 @@ public class VampiresPatch {
                 __instance.imageEventText.setDialogOption(Vampires.OPTIONS[2]);
 
                 // overwrite the first Refuse slot for our new option
-                __instance.imageEventText.updateDialogOption(ravenousSlot, OPTIONS[0] + curHpLoss + OPTIONS[1], new Ravenous());
+                __instance.imageEventText.updateDialogOption(ravenousSlot, OPTIONS[0] + curHpLoss + OPTIONS[1], new Subsume());
             }
         }
     }
@@ -98,7 +98,7 @@ public class VampiresPatch {
         }
 
         for(i = 0; i < 2; ++i) {
-            AbstractCard c = new Ravenous();
+            AbstractCard c = new Subsume();
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
             cardIds.add(c.cardID);
         }

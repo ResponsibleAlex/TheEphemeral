@@ -10,7 +10,7 @@ import theEphemeral.characters.TheEphemeral;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class Phantaplasm extends AbstractDynamicCard {
+public class Phantaplasm extends AbstractEntropyCard {
 
     // /TEXT DECLARATION/
 
@@ -46,6 +46,7 @@ public class Phantaplasm extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.POISON));
+        entropyAction();
     }
 
     // Upgraded stats.

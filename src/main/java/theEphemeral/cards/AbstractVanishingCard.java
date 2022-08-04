@@ -42,7 +42,7 @@ public abstract class AbstractVanishingCard extends AbstractDynamicCard {
     }
 
     protected void addVanish() {
-        misc += 2;
+        misc += 1;
         initializeDescription();
     }
 

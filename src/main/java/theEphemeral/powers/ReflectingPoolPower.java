@@ -1,30 +1,34 @@
 package theEphemeral.powers;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import theEphemeral.EphemeralMod;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import theEphemeral.EphemeralMod;
+import theEphemeral.fleetingCards.FleetingDodge;
+import theEphemeral.fleetingCards.FleetingStrike;
 import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
 
-public class ScryingPoolPower extends AbstractShufflePower implements CloneablePowerInterface {
-    public static final String POWER_ID = EphemeralMod.makeID(ScryingPoolPower.class.getSimpleName());
+public class ReflectingPoolPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = EphemeralMod.makeID(ReflectingPoolPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ScryingPool84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ScryingPool32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ReflectingPool84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ReflectingPool32.png"));
 
     public static final int MaxStackAmount = 999;
 
-    public ScryingPoolPower(final int amount) {
+    public ReflectingPoolPower(final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -52,29 +56,29 @@ public class ScryingPoolPower extends AbstractShufflePower implements CloneableP
     }
 
     @Override
-    public void onShuffle() {
-        int drawPileSize = AbstractDungeon.player.drawPile.size();
-        int discardPileSize = AbstractDungeon.player.discardPile.size();
-
-        if (drawPileSize > 0 || discardPileSize > 0) {
-            flash();
-
-            int amountToDraw = Math.min(amount, drawPileSize + discardPileSize);
-            addToBot(new DrawCardAction(amountToDraw));
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (card.type == AbstractCard.CardType.ATTACK && isNotExhausting(card)) {
+            addToBot(new MakeTempCardInHandAction(new FleetingStrike(), amount));
+        } else if (card.type == AbstractCard.CardType.SKILL && isNotExhausting(card)) {
+            addToBot(new MakeTempCardInHandAction(new FleetingDodge(), amount));
         }
+    }
+
+    private boolean isNotExhausting(AbstractCard c) {
+        return !c.exhaustOnUseOnce && !c.exhaust;
     }
 
     @Override
     public void updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-        } else if (amount > 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        } else {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[3] + amount + DESCRIPTIONS[4];
         }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new ScryingPoolPower(amount);
+        return new ReflectingPoolPower(amount);
     }
 }

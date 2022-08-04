@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.ShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.powers.SoothsayerPower;
 import theEphemeral.relics.SilkyBandage;
@@ -80,5 +81,9 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         } else if (AbstractDungeon.player.drawPile.size() > 0) {
             addToBot(new ShuffleAction(AbstractDungeon.player.drawPile, true));
         }
+    }
+
+    protected AbstractMonster getRandomMonster() {
+        return AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
     }
 }

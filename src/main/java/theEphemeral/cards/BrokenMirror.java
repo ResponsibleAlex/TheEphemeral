@@ -1,10 +1,13 @@
 package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.actions.BrokenMirrorAction;
 import theEphemeral.characters.TheEphemeral;
+import theEphemeral.previewWidget.PreviewWidget;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
@@ -16,6 +19,7 @@ public class BrokenMirror extends AbstractDynamicCard {
 
     public static final String ID = EphemeralMod.makeID(BrokenMirror.class.getSimpleName());
     public static final String IMG = makeCardPath("BrokenMirror.png");
+    private static final CardStrings cardStrings;
 
     // /TEXT DECLARATION/
 
@@ -38,7 +42,16 @@ public class BrokenMirror extends AbstractDynamicCard {
         exhaust = true;
     }
 
-    // Actions the card should do.
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (PreviewWidget.GetRevealedCount() == 0) {
+            cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+            return false;
+        }
+
+        return true;
+    }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new BrokenMirrorAction());
@@ -53,5 +66,9 @@ public class BrokenMirror extends AbstractDynamicCard {
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
+    }
+
+    static {
+        cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     }
 }

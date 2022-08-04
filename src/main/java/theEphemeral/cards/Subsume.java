@@ -14,12 +14,12 @@ import theEphemeral.characters.TheEphemeral;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class Ravenous extends AbstractDynamicCard {
+public class Subsume extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/
 
-    public static final String ID = EphemeralMod.makeID(Ravenous.class.getSimpleName());
-    public static final String IMG = makeCardPath("Ravenous.png");
+    public static final String ID = EphemeralMod.makeID(Subsume.class.getSimpleName());
+    public static final String IMG = makeCardPath("Subsume.png");
 
     // /TEXT DECLARATION/
 
@@ -41,7 +41,7 @@ public class Ravenous extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public Ravenous() {
+    public Subsume() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC_NUMBER;

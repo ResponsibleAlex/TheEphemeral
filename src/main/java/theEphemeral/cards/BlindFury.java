@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.StarBounceEffect;
 import com.megacrit.cardcrawl.vfx.combat.ViolentAttackEffect;
 import theEphemeral.EphemeralMod;
-import theEphemeral.actions.PlayRandomRevealedAttackAction;
+import theEphemeral.actions.BlindFuryAction;
 import theEphemeral.characters.TheEphemeral;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -38,6 +38,8 @@ public class BlindFury extends AbstractDynamicCard {
     private static final int COST = 2;
     // private static final int UPGRADED_COST = 0;
     private static final int DAMAGE = 12;
+    private static final int NUMBER = 1;
+    private static final int UPGRADE_PLUS_NUMBER = 1;
 
     // /STAT DECLARATION/
 
@@ -45,6 +47,7 @@ public class BlindFury extends AbstractDynamicCard {
     public BlindFury() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        baseMagicNumber = magicNumber = NUMBER;
     }
 
     // Actions the card should do.
@@ -66,9 +69,9 @@ public class BlindFury extends AbstractDynamicCard {
         megaShuffle();
 
         // Play 1 or 2 random revealed attacks
-        addToBot(new PlayRandomRevealedAttackAction());
+        addToBot(new BlindFuryAction());
         if (upgraded) {
-            addToBot(new PlayRandomRevealedAttackAction());
+            addToBot(new BlindFuryAction());
         }
     }
 
@@ -77,6 +80,7 @@ public class BlindFury extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeMagicNumber(UPGRADE_PLUS_NUMBER);
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

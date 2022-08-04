@@ -20,7 +20,7 @@ public class TemporalTonic extends CustomPotion {
     private static final int POTENCY = 3;
 
     public TemporalTonic() {
-        super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.BOLT, PotionColor.WHITE);
+        super(NAME, POTION_ID, PotionRarity.RARE, PotionSize.BOLT, PotionColor.WHITE);
         isThrown = false;
     }
 

@@ -1,17 +1,18 @@
 package theEphemeral.actions;
 
-import com.badlogic.gdx.Gdx;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theEphemeral.previewWidget.PreviewWidget;
+
+import java.util.List;
 
 public class BrokenMirrorAction extends AbstractGameAction {
-    AbstractPlayer p = AbstractDungeon.player;
     public static final String[] TEXT;
-    private AbstractCard dupe;
     private boolean makingChoice = false;
 
     public BrokenMirrorAction() {
@@ -25,66 +26,46 @@ public class BrokenMirrorAction extends AbstractGameAction {
     @Override
     public void update() {
         if (duration == startDuration) {
-            if (p.hand.size() == 0) {
+            List<AbstractCard> revealed = PreviewWidget.GetRevealedCards();
+            int revealedCount = revealed.size();
+
+            if (revealedCount == 0) {
                 isDone = true;
                 return;
-            } else if (p.hand.size() == 1) {
-                duplicateAndDisplay(p.hand.getTopCard());
 
-                p.hand.refreshHandLayout();
+            } else if (revealedCount == 1) {
+                addToTop(new MakeTempCardInHandAction(revealed.get(0).makeStatEquivalentCopy()));
                 tickDuration();
                 return;
+
             } else {
                 this.makingChoice = true;
-                AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false);
+
+                CardGroup tmpGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+                for (AbstractCard c : revealed) {
+                    tmpGroup.addToTop(c);
+                }
+                AbstractDungeon.gridSelectScreen.open(tmpGroup, 1, false, TEXT[0]);
+
                 this.tickDuration();
                 return;
             }
         }
 
-        if (this.makingChoice && !AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
+        if (this.makingChoice && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             this.makingChoice = false;
 
-            AbstractCard chosen = AbstractDungeon.handCardSelectScreen.selectedCards.group.get(0);
-            duplicateAndDisplay(chosen);
-            p.hand.addToTop(chosen);
+            AbstractCard chosen = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
+            addToTop(new MakeTempCardInHandAction(chosen.makeStatEquivalentCopy()));
 
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
 
-            p.hand.refreshHandLayout();
             this.tickDuration();
             return;
         }
 
-        this.duration -= Gdx.graphics.getDeltaTime();
-        if (this.duration < 0.0F) {
-
-            if (this.dupe != null) {
-                this.dupe.shrink();
-                AbstractDungeon.player.limbo.removeCard(this.dupe);
-                AbstractDungeon.getCurrRoom().souls.onToDeck(this.dupe, false);
-            }
-
-            this.isDone = true;
-        }
-    }
-
-    private void duplicateAndDisplay(AbstractCard c) {
-
-        this.dupe = c.makeStatEquivalentCopy();
-
-        this.dupe.unhover();
-        this.dupe.untip();
-        this.dupe.stopGlowing();
-
-        this.dupe.current_x = c.current_x;
-        this.dupe.current_y = c.current_y;
-
-        AbstractDungeon.player.limbo.addToTop(this.dupe);
-
-        this.dupe.target_x = (float)Settings.WIDTH / 2.0F - Settings.scale * 200.0f;
-        this.dupe.target_y = (float)Settings.HEIGHT / 2.0F;
+        this.tickDuration();
     }
 
     static {

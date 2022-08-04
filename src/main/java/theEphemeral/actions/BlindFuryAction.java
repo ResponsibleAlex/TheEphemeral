@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import theEphemeral.previewWidget.PreviewWidget;
+import theEphemeral.cards.BlindFury;
 
-public class PlayRandomRevealedAttackAction extends AbstractGameAction {
-    public PlayRandomRevealedAttackAction() {
+public class BlindFuryAction extends AbstractGameAction {
+    public BlindFuryAction() {
         actionType = ActionType.CARD_MANIPULATION;
     }
 
@@ -19,8 +19,9 @@ public class PlayRandomRevealedAttackAction extends AbstractGameAction {
     public void update() {
         CardGroup candidates = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
-        for (AbstractCard c : PreviewWidget.GetRevealedCards()) {
-            if (c.type == AbstractCard.CardType.ATTACK) {
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+            if (c.type == AbstractCard.CardType.ATTACK
+                    && !(c instanceof BlindFury)) {
                 candidates.addToRandomSpot(c);
             }
         }

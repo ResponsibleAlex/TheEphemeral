@@ -1,5 +1,6 @@
 package theEphemeral.cards;
 
+import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
@@ -26,9 +27,9 @@ public class Tasseomancy extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 1;
-    private static final int MAGIC_NUMBER = 4;
-    private static final int UPGRADE_PLUS_MAGIC_NUMBER = 3;
+    private static final int COST = 0;
+    private static final int AUGURY = 1;
+    private static final int UPGRADE_PLUS_AUGURY = 1;
 
 
     // /STAT DECLARATION/
@@ -36,14 +37,16 @@ public class Tasseomancy extends AbstractDynamicCard {
 
     public Tasseomancy() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC_NUMBER;
-        exhaust = true;
+        baseMagicNumber = magicNumber = AUGURY;
     }
 
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         PreviewWidget.AddAugury(magicNumber);
+
+        if (!p.drawPile.isEmpty() && p.drawPile.getTopCard().type == CardType.SKILL) {
+            addToBot(new PlayTopCardAction(getRandomMonster(), false));
+        }
     }
 
     //Upgraded stats.
@@ -51,7 +54,7 @@ public class Tasseomancy extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
+            upgradeMagicNumber(UPGRADE_PLUS_AUGURY);
             initializeDescription();
         }
     }

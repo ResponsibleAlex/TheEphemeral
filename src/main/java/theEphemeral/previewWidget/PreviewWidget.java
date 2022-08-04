@@ -135,6 +135,7 @@ public class PreviewWidget {
                     hovering = true;
                     if (hoveredCard == null || notRoughlyEqual(hoveredCard, c)) {
                         hoveredCard = c.makeStatEquivalentCopy();
+                        hoveredCard.applyPowers();
 
                         hoveredCard.setAngle(0.0F, true);
                         hoveredCard.current_x = hoveredCard.target_x = Settings.scale * HOVER_X;
@@ -202,7 +203,7 @@ public class PreviewWidget {
         else
             return 0;
     }
-    public int getAugury() {
+    private int getAugury() {
         return augury;
     }
 
@@ -210,7 +211,7 @@ public class PreviewWidget {
         if (widget != null && widget.isActive())
             widget.setAugury(newValue);
     }
-    public void setAugury(int newValue) {
+    private void setAugury(int newValue) {
         augury = newValue;
 
         if (augury < 0)
@@ -223,7 +224,7 @@ public class PreviewWidget {
         if (widget != null && widget.isActive())
             widget.addAugury(amount);
     }
-    public void addAugury(int amount) {
+    private void addAugury(int amount) {
         if (amount > 0 && AbstractDungeon.player.hasPower(DarkContractPower.POWER_ID)) {
             AbstractDungeon.player.getPower(DarkContractPower.POWER_ID).onSpecificTrigger();
         }
@@ -235,14 +236,14 @@ public class PreviewWidget {
         if (widget != null && widget.isActive())
             widget.startOfTurn();
     }
-    public void startOfTurn() {
+    private void startOfTurn() {
         startOfTurnMod = 0;
     }
     public static void StartOfTurnIncrease(int amount) {
         if (widget != null && widget.isActive())
             widget.startOfTurnIncrease(amount);
     }
-    public void startOfTurnIncrease(int amount) {
+    private void startOfTurnIncrease(int amount) {
         startOfTurnMod += amount;
     }
 
@@ -250,7 +251,7 @@ public class PreviewWidget {
         if (widget != null && widget.isActive())
             widget.startOfTurnAccounting();
     }
-    public void startOfTurnAccounting() {
+    private void startOfTurnAccounting() {
         if (firstTurn) {
             firstTurn = false;
         } else {
@@ -262,12 +263,6 @@ public class PreviewWidget {
         }
     }
 
-    public static int GetRevealed() {
-        if (widget != null && widget.isActive())
-            return widget.getRevealed();
-        else
-            return 0;
-    }
     private int getRevealed() {
         return Math.min(augury, p.drawPile.size());
     }
@@ -307,6 +302,16 @@ public class PreviewWidget {
         return (int) previews.group.stream().filter(x -> x.type == AbstractCard.CardType.ATTACK).count();
     }
 
+    public static int GetRevealedCount() {
+        if (widget != null && widget.isActive())
+            return widget.getRevealedCount();
+        else
+            return 0;
+    }
+    private int getRevealedCount() {
+        return previews.group.size();
+    }
+
     public static void Render(SpriteBatch sb) {
         if (widget != null && widget.isActive())
             widget.render(sb);
@@ -340,7 +345,7 @@ public class PreviewWidget {
                 (int)HEADER_WIDTH, (int)HEADER_HEIGHT,
                 false, false);
     }
-    protected void renderText(SpriteBatch sb) {
+    private void renderText(SpriteBatch sb) {
         FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L,
                 Integer.toString(augury),
                 Settings.scale * (AMOUNT_TEXT_X),

@@ -25,7 +25,7 @@ public class ElysianNectar extends CustomPotion {
     private static final int POTENCY = 1;
 
     public ElysianNectar() {
-        super(NAME, POTION_ID, PotionRarity.RARE, PotionSize.EYE, PotionColor.WHITE);
+        super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.EYE, PotionColor.WHITE);
         isThrown = false;
     }
 

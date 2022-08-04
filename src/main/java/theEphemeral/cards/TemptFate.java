@@ -4,9 +4,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
-import theEphemeral.actions.DiscardTopCardAction;
 import theEphemeral.characters.TheEphemeral;
-import theEphemeral.previewWidget.PreviewWidget;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
@@ -28,8 +26,9 @@ public class TemptFate extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
+    private static final int COST = 0;
+    private static final int DRAW = 3;
+    private static final int UPGRADE_PLUS_DRAW = 1;
 
 
     // /STAT DECLARATION/
@@ -37,19 +36,15 @@ public class TemptFate extends AbstractDynamicCard {
 
     public TemptFate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = DRAW;
         exhaust = true;
     }
 
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int revealed = PreviewWidget.GetRevealed();
+        megaShuffle();
 
-        for (int i = 0; i < revealed; i++) {
-            addToBot(new DiscardTopCardAction());
-        }
-
-        addToBot(new DrawCardAction(revealed));
+        addToBot(new DrawCardAction(magicNumber));
     }
 
     //Upgraded stats.
@@ -57,7 +52,7 @@ public class TemptFate extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(UPGRADE_PLUS_DRAW);
             initializeDescription();
         }
     }

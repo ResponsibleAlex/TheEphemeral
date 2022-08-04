@@ -5,52 +5,48 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
-import theEphemeral.powers.ScryingPoolPower;
+import theEphemeral.powers.ReflectingPoolPower;
 
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class ScryingPool extends AbstractDynamicCard {
+public class ReflectingPool extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = EphemeralMod.makeID(ScryingPool.class.getSimpleName());
-    public static final String IMG = makeCardPath("ScryingPool.png");
+    public static final String ID = EphemeralMod.makeID(ReflectingPool.class.getSimpleName());
+    public static final String IMG = makeCardPath("ReflectingPool.png");
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 1;
-    private static final int MAGIC_NUMBER = 1;
-    private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
+    private static final int COST = 2;
+    private static final int UPGRADE_COST = 1;
 
     // /STAT DECLARATION/
 
-    public ScryingPool() {
+    public ReflectingPool() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = MAGIC_NUMBER;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p,
-                new ScryingPoolPower(magicNumber), magicNumber));
+                new ReflectingPoolPower(1), 1));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
-            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            upgradeBaseCost(UPGRADE_COST);
             initializeDescription();
         }
     }

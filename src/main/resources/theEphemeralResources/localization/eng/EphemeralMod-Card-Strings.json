@@ -70,7 +70,7 @@
 
   "theEphemeral:Phantaplasm": {
     "NAME": "Phantaplasm",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Ethereal."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage to ALL enemies. NL theephemeral:Entropy."
   },
   "theEphemeral:PiercingMist": {
     "NAME": "Piercing Mist",
@@ -86,12 +86,12 @@
   },
   "theEphemeral:CastStones": {
     "NAME": "Cast Stones",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy is attacking, gain 2 Augury and add !M! theephemeral:Fleeting_Dodge to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! theephemeral:Augury. NL If the top theephemeral:Revealed card is an Attack, play it."
   },
   "theEphemeral:BlindFury": {
     "NAME": "Blind Fury",
-    "DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile. NL Play 1 random theephemeral:Revealed Attack.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile. NL Play 2 random theephemeral:Revealed Attacks."
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile. NL Play !M! random Attack from your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile. NL Play !M! random Attacks from your draw pile."
   },
   "theEphemeral:SpectralThief": {
     "NAME": "Spectral Thief",
@@ -127,8 +127,8 @@
     "NAME": "Burning Vengeance",
     "DESCRIPTION": "Deal !D! damage to ALL enemies."
   },
-  "theEphemeral:Ravenous": {
-    "NAME": "Ravenous",
+  "theEphemeral:Subsume": {
+    "NAME": "Subsume",
     "DESCRIPTION": "Deal !D! damage. NL If Fatal, gain !M! health."
   },
 
@@ -195,7 +195,7 @@
   },
   "theEphemeral:Tasseomancy": {
     "NAME": "Tasseomancy",
-    "DESCRIPTION": "Gain !M! theephemeral:Augury. NL Exhaust."
+    "DESCRIPTION": "Gain !M! theephemeral:Augury. NL If the top theephemeral:Revealed card is a Skill, play it."
   },
   "theEphemeral:RecurringNightmare": {
     "NAME": "Recurring Nightmare",
@@ -219,7 +219,7 @@
   },
   "theEphemeral:Dissipate": {
     "NAME": "Dissipate",
-    "DESCRIPTION": "Gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block. NL theephemeral:Fated: Gain 1 Intangible."
   },
   "theEphemeral:SpectralBinding": {
     "NAME": "Spectral Binding",
@@ -246,16 +246,20 @@
 
   "theEphemeral:Wasting": {
     "NAME": "Wasting",
-    "DESCRIPTION": "Enemy loses Strength equal to your theephemeral:Augury. NL Exhaust."
+    "DESCRIPTION": "Enemy loses Strength equal to your theephemeral:Augury. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Enemy loses Strength equal to your theephemeral:Augury. NL Exhaust."
   },
   "theEphemeral:TemptFate": {
     "NAME": "Tempt Fate",
-    "DESCRIPTION": "Discard all theephemeral:Revealed cards, then draw that many cards. NL Exhaust."
+    "DESCRIPTION": "Shuffle your discard pile into your draw pile, then draw !M! cards. NL Exhaust."
   },
   "theEphemeral:BrokenMirror": {
     "NAME": "Broken Mirror",
-    "DESCRIPTION": "Choose a card in your hand. Add a copy to the top of your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose a card in your hand. Add a copy to the top of your draw pile."
+    "DESCRIPTION": "Choose a theephemeral:Revealed card. Add a copy of that card into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose a theephemeral:Revealed card. Add a copy of that card into your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "I have no Revealed cards."
+    ]
   },
   "theEphemeral:Numerology": {
     "NAME": "Numerology",
@@ -293,10 +297,9 @@
     "NAME": "Swirling Mists",
     "DESCRIPTION": "Whenever an Ethereal card is Exhausted, gain !M! Block."
   },
-  "theEphemeral:ScryingPool": {
-    "NAME": "Scrying Pool",
-    "DESCRIPTION": "Whenever you shuffle your draw pile, draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Whenever you shuffle your draw pile, draw !M! cards."
+  "theEphemeral:ReflectingPool": {
+    "NAME": "Reflecting Pool",
+    "DESCRIPTION": "Whenever you play an attack without Exhaust, add a theephemeral:Fleeting_Strike to your hand. Whenever you play a skill without Exhaust, add a theephemeral:Fleeting_Dodge to your hand."
   },
   "theEphemeral:Soothsayer": {
     "NAME": "Soothsayer",

@@ -36,7 +36,7 @@ public class GhostsPatch {
                 AbstractDungeon.player.chosenClass != null &&
                 AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL")) {
 
-                curHpLoss = MathUtils.ceil((float)AbstractDungeon.player.currentHealth * 0.15F);
+                curHpLoss = MathUtils.ceil((float)AbstractDungeon.player.currentHealth * 0.10F);
                 if (curHpLoss >= AbstractDungeon.player.maxHealth) {
                     curHpLoss = AbstractDungeon.player.maxHealth - 1;
                 }

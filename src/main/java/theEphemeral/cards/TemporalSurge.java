@@ -26,8 +26,8 @@ public class TemporalSurge extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 4;
-    private static final int UPGRADED_COST = 3;
+    private static final int COST = 3;
+    private static final int UPGRADED_COST = 2;
 
 
     // /STAT DECLARATION/
