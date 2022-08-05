@@ -32,8 +32,7 @@ public class Silhouette extends AbstractDynamicCard {
 
     private static final int COST = 1;
     // private static final int UPGRADED_COST = 0;
-    private static final int DAMAGE = 9;
-    private static final int UPGRADE_PLUS_DMG = 1;
+    private static final int DAMAGE = 8;
     private static final int MAGIC_NUMBER = 1;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 
@@ -60,7 +59,7 @@ public class Silhouette extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            //upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
             //upgradeBaseCost(UPGRADED_COST);
             initializeDescription();

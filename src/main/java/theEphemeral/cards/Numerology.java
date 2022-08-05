@@ -3,7 +3,7 @@ package theEphemeral.cards;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
-import theEphemeral.actions.NumerologyAction;
+import theEphemeral.actions.Numerology2Action;
 import theEphemeral.characters.TheEphemeral;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -41,7 +41,7 @@ public class Numerology extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new NumerologyAction(p, upgraded, freeToPlayOnce, energyOnUse));
+        addToBot(new Numerology2Action(p, upgraded, freeToPlayOnce, energyOnUse));
     }
 
     //Upgraded stats.
