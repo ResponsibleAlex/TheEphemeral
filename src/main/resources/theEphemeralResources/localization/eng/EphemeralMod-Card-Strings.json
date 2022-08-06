@@ -257,7 +257,7 @@
     "DESCRIPTION": "Choose a theephemeral:Revealed card. Add a copy of that card into your hand. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Choose a theephemeral:Revealed card. Add a copy of that card into your hand.",
     "EXTENDED_DESCRIPTION": [
-      "I have no Revealed cards."
+      "I have no valid Revealed cards."
     ]
   },
   "theEphemeral:Numerology": {

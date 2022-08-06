@@ -7,13 +7,12 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import theEphemeral.previewWidget.PreviewWidget;
+import theEphemeral.cards.BrokenMirror;
 
 import java.util.List;
 
 public class BrokenMirrorAction extends AbstractGameAction {
     public static final String[] TEXT;
-    private boolean makingChoice = false;
 
     public BrokenMirrorAction() {
         actionType = ActionType.CARD_MANIPULATION;
@@ -26,7 +25,9 @@ public class BrokenMirrorAction extends AbstractGameAction {
     @Override
     public void update() {
         if (duration == startDuration) {
-            List<AbstractCard> revealed = PreviewWidget.GetRevealedCards();
+
+            // get all the Revealed cards except other BrokenMirrors
+            List<AbstractCard> revealed = BrokenMirror.GetNonBrokenRevealed();
             int revealedCount = revealed.size();
 
             if (revealedCount == 0) {
@@ -39,8 +40,6 @@ public class BrokenMirrorAction extends AbstractGameAction {
                 return;
 
             } else {
-                this.makingChoice = true;
-
                 CardGroup tmpGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (AbstractCard c : revealed) {
                     tmpGroup.addToTop(c);
@@ -52,11 +51,10 @@ public class BrokenMirrorAction extends AbstractGameAction {
             }
         }
 
-        if (this.makingChoice && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-            this.makingChoice = false;
-
+        if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             AbstractCard chosen = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
             addToTop(new MakeTempCardInHandAction(chosen.makeStatEquivalentCopy()));
+            AbstractDungeon.gridSelectScreen.selectedCards.clear();
 
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();

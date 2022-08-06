@@ -1,5 +1,6 @@
 package theEphemeral.cards;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -8,6 +9,9 @@ import theEphemeral.EphemeralMod;
 import theEphemeral.actions.BrokenMirrorAction;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.previewWidget.PreviewWidget;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
@@ -44,12 +48,19 @@ public class BrokenMirror extends AbstractDynamicCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (PreviewWidget.GetRevealedCount() == 0) {
+        if (GetNonBrokenRevealed().size() == 0) {
             cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return false;
         }
 
         return true;
+    }
+
+    public static List<AbstractCard> GetNonBrokenRevealed() {
+        // get all the Revealed cards EXCEPT other BrokenMirrors
+        return PreviewWidget.GetRevealedCards()
+                .stream().filter(c -> !(c instanceof BrokenMirror))
+                .collect(Collectors.toList());
     }
 
     @Override
