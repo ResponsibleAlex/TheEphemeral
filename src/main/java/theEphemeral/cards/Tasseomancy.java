@@ -1,7 +1,9 @@
 package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
@@ -38,6 +40,15 @@ public class Tasseomancy extends AbstractDynamicCard {
     public Tasseomancy() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = AUGURY;
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        if (!AbstractDungeon.player.drawPile.isEmpty() && AbstractDungeon.player.drawPile.getTopCard().type == CardType.SKILL) {
+            glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
     }
 
     @Override

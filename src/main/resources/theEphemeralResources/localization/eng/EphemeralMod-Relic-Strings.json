@@ -74,7 +74,7 @@
     "NAME": "Basin",
     "FLAVOR": "The pure water contained in this basin leaves you feeling cleansed, inside and out.",
     "DESCRIPTIONS": [
-      "Gain #b2 #ytheephemeral:Augury each turn."
+      "Replaces #yLaurel. Gain #b2 #ytheephemeral:Augury each turn."
     ]
   },
   "theEphemeral:StoneTablet": {

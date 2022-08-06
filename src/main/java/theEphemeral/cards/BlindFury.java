@@ -38,8 +38,7 @@ public class BlindFury extends AbstractDynamicCard {
     private static final int COST = 2;
     // private static final int UPGRADED_COST = 0;
     private static final int DAMAGE = 12;
-    private static final int NUMBER = 1;
-    private static final int UPGRADE_PLUS_NUMBER = 1;
+    private static final int UPGRADE_PLUS_DAMAGE = 4;
 
     // /STAT DECLARATION/
 
@@ -47,7 +46,6 @@ public class BlindFury extends AbstractDynamicCard {
     public BlindFury() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        baseMagicNumber = magicNumber = NUMBER;
     }
 
     // Actions the card should do.
@@ -68,11 +66,8 @@ public class BlindFury extends AbstractDynamicCard {
         // Shuffle draw pile
         megaShuffle();
 
-        // Play 1 or 2 random revealed attacks
+        // Play 1 random revealed attacks
         addToBot(new BlindFuryAction());
-        if (upgraded) {
-            addToBot(new BlindFuryAction());
-        }
     }
 
     // Upgraded stats.
@@ -80,8 +75,7 @@ public class BlindFury extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_NUMBER);
-            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }

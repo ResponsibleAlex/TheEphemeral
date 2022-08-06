@@ -86,12 +86,11 @@
   },
   "theEphemeral:CastStones": {
     "NAME": "Cast Stones",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! theephemeral:Augury. NL If the top theephemeral:Revealed card is an Attack, play it."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! theephemeral:Augury. NL If the top card of your draw pile is an Attack, draw it."
   },
   "theEphemeral:BlindFury": {
     "NAME": "Blind Fury",
-    "DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile. NL Play !M! random Attack from your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile. NL Play !M! random Attacks from your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile. NL Play a random Attack from your draw pile."
   },
   "theEphemeral:SpectralThief": {
     "NAME": "Spectral Thief",
@@ -110,9 +109,9 @@
     "NAME": "Bladestorm",
     "DESCRIPTION": "Deal !D! damage to ALL enemies twice. NL theephemeral:Fated: deals damage four times instead."
   },
-  "theEphemeral:Banshee": {
-    "NAME": "Banshee",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL theephemeral:Vanishing !theEphemeral:SecondMagic!."
+  "theEphemeral:SpiritStrike": {
+    "NAME": "Spirit Strike",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Draw 1 card. NL Discard 1 card. NL If this card is discarded from anywhere, gain !theEphemeral:SecondMagic! Strength."
   },
   "theEphemeral:RealityFracture": {
     "NAME": "Reality Fracture",
@@ -195,7 +194,7 @@
   },
   "theEphemeral:Tasseomancy": {
     "NAME": "Tasseomancy",
-    "DESCRIPTION": "Gain !M! theephemeral:Augury. NL If the top theephemeral:Revealed card is a Skill, play it."
+    "DESCRIPTION": "Gain !M! theephemeral:Augury. NL If the top card of your draw pile is a Skill, play it."
   },
   "theEphemeral:RecurringNightmare": {
     "NAME": "Recurring Nightmare",
