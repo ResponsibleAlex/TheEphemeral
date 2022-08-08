@@ -12,11 +12,10 @@
   "theEphemeral:GhostEventMod": {
     "NAME": "GhostEventMod",
     "DESCRIPTIONS": [
-      "#p\"I #pam #p~here~ NL ... NL #pby #pmy #pown NL ... NL #r@POWER!\"@ NL NL You charge the #yghosts, chasing them off. You are injured, but with a renewed #p~RESOLVE.~"
+      "You speak with a raspy voice, the words escaping as a hiss. NL #p\"We #phave #pmet #p... #pbefore #p...\" NL NL The ghosts smile and look at one another. NL #y\"Come #yhere #ylittle #yone, #yplease #yaccept #your #y~gift~ #yto #yyou.\" NL NL A feeling of resolve fills your empty chest as a gentle cloud ~envelops~ you. The ghosts fade away, leaving you ~alone~ ~once~ ~more.~"
     ],
     "OPTIONS": [
-      "[Attack] #gReceive #g1 Grim Resolve. #rLose #r",
-      " #rHP."
+      "[Commune] #gAdd #g1 Spectral #gcard #gto #gyour #gdeck."
     ]
   },
   "theEphemeral:NestEventMod": {
