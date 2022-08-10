@@ -17,7 +17,10 @@ import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import theEphemeral.EphemeralMod;
+import theEphemeral.actions.HookAndYarnAction;
 import theEphemeral.powers.DarkContractPower;
+import theEphemeral.relics.HookAndYarn;
+import theEphemeral.variables.HookAndYarnMode;
 import theEphemeral.vfx.FeatherEffect;
 
 import java.util.ArrayList;
@@ -66,6 +69,7 @@ public class PreviewWidget {
     private static PreviewWidget widget;
     public static void StartOfCombat() {
         widget = new PreviewWidget();
+        HookAndYarn.Mode = HookAndYarnMode.None;
     }
     public static void EndOfCombat() {
         Clear();
@@ -122,6 +126,11 @@ public class PreviewWidget {
 
             for (AbstractCard c : p.hand.group) {
                 c.applyPowers();
+            }
+
+            // previews are updated, trigger HookAndYarn
+            if (p.hasRelic(HookAndYarn.ID)) {
+                AbstractDungeon.actionManager.addToBottom(new HookAndYarnAction());
             }
         }
 
@@ -300,16 +309,6 @@ public class PreviewWidget {
     }
     private int getRevealedAttacksCount() {
         return (int) previews.group.stream().filter(x -> x.type == AbstractCard.CardType.ATTACK).count();
-    }
-
-    public static int GetRevealedCount() {
-        if (widget != null && widget.isActive())
-            return widget.getRevealedCount();
-        else
-            return 0;
-    }
-    private int getRevealedCount() {
-        return previews.group.size();
     }
 
     public static void Render(SpriteBatch sb) {

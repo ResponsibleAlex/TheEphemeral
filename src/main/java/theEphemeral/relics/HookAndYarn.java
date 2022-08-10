@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theEphemeral.EphemeralMod;
 import theEphemeral.previewWidget.PreviewWidget;
 import theEphemeral.util.TextureLoader;
+import theEphemeral.variables.HookAndYarnMode;
 
 import static theEphemeral.EphemeralMod.makeRelicOutlinePath;
 import static theEphemeral.EphemeralMod.makeRelicPath;
@@ -20,11 +21,14 @@ public class HookAndYarn extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("HookAndYarn.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("HookAndYarn.png"));
 
+    public static HookAndYarnMode Mode = HookAndYarnMode.None;
+    public static final int VALUE = 2;
+
     public HookAndYarn() {
         super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.MAGICAL);
     }
 
-    @Override
+    /*@Override
     public void onPlayerEndTurn() {
         if (PreviewWidget.GetAugury() > 0) {
             this.flash();
@@ -32,7 +36,7 @@ public class HookAndYarn extends CustomRelic {
             this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, PreviewWidget.GetAugury()));
         }
 
-    }
+    }*/
 
     // Description
     @Override

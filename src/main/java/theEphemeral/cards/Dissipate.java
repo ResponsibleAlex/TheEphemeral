@@ -29,9 +29,8 @@ public class Dissipate extends AbstractDynamicCard {
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 3;
-    // private static final int UPGRADED_COST = 0;
-    private static final int BLOCK = 20;
-    private static final int UPGRADE_PLUS_BLOCK = 8;
+    private static final int UPGRADED_COST = 2;
+    private static final int BLOCK = 24;
 
 
     // /STAT DECLARATION/
@@ -50,6 +49,7 @@ public class Dissipate extends AbstractDynamicCard {
 
         if (triggerFated()) {
             addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
+            exhaust = true;
         }
     }
 
@@ -58,7 +58,7 @@ public class Dissipate extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

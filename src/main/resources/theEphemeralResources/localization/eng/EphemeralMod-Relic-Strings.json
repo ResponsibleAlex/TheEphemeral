@@ -52,7 +52,7 @@
     "NAME": "Hook and Yarn",
     "FLAVOR": "The magic of this yarn knits a mystical barrier around you.",
     "DESCRIPTIONS": [
-      "At the end of your turn, gain #yBlock equal to your #ytheephemeral:Augury."
+      "While the top card of your draw pile is an #yAttack, gain #b2 #yStrength. While the top card of your draw pile is a #ySkill, gain #b2 #yDexterity."
     ]
   },
   "theEphemeral:Pomegranate": {

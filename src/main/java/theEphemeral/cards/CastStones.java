@@ -1,9 +1,8 @@
 package theEphemeral.cards;
 
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -34,7 +33,7 @@ public class CastStones extends AbstractDynamicCard {
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 9;
+    private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DMG = 3;
     private static final int AUGURY = 1;
 
@@ -63,8 +62,8 @@ public class CastStones extends AbstractDynamicCard {
         PreviewWidget.AddAugury(magicNumber);
 
         if (!p.drawPile.isEmpty() && p.drawPile.getTopCard().type == CardType.ATTACK) {
-            //addToBot(new PlayTopCardAction(getRandomMonster(), false));
-            addToBot(new DrawCardAction(1));
+            addToBot(new PlayTopCardAction(getRandomMonster(), false));
+            //addToBot(new DrawCardAction(1));
         }
     }
 
