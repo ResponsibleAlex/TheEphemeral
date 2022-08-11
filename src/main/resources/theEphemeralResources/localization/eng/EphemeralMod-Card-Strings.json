@@ -90,7 +90,7 @@
   },
   "theEphemeral:BlindFury": {
     "NAME": "Blind Fury",
-    "DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile. NL Play a random Attack from your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle your discard pile into your draw pile, then play a random Attack from your draw pile."
   },
   "theEphemeral:SpectralThief": {
     "NAME": "Spectral Thief",

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.UnceasingTop;
 import theEphemeral.EphemeralMod;
 import theEphemeral.util.TextureLoader;
 
@@ -45,6 +46,11 @@ public class ReturnToAetherPower extends AbstractPower implements CloneablePower
             flash();
             AbstractPlayer p = AbstractDungeon.player;
             addToBot(new ExhaustAction(p, p, p.hand.size(), false));
+
+            if (p.hasRelic(UnceasingTop.ID)) {
+                UnceasingTop top = (UnceasingTop)p.getRelic(UnceasingTop.ID);
+                top.disableUntilTurnEnds();
+            }
         }
     }
 
