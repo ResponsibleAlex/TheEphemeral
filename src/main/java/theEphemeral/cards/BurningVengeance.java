@@ -29,7 +29,7 @@ public class BurningVengeance extends AbstractDynamicCard {
 
     private static final int COST = 5;
     // private static final int UPGRADED_COST = 0;
-    private static final int DAMAGE = 50;
+    private static final int DAMAGE = 40;
     private static final int UPGRADE_PLUS_DMG = 10;
 
     // /STAT DECLARATION/
