@@ -3,7 +3,7 @@ package theEphemeral.cards;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
-import theEphemeral.actions.Numerology2Action;
+import theEphemeral.actions.NumerologyAction;
 import theEphemeral.characters.TheEphemeral;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -22,7 +22,7 @@ public class Numerology extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
@@ -41,7 +41,7 @@ public class Numerology extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new Numerology2Action(p, upgraded, freeToPlayOnce, energyOnUse));
+        addToBot(new NumerologyAction(p, upgraded, freeToPlayOnce, energyOnUse));
     }
 
     //Upgraded stats.

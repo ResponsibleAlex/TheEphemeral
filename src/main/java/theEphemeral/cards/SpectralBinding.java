@@ -25,14 +25,13 @@ public class SpectralBinding extends AbstractVanishingCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 1;
-    // private static final int UPGRADED_COST = 0;
-    private static final int MAGIC_NUMBER = 3;
+    private static final int MAGIC_NUMBER = 2;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 2;
     private static final int VANISHING = 3;
 
@@ -45,7 +44,6 @@ public class SpectralBinding extends AbstractVanishingCard {
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
     }
 
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -magicNumber), -magicNumber));

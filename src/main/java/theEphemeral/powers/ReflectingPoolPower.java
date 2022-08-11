@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theEphemeral.EphemeralMod;
-import theEphemeral.fleetingCards.FleetingDodge;
 import theEphemeral.fleetingCards.FleetingStrike;
 import theEphemeral.util.TextureLoader;
 
@@ -59,8 +58,6 @@ public class ReflectingPoolPower extends AbstractPower implements CloneablePower
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.ATTACK && isNotExhausting(card)) {
             addToBot(new MakeTempCardInHandAction(new FleetingStrike(), amount));
-        } else if (card.type == AbstractCard.CardType.SKILL && isNotExhausting(card)) {
-            addToBot(new MakeTempCardInHandAction(new FleetingDodge(), amount));
         }
     }
 

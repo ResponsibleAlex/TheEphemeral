@@ -262,8 +262,8 @@
   },
   "theEphemeral:Numerology": {
     "NAME": "Numerology",
-    "DESCRIPTION": "Play the next card in your draw pile with a cost of exactly X. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Play the next card in your draw pile with a cost of exactly X+1. NL Exhaust."
+    "DESCRIPTION": "Draw X cards. NL They cost X less this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw X+1 cards. NL They cost X less this turn. NL Exhaust."
   },
   "theEphemeral:SpectralForge": {
     "NAME": "Spectral Forge",
@@ -299,7 +299,7 @@
   },
   "theEphemeral:ReflectingPool": {
     "NAME": "Reflecting Pool",
-    "DESCRIPTION": "Whenever you play an attack without Exhaust, add a theephemeral:Fleeting_Strike to your hand. Whenever you play a skill without Exhaust, add a theephemeral:Fleeting_Dodge to your hand."
+    "DESCRIPTION": "Whenever you play an attack without Exhaust, add a theephemeral:Fleeting_Strike to your hand."
   },
   "theEphemeral:Soothsayer": {
     "NAME": "Soothsayer",
