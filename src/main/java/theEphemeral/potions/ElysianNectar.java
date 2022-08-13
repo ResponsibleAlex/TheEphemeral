@@ -38,6 +38,7 @@ public class ElysianNectar extends CustomPotion {
             description = DESCRIPTIONS[0];
         }
 
+        this.tips.clear();
         tips.add(new PowerTip(name, description));
     }
 

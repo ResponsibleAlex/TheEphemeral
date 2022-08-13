@@ -36,6 +36,7 @@ public class PotionOfProphecy extends CustomPotion {
 
         description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
 
+        this.tips.clear();
         tips.add(new PowerTip(name, description));
         tips.add(new PowerTip(AUGURY_NAME, AUGURY_DESCRIPTION));
     }
