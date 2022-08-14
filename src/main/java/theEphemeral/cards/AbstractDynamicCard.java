@@ -83,7 +83,7 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         }
     }
 
-    protected AbstractMonster getRandomMonster() {
+    public static AbstractMonster GetRandomMonster() {
         return AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
     }
 }

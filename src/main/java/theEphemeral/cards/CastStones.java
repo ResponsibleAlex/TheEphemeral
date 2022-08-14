@@ -2,13 +2,13 @@ package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
+import theEphemeral.actions.CastStonesAction;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.previewWidget.PreviewWidget;
 
@@ -62,8 +62,7 @@ public class CastStones extends AbstractDynamicCard {
         PreviewWidget.AddAugury(magicNumber);
 
         if (!p.drawPile.isEmpty() && p.drawPile.getTopCard().type == CardType.ATTACK) {
-            addToBot(new PlayTopCardAction(getRandomMonster(), false));
-            //addToBot(new DrawCardAction(1));
+            addToBot(new CastStonesAction());
         }
     }
 

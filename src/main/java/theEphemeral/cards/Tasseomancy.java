@@ -56,7 +56,7 @@ public class Tasseomancy extends AbstractDynamicCard {
         PreviewWidget.AddAugury(magicNumber);
 
         if (!p.drawPile.isEmpty() && p.drawPile.getTopCard().type == CardType.SKILL) {
-            addToBot(new PlayTopCardAction(getRandomMonster(), false));
+            addToBot(new PlayTopCardAction(GetRandomMonster(), false));
         }
     }
 
