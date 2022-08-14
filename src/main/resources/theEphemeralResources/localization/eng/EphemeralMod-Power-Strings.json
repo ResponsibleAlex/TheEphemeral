@@ -33,10 +33,8 @@
                 "NAME": "Reflecting Pool",
                 "DESCRIPTIONS": [
                         "Whenever you play an #yAttack without #yExhaust, add #b",
-                        " #yFleeting #yStrike to your hand. Whenever you play a #ySkill without #yExhaust, add #b",
-                        " #yFleeting #yDodge to your hand.",
-                        " #yFleeting #yStrikes to your hand. Whenever you play a #ySkill without #yExhaust, add #b",
-                        " #yFleeting #yDodges to your hand."
+                        " #yFleeting #yStrike to your hand.",
+                        " #yFleeting #yStrikes to your hand."
                 ]
         },
         "theEphemeral:SoothsayerPower": {

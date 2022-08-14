@@ -68,9 +68,9 @@ public class ReflectingPoolPower extends AbstractPower implements CloneablePower
     @Override
     public void updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
         } else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[3] + amount + DESCRIPTIONS[4];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
         }
     }
 
