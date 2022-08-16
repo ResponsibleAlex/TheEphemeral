@@ -61,6 +61,14 @@ public class SwirlingMistsPower extends AbstractPower implements CloneablePowerI
     }
 
     @Override
+    public void onCardDraw(AbstractCard card) {
+        if (card.isEthereal) {
+            flash();
+            addToBot(new GainBlockAction(owner, amount));
+        }
+    }
+
+    @Override
     public void updateDescription() {
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }

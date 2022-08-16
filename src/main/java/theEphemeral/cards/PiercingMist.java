@@ -32,7 +32,7 @@ public class PiercingMist extends AbstractDynamicCard {
 
     private static final int COST = 1;
     // private static final int UPGRADED_COST = 0;
-    private static final int DAMAGE = 7;
+    private static final int DAMAGE = 8;
     private static final int UPGRADE_PLUS_DMG = 2;
 
     // /STAT DECLARATION/
@@ -41,6 +41,7 @@ public class PiercingMist extends AbstractDynamicCard {
     public PiercingMist() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        isEthereal = true;
 
         cardsToPreview = new Dazed();
     }

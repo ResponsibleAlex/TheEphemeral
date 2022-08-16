@@ -22,7 +22,7 @@
   },
   "theEphemeral:StranglingMist": {
     "NAME": "Strangling Mist",
-    "DESCRIPTION": "Deal !D! damage. NL Shuffle a Dazed into to your draw pile."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Shuffle a Dazed into to your draw pile."
   },
   "theEphemeral:Silhouette": {
     "NAME": "Silhouette",
@@ -74,7 +74,7 @@
   },
   "theEphemeral:PiercingMist": {
     "NAME": "Piercing Mist",
-    "DESCRIPTION": "Deal !D! damage twice. NL Add 2 Dazed to your discard pile."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage twice. NL Add 2 Dazed to your discard pile."
   },
   "theEphemeral:Ambush": {
     "NAME": "Ambush",
@@ -295,7 +295,7 @@
   },
   "theEphemeral:SwirlingMists": {
     "NAME": "Swirling Mists",
-    "DESCRIPTION": "Whenever an Ethereal card is Exhausted, gain !M! Block."
+    "DESCRIPTION": "Whenever you draw or Exhaust an Ethereal card, gain !M! Block."
   },
   "theEphemeral:ReflectingPool": {
     "NAME": "Reflecting Pool",
