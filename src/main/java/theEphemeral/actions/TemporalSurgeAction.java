@@ -1,10 +1,8 @@
 package theEphemeral.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theEphemeral.previewWidget.PreviewWidget;
 
 public class TemporalSurgeAction extends AbstractGameAction {
@@ -24,9 +22,7 @@ public class TemporalSurgeAction extends AbstractGameAction {
         }
 
         for (AbstractCard c : candidates.group) {
-            AbstractDungeon.player.drawPile.group.remove(c);
-            AbstractDungeon.getCurrRoom().souls.remove(c);
-            addToBot(new NewQueueCardAction(c, true, false, true));
+            addToBot(new PlayCardFromDrawPileAction(c));
         }
 
         isDone = true;

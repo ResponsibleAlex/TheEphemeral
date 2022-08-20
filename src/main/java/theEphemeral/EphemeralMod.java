@@ -15,6 +15,11 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
+import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -24,6 +29,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import theEphemeral.actions.PlayTopCardWithCopiesAction;
 import theEphemeral.cards.AbstractDefaultCard;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.potions.ElysianNectar;
@@ -158,7 +164,8 @@ public class EphemeralMod implements
     public static String makeEffectPath(String resourcePath) {
         return modID + "Resources/images/vfx/" + resourcePath;
     }
-    
+
+    @SuppressWarnings({"unused"})
     public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
     }
@@ -518,8 +525,11 @@ public class EphemeralMod implements
     public static void atEndOfTurn() {
         if (AbstractDungeon.player.hasPower(HarbingerFormPower.POWER_ID)) {
             int amount = AbstractDungeon.player.getPower(HarbingerFormPower.POWER_ID).amount;
-            for (int i = 0; i < amount; i++)
-                AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
+            for (int i = 0; i < amount; i++) {
+                AbstractDungeon.actionManager.addToBottom(new PlayTopCardWithCopiesAction(1));
+            }
         }
     }
+
+
 }

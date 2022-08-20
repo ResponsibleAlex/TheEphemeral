@@ -56,7 +56,8 @@ public class PsychicStrike extends AbstractDynamicCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.LIGHTNING));
 
         if (triggerFated()) {
-            addToBot(new MakeTempCardInHandAction(new FleetingThought(), magicNumber));
+            int amount = magicNumber + (magicNumber * soothsayer());
+            addToBot(new MakeTempCardInHandAction(new FleetingThought(), amount));
         }
     }
 

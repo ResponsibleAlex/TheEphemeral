@@ -74,6 +74,13 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         return false;
     }
 
+    protected int soothsayer() {
+        if (AbstractDungeon.player.hasPower(SoothsayerPower.POWER_ID))
+            return ((SoothsayerPower)AbstractDungeon.player.getPower(SoothsayerPower.POWER_ID)).fullAmount;
+
+        return 0;
+    }
+
     protected void megaShuffle() {
         if (AbstractDungeon.player.discardPile.size() > 0) {
             addToBot(new EmptyDeckShuffleAction());

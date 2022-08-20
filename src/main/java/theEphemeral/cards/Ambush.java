@@ -48,7 +48,8 @@ public class Ambush extends AbstractDynamicCard {
         super.calculateCardDamage(m);
 
         if (willTriggerFated()) {
-            damage *= 2;
+            int amount = 2 + (2 * soothsayer());
+            damage *= amount;
         }
         isDamageModified = damage != baseDamage;
     }
@@ -58,7 +59,8 @@ public class Ambush extends AbstractDynamicCard {
         super.applyPowers();
 
         if (willTriggerFated()) {
-            damage *= 2;
+            int amount = 2 + (2 * soothsayer());
+            damage *= amount;
         }
         isDamageModified = damage != baseDamage;
     }

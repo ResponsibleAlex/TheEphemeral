@@ -24,7 +24,7 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Soothsayer32.png"));
 
     public static final int MaxStackAmount = 999;
-    private int fullAmount;
+    public int fullAmount;
 
     public SoothsayerPower(final int amount) {
         name = NAME;
@@ -72,10 +72,11 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void updateDescription() {
+        int times = fullAmount + 1;
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + times + DESCRIPTIONS[3];
         } else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + times + DESCRIPTIONS[3];
         }
     }
 

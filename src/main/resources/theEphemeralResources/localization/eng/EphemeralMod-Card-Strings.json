@@ -107,7 +107,7 @@
 
   "theEphemeral:Bladestorm": {
     "NAME": "Bladestorm",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies twice. NL theephemeral:Fated: deals damage four times instead."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies twice. NL theephemeral:Fated: deals damage two additional times."
   },
   "theEphemeral:SpiritStrike": {
     "NAME": "Spirit Strike",
@@ -303,7 +303,7 @@
   },
   "theEphemeral:Soothsayer": {
     "NAME": "Soothsayer",
-    "DESCRIPTION": "An additional card may trigger theephemeral:Fated each turn."
+    "DESCRIPTION": "theephemeral:Fated effects are twice as strong and may trigger an additional time each turn."
   },
   "theEphemeral:Maelstrom": {
     "NAME": "Maelstrom",
@@ -342,8 +342,8 @@
   },
   "theEphemeral:HarbingerForm": {
     "NAME": "Harbinger Form",
-    "DESCRIPTION": "Ethereal. NL At the end of each turn, play the top card of your draw pile.",
-    "UPGRADE_DESCRIPTION": "At the end of each turn, play the top card of your draw pile."
+    "DESCRIPTION": "Ethereal. NL At the end of each turn, play the top card of your draw pile twice.",
+    "UPGRADE_DESCRIPTION": "At the end of each turn, play the top card of your draw pile twice."
   },
 
   "theEphemeral:FleetingStrike": {

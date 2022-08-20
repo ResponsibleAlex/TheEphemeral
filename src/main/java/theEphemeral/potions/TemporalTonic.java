@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import theEphemeral.EphemeralMod;
-import theEphemeral.actions.TemporalTonicAction;
+import theEphemeral.actions.PlayTopCardWithCopiesAction;
 
 public class TemporalTonic extends CustomPotion {
 
@@ -35,7 +35,7 @@ public class TemporalTonic extends CustomPotion {
 
     @Override
     public void use(AbstractCreature target) {
-        addToBot(new TemporalTonicAction(potency));
+        addToBot(new PlayTopCardWithCopiesAction(potency - 1));
     }
 
     @Override

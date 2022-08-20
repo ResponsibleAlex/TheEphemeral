@@ -41,8 +41,9 @@
                 "NAME": "Soothsayer",
                 "DESCRIPTIONS": [
                         "An additional #b",
-                        " card may trigger #yFated this turn.",
-                        " cards may trigger #yFated this turn."
+                        " card may trigger #yFated this turn. #yFated effects are #b",
+                        " cards may trigger #yFated this turn. #yFated effects are #b",
+                        " times stronger."
                 ]
         },
         "theEphemeral:MaelstromPower": {
@@ -103,9 +104,9 @@
         "theEphemeral:HarbingerFormPower": {
                 "NAME": "Harbinger Form",
                 "DESCRIPTIONS": [
-                        "At the end of each turn, play the top card of your draw pile.",
+                        "At the end of each turn, play the top card of your draw pile twice.",
                         "At the end of each turn, play the top #b",
-                        " cards of your draw pile."
+                        " cards of your draw pile twice."
                 ]
         },
         "theEphemeral:ElysianNectarPower": {

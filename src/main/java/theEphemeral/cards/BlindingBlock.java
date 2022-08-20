@@ -26,9 +26,8 @@ public class BlindingBlock extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 1;
-    // private static final int UPGRADED_COST = 0;
-    private static final int BLOCK = 9;
+    private static final int COST = 2;
+    private static final int BLOCK = 14;
     private static final int UPGRADE_PLUS_BLOCK = 4;
 
 
@@ -54,7 +53,6 @@ public class BlindingBlock extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            //upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }
