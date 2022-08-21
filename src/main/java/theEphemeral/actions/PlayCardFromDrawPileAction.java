@@ -2,7 +2,6 @@ package theEphemeral.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -26,7 +25,7 @@ public class PlayCardFromDrawPileAction extends AbstractGameAction {
             AbstractDungeon.player.limbo.group.add(cardToPlay);
 
             cardToPlay.current_y = -200.0F * Settings.scale;
-            cardToPlay.target_x = (float) Settings.WIDTH / 2.0F + 200.0F * Settings.xScale;
+            cardToPlay.target_x = (float) Settings.WIDTH / 2.0F - (200.0F * Settings.scale);
             cardToPlay.target_y = (float) Settings.HEIGHT / 2.0F;
             cardToPlay.targetAngle = 0.0F;
             cardToPlay.lighten(false);
@@ -35,11 +34,11 @@ public class PlayCardFromDrawPileAction extends AbstractGameAction {
             cardToPlay.applyPowers();
 
             this.addToTop(new NewQueueCardAction(cardToPlay, true, false, true));
-            this.addToTop(new UnlimboAction(cardToPlay));
+
             if (!Settings.FAST_MODE) {
                 this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
             } else {
-                this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+                this.addToTop(new WaitAction(Settings.ACTION_DUR_FAST));
             }
         }
 

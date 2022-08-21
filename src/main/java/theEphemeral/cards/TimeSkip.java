@@ -1,10 +1,10 @@
 package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
+import theEphemeral.actions.PlayTopCardWithCopiesAction;
 import theEphemeral.characters.TheEphemeral;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -46,7 +46,7 @@ public class TimeSkip extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new PlayTopCardAction(GetRandomMonster(), false));
+        addToBot(new PlayTopCardWithCopiesAction(0));
 
         if (triggerFated()) {
             int amount = 1 + soothsayer();

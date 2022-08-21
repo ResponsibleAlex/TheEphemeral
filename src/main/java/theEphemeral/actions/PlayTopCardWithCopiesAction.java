@@ -3,12 +3,12 @@ package theEphemeral.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theEphemeral.cards.AbstractVanishingCard;
 
 public class PlayTopCardWithCopiesAction extends AbstractGameAction {
     private final AbstractPlayer p = AbstractDungeon.player;
@@ -28,36 +28,58 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
             this.isDone = true;
         } else {
             AbstractCard c = p.drawPile.getTopCard();
-            this.addToTop(new PlayCardFromDrawPileAction(c));
             for (int i = 0; i < copies; i++) {
-                playCopy(c);
+                this.playCopy(c, i);
             }
+            this.playCard(c);
             this.isDone = true;
         }
     }
 
-    private void playCopy(AbstractCard card) {
-        AbstractCard tmp = card.makeSameInstanceOf();
-        AbstractDungeon.player.limbo.addToBottom(tmp);
+    private void playCopy(AbstractCard card, int offset) {
+        float offsetX = -(offset + 1) * 50 * Settings.scale;
 
-        tmp.current_x = card.current_x;
-        tmp.current_y = card.current_y;
-        tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-        tmp.target_y = (float)Settings.HEIGHT / 2.0F;
+        AbstractCard copy;
+        if (card instanceof AbstractVanishingCard)
+            copy = card.makeStatEquivalentCopy();
+        else
+            copy = card.makeSameInstanceOf();
 
-        tmp.targetAngle = 0.0F;
-        tmp.lighten(false);
-        tmp.drawScale = 0.12F;
-        tmp.targetDrawScale = 0.75F;
-        tmp.applyPowers();
+        copy.current_x = card.current_x;
+        copy.current_y = card.current_y;
 
-        tmp.purgeOnUse = true;
-        AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, true, false, true));
-        AbstractDungeon.actionManager.addToTop(new UnlimboAction(tmp));
+        this.queueCard(copy, offsetX);
+    }
+
+    private void playCard(AbstractCard card) {
+
+        AbstractDungeon.player.drawPile.group.remove(card);
+        AbstractDungeon.getCurrRoom().souls.remove(card);
+
+        this.queueCard(card, 200 * Settings.scale);
+    }
+
+    private void queueCard(AbstractCard card, float offsetX) {
+
+        AbstractDungeon.player.limbo.addToBottom(card);
+
+        card.target_x = (float) Settings.WIDTH / 2.0F - (300.0F * Settings.scale) + offsetX;
+        card.target_y = (float)Settings.HEIGHT / 2.0F;
+
+        card.targetAngle = 0.0F;
+        card.lighten(false);
+        card.drawScale = 0.12F;
+        card.targetDrawScale = 0.75F;
+        card.applyPowers();
+
+        card.purgeOnUse = true;
+
+        this.addToTop(new NewQueueCardAction(card, true, false, true));
+
         if (!Settings.FAST_MODE) {
-            AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+            this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
         } else {
-            AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+            this.addToTop(new WaitAction(Settings.ACTION_DUR_FAST));
         }
     }
 }

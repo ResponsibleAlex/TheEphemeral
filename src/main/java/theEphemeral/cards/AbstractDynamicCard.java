@@ -90,6 +90,15 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         }
     }
 
+    protected void megaShuffleTop() {
+        if (AbstractDungeon.player.discardPile.size() > 0) {
+            addToTop(new ShuffleAction(AbstractDungeon.player.drawPile, false));
+            addToTop(new EmptyDeckShuffleAction());
+        } else if (AbstractDungeon.player.drawPile.size() > 0) {
+            addToTop(new ShuffleAction(AbstractDungeon.player.drawPile, true));
+        }
+    }
+
     public static AbstractMonster GetRandomMonster() {
         return AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
     }

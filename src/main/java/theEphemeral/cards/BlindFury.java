@@ -14,7 +14,6 @@ import theEphemeral.EphemeralMod;
 import theEphemeral.actions.BlindFuryAction;
 import theEphemeral.characters.TheEphemeral;
 
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
@@ -51,23 +50,25 @@ public class BlindFury extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // VFX
-        if (Settings.FAST_MODE) {
-            addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED)));
-        } else {
-            addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED), 0.4F));
-        }
-        for(int i = 0; i < 5; ++i) {
-            addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
-        }
-        // Damage
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-
-        // Shuffle draw pile
-        megaShuffle();
 
         // Play 1 random revealed attacks
-        addToBot(new BlindFuryAction());
+        addToTop(new BlindFuryAction());
+
+        // Damage
+        addToTop(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+
+        // VFX
+        for(int i = 0; i < 5; ++i) {
+            addToTop(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
+        }
+        if (Settings.FAST_MODE) {
+            addToTop(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED)));
+        } else {
+            addToTop(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED), 0.4F));
+        }
+
+        // Shuffle draw pile
+        megaShuffleTop();
     }
 
     // Upgraded stats.

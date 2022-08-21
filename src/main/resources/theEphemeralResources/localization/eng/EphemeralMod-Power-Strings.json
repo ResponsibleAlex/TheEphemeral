@@ -25,7 +25,7 @@
         "theEphemeral:SwirlingMistsPower": {
                 "NAME": "Swirling Mists",
                 "DESCRIPTIONS": [
-                        "Whenever an #yEthereal card is #yExhausted, gain #b",
+                        "Whenever you draw or #yExhaust an #yEthereal card, gain #b",
                         " #yBlock."
                 ]
         },

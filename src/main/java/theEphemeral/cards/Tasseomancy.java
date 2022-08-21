@@ -1,11 +1,11 @@
 package theEphemeral.cards;
 
-import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
+import theEphemeral.actions.PlayCardFromDrawPileAction;
 import theEphemeral.characters.TheEphemeral;
 import theEphemeral.previewWidget.PreviewWidget;
 
@@ -56,7 +56,7 @@ public class Tasseomancy extends AbstractDynamicCard {
         PreviewWidget.AddAugury(magicNumber);
 
         if (!p.drawPile.isEmpty() && p.drawPile.getTopCard().type == CardType.SKILL) {
-            addToBot(new PlayTopCardAction(GetRandomMonster(), false));
+            addToBot(new PlayCardFromDrawPileAction(p.drawPile.getTopCard()));
         }
     }
 
