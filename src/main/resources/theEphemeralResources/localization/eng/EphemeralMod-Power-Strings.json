@@ -40,10 +40,9 @@
         "theEphemeral:SoothsayerPower": {
                 "NAME": "Soothsayer",
                 "DESCRIPTIONS": [
-                        "An additional #b",
-                        " card may trigger #yFated this turn. #yFated effects are #b",
-                        " cards may trigger #yFated this turn. #yFated effects are #b",
-                        " times stronger."
+                        "While the top card of your draw pile is an #yAttack, gain #b",
+                        " #yStrength. While the top card of your draw pile is a #ySkill, gain #b",
+                        " #yDexterity."
                 ]
         },
         "theEphemeral:MaelstromPower": {
@@ -72,13 +71,13 @@
                         " life."
                 ]
         },
-        "theEphemeral:TimeSpiralPower": {
-                "NAME": "Time Spiral",
+        "theEphemeral:KismetPower": {
+                "NAME": "Kismet",
                 "DESCRIPTIONS": [
-                        "Put the next card you play on top of your draw pile.",
-                        "Put the next #b",
-                        " cards you play on top of your draw pile.",
-                        "Put the first card you play each turn on top of your draw pile."
+                        "An additional #b",
+                        " card may trigger #yFated this turn. #yFated effects are #b",
+                        " cards may trigger #yFated this turn. #yFated effects are #b",
+                        " times stronger."
                 ]
         },
         "theEphemeral:GrimResolvePower": {

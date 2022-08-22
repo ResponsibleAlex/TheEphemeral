@@ -6,6 +6,13 @@
       "#ytheephemeral:Augury does not decrease each turn."
     ]
   },
+  "theEphemeral:CultistMask": {
+    "NAME": "Cultist Headpiece",
+    "FLAVOR": "Part of the Flock!",
+    "DESCRIPTIONS": [
+      "You know the secrets of the cult. Gain 1 Ritual at the start of combat."
+    ]
+  },
   "theEphemeral:Laurel": {
     "NAME": "Laurel",
     "FLAVOR": "A bay laurel used in prophetic rituals.",
@@ -24,7 +31,7 @@
     "NAME": "Silky Bandage",
     "FLAVOR": "The diaphanous weave would be almost see-through... if you had sight.",
     "DESCRIPTIONS": [
-      "Whenever you trigger #ytheephemeral:Fated, gain #b4 #yBlock."
+      "#ytheephemeral:Fleeting_Dodge blocks for an additional #b2."
     ]
   },
   "theEphemeral:RitualAsh": {
@@ -52,7 +59,7 @@
     "NAME": "Hook and Yarn",
     "FLAVOR": "The magic of this yarn knits a mystical barrier around you.",
     "DESCRIPTIONS": [
-      "While the top card of your draw pile is an #yAttack, gain #b2 #yStrength. While the top card of your draw pile is a #ySkill, gain #b2 #yDexterity."
+      "Whenever you trigger #ytheephemeral:Fated, gain #b2 #yMetallicize."
     ]
   },
   "theEphemeral:Pomegranate": {

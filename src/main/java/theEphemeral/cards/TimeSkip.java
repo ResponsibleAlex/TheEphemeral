@@ -49,7 +49,7 @@ public class TimeSkip extends AbstractDynamicCard {
         addToBot(new PlayTopCardWithCopiesAction(0));
 
         if (triggerFated()) {
-            int amount = 1 + soothsayer();
+            int amount = 1 + kismet();
             addToBot(new GainEnergyAction(amount));
         }
     }

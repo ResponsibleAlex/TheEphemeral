@@ -5,18 +5,18 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
-import theEphemeral.powers.TimeSpiralPower;
+import theEphemeral.powers.KismetPower;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class TimeSpiral extends AbstractDynamicCard {
+public class Kismet extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = EphemeralMod.makeID(TimeSpiral.class.getSimpleName());
-    public static final String IMG = makeCardPath("TimeSpiral.png");
+    public static final String ID = EphemeralMod.makeID(Kismet.class.getSimpleName());
+    public static final String IMG = makeCardPath("Kismet.png");
 
     // /TEXT DECLARATION/
 
@@ -28,28 +28,26 @@ public class TimeSpiral extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 1;
-    private static final int MAGIC_NUMBER = 1;
+    private static final int COST = 2;
+    private static final int UPGRADE_COST = 1;
 
     // /STAT DECLARATION/
 
-    public TimeSpiral() {
+    public Kismet() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = MAGIC_NUMBER;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p,
-                new TimeSpiralPower(magicNumber), magicNumber));
+                new KismetPower(1), 1));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            isInnate = true;
-            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            upgradeBaseCost(UPGRADE_COST);
             initializeDescription();
         }
     }

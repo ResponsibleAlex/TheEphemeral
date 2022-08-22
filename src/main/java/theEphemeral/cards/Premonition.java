@@ -53,7 +53,7 @@ public class Premonition extends AbstractDynamicCard {
         PreviewWidget.AddAugury(magicNumber);
 
         if (triggerFated()) {
-            int amount = 1 + soothsayer();
+            int amount = 1 + kismet();
             addToBot(new GainEnergyAction(amount));
         }
     }

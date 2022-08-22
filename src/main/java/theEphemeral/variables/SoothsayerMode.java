@@ -1,6 +1,6 @@
 package theEphemeral.variables;
 
-public enum HookAndYarnMode {
+public enum SoothsayerMode {
     Attack,
     Skill,
     None

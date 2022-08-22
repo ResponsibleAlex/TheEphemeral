@@ -1,8 +1,5 @@
 package theEphemeral.powers;
 
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import theEphemeral.EphemeralMod;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -10,6 +7,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import theEphemeral.EphemeralMod;
+import theEphemeral.actions.SoothsayerAction;
 import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
@@ -24,7 +23,6 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Soothsayer32.png"));
 
     public static final int MaxStackAmount = 999;
-    public int fullAmount;
 
     public SoothsayerPower(final int amount) {
         name = NAME;
@@ -35,7 +33,6 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
         if (this.amount >= MaxStackAmount) {
             this.amount = MaxStackAmount;
         }
-        this.fullAmount = this.amount;
 
         type = PowerType.BUFF;
 
@@ -50,34 +47,13 @@ public class SoothsayerPower extends AbstractPower implements CloneablePowerInte
         if (this.amount >= MaxStackAmount) {
             this.amount = MaxStackAmount;
         }
-        this.fullAmount = this.amount;
 
         updateDescription();
     }
 
     @Override
-    public void atStartOfTurn() {
-        this.amount = this.fullAmount;
-        this.updateDescription();
-    }
-
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        // ignore the first Fated card each turn
-        if (EphemeralMod.fatedThisTurn > 1 && amount > 0)
-            --amount;
-
-        this.updateDescription();
-    }
-
-    @Override
     public void updateDescription() {
-        int times = fullAmount + 1;
-        if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + times + DESCRIPTIONS[3];
-        } else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + times + DESCRIPTIONS[3];
-        }
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
     }
 
     @Override

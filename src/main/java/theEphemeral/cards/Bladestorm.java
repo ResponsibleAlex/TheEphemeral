@@ -3,12 +3,10 @@ package theEphemeral.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
-import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
 
@@ -52,7 +50,7 @@ public class Bladestorm extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int times = 2;
         if (triggerFated()) {
-            times += 2 + (2 * soothsayer());
+            times += 2 + (2 * kismet());
         }
 
         for (int i = 0; i < times; i++) {

@@ -7,44 +7,55 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import theEphemeral.relics.HookAndYarn;
-import theEphemeral.variables.HookAndYarnMode;
+import theEphemeral.cards.Soothsayer;
+import theEphemeral.powers.SoothsayerPower;
+import theEphemeral.variables.SoothsayerMode;
 
-public class HookAndYarnAction extends AbstractGameAction {
+public class SoothsayerAction extends AbstractGameAction {
 
     private final AbstractPlayer p;
+    private final int pushValue;
 
-    public HookAndYarnAction() {
+    public SoothsayerAction() {
+        this(0);
+    }
+
+    public SoothsayerAction(int newValue) {
         p = AbstractDungeon.player;
+        pushValue = newValue;
     }
 
     @Override
     public void update() {
         if (!isDone) {
-            if (p.hasRelic(HookAndYarn.ID)) {
-                HookAndYarnMode oldMode = HookAndYarn.Mode;
-                HookAndYarnMode newMode = HookAndYarnMode.None;
+            if (p.hasPower(SoothsayerPower.POWER_ID)) {
+                SoothsayerMode oldMode = Soothsayer.Mode;
+                SoothsayerMode newMode = SoothsayerMode.None;
 
                 if (p.drawPile.size() > 0) {
                     AbstractCard c = p.drawPile.getTopCard();
                     if (c.type == AbstractCard.CardType.ATTACK) {
-                        newMode = HookAndYarnMode.Attack;
+                        newMode = SoothsayerMode.Attack;
                     } else if (c.type == AbstractCard.CardType.SKILL) {
-                        newMode = HookAndYarnMode.Skill;
+                        newMode = SoothsayerMode.Skill;
                     }
                 }
 
                 if (newMode != oldMode) {
                     // changing modes, subtract old mode and add new mode
-                    updateValue(oldMode, -1);
-                    updateValue(newMode, 1);
+                    int value = p.getPower(SoothsayerPower.POWER_ID).amount;
+                    updateValue(oldMode, -1 * value);
+                    updateValue(newMode, value);
+                } else if (pushValue > 0) {
+                    // modes are same and pushing a value, this means playing Soothsayer card and forcing an update
+                    updateValue(newMode, pushValue);
                 }
 
-                HookAndYarn.Mode = newMode;
+                Soothsayer.Mode = newMode;
             }
 
             for (AbstractGameAction a : AbstractDungeon.actionManager.actions) {
-                if (a instanceof HookAndYarnAction) {
+                if (a instanceof SoothsayerAction) {
                     a.isDone = true;
                 }
             }
@@ -53,16 +64,13 @@ public class HookAndYarnAction extends AbstractGameAction {
         isDone = true;
     }
 
-    private void updateValue(HookAndYarnMode mode, int sign) {
-        if (mode == HookAndYarnMode.None)
+    private void updateValue(SoothsayerMode mode, int value) {
+        if (mode == SoothsayerMode.None)
             return;
 
-
-        int value = HookAndYarn.VALUE * sign;
-
-        if (mode == HookAndYarnMode.Attack) {
+        if (mode == SoothsayerMode.Attack) {
             addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, value), value));
-        } else if (mode == HookAndYarnMode.Skill) {
+        } else if (mode == SoothsayerMode.Skill) {
             addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, value), value));
         }
     }

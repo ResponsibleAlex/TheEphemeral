@@ -17,10 +17,11 @@ import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import theEphemeral.EphemeralMod;
-import theEphemeral.actions.HookAndYarnAction;
+import theEphemeral.actions.SoothsayerAction;
+import theEphemeral.cards.Soothsayer;
 import theEphemeral.powers.DarkContractPower;
-import theEphemeral.relics.HookAndYarn;
-import theEphemeral.variables.HookAndYarnMode;
+import theEphemeral.powers.SoothsayerPower;
+import theEphemeral.variables.SoothsayerMode;
 import theEphemeral.vfx.FeatherEffect;
 
 import java.util.ArrayList;
@@ -54,6 +55,7 @@ public class PreviewWidget {
 
     // CardGroup that is displayed
     private final CardGroup previews = new CardGroup(CardGroupType.UNSPECIFIED);
+    private int drawPileCount = 0;
     private AbstractCard hoveredCard;
 
     private int augury = 0;
@@ -69,7 +71,7 @@ public class PreviewWidget {
     private static PreviewWidget widget;
     public static void StartOfCombat() {
         widget = new PreviewWidget();
-        HookAndYarn.Mode = HookAndYarnMode.None;
+        Soothsayer.Mode = SoothsayerMode.None;
     }
     public static void EndOfCombat() {
         Clear();
@@ -128,9 +130,9 @@ public class PreviewWidget {
                 c.applyPowers();
             }
 
-            // previews are updated, trigger HookAndYarn
-            if (p.hasRelic(HookAndYarn.ID)) {
-                AbstractDungeon.actionManager.addToBottom(new HookAndYarnAction());
+            // previews are updated, trigger Soothsayer
+            if (p.hasPower(SoothsayerPower.POWER_ID)) {
+                AbstractDungeon.actionManager.addToBottom(new SoothsayerAction());
             }
         }
 
@@ -184,6 +186,11 @@ public class PreviewWidget {
     }
 
     private boolean needUpdate() {
+        if (p.drawPile.size() != drawPileCount) {
+            drawPileCount = p.drawPile.size();
+            return true;
+        }
+
         ArrayList<AbstractCard> drawGroup = p.drawPile.group;
         ArrayList<AbstractCard> preGroup = previews.group;
 

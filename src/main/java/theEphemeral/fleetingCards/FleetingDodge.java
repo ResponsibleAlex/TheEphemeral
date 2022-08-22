@@ -2,11 +2,13 @@ package theEphemeral.fleetingCards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.actions.DiscardTopCardAction;
 import theEphemeral.cards.AbstractDynamicCard;
 import theEphemeral.characters.TheEphemeral;
+import theEphemeral.relics.SilkyBandage;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
@@ -39,6 +41,10 @@ public class FleetingDodge extends AbstractDynamicCard {
     public FleetingDodge() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
+
+        if (AbstractDungeon.player != null
+            && AbstractDungeon.player.hasRelic(SilkyBandage.ID))
+            baseBlock += SilkyBandage.VALUE;
 
         exhaust = true;
         isEthereal = true;

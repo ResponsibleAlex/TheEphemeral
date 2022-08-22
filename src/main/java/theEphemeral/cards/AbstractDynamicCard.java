@@ -6,10 +6,9 @@ import com.megacrit.cardcrawl.actions.common.ShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
-import theEphemeral.powers.SoothsayerPower;
-import theEphemeral.relics.SilkyBandage;
+import theEphemeral.powers.KismetPower;
+import theEphemeral.relics.HookAndYarn;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -50,13 +49,13 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
             return true;
         }
 
-        // see if we have any Soothsayer amount left
+        // see if we have any Kismet amount left
         AbstractPlayer p = AbstractDungeon.player;
-        if (p.hasPower(SoothsayerPower.POWER_ID)) {
-            return p.getPower(SoothsayerPower.POWER_ID).amount > 0;
+        if (p.hasPower(KismetPower.POWER_ID)) {
+            return p.getPower(KismetPower.POWER_ID).amount > 0;
         }
 
-        // not the first card, no Soothsayer
+        // not the first card, no Kismet
         return false;
     }
 
@@ -64,8 +63,8 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         if (willTriggerFated()) {
             EphemeralMod.fatedThisTurn++;
 
-            if (AbstractDungeon.player.hasRelic(SilkyBandage.ID)) {
-                AbstractDungeon.player.getRelic(SilkyBandage.ID).onTrigger();
+            if (AbstractDungeon.player.hasRelic(HookAndYarn.ID)) {
+                AbstractDungeon.player.getRelic(HookAndYarn.ID).onTrigger();
             }
 
             return true;
@@ -74,9 +73,9 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         return false;
     }
 
-    protected int soothsayer() {
-        if (AbstractDungeon.player.hasPower(SoothsayerPower.POWER_ID))
-            return ((SoothsayerPower)AbstractDungeon.player.getPower(SoothsayerPower.POWER_ID)).fullAmount;
+    protected int kismet() {
+        if (AbstractDungeon.player.hasPower(KismetPower.POWER_ID))
+            return ((KismetPower)AbstractDungeon.player.getPower(KismetPower.POWER_ID)).fullAmount;
 
         return 0;
     }
@@ -97,9 +96,5 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         } else if (AbstractDungeon.player.drawPile.size() > 0) {
             addToTop(new ShuffleAction(AbstractDungeon.player.drawPile, true));
         }
-    }
-
-    public static AbstractMonster GetRandomMonster() {
-        return AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
     }
 }

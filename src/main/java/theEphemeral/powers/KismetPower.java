@@ -14,19 +14,19 @@ import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
 
-public class TimeSpiralPower extends AbstractPower implements CloneablePowerInterface {
-    public static final String POWER_ID = EphemeralMod.makeID(TimeSpiralPower.class.getSimpleName());
+public class KismetPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = EphemeralMod.makeID(KismetPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("TimeSpiral84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("TimeSpiral32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Kismet84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Kismet32.png"));
 
     public static final int MaxStackAmount = 999;
-    private int fullAmount;
+    public int fullAmount;
 
-    public TimeSpiralPower(final int amount) {
+    public KismetPower(final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -56,34 +56,32 @@ public class TimeSpiralPower extends AbstractPower implements CloneablePowerInte
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (amount > 0 && card.type != AbstractCard.CardType.POWER) {
-            action.reboundCard = true;
-
-            amount--;
-            flash();
-            updateDescription();
-        }
+    public void atStartOfTurn() {
+        this.amount = this.fullAmount;
+        this.updateDescription();
     }
 
     @Override
-    public void atStartOfTurn() {
-        this.amount = this.fullAmount;
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        // ignore the first Fated card each turn
+        if (EphemeralMod.fatedThisTurn > 1 && amount > 0)
+            --amount;
+
+        this.updateDescription();
     }
 
     @Override
     public void updateDescription() {
-        if (amount == 0) {
-            description = DESCRIPTIONS[3];
-        } else if (amount == 1) {
-            description = DESCRIPTIONS[0];
-        } else if (amount > 1) {
-            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        int times = fullAmount + 1;
+        if (amount == 1) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + times + DESCRIPTIONS[3];
+        } else {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + times + DESCRIPTIONS[3];
         }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new TimeSpiralPower(amount);
+        return new KismetPower(amount);
     }
 }

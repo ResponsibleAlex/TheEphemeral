@@ -22,31 +22,33 @@ public class ChaosRift extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 1;
-    private static final int UPGRADE_COST = 0;
+    private static final int NUMBER = 1;
+    private static final int UPGRADE_PLUS_NUMBER = 1;
 
     // /STAT DECLARATION/
 
     public ChaosRift() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = NUMBER;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p,
-                new ChaosRiftPower(1), 1));
+                new ChaosRiftPower(magicNumber), magicNumber));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+            upgradeMagicNumber(UPGRADE_PLUS_NUMBER);
             initializeDescription();
         }
     }
