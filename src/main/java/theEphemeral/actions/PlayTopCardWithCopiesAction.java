@@ -3,6 +3,7 @@ package theEphemeral.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -74,6 +75,7 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
 
         card.purgeOnUse = true;
 
+        this.addToTop(new UnlimboAction(card));
         this.addToTop(new NewQueueCardAction(card, true, false, true));
 
         if (!Settings.FAST_MODE) {

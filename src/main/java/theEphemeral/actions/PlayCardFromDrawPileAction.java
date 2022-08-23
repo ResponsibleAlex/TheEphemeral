@@ -2,6 +2,7 @@ package theEphemeral.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -33,6 +34,7 @@ public class PlayCardFromDrawPileAction extends AbstractGameAction {
             cardToPlay.targetDrawScale = 0.75F;
             cardToPlay.applyPowers();
 
+            this.addToTop(new UnlimboAction(cardToPlay));
             this.addToTop(new NewQueueCardAction(cardToPlay, true, false, true));
 
             if (!Settings.FAST_MODE) {
