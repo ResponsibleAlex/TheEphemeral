@@ -49,7 +49,7 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
         copy.current_x = card.current_x;
         copy.current_y = card.current_y;
 
-        this.queueCard(copy, offsetX);
+        this.queueCard(copy, offsetX, true);
     }
 
     private void playCard(AbstractCard card) {
@@ -57,10 +57,10 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
         AbstractDungeon.player.drawPile.group.remove(card);
         AbstractDungeon.getCurrRoom().souls.remove(card);
 
-        this.queueCard(card, 200 * Settings.scale);
+        this.queueCard(card, 200 * Settings.scale, false);
     }
 
-    private void queueCard(AbstractCard card, float offsetX) {
+    private void queueCard(AbstractCard card, float offsetX, boolean purgeOnUse) {
 
         AbstractDungeon.player.limbo.addToBottom(card);
 
@@ -73,7 +73,7 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
         card.targetDrawScale = 0.75F;
         card.applyPowers();
 
-        card.purgeOnUse = true;
+        card.purgeOnUse = purgeOnUse;
 
         this.addToTop(new UnlimboAction(card));
         this.addToTop(new NewQueueCardAction(card, true, false, true));
