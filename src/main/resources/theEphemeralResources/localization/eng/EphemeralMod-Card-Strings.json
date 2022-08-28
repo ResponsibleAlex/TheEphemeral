@@ -133,7 +133,7 @@
 
   "theEphemeral:TimeSkip": {
     "NAME": "Time Skip",
-    "DESCRIPTION": "Play the top card of your draw pile. NL theephemeral:Fated: gain [E]. NL Exhaust",
+    "DESCRIPTION": "Play the top card of your draw pile. NL Exhaust. NL theephemeral:Fated: gain [E].",
     "UPGRADE_DESCRIPTION": "Play the top card of your draw pile. NL theephemeral:Fated: gain [E]."
   },
   "theEphemeral:Fade": {

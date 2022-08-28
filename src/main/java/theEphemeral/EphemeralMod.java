@@ -519,9 +519,7 @@ public class EphemeralMod implements
     public static void atEndOfTurn() {
         if (AbstractDungeon.player.hasPower(HarbingerFormPower.POWER_ID)) {
             int amount = AbstractDungeon.player.getPower(HarbingerFormPower.POWER_ID).amount;
-            for (int i = 0; i < amount; i++) {
-                AbstractDungeon.actionManager.addToBottom(new PlayTopCardWithCopiesAction(1));
-            }
+            AbstractDungeon.actionManager.addToBottom(new PlayTopCardWithCopiesAction(amount - 1));
         }
     }
 

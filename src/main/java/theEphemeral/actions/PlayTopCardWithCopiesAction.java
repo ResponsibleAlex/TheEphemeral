@@ -40,11 +40,7 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
     private void playCopy(AbstractCard card, int offset) {
         float offsetX = -(offset + 1) * 50 * Settings.scale;
 
-        AbstractCard copy;
-        if (card instanceof AbstractVanishingCard)
-            copy = card.makeStatEquivalentCopy();
-        else
-            copy = card.makeSameInstanceOf();
+        AbstractCard copy = card.makeStatEquivalentCopy();
 
         copy.current_x = card.current_x;
         copy.current_y = card.current_y;
@@ -62,7 +58,8 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
 
     private void queueCard(AbstractCard card, float offsetX, boolean purgeOnUse) {
 
-        AbstractDungeon.player.limbo.addToBottom(card);
+        if (purgeOnUse)
+            AbstractDungeon.player.limbo.addToBottom(card);
 
         card.target_x = (float) Settings.WIDTH / 2.0F - (300.0F * Settings.scale) + offsetX;
         card.target_y = (float)Settings.HEIGHT / 2.0F;
@@ -75,13 +72,15 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
 
         card.purgeOnUse = purgeOnUse;
 
-        this.addToTop(new UnlimboAction(card));
         this.addToTop(new NewQueueCardAction(card, true, false, true));
+
+        //if (!purgeOnUse)
+        //    this.addToTop(new UnlimboAction(card));
 
         if (!Settings.FAST_MODE) {
             this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
         } else {
-            this.addToTop(new WaitAction(Settings.ACTION_DUR_FAST));
+            this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
         }
     }
 }
