@@ -16,6 +16,11 @@ public class EndTurnButtonPatch {
             }
     )
     public static class Disable {
-        public static void Prefix(EndTurnButton __instance, boolean isEnemyTurn) { EphemeralMod.atEndOfTurn(); }
+        public static void Prefix(EndTurnButton __instance, boolean isEnemyTurn) {
+            // If the button is changing from enabled true, we are sure we are at the end of player turn.
+            // Prevents Time Eater / HarbingerForm nonsense.
+            if (__instance.enabled)
+                EphemeralMod.atEndOfTurn();
+        }
     }
 }

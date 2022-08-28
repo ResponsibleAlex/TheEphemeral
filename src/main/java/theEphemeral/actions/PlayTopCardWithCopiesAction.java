@@ -3,8 +3,6 @@ package theEphemeral.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -40,7 +38,11 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
     private void playCopy(AbstractCard card, int offset) {
         float offsetX = -(offset + 1) * 50 * Settings.scale;
 
-        AbstractCard copy = card.makeStatEquivalentCopy();
+        AbstractCard copy;
+        if (card instanceof AbstractVanishingCard)
+            copy = card.makeStatEquivalentCopy();
+        else
+            copy = card.makeSameInstanceOf();
 
         copy.current_x = card.current_x;
         copy.current_y = card.current_y;
@@ -74,13 +76,5 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
 
         this.addToTop(new NewQueueCardAction(card, true, false, true));
 
-        //if (!purgeOnUse)
-        //    this.addToTop(new UnlimboAction(card));
-
-        if (!Settings.FAST_MODE) {
-            this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
-        } else {
-            this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
-        }
     }
 }
