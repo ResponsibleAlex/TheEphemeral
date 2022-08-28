@@ -29,9 +29,9 @@ public class Tasseomancy extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int AUGURY = 2;
-    private static final int UPGRADE_PLUS_AUGURY = 1;
+    private static final int UPGRADE_PLUS_AUGURY = 2;
 
 
     // /STAT DECLARATION/
@@ -40,6 +40,7 @@ public class Tasseomancy extends AbstractDynamicCard {
     public Tasseomancy() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = AUGURY;
+        exhaust = true;
     }
 
     @Override

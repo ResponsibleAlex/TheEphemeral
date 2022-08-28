@@ -194,7 +194,7 @@
   },
   "theEphemeral:Tasseomancy": {
     "NAME": "Tasseomancy",
-    "DESCRIPTION": "Gain !M! theephemeral:Augury. NL If the top card of your draw pile is a Skill, play it."
+    "DESCRIPTION": "Gain !M! theephemeral:Augury. NL If the top card of your draw pile is a Skill, play it. NL Exhaust."
   },
   "theEphemeral:RecurringNightmare": {
     "NAME": "Recurring Nightmare",
