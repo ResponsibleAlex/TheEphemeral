@@ -91,9 +91,11 @@ public class RecurringNightmareAction extends AbstractGameAction {
     }
 
     private void playCard(AbstractCard card) {
+
         AbstractDungeon.getCurrRoom().souls.remove(card);
         this.player.discardPile.removeCard(card);
         this.player.limbo.group.add(card);
+
         card.current_y = -200.0F * Settings.scale;
         card.target_x = (float)Settings.WIDTH / 2.0F;
         card.target_y = (float)Settings.HEIGHT / 2.0F;
@@ -103,6 +105,7 @@ public class RecurringNightmareAction extends AbstractGameAction {
         card.drawScale = 0.12F;
         card.targetDrawScale = 0.75F;
         card.applyPowers();
+
         this.addToBot(new UnlimboAction(card));
         this.addToTop(new NewQueueCardAction(card, true, false, true));
         if (!Settings.FAST_MODE) {

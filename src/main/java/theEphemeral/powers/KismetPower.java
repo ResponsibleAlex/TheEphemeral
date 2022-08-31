@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import theEphemeral.cards.AbstractDynamicCard;
 import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
@@ -31,11 +32,9 @@ public class KismetPower extends AbstractPower implements CloneablePowerInterfac
         ID = POWER_ID;
 
         this.owner = AbstractDungeon.player;
+
         this.amount = amount;
-        if (this.amount >= MaxStackAmount) {
-            this.amount = MaxStackAmount;
-        }
-        this.fullAmount = this.amount;
+        this.fullAmount = amount;
 
         type = PowerType.BUFF;
 
@@ -46,11 +45,15 @@ public class KismetPower extends AbstractPower implements CloneablePowerInterfac
     }
 
     public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
+        this.fullAmount += stackAmount;
+        if (this.fullAmount >= MaxStackAmount) {
+            this.fullAmount = MaxStackAmount;
+        }
+
+        this.amount += stackAmount;
         if (this.amount >= MaxStackAmount) {
             this.amount = MaxStackAmount;
         }
-        this.fullAmount = this.amount;
 
         updateDescription();
     }
@@ -64,7 +67,10 @@ public class KismetPower extends AbstractPower implements CloneablePowerInterfac
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         // ignore the first Fated card each turn
-        if (EphemeralMod.fatedThisTurn > 1 && amount > 0)
+        if (card instanceof AbstractDynamicCard
+                && ((AbstractDynamicCard)card).fated
+                && EphemeralMod.fatedThisTurn > 1
+                && amount > 0)
             --amount;
 
         this.updateDescription();

@@ -14,7 +14,7 @@ import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class AbstractDynamicCard extends AbstractDefaultCard {
 
-    protected boolean fated = false;
+    public boolean fated = false;
 
     public AbstractDynamicCard(final String id,
                                final String img,

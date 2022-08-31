@@ -3,6 +3,8 @@ package theEphemeral.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -31,6 +33,13 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
                 this.playCopy(c, i);
             }
             this.playCard(c);
+
+            if (!Settings.FAST_MODE) {
+                this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+            } else {
+                this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+            }
+
             this.isDone = true;
         }
     }
@@ -60,8 +69,7 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
 
     private void queueCard(AbstractCard card, float offsetX, boolean purgeOnUse) {
 
-        if (purgeOnUse)
-            AbstractDungeon.player.limbo.addToBottom(card);
+        AbstractDungeon.player.limbo.addToBottom(card);
 
         card.target_x = (float) Settings.WIDTH / 2.0F - (300.0F * Settings.scale) + offsetX;
         card.target_y = (float)Settings.HEIGHT / 2.0F;
@@ -74,6 +82,8 @@ public class PlayTopCardWithCopiesAction extends AbstractGameAction {
 
         card.purgeOnUse = purgeOnUse;
 
+        if (!purgeOnUse)
+            this.addToBot(new UnlimboAction(card));
         this.addToTop(new NewQueueCardAction(card, true, false, true));
 
     }
