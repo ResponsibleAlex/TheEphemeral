@@ -48,6 +48,8 @@ public class PsychicStrike extends AbstractDynamicCard {
         cardsToPreview = new FleetingThought();
 
         fated = true;
+
+        tags.add(CardTags.STRIKE);
     }
 
     // Actions the card should do.
