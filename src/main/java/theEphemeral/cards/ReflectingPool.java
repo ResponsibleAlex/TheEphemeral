@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
+import theEphemeral.fleetingCards.FleetingStrike;
 import theEphemeral.powers.ReflectingPoolPower;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
@@ -34,6 +35,8 @@ public class ReflectingPool extends AbstractDynamicCard {
 
     public ReflectingPool() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+
+        cardsToPreview = new FleetingStrike();
     }
 
     @Override
