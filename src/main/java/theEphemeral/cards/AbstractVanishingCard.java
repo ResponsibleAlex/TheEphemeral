@@ -10,7 +10,7 @@ public abstract class AbstractVanishingCard extends AbstractDynamicCard {
         super(id, img, cost, type, color, rarity, target);
 
         defaultBaseSecondMagicNumber = defaultSecondMagicNumber = misc = vanishing;
-        purgeOnUse = true;
+        exhaust = true;
     }
 
     @Override
