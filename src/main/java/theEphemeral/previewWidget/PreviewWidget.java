@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import theEphemeral.EphemeralMod;
 import theEphemeral.actions.LinenVeilAction;
+import theEphemeral.cards.AbstractVanishingCard;
 import theEphemeral.powers.DarkContractPower;
 import theEphemeral.relics.LinenVeil;
 import theEphemeral.variables.TopCardMode;
@@ -112,7 +113,10 @@ public class PreviewWidget {
 
                 for (int i = revealedIndex; i >= 0; i--) {
                     AbstractCard c = drawPile.group.get(drawPileIndexOffset - i);
+
                     AbstractCard cpy = c.makeSameInstanceOf();
+                    if (cpy instanceof AbstractVanishingCard)
+                        cpy.uuid = c.uuid;
 
                     cpy.applyPowers();
                     cpy.setAngle(0.0F, true);

@@ -25,6 +25,11 @@ public abstract class AbstractVanishingCard extends AbstractDynamicCard {
         super.initializeDescription();
     }
 
+    @Override
+    public AbstractCard makeSameInstanceOf() {
+        return this.makeStatEquivalentCopy();
+    }
+
     protected void vanish() {
         misc--;
         applyPowers();
