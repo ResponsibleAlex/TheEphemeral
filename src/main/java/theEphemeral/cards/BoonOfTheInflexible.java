@@ -1,12 +1,10 @@
 package theEphemeral.cards;
 
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
+import theEphemeral.actions.InflexibleAction;
+import theEphemeral.actions.PlayCardFromDiscardPileAction;
 import theEphemeral.characters.TheEphemeral;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
@@ -29,9 +27,10 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = 0;
-    private static final int BLOCK = 6;
-    private static final int UPGRADE_PLUS_BLOCK = 4;
+    private static final int COST = -1;
+    private static final int BLOCK = 5;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
+    private static final int FATED_BLOCK = 2;
 
 
     // /STAT DECLARATION/
@@ -40,19 +39,19 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     public BoonOfTheInflexible() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
+        magicNumber = baseMagicNumber = FATED_BLOCK;
     }
 
     @Override
     public void triggerOnManualDiscard() {
         applyPowers();
-        addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
+        addToBot(new PlayCardFromDiscardPileAction(this));
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(1));
-        addToBot(new DiscardAction(p, p, 1, false));
+        addToBot(new InflexibleAction(block, freeToPlayOnce, energyOnUse));
     }
 
     //Upgraded stats.

@@ -172,8 +172,8 @@
   },
   "theEphemeral:BoonOfTheSpinner": {
     "NAME": "Boon of the Spinner",
-    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from anywhere, gain [E].",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from anywhere, gain [E] [E]."
+    "DESCRIPTION": "Gain [E]. NL If this card is discarded from anywhere, gain [E].",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL If this card is discarded from anywhere, gain [E] [E]."
   },
   "theEphemeral:BoonOfTheAlloter": {
     "NAME": "Boon of the Alloter",
@@ -182,7 +182,7 @@
   },
   "theEphemeral:BoonOfTheInflexible": {
     "NAME": "Boon of the Inflexible",
-    "DESCRIPTION": "Draw 1 card. NL Discard 1 card. NL If this card is discarded from anywhere, gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block X times. NL theephemeral:Fated: gained Block is increased by !M!. NL If this card is discarded from anywhere, play it."
   },
   "theEphemeral:BlindFaith": {
     "NAME": "Blind Faith",

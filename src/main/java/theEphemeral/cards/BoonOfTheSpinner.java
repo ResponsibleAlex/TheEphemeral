@@ -1,7 +1,5 @@
 package theEphemeral.cards;
 
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -50,8 +48,7 @@ public class BoonOfTheSpinner extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(1));
-        addToBot(new DiscardAction(p, p, 1, false));
+        addToBot(new GainEnergyAction(magicNumber));
     }
 
     //Upgraded stats.
