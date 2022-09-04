@@ -70,9 +70,9 @@ public class KismetPower extends AbstractShufflePower implements CloneablePowerI
     @Override
     public void updateDescription() {
         if (drawAmount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[3];
+            description = DESCRIPTIONS[0] + drawAmount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[3];
         } else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + amount + DESCRIPTIONS[3];
+            description = DESCRIPTIONS[0] + drawAmount + DESCRIPTIONS[2] + amount + DESCRIPTIONS[3];
         }
     }
 

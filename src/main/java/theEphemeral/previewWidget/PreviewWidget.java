@@ -143,7 +143,7 @@ public class PreviewWidget {
                 AbstractCard c = previews.group.get(i);
                 if (c.isHoveredInHand(PREVIEW_CARD_SCALE)) {
                     hovering = true;
-                    if (hoveredCard == null || notRoughlyEqual(hoveredCard, c)) {
+                    if (hoveredCard == null || notEqual(hoveredCard, c)) {
                         hoveredCard = c.makeStatEquivalentCopy();
                         hoveredCard.applyPowers();
 
@@ -200,16 +200,14 @@ public class PreviewWidget {
         int drawPileIndexOffset = p.drawPile.size() - 1;
 
         for (int i = revealedIndex; i >= 0; i--) {
-            if (notRoughlyEqual(drawGroup.get(drawPileIndexOffset - i), preGroup.get(i)))
+            if (notEqual(drawGroup.get(drawPileIndexOffset - i), preGroup.get(i)))
                 return true;
         }
 
         return false;
     }
-    private boolean notRoughlyEqual(AbstractCard a, AbstractCard b) {
-        return !a.name.equals(b.name)
-                || !a.rawDescription.equals(b.rawDescription)
-                || a.costForTurn != b.costForTurn;
+    private boolean notEqual(AbstractCard a, AbstractCard b) {
+        return a.uuid != b.uuid;
     }
 
     public static int GetAugury() {
