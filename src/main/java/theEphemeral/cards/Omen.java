@@ -53,7 +53,7 @@ public class Omen extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (triggerFated()) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-            int amount = magicNumber + (magicNumber * kismet());
+            int amount = magicNumber + (magicNumber * soothsayer());
             addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, amount, false), amount, true, AbstractGameAction.AttackEffect.NONE));
         } else {
             addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));

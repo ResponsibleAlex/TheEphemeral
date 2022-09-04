@@ -28,7 +28,7 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = -1;
-    private static final int BLOCK = 5;
+    private static final int BLOCK = 6;
     private static final int UPGRADE_PLUS_BLOCK = 2;
     private static final int FATED_BLOCK = 2;
 
@@ -40,6 +40,7 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
         magicNumber = baseMagicNumber = FATED_BLOCK;
+        fated = true;
     }
 
     @Override
@@ -51,7 +52,12 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new InflexibleAction(block, freeToPlayOnce, energyOnUse));
+
+        int amt = block;
+        if (triggerFated()) {
+            amt += magicNumber;
+        }
+        addToBot(new InflexibleAction(amt, freeToPlayOnce, energyOnUse));
     }
 
     //Upgraded stats.

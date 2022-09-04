@@ -73,7 +73,7 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         return false;
     }
 
-    protected int kismet() {
+    protected int soothsayer() {
         if (AbstractDungeon.player.hasPower(SoothsayerPower.POWER_ID))
             return ((SoothsayerPower)AbstractDungeon.player.getPower(SoothsayerPower.POWER_ID)).fullAmount;
 

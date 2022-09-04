@@ -48,7 +48,7 @@ public class Dissipate extends AbstractDynamicCard {
         addToBot(new GainBlockAction(p, p, block));
 
         if (triggerFated()) {
-            int amount = 1 + kismet();
+            int amount = 1 + soothsayer();
             addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, amount), amount));
             exhaust = true;
         }

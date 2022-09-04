@@ -42,10 +42,6 @@ public class FleetingDodge extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
 
-        if (AbstractDungeon.player != null
-            && AbstractDungeon.player.hasRelic(LinenVeil.ID))
-            baseBlock += LinenVeil.VALUE;
-
         exhaust = true;
         isEthereal = true;
     }

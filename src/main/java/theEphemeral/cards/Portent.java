@@ -52,7 +52,7 @@ public class Portent extends AbstractDynamicCard {
         PreviewWidget.AddAugury(magicNumber);
 
         if (triggerFated()) {
-            int amount = CARDS_DRAWN + (CARDS_DRAWN * kismet());
+            int amount = CARDS_DRAWN + (CARDS_DRAWN * soothsayer());
             addToBot(new DrawCardAction(amount));
         }
     }

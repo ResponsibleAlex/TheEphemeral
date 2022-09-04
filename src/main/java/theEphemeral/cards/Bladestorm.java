@@ -50,7 +50,7 @@ public class Bladestorm extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int times = 2;
         if (triggerFated()) {
-            times += 2 + (2 * kismet());
+            times += 2 + (2 * soothsayer());
         }
 
         for (int i = 0; i < times; i++) {
