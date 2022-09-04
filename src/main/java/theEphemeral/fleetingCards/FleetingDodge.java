@@ -8,7 +8,7 @@ import theEphemeral.EphemeralMod;
 import theEphemeral.actions.DiscardTopCardAction;
 import theEphemeral.cards.AbstractDynamicCard;
 import theEphemeral.characters.TheEphemeral;
-import theEphemeral.relics.SilkyBandage;
+import theEphemeral.relics.LinenVeil;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
@@ -43,8 +43,8 @@ public class FleetingDodge extends AbstractDynamicCard {
         baseBlock = BLOCK;
 
         if (AbstractDungeon.player != null
-            && AbstractDungeon.player.hasRelic(SilkyBandage.ID))
-            baseBlock += SilkyBandage.VALUE;
+            && AbstractDungeon.player.hasRelic(LinenVeil.ID))
+            baseBlock += LinenVeil.VALUE;
 
         exhaust = true;
         isEthereal = true;

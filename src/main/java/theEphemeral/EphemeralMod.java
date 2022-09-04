@@ -373,7 +373,7 @@ public class EphemeralMod implements
 
         addRelic(new Laurel());
         addRelic(new Pincushion());
-        addRelic(new SilkyBandage());
+        addRelic(new LinenVeil());
         addRelic(new RitualAsh());
         addRelic(new GlowingFeather());
         addRelic(new CuriousTalon());

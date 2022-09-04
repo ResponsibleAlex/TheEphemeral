@@ -22,8 +22,9 @@ public class RitualAsh extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("RitualAsh.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("RitualAsh.png"));
 
+
     public RitualAsh() {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.MAGICAL);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class RitualAsh extends CustomRelic {
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.addToBot(
                     new DamageRandomEnemyAction(
-                            new DamageInfo(AbstractDungeon.player, 4, DamageInfo.DamageType.THORNS),
+                            new DamageInfo(AbstractDungeon.player, 3, DamageInfo.DamageType.THORNS),
                             AbstractGameAction.AttackEffect.FIRE));
         }
     }

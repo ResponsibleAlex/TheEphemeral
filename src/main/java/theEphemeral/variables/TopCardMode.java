@@ -1,6 +1,6 @@
 package theEphemeral.variables;
 
-public enum SoothsayerMode {
+public enum TopCardMode {
     Attack,
     Skill,
     None

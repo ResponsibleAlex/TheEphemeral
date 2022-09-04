@@ -17,11 +17,10 @@ import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import theEphemeral.EphemeralMod;
-import theEphemeral.actions.SoothsayerAction;
-import theEphemeral.cards.Soothsayer;
+import theEphemeral.actions.LinenVeilAction;
 import theEphemeral.powers.DarkContractPower;
-import theEphemeral.powers.SoothsayerPower;
-import theEphemeral.variables.SoothsayerMode;
+import theEphemeral.relics.LinenVeil;
+import theEphemeral.variables.TopCardMode;
 import theEphemeral.vfx.FeatherEffect;
 
 import java.util.ArrayList;
@@ -71,7 +70,7 @@ public class PreviewWidget {
     private static PreviewWidget widget;
     public static void StartOfCombat() {
         widget = new PreviewWidget();
-        Soothsayer.Mode = SoothsayerMode.None;
+        LinenVeil.Mode = TopCardMode.None;
     }
     public static void EndOfCombat() {
         Clear();
@@ -130,9 +129,9 @@ public class PreviewWidget {
                 c.applyPowers();
             }
 
-            // previews are updated, trigger Soothsayer
-            if (p.hasPower(SoothsayerPower.POWER_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new SoothsayerAction());
+            // previews are updated, trigger Linen Veil if we have it
+            if (p.hasRelic(LinenVeil.ID)) {
+                AbstractDungeon.actionManager.addToBottom(new LinenVeilAction());
             }
         }
 

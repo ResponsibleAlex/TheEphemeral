@@ -27,18 +27,18 @@
       "Add a #ytheephemeral:Fleeting_Thought to your hand at the start of combat."
     ]
   },
-  "theEphemeral:SilkyBandage": {
-    "NAME": "Silky Bandage",
+  "theEphemeral:LinenVeil": {
+    "NAME": "Linen Veil",
     "FLAVOR": "The diaphanous weave would be almost see-through... if you had sight.",
     "DESCRIPTIONS": [
-      "#ytheephemeral:Fleeting_Dodge blocks for an additional #b2."
+      "While the top card of your draw pile is an #yAttack, gain #b2 #yStrength. While the top card of your draw pile is a #ySkill, gain #b2 #yDexterity."
     ]
   },
   "theEphemeral:RitualAsh": {
     "NAME": "Ritual Ash",
     "FLAVOR": "The remains of a burnt offering used to anoint a seer.",
     "DESCRIPTIONS": [
-      "Whenever you #yExhaust an #yEthereal card, deal #b4 damage to a random enemy."
+      "Whenever you #yExhaust an #yEthereal card, deal #b3 damage to a random enemy."
     ]
   },
   "theEphemeral:GlowingFeather": {
