@@ -1,21 +1,20 @@
 package theEphemeral.powers;
 
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import theEphemeral.EphemeralMod;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import theEphemeral.cards.AbstractDynamicCard;
+import theEphemeral.EphemeralMod;
 import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
 
-public class KismetPower extends AbstractPower implements CloneablePowerInterface {
+public class KismetPower extends AbstractShufflePower implements CloneablePowerInterface {
     public static final String POWER_ID = EphemeralMod.makeID(KismetPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -25,16 +24,18 @@ public class KismetPower extends AbstractPower implements CloneablePowerInterfac
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Kismet32.png"));
 
     public static final int MaxStackAmount = 999;
-    public int fullAmount;
+    public int drawAmount = 0;
 
     public KismetPower(final int amount) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = AbstractDungeon.player;
-
         this.amount = amount;
-        this.fullAmount = amount;
+        if (this.amount >= MaxStackAmount) {
+            this.amount = MaxStackAmount;
+        }
+        this.drawAmount++;
 
         type = PowerType.BUFF;
 
@@ -45,44 +46,33 @@ public class KismetPower extends AbstractPower implements CloneablePowerInterfac
     }
 
     public void stackPower(int stackAmount) {
-        this.fullAmount += stackAmount;
-        if (this.fullAmount >= MaxStackAmount) {
-            this.fullAmount = MaxStackAmount;
+        super.stackPower(stackAmount);
+        if (this.amount > MaxStackAmount) {
+            this.amount = MaxStackAmount;
         }
 
-        this.amount += stackAmount;
-        if (this.amount >= MaxStackAmount) {
-            this.amount = MaxStackAmount;
+        this.drawAmount++;
+        if (this.drawAmount > MaxStackAmount) {
+            this.drawAmount = MaxStackAmount;
         }
 
         updateDescription();
     }
 
-    @Override
-    public void atStartOfTurn() {
-        this.amount = this.fullAmount;
-        this.updateDescription();
-    }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        // ignore the first Fated card each turn
-        if (card instanceof AbstractDynamicCard
-                && ((AbstractDynamicCard)card).fated
-                && EphemeralMod.fatedThisTurn > 1
-                && amount > 0)
-            --amount;
-
-        this.updateDescription();
+    public void onShuffle() {
+        this.flash();
+        this.addToBot(new DrawCardAction(this.drawAmount));
+        this.addToBot(new GainBlockAction(this.owner, this.amount));
     }
 
     @Override
     public void updateDescription() {
-        int times = fullAmount + 1;
-        if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + times + DESCRIPTIONS[3];
+        if (drawAmount == 1) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[3];
         } else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + times + DESCRIPTIONS[3];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + amount + DESCRIPTIONS[3];
         }
     }
 
@@ -90,4 +80,5 @@ public class KismetPower extends AbstractPower implements CloneablePowerInterfac
     public AbstractPower makeCopy() {
         return new KismetPower(amount);
     }
+
 }

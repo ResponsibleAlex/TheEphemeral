@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theEphemeral.EphemeralMod;
-import theEphemeral.powers.KismetPower;
+import theEphemeral.powers.SoothsayerPower;
 import theEphemeral.relics.HookAndYarn;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -49,13 +49,13 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
             return true;
         }
 
-        // see if we have any Kismet amount left
+        // see if we have any Soothsayer amount left
         AbstractPlayer p = AbstractDungeon.player;
-        if (p.hasPower(KismetPower.POWER_ID)) {
-            return p.getPower(KismetPower.POWER_ID).amount > 0;
+        if (p.hasPower(SoothsayerPower.POWER_ID)) {
+            return p.getPower(SoothsayerPower.POWER_ID).amount > 0;
         }
 
-        // not the first card, no Kismet
+        // not the first card, no Soothsayer
         return false;
     }
 
@@ -74,8 +74,8 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
     }
 
     protected int kismet() {
-        if (AbstractDungeon.player.hasPower(KismetPower.POWER_ID))
-            return ((KismetPower)AbstractDungeon.player.getPower(KismetPower.POWER_ID)).fullAmount;
+        if (AbstractDungeon.player.hasPower(SoothsayerPower.POWER_ID))
+            return ((SoothsayerPower)AbstractDungeon.player.getPower(SoothsayerPower.POWER_ID)).fullAmount;
 
         return 0;
     }

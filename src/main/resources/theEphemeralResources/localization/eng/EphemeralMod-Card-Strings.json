@@ -301,9 +301,9 @@
     "NAME": "Reflecting Pool",
     "DESCRIPTION": "Whenever you play an attack without Exhaust, add a theephemeral:Fleeting_Strike to your hand."
   },
-  "theEphemeral:Soothsayer": {
-    "NAME": "Soothsayer",
-    "DESCRIPTION": "While the top card of your draw pile is an Attack, gain !M! Strength. While the top card of your draw pile is a Skill, gain !M! Dexterity."
+  "theEphemeral:Kismet": {
+    "NAME": "Kismet",
+    "DESCRIPTION": "Whenever you shuffle your draw pile, draw a card and gain !M! Block."
   },
   "theEphemeral:Maelstrom": {
     "NAME": "Maelstrom",
@@ -318,8 +318,8 @@
     "NAME": "Dark Contract",
     "DESCRIPTION": "Whenever you gain theephemeral:Augury, gain [E] and lose 1 life."
   },
-  "theEphemeral:Kismet": {
-    "NAME": "Kismet",
+  "theEphemeral:Soothsayer": {
+    "NAME": "Soothsayer",
     "DESCRIPTION": "theephemeral:Fated effects are twice as strong and may trigger an additional time each turn."
   },
   "theEphemeral:GrimResolve": {

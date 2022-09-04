@@ -37,12 +37,13 @@
                         " #yFleeting #yStrikes to your hand."
                 ]
         },
-        "theEphemeral:SoothsayerPower": {
-                "NAME": "Soothsayer",
+        "theEphemeral:KismetPower": {
+                "NAME": "Kismet",
                 "DESCRIPTIONS": [
-                        "While the top card of your draw pile is an #yAttack, gain #b",
-                        " #yStrength. While the top card of your draw pile is a #ySkill, gain #b",
-                        " #yDexterity."
+                        "Whenever you shuffle your draw pile, draw #b",
+                        " card and gain #b",
+                        " cards and gain #b",
+                        " #yBlock."
                 ]
         },
         "theEphemeral:MaelstromPower": {
@@ -71,8 +72,8 @@
                         " life."
                 ]
         },
-        "theEphemeral:KismetPower": {
-                "NAME": "Kismet",
+        "theEphemeral:SoothsayerPower": {
+                "NAME": "Soothsayer",
                 "DESCRIPTIONS": [
                         "An additional #b",
                         " card may trigger #yFated this turn. #yFated effects are #b",
