@@ -29,9 +29,9 @@ public class ReadTheStars extends AbstractDynamicCard {
     private static final int COST = 1;
     // private static final int UPGRADED_COST = 0;
     private static final int BLOCK = 7;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
-    private static final int AUGURY = 1;
-    private static final int UPGRADE_PLUS_AUGURY = 1;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int AUGURY = 2;
+    //private static final int UPGRADE_PLUS_AUGURY = 1;
 
 
     // /STAT DECLARATION/
@@ -56,7 +56,7 @@ public class ReadTheStars extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            upgradeMagicNumber(UPGRADE_PLUS_AUGURY);
+            //upgradeMagicNumber(UPGRADE_PLUS_AUGURY);
             initializeDescription();
         }
     }
