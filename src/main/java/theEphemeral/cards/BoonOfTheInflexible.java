@@ -30,7 +30,6 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     private static final int COST = -1;
     private static final int BLOCK = 6;
     private static final int UPGRADE_PLUS_BLOCK = 2;
-    private static final int FATED_BLOCK = 2;
 
 
     // /STAT DECLARATION/
@@ -39,8 +38,6 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     public BoonOfTheInflexible() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
-        magicNumber = baseMagicNumber = FATED_BLOCK;
-        fated = true;
     }
 
     @Override
@@ -52,12 +49,7 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        int amt = block;
-        if (triggerFated()) {
-            amt += magicNumber;
-        }
-        addToBot(new InflexibleAction(amt, freeToPlayOnce, energyOnUse));
+        addToBot(new InflexibleAction(block, freeToPlayOnce, energyOnUse));
     }
 
     //Upgraded stats.

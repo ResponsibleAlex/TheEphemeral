@@ -182,7 +182,7 @@
   },
   "theEphemeral:BoonOfTheInflexible": {
     "NAME": "Boon of the Inflexible",
-    "DESCRIPTION": "Gain !B! Block X times. NL theephemeral:Fated: gained Block is increased by !M!. NL If this card is discarded from anywhere, play it."
+    "DESCRIPTION": "Gain !B! Block X times. NL If this card is discarded from anywhere, play it."
   },
   "theEphemeral:BlindFaith": {
     "NAME": "Blind Faith",
@@ -190,7 +190,7 @@
   },
   "theEphemeral:BlindingBlock": {
     "NAME": "Blinding Block",
-    "DESCRIPTION": "Gain !B! Block. NL Shuffle your discard pile into your draw pile."
+    "DESCRIPTION": "Shuffle your discard pile into your draw pile, then gain !B! Block. NL theephemeral:Fated: gained Block is increased by !M!."
   },
   "theEphemeral:Tasseomancy": {
     "NAME": "Tasseomancy",

@@ -21,15 +21,15 @@ public class SpectralWall extends AbstractVanishingCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
     private static final int COST = 1;
     // private static final int UPGRADED_COST = 0;
-    private static final int BLOCK = 18;
-    private static final int UPGRADE_PLUS_BLOCK = 6;
+    private static final int BLOCK = 30;
+    private static final int UPGRADE_PLUS_BLOCK = 10;
     private static final int VANISHING = 3;
 
 
