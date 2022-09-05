@@ -19,8 +19,16 @@ public class AbstractPlayerPatch {
             clz= AbstractPlayer.class,
             method="preBattlePrep"
     )
-    public static class PreBattlePrep {
-        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.startOfCombat(); }
+    public static class PreBattlePrepPrefix {
+        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.preBattlePrepPrefix(); }
+    }
+
+    @SpirePatch(
+            clz= AbstractPlayer.class,
+            method="preBattlePrep"
+    )
+    public static class PreBattlePrepPostfix {
+        public static void Postfix(AbstractPlayer __instance) { EphemeralMod.preBattlePrepPostfix(); }
     }
 
     @SpirePatch(

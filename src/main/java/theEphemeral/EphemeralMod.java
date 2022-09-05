@@ -484,6 +484,7 @@ public class EphemeralMod implements
     // =========================================================
 
     public static int fatedThisTurn = 0;
+    public static boolean preBattle = true;
 
     public static void startOfTurn() {
         fatedThisTurn = 0;
@@ -494,8 +495,13 @@ public class EphemeralMod implements
         PreviewWidget.StartOfTurnAccounting();
     }
 
-    public static void startOfCombat() {
+    public static void preBattlePrepPrefix() {
+        preBattle = true;
         PreviewWidget.StartOfCombat();
+    }
+
+    public static void preBattlePrepPostfix() {
+        preBattle = false;
     }
 
     public static void endOfCombat() {

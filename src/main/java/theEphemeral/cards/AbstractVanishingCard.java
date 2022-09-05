@@ -2,6 +2,7 @@ package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theEphemeral.EphemeralMod;
 
 import java.util.UUID;
 
@@ -27,7 +28,14 @@ public abstract class AbstractVanishingCard extends AbstractDynamicCard {
 
     @Override
     public AbstractCard makeSameInstanceOf() {
-        return this.makeStatEquivalentCopy();
+        AbstractCard copy = this.makeStatEquivalentCopy();
+
+        // When creating initial draw pile, set uuids.
+        // For all other cases, we want copies of Vanishing cards to not be tied to master deck card.
+        if (EphemeralMod.preBattle)
+            copy.uuid = this.uuid;
+
+        return copy;
     }
 
     protected void vanish() {
