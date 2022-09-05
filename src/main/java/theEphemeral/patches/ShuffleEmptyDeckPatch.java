@@ -11,13 +11,15 @@ import theEphemeral.powers.AbstractShufflePower;
 public class ShuffleEmptyDeckPatch {
     @SpirePatch(
             clz = EmptyDeckShuffleAction.class,
-            method = SpirePatch.CONSTRUCTOR
+            method = "update"
     )
-    public static class EmptyDeckShuffleActionConstructor {
+    public static class EmptyDeckShuffleActionUpdate {
         public static void Postfix(EmptyDeckShuffleAction __instance) {
-            for (AbstractPower p : AbstractDungeon.player.powers) {
-                if (p instanceof AbstractShufflePower) {
-                    ((AbstractShufflePower) p).onShuffle();
+            if (__instance.isDone) {
+                for (AbstractPower p : AbstractDungeon.player.powers) {
+                    if (p instanceof AbstractShufflePower) {
+                        ((AbstractShufflePower) p).onShuffle();
+                    }
                 }
             }
         }
