@@ -1,21 +1,21 @@
 package theEphemeral.cards;
 
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
-import theEphemeral.actions.InflexibleAction;
-import theEphemeral.actions.PlayCardFromDiscardPileAction;
 import theEphemeral.characters.TheEphemeral;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class BoonOfTheInflexible extends AbstractDynamicCard {
+public class SpinnersGift extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = EphemeralMod.makeID(BoonOfTheInflexible.class.getSimpleName());
-    public static final String IMG = makeCardPath("BoonOfTheInflexible.png");
+    public static final String ID = EphemeralMod.makeID(SpinnersGift.class.getSimpleName());
+    public static final String IMG = makeCardPath("SpinnersGift.png");
 
     // /TEXT DECLARATION/
 
@@ -27,29 +27,28 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheEphemeral.Enums.COLOR_EPHEMERAL_PURPLE;
 
-    private static final int COST = -1;
-    private static final int BLOCK = 6;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
+    private static final int COST = 0;
+    private static final int MAGIC_NUMBER = 1;
+    private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 
 
     // /STAT DECLARATION/
 
 
-    public BoonOfTheInflexible() {
+    public SpinnersGift() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = block = BLOCK;
+        baseMagicNumber = magicNumber = MAGIC_NUMBER;
     }
 
     @Override
     public void triggerOnManualDiscard() {
-        applyPowers();
-        addToBot(new PlayCardFromDiscardPileAction(this));
+        addToBot(new GainEnergyAction(magicNumber));
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new InflexibleAction(block, freeToPlayOnce, energyOnUse));
+        addToBot(new GainEnergyAction(magicNumber));
     }
 
     //Upgraded stats.
@@ -57,8 +56,8 @@ public class BoonOfTheInflexible extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
-            //upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
