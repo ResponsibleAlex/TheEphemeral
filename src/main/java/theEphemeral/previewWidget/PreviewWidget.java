@@ -212,7 +212,7 @@ public class PreviewWidget {
     }
     private boolean notEqual(AbstractCard a, AbstractCard b) {
         return a.uuid != b.uuid
-                || a.upgraded == b.upgraded;
+                || a.upgraded != b.upgraded;
     }
 
     public static int GetAugury() {
