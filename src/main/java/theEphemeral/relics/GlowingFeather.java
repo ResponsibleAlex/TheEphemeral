@@ -51,6 +51,7 @@ public class GlowingFeather extends CustomRelic {
 
     @Override
     public void obtain() {
+        super.obtain();
         this.Deactivate();
     }
 
