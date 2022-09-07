@@ -22,7 +22,7 @@ public class AwakenedOnePatch {
             if (AbstractDungeon.player != null &&
                 AbstractDungeon.player.chosenClass != null &&
                 AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL")) {
-                __instance.addToBot(new TalkAction(true, DESCRIPTIONS[0], 1.0F, 2.5F));
+                __instance.addToBot(new TalkAction(true, DESCRIPTIONS[0], 1.0F, 4.0F));
             }
         }
     }
