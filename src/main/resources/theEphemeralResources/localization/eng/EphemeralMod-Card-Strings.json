@@ -226,8 +226,7 @@
   },
   "theEphemeral:Revelation": {
     "NAME": "Revelation",
-    "DESCRIPTION": "Gain [E] [E]. NL Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E]. NL Draw !M! cards."
+    "DESCRIPTION": "Gain [E] [E]. NL Draw !M! cards."
   },
   "theEphemeral:StrengthFromBeyond": {
     "NAME": "Strength from Beyond",
