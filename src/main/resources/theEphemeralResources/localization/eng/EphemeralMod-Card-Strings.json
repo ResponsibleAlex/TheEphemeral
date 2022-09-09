@@ -340,8 +340,8 @@
   },
   "theEphemeral:HarbingerForm": {
     "NAME": "Harbinger Form",
-    "DESCRIPTION": "Ethereal. NL At the end of each turn, play the top card of your draw pile twice.",
-    "UPGRADE_DESCRIPTION": "At the end of each turn, play the top card of your draw pile twice."
+    "DESCRIPTION": "Ethereal. NL At the end of each turn, play the top card of your draw pile. Any damage dealt or Block gained is doubled.",
+    "UPGRADE_DESCRIPTION": "At the end of each turn, play the top card of your draw pile. Any damage dealt or Block gained is doubled."
   },
 
   "theEphemeral:FleetingStrike": {

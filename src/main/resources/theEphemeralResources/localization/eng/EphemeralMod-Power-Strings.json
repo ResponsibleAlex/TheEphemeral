@@ -104,8 +104,10 @@
         "theEphemeral:HarbingerFormPower": {
                 "NAME": "Harbinger Form",
                 "DESCRIPTIONS": [
+                        "At the end of each turn, play the top card of your draw pile.",
                         "At the end of each turn, play the top card of your draw pile #b",
-                        " times."
+                        " times.",
+                        " Any damage dealt or Block gained is doubled."
                 ]
         },
         "theEphemeral:ElysianNectarPower": {

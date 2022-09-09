@@ -487,6 +487,7 @@ public class EphemeralMod implements
     public static boolean preBattle = true;
 
     public static void startOfTurn() {
+        isInHarbinger = false;
         fatedThisTurn = 0;
         PreviewWidget.StartOfTurn();
     }
@@ -522,8 +523,12 @@ public class EphemeralMod implements
         PreviewWidget.Render(sb);
     }
 
+    public static boolean isInHarbinger = false;
+
     public static void atEndOfTurn() {
         if (AbstractDungeon.player.hasPower(HarbingerFormPower.POWER_ID)) {
+            isInHarbinger = true;
+
             int amount = AbstractDungeon.player.getPower(HarbingerFormPower.POWER_ID).amount;
             AbstractDungeon.actionManager.addToBottom(new PlayTopCardWithCopiesAction(amount - 1));
         }

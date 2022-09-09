@@ -1,13 +1,15 @@
 package theEphemeral.powers;
 
-import theEphemeral.EphemeralMod;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import theEphemeral.EphemeralMod;
 import theEphemeral.util.TextureLoader;
 
 import static theEphemeral.EphemeralMod.makePowerPath;
@@ -51,8 +53,28 @@ public class HarbingerFormPower extends AbstractPower implements CloneablePowerI
     }
 
     @Override
+    public float atDamageFinalGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        if (EphemeralMod.isInHarbinger)
+            return damage * 2f;
+        else
+            return damage;
+    }
+
+    @Override
+    public float modifyBlockLast(float blockAmount) {
+        if (EphemeralMod.isInHarbinger)
+            return blockAmount * 2f;
+        else
+            return blockAmount;
+    }
+
+    @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        if (amount == 1) {
+            description = DESCRIPTIONS[0] + DESCRIPTIONS[3];
+        } else {
+            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
+        }
     }
 
     @Override
