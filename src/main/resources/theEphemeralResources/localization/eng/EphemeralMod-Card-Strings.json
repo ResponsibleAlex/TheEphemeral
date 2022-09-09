@@ -142,7 +142,7 @@
   },
   "theEphemeral:Pirouette": {
     "NAME": "Pirouette",
-    "DESCRIPTION": "Add !M! theephemeral:Fleeting_Dodge to your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Add !M! theephemeral:Fleeting_Dodge to your hand."
   },
   "theEphemeral:Portent": {
     "NAME": "Portent",

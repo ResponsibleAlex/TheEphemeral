@@ -1,5 +1,6 @@
 package theEphemeral.cards;
 
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -29,6 +30,7 @@ public class Pirouette extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;
+    private static final int BLOCK = 3;
     private static final int MAGIC_NUMBER = 2;
 
 
@@ -38,12 +40,14 @@ public class Pirouette extends AbstractDynamicCard {
     public Pirouette() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         cardsToPreview = new FleetingDodge();
+        baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new GainBlockAction(p, block));
         addToBot(new MakeTempCardInHandAction(new FleetingDodge(), magicNumber));
     }
 
