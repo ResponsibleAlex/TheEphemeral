@@ -107,7 +107,7 @@
                         "At the end of each turn, play the top card of your draw pile.",
                         "At the end of each turn, play the top card of your draw pile #b",
                         " times.",
-                        " Any damage dealt or Block gained is doubled."
+                        " Any damage dealt or #yBlock gained is doubled."
                 ]
         },
         "theEphemeral:ElysianNectarPower": {
