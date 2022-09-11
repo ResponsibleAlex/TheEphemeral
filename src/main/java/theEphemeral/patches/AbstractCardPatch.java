@@ -1,5 +1,6 @@
 package theEphemeral.patches;
 
+import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,6 +10,8 @@ import theEphemeral.relics.GlowingFeather;
 @SuppressWarnings({"unused", "rawtypes"})
 @SpirePatch(clz = AbstractCard.class, method = SpirePatch.CLASS)
 public class AbstractCardPatch {
+    public static SpireField<Boolean> shouldUnlimbo = new SpireField<>(() -> false);
+
     @SpirePatch(
             clz = AbstractCard.class,
             method = "freeToPlay"

@@ -2,12 +2,12 @@ package theEphemeral.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theEphemeral.patches.AbstractCardPatch;
 
 public class PlayCardFromDiscardPileAction extends AbstractGameAction {
 
@@ -35,7 +35,8 @@ public class PlayCardFromDiscardPileAction extends AbstractGameAction {
         card.targetDrawScale = 0.75F;
         card.applyPowers();
 
-        this.addToBot(new UnlimboAction(card));
+        AbstractCardPatch.shouldUnlimbo.set(card, true);
+
         this.addToTop(new NewQueueCardAction(card, true, false, true));
         if (!Settings.FAST_MODE) {
             this.addToTop(new WaitAction(Settings.ACTION_DUR_LONG));
