@@ -10,10 +10,20 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class PlayCardFromDrawPileAction extends AbstractGameAction {
     private final AbstractCard cardToPlay;
+    private final boolean useWaitAction;
+    private final float xOffset;
 
     public PlayCardFromDrawPileAction(AbstractCard cardInDrawPile) {
         this.cardToPlay = cardInDrawPile;
         this.actionType = ActionType.CARD_MANIPULATION;
+        this.useWaitAction = true;
+        this.xOffset = 0f;
+    }
+    public PlayCardFromDrawPileAction(AbstractCard cardInDrawPile, boolean useWaitAction, float xOffset) {
+        this.cardToPlay = cardInDrawPile;
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.useWaitAction = useWaitAction;
+        this.xOffset = xOffset;
     }
 
     @Override
@@ -26,7 +36,7 @@ public class PlayCardFromDrawPileAction extends AbstractGameAction {
             AbstractDungeon.player.limbo.group.add(cardToPlay);
 
             cardToPlay.current_y = -200.0F * Settings.scale;
-            cardToPlay.target_x = (float) Settings.WIDTH / 2.0F - (200.0F * Settings.scale);
+            cardToPlay.target_x = (float) Settings.WIDTH / 2.0F - (200.0F * Settings.scale) - (xOffset * Settings.scale);
             cardToPlay.target_y = (float) Settings.HEIGHT / 2.0F;
             cardToPlay.targetAngle = 0.0F;
             cardToPlay.lighten(false);
@@ -36,10 +46,13 @@ public class PlayCardFromDrawPileAction extends AbstractGameAction {
 
             this.addToBot(new UnlimboAction(cardToPlay));
             this.addToTop(new NewQueueCardAction(cardToPlay, true, false, true));
-            if (!Settings.FAST_MODE) {
-                this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
-            } else {
-                this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+
+            if (this.useWaitAction) {
+                if (!Settings.FAST_MODE) {
+                    this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+                } else {
+                    this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+                }
             }
         }
 

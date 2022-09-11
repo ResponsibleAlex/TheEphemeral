@@ -515,7 +515,7 @@ public class EphemeralMod implements
         }
     }
 
-    public static void updatePreviewWidget() {
+    public static void combatUpdate() {
         PreviewWidget.Update();
     }
 

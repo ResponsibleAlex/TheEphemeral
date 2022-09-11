@@ -36,7 +36,7 @@ public class AbstractPlayerPatch {
             method="combatUpdate"
     )
     public static class CombatUpdate {
-        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.updatePreviewWidget(); }
+        public static void Prefix(AbstractPlayer __instance) { EphemeralMod.combatUpdate(); }
     }
 
     @SpirePatch(

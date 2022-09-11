@@ -38,9 +38,9 @@ public class PlayCardFromDiscardPileAction extends AbstractGameAction {
         this.addToBot(new UnlimboAction(card));
         this.addToTop(new NewQueueCardAction(card, true, false, true));
         if (!Settings.FAST_MODE) {
-            this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+            this.addToTop(new WaitAction(Settings.ACTION_DUR_LONG));
         } else {
-            this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+            this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
         }
 
         this.isDone = true;

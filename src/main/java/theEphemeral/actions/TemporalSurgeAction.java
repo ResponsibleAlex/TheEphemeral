@@ -1,8 +1,10 @@
 package theEphemeral.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.Settings;
 import theEphemeral.previewWidget.PreviewWidget;
 
 public class TemporalSurgeAction extends AbstractGameAction {
@@ -21,8 +23,16 @@ public class TemporalSurgeAction extends AbstractGameAction {
             }
         }
 
+        float xOffset = 0f;
         for (AbstractCard c : candidates.group) {
-            addToBot(new PlayCardFromDrawPileAction(c));
+            addToBot(new PlayCardFromDrawPileAction(c, false, xOffset));
+            xOffset += 40f;
+        }
+
+        if (!Settings.FAST_MODE) {
+            this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+        } else {
+            this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
         }
 
         isDone = true;
