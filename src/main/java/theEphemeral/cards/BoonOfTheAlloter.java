@@ -11,12 +11,12 @@ import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class AllotersBoon extends AbstractDynamicCard {
+public class BoonOfTheAlloter extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = EphemeralMod.makeID(AllotersBoon.class.getSimpleName());
-    public static final String IMG = makeCardPath("AllotersBoon.png");
+    public static final String ID = EphemeralMod.makeID(BoonOfTheAlloter.class.getSimpleName());
+    public static final String IMG = makeCardPath("BoonOfTheAlloter.png");
 
     // /TEXT DECLARATION/
 
@@ -36,7 +36,7 @@ public class AllotersBoon extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public AllotersBoon() {
+    public BoonOfTheAlloter() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
     }
