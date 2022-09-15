@@ -1,11 +1,13 @@
 package theEphemeral.cards;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
+import theEphemeral.vfx.FlashBoonEffect;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theEphemeral.EphemeralMod.makeCardPath;
@@ -43,6 +45,7 @@ public class BoonOfTheAlloter extends AbstractDynamicCard {
 
     @Override
     public void triggerOnManualDiscard() {
+        addToBot(new VFXAction(new FlashBoonEffect(this), 0.15F));
         addToBot(new DrawCardAction(magicNumber));
     }
 

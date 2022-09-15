@@ -1,6 +1,7 @@
 package theEphemeral.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import theEphemeral.EphemeralMod;
 import theEphemeral.characters.TheEphemeral;
+import theEphemeral.vfx.FlashBoonEffect;
 
 import static theEphemeral.EphemeralMod.makeCardPath;
 
@@ -54,6 +56,7 @@ public class SpiritStrike extends AbstractDynamicCard {
 
     @Override
     public void triggerOnManualDiscard() {
+        addToBot(new VFXAction(new FlashBoonEffect(this), 0.15F));
         addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, defaultSecondMagicNumber), defaultSecondMagicNumber));
     }
 
