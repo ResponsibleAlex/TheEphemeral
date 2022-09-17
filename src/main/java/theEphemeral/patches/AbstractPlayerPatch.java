@@ -71,12 +71,27 @@ public class AbstractPlayerPatch {
     )
     public static class UseCard
     {
-        public static void Postfix(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
+        public static void Prefix(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
             if (AbstractCardPatch.shouldUnlimbo.get(c)) {
+
                 AbstractDungeon.player.limbo.removeCard(c);
                 if (c.exhaust) {
                     AbstractDungeon.effectList.add(new ExhaustCardEffect(c));
                 }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz=AbstractPlayer.class,
+            method="draw",
+            paramtypez = { int.class }
+    )
+    public static class Draw
+    {
+        public static void Postfix(AbstractPlayer __instance, int numCards) {
+            for (AbstractCard c : __instance.hand.group) {
+                c.unfadeOut();
             }
         }
     }
