@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.screens.DiscardPileViewScreen;
+import theEphemeral.EphemeralMod;
 
 @SuppressWarnings({"unused"})
 @SpirePatch(clz = DiscardPileViewScreen.class, method = SpirePatch.CLASS)
@@ -25,7 +26,8 @@ public class DiscardPileViewScreenPatch {
 
             if (AbstractDungeon.player != null &&
                 AbstractDungeon.player.chosenClass != null &&
-                AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL")) {
+                AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL") &&
+                !EphemeralMod.enableVision) {
 
                 sb.setColor(Color.WHITE);
                 sb.draw(ImageMaster.DISCARD_PILE_BANNER, 1290.0F * Settings.xScale, 0.0F, 630.0F * Settings.scale, 128.0F * Settings.scale);

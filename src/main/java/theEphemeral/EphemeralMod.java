@@ -84,9 +84,9 @@ public class EphemeralMod implements
     private static String modID;
 
     // Mod-settings settings. This is if you want an on/off savable button
-    public static Properties theDefaultDefaultSettings = new Properties();
-    public static final String ENABLE_PLACEHOLDER_SETTINGS = "enablePlaceholder";
-    public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
+    public static Properties theEphemeralDefaultSettings = new Properties();
+    public static final String ENABLE_VISION_SETTINGS = "enableVision";
+    public static boolean enableVision = true; // The boolean we'll be setting on/off (true/false)
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Ephemeral Mod";
@@ -219,12 +219,12 @@ public class EphemeralMod implements
         logger.info("Adding mod settings");
         // This loads the mod settings.
         // The actual mod Button is added below in receivePostInitialize()
-        theDefaultDefaultSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
+        theEphemeralDefaultSettings.setProperty(ENABLE_VISION_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
         try {
-            SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings); // ...right here
+            SpireConfig config = new SpireConfig("ephemeralMod", "theEphemeralConfig", theEphemeralDefaultSettings); // ...right here
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
             config.load(); // Load the setting and set the boolean to equal it
-            enablePlaceholder = config.getBool(ENABLE_PLACEHOLDER_SETTINGS);
+            enableVision = config.getBool(ENABLE_VISION_SETTINGS);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -280,7 +280,7 @@ public class EphemeralMod implements
     @SuppressWarnings("unused")
     public static void initialize() {
         logger.info("========================= Initializing Default Mod. Hi. =========================");
-        EphemeralMod defaultmod = new EphemeralMod();
+        EphemeralMod ephemeralMod = new EphemeralMod();
         logger.info("========================= /Default Mod Initialized. Hello World./ =========================");
     }
     
@@ -316,18 +316,18 @@ public class EphemeralMod implements
         ModPanel settingsPanel = new ModPanel();
         
         // Create the on/off button:
-        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("This is the text which goes next to the checkbox.",
+        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton(TheEphemeral.characterStrings.TEXT[3],
                 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
-                enablePlaceholder, // Boolean it uses
+                enableVision, // Boolean it uses
                 settingsPanel, // The mod panel in which this button will be in
                 (label) -> {}, // thing??????? idk
                 (button) -> { // The actual button:
             
-            enablePlaceholder = button.enabled; // The boolean true/false will be whether the button is enabled or not
+            enableVision = button.enabled; // The boolean true/false will be whether the button is enabled or not
             try {
                 // And based on that boolean, set the settings and save them
-                SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings);
-                config.setBool(ENABLE_PLACEHOLDER_SETTINGS, enablePlaceholder);
+                SpireConfig config = new SpireConfig("ephemeralMod", "theEphemeralConfig", theEphemeralDefaultSettings);
+                config.setBool(ENABLE_VISION_SETTINGS, enableVision);
                 config.save();
             } catch (Exception e) {
                 e.printStackTrace();

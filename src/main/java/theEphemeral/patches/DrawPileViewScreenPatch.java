@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.screens.DrawPileViewScreen;
+import theEphemeral.EphemeralMod;
 
 @SuppressWarnings({"unused"})
 @SpirePatch(clz = DrawPileViewScreen.class, method = SpirePatch.CLASS)
@@ -24,8 +25,9 @@ public class DrawPileViewScreenPatch {
         public static SpireReturn<Void> Prefix(DrawPileViewScreen __instance, SpriteBatch sb) {
 
             if (AbstractDungeon.player != null &&
-                    AbstractDungeon.player.chosenClass != null &&
-                    AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL")) {
+                AbstractDungeon.player.chosenClass != null &&
+                AbstractDungeon.player.chosenClass.toString().equals("THE_EPHEMERAL") &&
+                !EphemeralMod.enableVision) {
 
                 sb.setColor(Color.WHITE);
                 sb.draw(ImageMaster.DRAW_PILE_BANNER, 0.0F, 0.0F, 630.0F * Settings.scale, 128.0F * Settings.scale);
