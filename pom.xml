@@ -6,7 +6,7 @@
     <groupId>ephemeralmod</groupId>
     <artifactId>EphemeralMod</artifactId> <!--Keep a note of this one: this is the ID used in the "auto add cards" method-->
     <name>The Ephemeral</name>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>A blind oracle betrayed by a cult long ago. A specter that now haunts the Spire, seeking vengeance.</description>
 
     <properties>
