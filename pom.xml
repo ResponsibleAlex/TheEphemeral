@@ -6,8 +6,12 @@
     <groupId>ephemeralmod</groupId>
     <artifactId>EphemeralMod</artifactId> <!--Keep a note of this one: this is the ID used in the "auto add cards" method-->
     <name>The Ephemeral</name>
-    <version>1.0.1</version>
-    <description>A blind oracle betrayed by a cult long ago. A specter that now haunts the Spire, seeking vengeance.</description>
+    <version>1.0.2</version>
+    <description>A blind oracle betrayed by a cult long ago. A specter that now haunts the Spire, seeking vengeance.
+
+Mods -> The Ephemeral -> Config for settings to:
+ * Re-enable viewing Draw and Discard piles
+ * Reverse display order of Previewed cards</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

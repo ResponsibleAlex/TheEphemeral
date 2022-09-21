@@ -100,33 +100,16 @@ public class PreviewWidget {
     }
     public void update() {
         // check to see if the draw pile has changed since last update
-        CardGroup drawPile = p.drawPile;
-
         if (needUpdate()) {
             // clear old previews
             previews.clear();
 
             // add copies to the CardGroup and initialize visuals
             if (getRevealed() > 0) {
-                int revealedIndex = getRevealed() - 1;
-                int drawPileIndexOffset = drawPile.size() - 1;
-
-                for (int i = revealedIndex; i >= 0; i--) {
-                    AbstractCard c = drawPile.group.get(drawPileIndexOffset - i);
-
-                    AbstractCard cpy = c.makeSameInstanceOf();
-                    if (cpy instanceof AbstractVanishingCard)
-                        cpy.uuid = c.uuid;
-
-                    cpy.applyPowers();
-                    cpy.setAngle(0.0F, true);
-                    cpy.current_x = cpy.target_x = Settings.scale * WIDGET_X;
-                    cpy.current_y = cpy.target_y = Settings.scale * (CARD_Y - (i * 40));
-                    cpy.targetDrawScale = cpy.drawScale = PREVIEW_CARD_SCALE;
-                    cpy.lighten(true);
-
-                    previews.addToBottom(cpy);
-                }
+                if (EphemeralMod.reversePreviews)
+                    fillPreviewsReversed();
+                else
+                    fillPreviews();
             }
 
             for (AbstractCard c : p.hand.group) {
@@ -213,6 +196,54 @@ public class PreviewWidget {
     private boolean notEqual(AbstractCard a, AbstractCard b) {
         return a.uuid != b.uuid
                 || a.upgraded != b.upgraded;
+    }
+    private void fillPreviews() {
+        CardGroup drawPile = p.drawPile;
+
+        int revealedIndex = getRevealed() - 1;
+        int drawPileIndexOffset = drawPile.size() - 1;
+
+        for (int i = revealedIndex; i >= 0; i--) {
+            AbstractCard c = drawPile.group.get(drawPileIndexOffset - i);
+
+            AbstractCard cpy = c.makeSameInstanceOf();
+            if (cpy instanceof AbstractVanishingCard)
+                cpy.uuid = c.uuid;
+
+            cpy.applyPowers();
+            cpy.setAngle(0.0F, true);
+            cpy.current_x = cpy.target_x = Settings.scale * WIDGET_X;
+            cpy.current_y = cpy.target_y = Settings.scale * (CARD_Y - (i * 40));
+            cpy.targetDrawScale = cpy.drawScale = PREVIEW_CARD_SCALE;
+            cpy.lighten(true);
+
+            previews.addToBottom(cpy);
+        }
+    }
+    private void fillPreviewsReversed() {
+        CardGroup drawPile = p.drawPile;
+
+        int revealedIndex = getRevealed() - 1;
+        int drawPileIndexOffset = drawPile.size() - 1;
+
+        for (int i = revealedIndex; i >= 0; i--) {
+            AbstractCard c = drawPile.group.get(drawPileIndexOffset - i);
+
+            AbstractCard cpy = c.makeSameInstanceOf();
+            if (cpy instanceof AbstractVanishingCard)
+                cpy.uuid = c.uuid;
+
+            cpy.applyPowers();
+            cpy.setAngle(0.0F, true);
+            cpy.current_x = cpy.target_x = Settings.scale * WIDGET_X;
+            cpy.current_y = cpy.target_y = Settings.scale * (CARD_Y - ((revealedIndex - i) * 40));
+            cpy.targetDrawScale = cpy.drawScale = PREVIEW_CARD_SCALE;
+            cpy.lighten(true);
+
+            previews.addToTop(cpy);
+        }
+
+
     }
 
     public static int GetAugury() {

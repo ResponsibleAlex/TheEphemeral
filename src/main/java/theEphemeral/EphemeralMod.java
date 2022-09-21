@@ -86,7 +86,9 @@ public class EphemeralMod implements
     // Mod-settings settings. This is if you want an on/off savable button
     public static Properties theEphemeralDefaultSettings = new Properties();
     public static final String ENABLE_VISION_SETTINGS = "enableVision";
-    public static boolean enableVision = true; // The boolean we'll be setting on/off (true/false)
+    public static final String REVERSE_PREVIEWS_SETTINGS = "reversePreviews";
+    public static boolean enableVision = true;
+    public static boolean reversePreviews = false;
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Ephemeral Mod";
@@ -218,13 +220,14 @@ public class EphemeralMod implements
         
         logger.info("Adding mod settings");
         // This loads the mod settings.
-        // The actual mod Button is added below in receivePostInitialize()
-        theEphemeralDefaultSettings.setProperty(ENABLE_VISION_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
+        theEphemeralDefaultSettings.setProperty(ENABLE_VISION_SETTINGS, "FALSE");
+        theEphemeralDefaultSettings.setProperty(REVERSE_PREVIEWS_SETTINGS, "FALSE");
         try {
-            SpireConfig config = new SpireConfig("ephemeralMod", "theEphemeralConfig", theEphemeralDefaultSettings); // ...right here
+            SpireConfig config = new SpireConfig("ephemeralMod", "theEphemeralConfig", theEphemeralDefaultSettings);
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
             config.load(); // Load the setting and set the boolean to equal it
             enableVision = config.getBool(ENABLE_VISION_SETTINGS);
+            reversePreviews = config.getBool(REVERSE_PREVIEWS_SETTINGS);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -316,7 +319,7 @@ public class EphemeralMod implements
         ModPanel settingsPanel = new ModPanel();
         
         // Create the on/off button:
-        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton(TheEphemeral.characterStrings.TEXT[3],
+        ModLabeledToggleButton enableVisionButton = new ModLabeledToggleButton(TheEphemeral.characterStrings.TEXT[3],
                 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
                 enableVision, // Boolean it uses
                 settingsPanel, // The mod panel in which this button will be in
@@ -334,8 +337,27 @@ public class EphemeralMod implements
             }
         });
         
-        settingsPanel.addUIElement(enableNormalsButton); // Add the button to the settings panel. Button is a go.
-        
+        ModLabeledToggleButton reversePreviewsButton = new ModLabeledToggleButton(TheEphemeral.characterStrings.TEXT[4],
+                350.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
+                reversePreviews, // Boolean it uses
+                settingsPanel, // The mod panel in which this button will be in
+                (label) -> {}, // thing??????? idk
+                (button) -> { // The actual button:
+
+            reversePreviews = button.enabled; // The boolean true/false will be whether the button is enabled or not
+            try {
+                // And based on that boolean, set the settings and save them
+                SpireConfig config = new SpireConfig("ephemeralMod", "theEphemeralConfig", theEphemeralDefaultSettings);
+                config.setBool(REVERSE_PREVIEWS_SETTINGS, reversePreviews);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        settingsPanel.addUIElement(enableVisionButton);
+        settingsPanel.addUIElement(reversePreviewsButton);
+
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
         
