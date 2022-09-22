@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theEphemeral.cards.AbstractDynamicCard;
 import theEphemeral.patches.AbstractCardPatch;
 
 public class PlayCardFromDrawPileAction extends AbstractGameAction {
@@ -28,6 +29,13 @@ public class PlayCardFromDrawPileAction extends AbstractGameAction {
 
     @Override
     public void update() {
+
+        if (cardToPlay.type == AbstractCard.CardType.ATTACK
+            && AbstractDynamicCard.AreMonstersInvalid()) {
+
+            isDone = true;
+            return;
+        }
 
         if (AbstractDungeon.player.drawPile.contains(cardToPlay)) {
 

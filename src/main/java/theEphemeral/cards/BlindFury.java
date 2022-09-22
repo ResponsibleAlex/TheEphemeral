@@ -51,8 +51,9 @@ public class BlindFury extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        // Play 1 random revealed attacks
-        addToTop(new BlindFuryAction());
+        // Play 1 random revealed attack
+        if (canTriggerAttackPlay())
+            addToTop(new BlindFuryAction());
 
         // Damage
         addToTop(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));

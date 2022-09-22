@@ -6,6 +6,10 @@ import com.megacrit.cardcrawl.actions.common.ShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
+import com.megacrit.cardcrawl.powers.InvinciblePower;
 import theEphemeral.EphemeralMod;
 import theEphemeral.powers.SoothsayerPower;
 import theEphemeral.relics.HookAndYarn;
@@ -96,5 +100,38 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         } else if (AbstractDungeon.player.drawPile.size() > 0) {
             addToTop(new ShuffleAction(AbstractDungeon.player.drawPile, true));
         }
+    }
+
+    protected boolean canTriggerAttackPlay() {
+        // prevent triggering if no valid target
+        if (AreMonstersInvalid())
+            return false;
+
+        // prevent triggering if fighting Heart and its Invincible buff is preventing further damage
+        AbstractMonster heart = AbstractDungeon.getMonsters().getMonster(CorruptHeart.ID);
+        if (heart == null)
+            return true;
+
+        // avoid soft-lock with infinite combo
+        if (heart.hasPower(InvinciblePower.POWER_ID))
+            return heart.getPower(InvinciblePower.POWER_ID).amount > 0;
+
+        return true;
+    }
+
+    public static boolean AreMonstersInvalid() {
+        MonsterGroup monsterGroup = AbstractDungeon.getMonsters();
+        if (monsterGroup.monsters.size() == 0)
+            return true;
+
+        boolean allInvalid = true;
+        for (AbstractMonster m : monsterGroup.monsters) {
+            if (!m.isDeadOrEscaped()) {
+                allInvalid = false;
+                break;
+            }
+        }
+
+        return allInvalid;
     }
 }

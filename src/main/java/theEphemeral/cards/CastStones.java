@@ -61,7 +61,9 @@ public class CastStones extends AbstractDynamicCard {
 
         PreviewWidget.AddAugury(magicNumber);
 
-        if (!p.drawPile.isEmpty() && p.drawPile.getTopCard().type == CardType.ATTACK) {
+        if (!p.drawPile.isEmpty()
+            && p.drawPile.getTopCard().type == CardType.ATTACK
+            && canTriggerAttackPlay()) {
             addToBot(new PlayCardFromDrawPileAction(p.drawPile.getTopCard()));
         }
     }
