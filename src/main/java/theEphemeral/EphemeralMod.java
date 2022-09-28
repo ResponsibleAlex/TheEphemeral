@@ -377,9 +377,9 @@ public class EphemeralMod implements
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
         
-        BaseMod.addPotion(PotionOfProphecy.class, Color.WHITE, Color.WHITE, NECTAR_YELLOW, PotionOfProphecy.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
         BaseMod.addPotion(TemporalTonic.class, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, EPHEMERAL_PURPLE, TemporalTonic.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
         BaseMod.addPotion(ElysianNectar.class, NECTAR_YELLOW, NECTAR_YELLOW, null, ElysianNectar.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
+        BaseMod.addPotion(PotionOfProphecy.class, Color.WHITE, Color.WHITE, NECTAR_YELLOW, PotionOfProphecy.POTION_ID, TheEphemeral.Enums.THE_EPHEMERAL);
 
         logger.info("Done editing potions");
     }
@@ -447,30 +447,35 @@ public class EphemeralMod implements
     public void receiveEditStrings() {
         logger.info("You seeing this?");
         logger.info("Beginning to edit strings for mod with ID: " + getModID());
+
+        String lang = "eng";
+        if (Settings.GameLanguage.ZHS == Settings.language) {
+            lang = "zhs";
+        }
         
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/EphemeralMod-Card-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/EphemeralMod-Card-Strings.json");
         
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/EphemeralMod-Power-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/EphemeralMod-Power-Strings.json");
         
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/EphemeralMod-Relic-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/EphemeralMod-Relic-Strings.json");
 
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/eng/EphemeralMod-Event-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/EphemeralMod-Event-Strings.json");
         
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/eng/EphemeralMod-Potion-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/EphemeralMod-Potion-Strings.json");
         
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/eng/EphemeralMod-Character-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/EphemeralMod-Character-Strings.json");
         
         logger.info("Done edittting strings");
     }
@@ -482,8 +487,13 @@ public class EphemeralMod implements
     @Override
     public void receiveEditKeywords() {
 
+        String lang = "eng";
+        if (Settings.GameLanguage.ZHS == Settings.language) {
+            lang = "zhs";
+        }
+
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/EphemeralMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(getModID() + "Resources/localization/" + lang + "/EphemeralMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
         
         if (keywords != null) {

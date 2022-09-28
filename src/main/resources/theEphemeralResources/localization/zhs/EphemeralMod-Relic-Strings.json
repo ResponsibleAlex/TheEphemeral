@@ -1,0 +1,94 @@
+{
+  "theEphemeral:FrozenEye": {
+    "NAME": 冻结之眼",
+    "FLAVOR": "凝视这只眼睛，你瞥见了自己的未来。",
+    "DESCRIPTIONS": [
+      "#ytheephemeral:预兆 不再于每回合开始时减少。"
+    ]
+  },
+  "theEphemeral:CultistMask": {
+    "NAME": "邪教徒头饰",
+    "FLAVOR": "成为教众的一员，你便知晓了邪教的秘密！",
+    "DESCRIPTIONS": [
+      "战斗开始时，获得1层仪式。"
+    ]
+  },
+  "theEphemeral:Laurel": {
+    "NAME": "月桂枝",
+    "FLAVOR": "一种用于预言仪式的月桂枝。",
+    "DESCRIPTIONS": [
+      "战斗开始时，获得 #b2 #ytheephemeral:预兆 。"
+    ]
+  },
+  "theEphemeral:Pincushion": {
+    "NAME": "针垫",
+    "FLAVOR": "一个奇怪的缝纫用品，又似乎是用于宣泄压力的玩具。",
+    "DESCRIPTIONS": [
+      "战斗开始时，添加1张 #ytheephemeral:转瞬思虑 到手上。"
+    ]
+  },
+  "theEphemeral:LinenVeil": {
+    "NAME": "亚麻面纱",
+    "FLAVOR": "这片纤薄的织品几乎是透明的。如果你能看见它的话。",
+    "DESCRIPTIONS": [
+      "当你的抽牌堆顶牌为 #r攻击牌 / #b技能牌 ，获得2点 #r力量 / #b敏捷 。"
+    ]
+  },
+  "theEphemeral:RitualAsh": {
+    "NAME": "祭祀遗灰",
+    "FLAVOR": "先知的受膏仪式上被焚烧的祭品之遗灰。",
+    "DESCRIPTIONS": [
+      "每当 #y消耗 带 #y虚无 属性的牌，对随机敌人造成 #b3 伤害。"
+    ]
+  },
+  "theEphemeral:GlowingFeather": {
+    "NAME": "焕光羽毛",
+    "FLAVOR": "散发诡异光亮的羽毛。",
+    "DESCRIPTIONS": [
+      "每场战斗发出的首张 #y能力 牌耗费为 #b0 。"
+    ]
+  },
+  "theEphemeral:CuriousTalon": {
+    "NAME": "怪奇之爪",
+    "FLAVOR": "这只断爪的存在使你充满了难以形容的愤怒。",
+    "DESCRIPTIONS": [
+      "每当打出 #y能力 牌，获得 #b1 #y力量 。"
+    ]
+  },
+  "theEphemeral:HookAndYarn": {
+    "NAME": "挂钩与纺线",
+    "FLAVOR": "这种纱线的魔力在你周围编织了一道神秘的屏障。",
+    "DESCRIPTIONS": [
+      "每当你触发 #ytheephemeral:命定 ，获得 #b2 #y金属化 。"
+    ]
+  },
+  "theEphemeral:Pomegranate": {
+    "NAME": "石榴",
+    "FLAVOR": "古代诸神所享用的水果，新鲜多汁。",
+    "DESCRIPTIONS": [
+      "捡起时，提升 #b21 最大生命。"
+    ]
+  },
+  "theEphemeral:AncientScroll": {
+    "NAME": "古代卷轴",
+    "FLAVOR": "刻在这里的符文甚至不需要阅读就能诅咒你。",
+    "DESCRIPTIONS": [
+      "每回合始获得 [E] 。捡起时，获得 #b2 张 #r苦恼 诅咒。",
+      "痛苦..."
+    ]
+  },
+  "theEphemeral:Basin": {
+    "NAME": "水盆",
+    "FLAVOR": "这盆水所含的纯净水让你感到从里到外都得到了净化。",
+    "DESCRIPTIONS": [
+      "替换 #y月桂枝 。每回合获得 #b2 #ytheephemeral:预兆 。"
+    ]
+  },
+  "theEphemeral:StoneTablet": {
+    "NAME": "石碑",
+    "FLAVOR": "刻在表面上的记号表明这块碑是用来做某种核算工作的。",
+    "DESCRIPTIONS": [
+      "每当洗牌，对全敌造成 #b6 伤害。"
+    ]
+  }
+}

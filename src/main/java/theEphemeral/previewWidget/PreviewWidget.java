@@ -186,9 +186,16 @@ public class PreviewWidget {
         int revealedIndex = getRevealed() - 1;
         int drawPileIndexOffset = p.drawPile.size() - 1;
 
-        for (int i = revealedIndex; i >= 0; i--) {
-            if (notEqual(drawGroup.get(drawPileIndexOffset - i), preGroup.get(i)))
-                return true;
+        if (EphemeralMod.reversePreviews) {
+            for (int i = revealedIndex; i >= 0; i--) {
+                if (notEqual(drawGroup.get(drawPileIndexOffset - i), preGroup.get(revealedIndex - i)))
+                    return true;
+            }
+        } else {
+            for (int i = revealedIndex; i >= 0; i--) {
+                if (notEqual(drawGroup.get(drawPileIndexOffset - i), preGroup.get(i)))
+                    return true;
+            }
         }
 
         return false;

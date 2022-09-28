@@ -1,0 +1,76 @@
+[
+  {
+    "PROPER_NAME": "预兆",
+    "NAMES": [
+      "Augury",
+      "预兆",
+      "augury"
+    ],
+    "DESCRIPTION": "抽牌堆顶部一定数量的牌会被揭示，最多 #b7 张。 NL 每回合开始，失去 #b1 #y预示 。"
+  },
+  {
+    "PROPER_NAME": "揭示",
+    "NAMES": [
+      "Revealed",
+      "揭示",
+	  "揭示的",
+	  "被揭示",
+      "revealed"
+    ],
+    "DESCRIPTION": "抽牌堆顶部由 #y预兆 所展示的牌。"
+  },
+  {
+    "PROPER_NAME": "命定",
+    "NAMES": [
+      "Fated",
+	  "命定",
+      "fated"
+    ],
+    "DESCRIPTION": "若此为本轮打出的首张命定牌，获得额外效果。"
+  },
+  {
+    "PROPER_NAME": "消逝",
+    "NAMES": [
+      "Vanishing",
+      "消逝",
+      "vanishing"
+    ],
+    "DESCRIPTION": "打出后被消耗，且数值减少 #b1 ，当数值为 #b0 ，永久地从牌组中移除此牌。"
+  },
+  {
+    "PROPER_NAME": "熵",
+    "NAMES": [
+      "Entropy",
+      "熵",
+      "entropy"
+    ],
+    "DESCRIPTION": "打出后，所有带有 #b熵 标签的牌，伤害和格挡数值在此战中增加1点。"
+  },
+  {
+    "PROPER_NAME": "转瞬打击",
+    "NAMES": [
+	  "转瞬打击",
+      "fleeting strike",
+      "fleeting_strike"
+    ],
+    "DESCRIPTION": "命运的一次小小误导。"
+  },
+  {
+    "PROPER_NAME": "转瞬闪避",
+    "NAMES": [
+	  "转瞬闪避",
+      "fleeting dodge",
+      "fleeting_dodge"
+    ],
+    "DESCRIPTION": "命运的一次小小误导。"
+  },
+  {
+    "PROPER_NAME": "转瞬思虑",
+    "NAMES": [
+	  "转瞬思虑",
+      "fleeting thought",
+      "fleeting_thought"
+    ],
+    "DESCRIPTION": "命运的一次小小误导。"
+  }
+]

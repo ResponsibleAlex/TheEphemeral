@@ -1,0 +1,359 @@
+{
+  "theEphemeral:Strike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 伤害。"
+  },
+  "theEphemeral:Defend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 格挡。"
+  },
+  "theEphemeral:ReadTheStars": {
+    "NAME": "观星",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 获得 !M! theephemeral:预兆 。"
+  },
+  "theEphemeral:ThroughTheVeil": {
+    "NAME": "穿过纱幕",
+    "DESCRIPTION": "造成 !D! 伤害。 NL theephemeral:命定 ：添加 !M! theephemeral:转瞬闪避 到手中。"
+  },
+
+  "theEphemeral:ThrowBones": {
+    "NAME": "投骨占卜",
+    "DESCRIPTION": "对全敌造成 !D! 伤害。 NL 获得 !M! theephemeral:预兆 。"
+  },
+  "theEphemeral:StranglingMist": {
+    "NAME": "扼杀之雾",
+    "DESCRIPTION": "虚无 。 NL 造成 !D! 伤害。 NL 往抽牌堆洗入一张 *眩晕 。"
+  },
+  "theEphemeral:Silhouette": {
+    "NAME": "剪影",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 添加 !M! theephemeral:转瞬打击 到手中。"
+  },
+  "theEphemeral:ChillingTouch": {
+    "NAME": "寒冰之触",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 每有一张被 theephemeral:揭示 的攻击牌，施加1层 虚弱 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (施加 !M! 虚弱)"
+    ]
+  },
+  "theEphemeral:PsychicStrike": {
+    "NAME": "心灵打击",
+    "DESCRIPTION": "造成 !D! 伤害。 NL theephemeral:命定 ：添加 !M! theephemeral:转瞬思虑 到手中。"
+  },
+  "theEphemeral:BlindSwipe": {
+    "NAME": "盲目挥击",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 将弃牌堆的牌洗入抽牌堆。"
+  },
+  "theEphemeral:SpectralGrasp": {
+    "NAME": "幽魂之握",
+    "DESCRIPTION": "造成 !D! 伤害。 NL theephemeral:消逝 !theEphemeral:SecondMagic! 。"
+  },
+  "theEphemeral:Omen": {
+    "NAME": "征兆",
+    "DESCRIPTION": "造成 !D! 伤害。 NL theephemeral:命定 ：施加 !M! 易伤 。"
+  },
+  "theEphemeral:DrainSoul": {
+    "NAME": "灵魂汲取",
+    "DESCRIPTION": "对全敌造成 !D! 伤害。 NL 升级所有正被 theephemeral:揭示 的牌。",
+    "UPGRADE_DESCRIPTION": "对全敌造成 !D! 伤害。 NL 升级所有手牌和正被 theephemeral:揭示 的牌。"
+  },
+  "theEphemeral:Discord": {
+    "NAME": "不和谐音",
+    "DESCRIPTION": "造成 !D! 伤害。 NL theephemeral:熵 。"
+  },
+  "theEphemeral:VeiledEdge": {
+    "NAME": "朦胧锋刃",
+    "DESCRIPTION": "仅当手牌或被 theephemeral:揭示 的牌中含有 虚无 牌时，才能被打出。 NL 造成 !D! 伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "手牌或被揭示的牌中没有虚无的牌"
+    ]
+  },
+
+  "theEphemeral:Phantaplasm": {
+    "NAME": "幻影",
+    "DESCRIPTION": "虚无 。 NL 对全敌造成 !D! 伤害。 NL theephemeral:熵 。"
+  },
+  "theEphemeral:PiercingMist": {
+    "NAME": "穿透之雾",
+    "DESCRIPTION": "虚无 。 NL 造成 !D! 伤害两次。 NL 添加2张 *眩晕 到弃牌堆。"
+  },
+  "theEphemeral:Ambush": {
+    "NAME": "埋伏",
+    "DESCRIPTION": "造成 !D! 伤害。 NL theephemeral:命定 ：造成双倍伤害。"
+  },
+  "theEphemeral:Cataclysm": {
+    "NAME": "大灾变",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 弃置抽牌堆顶端的3张牌。"
+  },
+  "theEphemeral:CastStones": {
+    "NAME": "铸石",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 获得 !M! theephemeral:预兆 。 NL 若抽牌堆顶牌为攻击牌，打出之。"
+  },
+  "theEphemeral:BlindFury": {
+    "NAME": "盲目怒火",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 将弃牌堆的牌洗入抽牌堆，然后从抽牌堆随机打出1张攻击牌。"
+  },
+  "theEphemeral:SpectralThief": {
+    "NAME": "幽灵盗贼",
+    "DESCRIPTION": "对随机目标造成 !D! 伤害两次。 NL 若 斩杀 ，获得 !M! 金币。 NL theephemeral:消逝 !theEphemeral:SecondMagic! ."
+  },
+  "theEphemeral:Degeneration": {
+    "NAME": "衰退",
+    "DESCRIPTION": "造成 !D! 伤害两次。 NL theephemeral:熵 。"
+  },
+  "theEphemeral:Image": {
+    "NAME": "影像",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 若此轮已激活过 theephemeral:命定 效果，获得 [E] 并抽1张牌。"
+  },
+
+  "theEphemeral:Bladestorm": {
+    "NAME": "剑刃风暴",
+    "DESCRIPTION": "对全敌造成 !D! 伤害两次。 NL theephemeral:命定 ：额外造成两次伤害。"
+  },
+  "theEphemeral:SpiritStrike": {
+    "NAME": "精神打击",
+    "DESCRIPTION": "造成 !D! 伤害 !M! 次。 NL 抽1张牌。 NL 弃1张牌。 NL 若此牌被弃置，获得 !theEphemeral:SecondMagic! 力量 。"
+  },
+  "theEphemeral:RealityFracture": {
+    "NAME": "裂解现实",
+    "DESCRIPTION": "造成 !D! 伤害 X+1 次。 NL theephemeral:熵 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 伤害 X+2 次。 NL theephemeral:熵 。"
+  },
+  "theEphemeral:Disaster": {
+    "NAME": "灾难",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 若有7层 theephemeral:预兆 ，造成3倍伤害。"
+  },
+  "theEphemeral:BurningVengeance": {
+    "NAME": "燃烧的复仇",
+    "DESCRIPTION": "对全敌造成 !D! 伤害。"
+  },
+  "theEphemeral:Subsume": {
+    "NAME": "归容",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 若 斩杀 ，获得 !M! 生命。"
+  },
+
+  "theEphemeral:TimeSkip": {
+    "NAME": "时间跳跃",
+    "DESCRIPTION": "打出抽牌堆顶牌。 NL 消耗 。 NL theephemeral:命定 ：获得 [E] ",
+    "UPGRADE_DESCRIPTION": "打出抽牌堆顶牌。 NL theephemeral:命定 ：获得 [E]"
+  },
+  "theEphemeral:Fade": {
+    "NAME": "消褪",
+    "DESCRIPTION": "获得 !B! 格挡。 NL theephemeral:熵 。"
+  },
+  "theEphemeral:Pirouette": {
+    "NAME": "趾尖旋体",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 添加 !M! theephemeral:转瞬闪避 到手中。"
+  },
+  "theEphemeral:Portent": {
+    "NAME": "迹象",
+    "DESCRIPTION": "获得 !M! theephemeral:预兆 。 NL theephemeral:命定 ：抽2张牌。"
+  },
+  "theEphemeral:Delay": {
+    "NAME": "延误",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 将1张手牌放置到抽牌堆顶部。"
+  },
+  "theEphemeral:Remembrance": {
+    "NAME": "回忆",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 从弃牌堆选1张牌放置到抽牌堆顶部。"
+  },
+  "theEphemeral:SpiritGuide": {
+    "NAME": "精神引导",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 抽1张牌。 NL 弃1张牌。"
+  },
+  "theEphemeral:SpectralWall": {
+    "NAME": "幽灵之墙",
+    "DESCRIPTION": "获得 !B! 格挡。 NL theephemeral:消逝 !theEphemeral:SecondMagic!"
+  },
+
+  "theEphemeral:LostToAges": {
+    "NAME": "亡佚",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 消耗1张手牌。 NL 添加1张此牌的复制品到弃牌堆。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 消耗1张手牌。 NL 添加1张此牌的复制品到弃牌堆。"
+  },
+  "theEphemeral:BoonOfTheSpinner": {
+    "NAME": "旋机之惠泽",
+    "DESCRIPTION": "抽1张牌。 NL 弃1张牌。 NL 若此牌被弃置，获得 [E]",
+    "UPGRADE_DESCRIPTION": "抽1张牌。 NL 弃1张牌。 NL 若此牌被弃置，获得 [E] [E]"
+  },
+  "theEphemeral:BoonOfTheAlloter": {
+    "NAME": "配拨之惠泽",
+    "DESCRIPTION": "抽1张牌。 NL 弃1张牌。 NL 若此牌被弃置，抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "抽1张牌。 NL 弃1张牌。 NL 若此牌被弃置，抽 !M! 张牌。"
+  },
+  "theEphemeral:BoonOfTheInflexible": {
+    "NAME": "顽刻之惠泽",
+    "DESCRIPTION": "抽1张牌。 NL 弃1张牌。 NL 若此牌被弃置，全敌与此轮失去 !M! 力量 。"
+  },
+  "theEphemeral:BlindFaith": {
+    "NAME": "盲目信仰",
+    "DESCRIPTION": "将弃牌堆的牌洗入抽牌堆。添加 !M! theephemeral:转瞬思虑 到手中。"
+  },
+  "theEphemeral:BlindingBlock": {
+    "NAME": "眩目格挡",
+    "DESCRIPTION": "将弃牌堆的牌洗入抽牌堆。获得 !B! 格挡。 NL theephemeral:命定 ：获得额外 !M! 格挡。"
+  },
+  "theEphemeral:Tasseomancy": {
+    "NAME": "茶卜术",
+    "DESCRIPTION": "获得 !M! theephemeral:预兆 。 NL 若抽牌堆顶牌为技能牌，打出之。 NL 消耗 。"
+  },
+  "theEphemeral:RecurringNightmare": {
+    "NAME": "梦魇循环",
+    "DESCRIPTION": "从弃牌堆选1张牌，打出之。"
+  },
+  "theEphemeral:PeerThroughMists": {
+    "NAME": "望穿迷雾",
+    "DESCRIPTION": "消耗手中或被 theephemeral:揭示 的所有诅咒和状态牌。每消耗1张，获得 !B! 格挡。"
+  },
+  "theEphemeral:Dowse": {
+    "NAME": "探测术",
+    "DESCRIPTION": "获得 2 theephemeral:预兆 。 NL 添加 !M! theephemeral:转瞬思虑 到手中。"
+  },
+  "theEphemeral:FrigidAura": {
+    "NAME": "寒冷光环",
+    "DESCRIPTION": "获得 !B! 格挡。 NL theephemeral:命定 ：对全敌施加 !M! 虚弱 。"
+  },
+  "theEphemeral:Premonition": {
+    "NAME": "不祥预感",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 获得 !M! theephemeral:预兆 。 NL theephemeral:命定 ：获得 [E]"
+  },
+  "theEphemeral:Dissipate": {
+    "NAME": "消散",
+    "DESCRIPTION": "获得 !B! 格挡。 NL theephemeral:命定 ：获得1层 无实体 并消耗此牌。"
+  },
+  "theEphemeral:SpectralBinding": {
+    "NAME": "幽魂束缚",
+    "DESCRIPTION": "敌人失去 !M! 力量 。 NL 施加 !M! 虚弱 和 易伤 。 NL theephemeral:消逝 !theEphemeral:SecondMagic!"
+  },
+  "theEphemeral:Revelation": {
+    "NAME": "启示",
+    "DESCRIPTION": "获得 [E] [E] NL 抽 !M! 牌"
+  },
+  "theEphemeral:StrengthFromBeyond": {
+    "NAME": "超越之力",
+    "DESCRIPTION": "添加 2 theephemeral:转瞬打击 到手中。 NL 获得 !M! 临时力量。"
+  },
+  "theEphemeral:FortuneForetold": {
+    "NAME": "预知命运",
+    "DESCRIPTION": "获得等同于 theephemeral:预兆 层数的 [E] 。"
+  },
+  "theEphemeral:Cartomancy": {
+    "NAME": "纸牌卜卦",
+    "DESCRIPTION": "从3张随机牌中选1张添加到抽牌堆顶部。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "从3张随机牌中选1张添加到抽牌堆顶部，使之于此战耗费为0。消耗 。"
+  },
+
+  "theEphemeral:Wasting": {
+    "NAME": "浪费",
+    "DESCRIPTION": "敌人失去等同于 theephemeral:预兆 层数的力量。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 敌人失去等同于 theephemeral:预兆 层数的力量。 NL 消耗 。"
+  },
+  "theEphemeral:TemptFate": {
+    "NAME": "蔑视命运",
+    "DESCRIPTION": "将弃牌堆的牌洗入抽牌堆，抽 !M! 牌。 NL 消耗 。"
+  },
+  "theEphemeral:BrokenMirror": {
+    "NAME": "破碎之镜",
+    "DESCRIPTION": "选择1张被 theephemeral:揭示 的牌，复制到手中。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "选择1张被 theephemeral:揭示 的牌，复制到手中。",
+    "EXTENDED_DESCRIPTION": [
+      "没有有效的被揭示牌。"
+    ]
+  },
+  "theEphemeral:Numerology": {
+    "NAME": "数字命理学",
+    "DESCRIPTION": "抽X张牌。这些牌的耗费于此轮减少X点。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "抽X+1张牌。这些牌的耗费于此轮减少X点。 NL 消耗 。"
+  },
+  "theEphemeral:SpectralForge": {
+    "NAME": "幽魂铸造",
+    "DESCRIPTION": "升级所有牌。 NL theephemeral:消逝 !theEphemeral:SecondMagic!",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 升级所有牌。 NL theephemeral:消逝 !theEphemeral:SecondMagic! .",
+    "EXTENDED_DESCRIPTION": [
+      "无牌可升级。"
+    ]
+  },
+  "theEphemeral:TemporalSurge": {
+    "NAME": "须臾万物之奔涌",
+    "DESCRIPTION": "打出所有被 theephemeral:揭示 的攻击和技能牌。 NL 消耗 。"
+  },
+
+  "theEphemeral:Murmuration": {
+    "NAME": "惊鸿掠鸟",
+    "DESCRIPTION": "每回合开始时，获得 !M! theephemeral:预兆 。",
+    "UPGRADE_DESCRIPTION": "每回合开始时，获得 !M! theephemeral:预兆 。 NL 立即执行1次。"
+  },
+  "theEphemeral:PhantomWings": {
+    "NAME": "幻灵之翼",
+    "DESCRIPTION": "每回合结束时，获得等同于 theephemeral:预兆 层数的格挡。",
+    "UPGRADE_DESCRIPTION": "每回合结束时，获得等同于 theephemeral:预兆 层数的格挡。 NL 立即执行1次。"
+  },
+  "theEphemeral:Clairvoyance": {
+    "NAME": "心眼通",
+    "DESCRIPTION": "每回合开始时，添加1张 theephemeral:转瞬思虑 到手中。",
+    "UPGRADE_DESCRIPTION": "每回合开始时，添加1张 theephemeral:转瞬思虑 到手中。 NL 立即执行1次。"
+  },
+  "theEphemeral:SwirlingMists": {
+    "NAME": "涡旋之雾",
+    "DESCRIPTION": "每抽到或消耗一张虚无属性的牌，获得 !M! 格挡。"
+  },
+  "theEphemeral:ReflectingPool": {
+    "NAME": "倒映之池",
+    "DESCRIPTION": "每当打出攻击牌但未消耗之，添加1张 theephemeral:转瞬打击 到手中。"
+  },
+  "theEphemeral:Kismet": {
+    "NAME": "天命",
+    "DESCRIPTION": "每当洗牌，抽1张牌并获得 !M! 格挡。"
+  },
+  "theEphemeral:Maelstrom": {
+    "NAME": "大漩涡",
+    "DESCRIPTION": "每当于一轮内打出5张牌，对全敌施加1层 虚弱 和 易伤 。"
+  },
+  "theEphemeral:ImpendingDoom": {
+    "NAME": "厄运迫近",
+    "DESCRIPTION": "每回合结束时，对全敌造成等量于theephemeral:预兆 层的伤害。",
+    "UPGRADE_DESCRIPTION": "每回合结束时，对全敌造成等量于theephemeral:预兆 层的伤害。 NL 立即执行1次。"
+  },
+  "theEphemeral:DarkContract": {
+    "NAME": "黑暗契约",
+    "DESCRIPTION": "每当获得 theephemeral:预兆 ，获得 [E] 并流失1点生命。"
+  },
+  "theEphemeral:Soothsayer": {
+    "NAME": "命定真言",
+    "DESCRIPTION": "theephemeral:命定 效果翻倍，且每轮的触发限定增加一次。"
+  },
+  "theEphemeral:GrimResolve": {
+    "NAME": "解离万难",
+    "DESCRIPTION": "每当要损失生命时，少损失 !M! 点。"
+  },
+  "theEphemeral:ReturnToAether": {
+    "NAME": "魂归以太",
+    "DESCRIPTION": "每回合结束时，消耗所有手牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每回合结束时，消耗所有手牌。"
+  },
+  "theEphemeral:ChaosRift": {
+    "NAME": "混沌裂缝",
+    "DESCRIPTION": " theephemeral:熵 的加成效果增加 !M! 点。"
+  },
+  "theEphemeral:SpectralPhalanx": {
+    "NAME": "幽魂方阵",
+    "DESCRIPTION": "获得 !M! 力量 和 !M! 敏捷 。 NL theephemeral:消逝 !theEphemeral:SecondMagic! ."
+  },
+  "theEphemeral:HarbingerForm": {
+    "NAME": "先驱形态",
+    "DESCRIPTION": "虚无 。 NL 每轮结束时，打出抽牌堆顶牌，该牌的伤害和格挡翻倍。",
+    "UPGRADE_DESCRIPTION": "每轮结束时，打出抽牌堆顶牌，该牌的伤害和格挡翻倍。"
+  },
+  "theEphemeral:FleetingStrike": {
+    "NAME": "转瞬打击",
+    "DESCRIPTION": "虚无 。 NL 弃置抽牌堆顶牌。 NL 造成 !D! 伤害。 NL 消耗 。"
+  },
+  "theEphemeral:FleetingDodge": {
+    "NAME": "转瞬闪避",
+    "DESCRIPTION": "虚无 。 NL 弃置抽牌堆顶牌。 NL 获得 !B! 格挡。 NL 消耗 。"
+  },
+  "theEphemeral:FleetingThought": {
+    "NAME": "转瞬思虑",
+    "DESCRIPTION": "虚无 。 NL 弃置抽牌堆顶牌。 NL 抽1张牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "虚无 。 NL 弃置抽牌堆顶牌。 NL 抽取2张牌。 NL 消耗 。"
+  }
+}

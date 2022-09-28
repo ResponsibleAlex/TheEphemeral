@@ -1,0 +1,137 @@
+{
+        "theEphemeral:MurmurationPower": {
+                "NAME": "掠鸟",
+                "DESCRIPTIONS": [
+                        "每回合开始时，获得 #b",
+                        " #y预兆"
+                ]
+        },
+        "theEphemeral:PhantomWingsPower": {
+                "NAME": "幻灵之翼",
+                "DESCRIPTIONS": [
+                        "每回合结束时，获得等量于 #y预兆 层数的 #y格挡 。",
+                        "每回合结束时，获得 #b",
+                        " 倍于 #y预兆 层数的 #y格挡 。"
+                ]
+        },
+        "theEphemeral:ClairvoyancePower": {
+                "NAME": "心眼通",
+                "DESCRIPTIONS": [
+                        "每回合开始时，添加 #b",
+                        " 张 #y转瞬思虑 到手上。",
+                        " 张 #y转瞬思虑 到手上。"
+                ]
+        },
+        "theEphemeral:SwirlingMistsPower": {
+                "NAME": "旋动之雾",
+                "DESCRIPTIONS": [
+                        "每当抽取或消耗带有 #y虚无 属性的牌时，获得 #b",
+                        " #y格挡 。"
+                ]
+        },
+        "theEphemeral:ReflectingPoolPower": {
+                "NAME": "倒影之池",
+                "DESCRIPTIONS": [
+                        "每当打出非消耗的攻击牌，添加 #b",
+                        " 张 #y转瞬打击 到手上。",
+                        " 张 #y转瞬打击 到手上。"
+                ]
+        },
+        "theEphemeral:KismetPower": {
+                "NAME": "天命",
+                "DESCRIPTIONS": [
+                        "每当洗牌，抽 #b",
+                        " 张牌并获得 #b",
+                        " 张牌并获得 #b",
+                        " #y格挡"
+                ]
+        },
+        "theEphemeral:MaelstromPower": {
+                "NAME": "大漩涡",
+                "DESCRIPTIONS": [
+                        "此轮内再打出 #b",
+                        " 张牌后，对全敌施加 #b",
+                        " 张牌后，对全敌施加 #b",
+                        " #y虚弱 和 #b",
+                        " #y易伤 。"
+                ]
+        },
+        "theEphemeral:ImpendingDoomPower": {
+                "NAME": "噩运迫近",
+                "DESCRIPTIONS": [
+                        "每回合结束时，对全敌造成等量于 #y预兆 层数的伤害。",
+                        "每回合结束时，对全敌造成 #b",
+                        " 倍于 #y预兆 层数的伤害。"
+                ]
+        },
+        "theEphemeral:DarkContractPower": {
+                "NAME": "黑暗契约",
+                "DESCRIPTIONS": [
+                        "每当获得 #y预兆 ，获得 ",
+                        " 并失去 #b",
+                        " 生命。"
+                ]
+        },
+        "theEphemeral:SoothsayerPower": {
+                "NAME": "命定真言",
+                "DESCRIPTIONS": [
+                        "每轮内，额外有 #b",
+                        " 张命定牌可触发 #y命定 效果。 #y命定 效果变为 #b",
+                        " 张命定牌可触发 #y命定 效果。 #y命定 效果变为 #b",
+                        " 倍。"
+                ]
+        },
+        "theEphemeral:GrimResolvePower": {
+                "NAME": "解离万难",
+                "DESCRIPTIONS": [
+                        "每当要损失生命时，少损失 #b",
+                        " 点。"
+                ]
+        },
+        "theEphemeral:ReturnToAetherPower": {
+                "NAME": "魂归以太",
+                "DESCRIPTIONS": [
+                        "每回合结束时， #y消耗 所有手牌。"
+                ]
+        },
+        "theEphemeral:ChaosRiftPower": {
+                "NAME": "混沌裂缝",
+                "DESCRIPTIONS": [
+                        "#y熵 的加成效果 增加 #b",
+                        "点。"
+                ]
+        },
+        "theEphemeral:HarbingerFormPower": {
+                "NAME": "先驱形态",
+                "DESCRIPTIONS": [
+                        "每回合结束时，打出抽牌堆的顶牌，",
+                        "每回合结束时，打出抽牌堆的顶牌 #b",
+                        " 次，",
+                        " 该牌的伤害和格挡翻倍。"
+                ]
+        },
+        "theEphemeral:ElysianNectarPower": {
+                "NAME": "乐土琼浆",
+                "DESCRIPTIONS": [
+                        "此回合，每打出1张牌，抽1张牌。",
+                        "此回合，每打出1张牌，抽 #b",
+                        " 张牌。"
+                ]
+        },
+        "theEphemeral:PreviewWidget": {
+                "NAME": "预览装置",
+                "DESCRIPTIONS": [
+                        "预兆",
+                        "最多 #b",
+                        " 张抽牌堆顶端的牌按顺序展现。最大值为 #b7 ，每回合开始时，失去 #b1 #y预兆 。"
+                ]
+        },
+        "theEphemeral:BlindedViewScreen": {
+                "NAME": "盲目视界",
+                "DESCRIPTIONS": [
+                        "抽牌堆",
+                        "弃牌堆",
+                        "盲目使你必须依赖于神秘力量。"
+                ]
+        }
+}

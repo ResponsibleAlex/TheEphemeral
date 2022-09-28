@@ -1,0 +1,23 @@
+{
+        "theEphemeral:PotionOfProphecy": {
+                "NAME": "先知药水",
+                "DESCRIPTIONS": [
+                        "获得 #b",
+                        " #y预兆"
+                ]
+        },
+        "theEphemeral:TemporalTonic": {
+                "NAME": "瞬时药水",
+                "DESCRIPTIONS": [
+                        "打出抽牌堆顶牌 #b",
+                        " 次。"
+                ]
+        },
+        "theEphemeral:ElysianNectar": {
+                "NAME": "乐土琼浆",
+                "DESCRIPTIONS": [
+                        "此回合，每打出1张牌，抽1张牌",
+                        "此回合，每打出1张牌，抽2张牌"
+                ]
+        }
+}

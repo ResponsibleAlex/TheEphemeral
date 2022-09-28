@@ -1,0 +1,42 @@
+{
+  "theEphemeral:VampireEventMod": {
+    "NAME": "吸血鬼",
+    "DESCRIPTIONS": [
+      "你张开双臂，拥抱这个高大的身影，他轻轻地咬住你的脖子。你感受到一股 @黑暗力量@ 深入了你的体内，噬骨的 @饥饿感@ 暴涨着。 NL ... NL 你向他的馈赠致谢。你感到晕眩，但也更为 #p~强大...~ NL 你 #r必须捕食..."
+    ],
+    "OPTIONS": [
+      "[拥抱] #g移除所有打击。获得 #g2 归容。 #r失去 #r",
+      " #r生命"
+    ]
+  },
+  "theEphemeral:GhostEventMod": {
+    "NAME": "幽魂",
+    "DESCRIPTIONS": [
+      "你用粗哑的声音说话，字里行间流露出嘶哑的声音。 NL #p\"我们 #p以前见过面 ...\" NL NL 幽灵们相视而笑。 NL #y\"来吧，小家伙。接受我们的 #y~礼物~ 。\" NL NL 一种决心充满了你空荡荡的胸膛，就像一朵温柔的云彩包裹着你。幽灵渐渐消失，留下你独自一人，再一次。"
+    ],
+    "OPTIONS": [
+      "[交流] #g添加 #g1 张灵体牌到牌组。"
+    ]
+  },
+  "theEphemeral:NestEventMod": {
+    "NAME": "NestEventMod",
+    "DESCRIPTIONS": [
+      "你曾经来过这里... 你认识这群 #r邪教徒 ！ NL 他们欢欣地 @吟诵着@ ，~挥舞着~ 武器，无视了你。 NL NL #r@\"谋杀!!@ #r@谋杀@ #r@谋杀!!\"@ NL #b~\"爪~ #b~爪~ #b~爪爪爪爪爪!\"~ NL NL 你还注意到了一个 #y捐款箱... NL 无论以何种形式，他们都必须 @付出代价@",
+      "是时候回报他们了。 NL 几个 #r邪教徒 在他们反应过来之前便倒下身死。 NL NL 在随后的混乱之中，有些人逃跑，有些则是 ~痛苦地战死~ NL NL ... NL NL 你 #r受了点伤 ，但为了 @复仇@ ，再多也值得。 NL 在离开之前，你取走了一把 #y匕首 和 #y金币"
+    ],
+    "OPTIONS": [
+      "[埋伏] #g获得 仪式匕首. #g获得 #g",
+      " #g金币 。 #r失去 #r",
+      " #r生命"
+    ]
+  },
+  "theEphemeral:AwakenedOneDialog": {
+    "NAME": "AwakenedOneDialog",
+    "DESCRIPTIONS": [
+      "你... 将会... 付出代价！"
+    ],
+    "OPTIONS": [
+      ""
+    ]
+  }
+}
