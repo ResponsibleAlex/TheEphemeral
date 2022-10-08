@@ -1,0 +1,94 @@
+{
+  "theEphemeral:FrozenEye": {
+    "NAME": "얼어붙은 눈",
+    "FLAVOR": "눈을 주시하자, 미래가 흘낏 보이는 것 같습니다.",
+    "DESCRIPTIONS": [
+      "더 이상 #ytheephemeral:점술 이 감소하지 않습니다."
+    ]
+  },
+  "theEphemeral:CultistMask": {
+    "NAME": "광신자 머리",
+    "FLAVOR": "무리의 일부!",
+    "DESCRIPTIONS": [
+      "당신은 이 교도들의 비밀을 알고 있기 때문에, 전투 시작시 의식 을 1 얻습니다."
+    ]
+  },
+  "theEphemeral:Laurel": {
+    "NAME": "월계수",
+    "FLAVOR": "예언 의식에 사용되는 월계수입니다.",
+    "DESCRIPTIONS": [
+      "전투 시작시 #ytheephemeral:점술 을 2 얻습니다."
+    ]
+  },
+  "theEphemeral:Pincushion": {
+    "NAME": "바늘겨레",
+    "FLAVOR": "이상하리만큼 카타르시스적인 바느질 겨레입니다.",
+    "DESCRIPTIONS": [
+      "전투 시작시 #ytheephemeral:순간_통찰 1장을 얻습니다."
+    ]
+  },
+  "theEphemeral:LinenVeil": {
+    "NAME": "린넨 베일",
+    "FLAVOR": "고급 직물로 치밀하게 짜여진 이 베일은 상대를 잘 볼 수 있게 해줍니다... 만약 당신이 시야가 있었다면요.",
+    "DESCRIPTIONS": [
+      "뽑을 카드 더미 맨 위의 카드가 #y공격 이라면, #y힘을 #b2 얻습니다. 뽑을 카드 더미 맨 위의 카드가 #y스킬 이라면, #y민첩을 #b2 얻습니다."
+    ]
+  },
+  "theEphemeral:RitualAsh": {
+    "NAME": "의식용 재",
+    "FLAVOR": "이 타버린 재들은 사실 선견자들에게 발라주었던 성유의 잔해입니다.",
+    "DESCRIPTIONS": [
+      "#y휘발성 카드를 #y소멸시킬 때마다, 무작위 적에게 피해를 #b3 줍니다."
+    ]
+  },
+  "theEphemeral:GlowingFeather": {
+    "NAME": "빛나는 깃털",
+    "FLAVOR": "섬뜩한 빛으로 빛나는 깃털입니다.",
+    "DESCRIPTIONS": [
+      "매 전투에서 처음으로 사용하는 파워 카드의 비용이 #b0 이 됩니다."
+    ]
+  },
+  "theEphemeral:CuriousTalon": {
+    "NAME": "호기심 발톱",
+    "FLAVOR": "이 부러진 발톱의 존재는 형언할 수 없는 분노로 당신을 채웁니다.",
+    "DESCRIPTIONS": [
+      "#y파워 카드를 사용할 때마다, #y힘을 #b1 얻습니다."
+    ]
+  },
+  "theEphemeral:HookAndYarn": {
+    "NAME": "바늘과 방적실",
+    "FLAVOR": "이 실의 마법은 당신의 주변에 신비로운 장벽을 만들어주고 있습니다.",
+    "DESCRIPTIONS": [
+      "#ytheephemeral:숙명 효과를 발동할 때마다, #y금속화 를 #b2 #y얻습니다."
+    ]
+  },
+  "theEphemeral:Pomegranate": {
+    "NAME": "석류",
+    "FLAVOR": "고대 신들과 여신들이 즐겨먹던 열매로, 신선하고 육즙이 풍부합니다.",
+    "DESCRIPTIONS": [
+      "획득시, 최대 체력이 #b21 증가합니다."
+    ]
+  },
+  "theEphemeral:AncientScroll": {
+    "NAME": "고대의 스크롤",
+    "FLAVOR": "이 스크롤에 새겨진 룬 문장은 읽히기도 전에 당신을 저주합니다.",
+    "DESCRIPTIONS": [
+      "매 턴 시작시 [E] 를 얻습니다. 획득시 #b2 장의 #r몸부림 #r저주를 #r얻습니다.",
+      "극도의 통증을 느끼거라..."
+    ]
+  },
+  "theEphemeral:Basin": {
+    "NAME": "대야",
+    "FLAVOR": "이 대야에 들어 있는 순수한 물은 안팎으로 청결함을 느끼게 해줍니다.",
+    "DESCRIPTIONS": [
+      "#y월계수 를 대체합니다. 매 턴 시작시 #ytheephemeral:점술 을 #b2 얻습니다."
+    ]
+  },
+  "theEphemeral:StoneTablet": {
+    "NAME": "석판",
+    "FLAVOR": "표면에 마구 긁히듯이 적혀있는 문구들은 이 석판이 일종의 회계 용도로 사용되었음을 나타내고 있습니다.",
+    "DESCRIPTIONS": [
+      "뽑을 카드 더미를 섞을때마다, 적 전체에게 피해를 #b6 줍니다."
+    ]
+  }
+}

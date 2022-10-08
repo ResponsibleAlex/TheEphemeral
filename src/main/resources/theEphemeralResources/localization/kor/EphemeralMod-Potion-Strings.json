@@ -1,0 +1,23 @@
+{
+        "theEphemeral:PotionOfProphecy": {
+                "NAME": "예언 포션",
+                "DESCRIPTIONS": [
+                        "#y점술 을 #b",
+                        " 얻습니다."
+                ]
+        },
+        "theEphemeral:TemporalTonic": {
+                "NAME": "속세의 화장수",
+                "DESCRIPTIONS": [
+                        "뽑을 카드 더미 맨 위의 카드를 #b",
+                        " 번 사용합니다."
+                ]
+        },
+        "theEphemeral:ElysianNectar": {
+                "NAME": "지복의 꿀",
+                "DESCRIPTIONS": [
+                        "이번 턴 동안 카드를 사용할 때마다, 카드를 #b1 장 뽑습니다.",
+                        "이번 턴 동안 카드를 사용할 때마다, 카드를 #b2 장 뽑습니다."
+                ]
+        }
+}

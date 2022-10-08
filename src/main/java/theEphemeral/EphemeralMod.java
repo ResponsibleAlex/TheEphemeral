@@ -451,6 +451,8 @@ public class EphemeralMod implements
         String lang = "eng";
         if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
+        } else if (Settings.GameLanguage.KOR == Settings.language) {
+            lang = "kor";
         }
         
         // CardStrings
@@ -490,6 +492,8 @@ public class EphemeralMod implements
         String lang = "eng";
         if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
+        } else if (Settings.GameLanguage.KOR == Settings.language) {
+            lang = "kor";
         }
 
         Gson gson = new Gson();

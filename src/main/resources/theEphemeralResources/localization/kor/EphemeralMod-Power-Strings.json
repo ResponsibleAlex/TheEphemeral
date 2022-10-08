@@ -1,0 +1,137 @@
+{
+        "theEphemeral:MurmurationPower": {
+                "NAME": "찌르레기 떼",
+                "DESCRIPTIONS": [
+                        "매 턴 시작시, #y점술 을 #b",
+                        " 얻습니다."
+                ]
+        },
+        "theEphemeral:PhantomWingsPower": {
+                "NAME": "환영 날개",
+                "DESCRIPTIONS": [
+                        "턴 종료시, 보유한 #y점술 수치만큼 #y방어도를 얻습니다.",
+                        "턴 종료시, 보유한 #y점술 수치의 #b",
+                        " 배에 해당하는 #y방어도를 얻습니다."
+                ]
+        },
+        "theEphemeral:ClairvoyancePower": {
+                "NAME": "총명",
+                "DESCRIPTIONS": [
+                        "매 턴 시작시, #y순간 #y통찰 #b",
+                        " 장을 얻습니다.",
+                        " 장을 얻습니다."
+                ]
+        },
+        "theEphemeral:SwirlingMistsPower": {
+                "NAME": "소용돌이치는 안개",
+                "DESCRIPTIONS": [
+                        "#y휘발성 카드를 #y뽑거나 #y소멸시킬 때마다, #y방어도를 #b",
+                        " 얻습니다."
+                ]
+        },
+        "theEphemeral:ReflectingPoolPower": {
+                "NAME": "모든 것을 비추는 수면",
+                "DESCRIPTIONS": [
+                        "#y소멸 효과가 없는 #y공격 카드를 사용할 때마다, #y순간 #y타격 #b",
+                        " 장을 얻습니다.",
+                        " 장을 얻습니다."
+                ]
+        },
+        "theEphemeral:KismetPower": {
+                "NAME": "키스멧",
+                "DESCRIPTIONS": [
+                        "뽑을 카드 더미를 섞을때마다, 카드를 #b",
+                        " 장 뽑고 #y방어도를 #b",
+                        " 장 뽑고 #y방어도를 #b",
+                        " 얻습니다."
+                ]
+        },
+        "theEphemeral:MaelstromPower": {
+                "NAME": "대혼란",
+                "DESCRIPTIONS": [
+                        "이번 턴에 카드를 #b",
+                        " 장 사용하면, 적 전체에게 #b",
+                        " 장 사용하면, 적 전체에게 #b",
+                        " 의 약화와 #b",
+                        " 의 취약을 부여합니다."
+                ]
+        },
+        "theEphemeral:ImpendingDoomPower": {
+                "NAME": "종말 임박",
+                "DESCRIPTIONS": [
+                        "턴 종료시, 보유한  #y점술 수치만큼 적 전체에게 피해를 줍니다.",
+                        "턴 종료시, 보유한  #y점술 수치의 #b",
+                        " 배 만큼 적 전체에게 피해를 줍니다."
+                ]
+        },
+        "theEphemeral:DarkContractPower": {
+                "NAME": "어둠의 계약",
+                "DESCRIPTIONS": [
+                        "#y점술 을 얻을때마다, ",
+                        " 를 얻고 체력을 #b",
+                        " 잃습니다."
+                ]
+        },
+        "theEphemeral:SoothsayerPower": {
+                "NAME": "점술가",
+                "DESCRIPTIONS": [
+                        "이번 턴에 #y숙명 효과를 추가로 #b",
+                        " 번 더 발동할 수 있습니다. #y숙명 카드들의 추가 효과가  #b",
+                        " 번 더 발동할 수 있습니다. #y숙명 카드들의 추가 효과가 #b",
+                        " 배로 증가합니다."
+                ]
+        },
+        "theEphemeral:GrimResolvePower": {
+                "NAME": "엄숙한 결의",
+                "DESCRIPTIONS": [
+                        "체력을 잃으면, 체력을 #b",
+                        " 만큼 덜 잃습니다."
+                ]
+        },
+        "theEphemeral:ReturnToAetherPower": {
+                "NAME": "하늘로 돌아가다",
+                "DESCRIPTIONS": [
+                        "턴 종료시, 손패의 카드를 전부 #y소멸시킵니다."
+                ]
+        },
+        "theEphemeral:ChaosRiftPower": {
+                "NAME": "혼돈의 균열",
+                "DESCRIPTIONS": [
+                        "#y엔트로피 의 피해량, 방어도 증가 수치가 #b",
+                        " 증가합니다."
+                ]
+        },
+        "theEphemeral:HarbingerFormPower": {
+                "NAME": "선지자의 형상",
+                "DESCRIPTIONS": [
+                        "턴 종료시 뽑을 카드 더미 맨 위의 카드를 사용합니다.",
+                        "턴 종료시 뽑을 카드 더미 맨 위의 카드를 #b",
+                        " 번 사용합니다.",
+                        " 이 효과로 사용된 카드의 피해량과 방어도는 2배로 증가합니다."
+                ]
+        },
+        "theEphemeral:ElysianNectarPower": {
+                "NAME": "지복의 꿀",
+                "DESCRIPTIONS": [
+                        "이번 턴 동안 카드를 사용할 때마다, 카드를 #b1 장 뽑습니다.",
+                        "이번 턴 동안 카드를 사용할 때마다, 카드를 #b",
+                        " 장 뽑습니다."
+                ]
+        },
+        "theEphemeral:PreviewWidget": {
+                "NAME": "PreviewWidget",
+                "DESCRIPTIONS": [
+                        "점술",
+                        "뽑을 카드 더미 맨 위의 카드 #b",
+                        " 장을 보여줍니다. 점술은 최대 #b7 까지 쌓을수 있고, 매 턴 시작시 #y점술 이 #b1 감소합니다."
+                ]
+        },
+        "theEphemeral:BlindedViewScreen": {
+                "NAME": "BlindedViewScreen",
+                "DESCRIPTIONS": [
+                        "뽑을 카드 더미",
+                        "버린 카드 더미",
+                        "당신은 장님입니다. 당신의 신비력에 의존하십시오."
+                ]
+        }
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "PROPER_NAME": "점술",
+    "NAMES": [
+      "Augury",
+      "점술"
+    ],
+    "DESCRIPTION": "점술 수치만큼 뽑을 카드 더미 맨 위의 카드들이 순서대로 보입니다. 점술은 최대 #b7 까지 보유할 수 있습니다. 매 턴 시작시 #y점술 이 #b1 감소합니다."
+  },
+  {
+    "PROPER_NAME": "계시",
+    "NAMES": [
+      "Revealed",
+      "계시"
+    ],
+    "DESCRIPTION": "#y점술 효과로 인해 드러난 뽑을 카드 더미 맨 위의 카드 들입니다."
+  },
+  {
+    "PROPER_NAME": "숙명",
+    "NAMES": [
+      "Fated",
+      "숙명"
+    ],
+    "DESCRIPTION": "매 턴 처음으로 #y숙명 카드를 사용하면, 숙명 효과가 발동합니다."
+  },
+  {
+    "PROPER_NAME": "소실",
+    "NAMES": [
+      "Vanishing",
+      "소실"
+    ],
+    "DESCRIPTION": "이 카드는 사용시 소멸되고 소실 이 #b1 감소합니다. 해당 카드의 소실이 #b0 이 되면, 이 카드가 덱에서 #y영구적으로 #y제거됩니다."
+  },
+  {
+    "PROPER_NAME": "엔트로피",
+    "NAMES": [
+      "Entropy",
+      "엔트로피"
+    ],
+    "DESCRIPTION": "엔트로피 카드 사용시, 이번 전투 동안 모든 #y엔트로피 카드의 피해량이 #b1 증가하고 #y방어도가 #b1 증가합니다."
+  },
+  {
+    "PROPER_NAME": "순간 타격",
+    "NAMES": [
+      "fleeting strike",
+      "순간_타격"
+    ],
+    "DESCRIPTION": "숙명에서 벗어날 수 있는 작은 일탈입니다."
+  },
+  {
+    "PROPER_NAME": "순간 회피",
+    "NAMES": [
+      "fleeting dodge",
+      "순간_회피"
+    ],
+    "DESCRIPTION": "숙명에서 벗어날 수 있는 작은 일탈입니다."
+  },
+  {
+    "PROPER_NAME": "순간 통찰",
+    "NAMES": [
+      "fleeting thought",
+      "순간_통찰"
+    ],
+    "DESCRIPTION": "숙명에서 벗어날 수 있는 작은 일탈입니다."
+  }
+]

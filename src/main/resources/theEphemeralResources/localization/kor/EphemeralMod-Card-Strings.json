@@ -1,0 +1,360 @@
+{
+  "theEphemeral:Strike": {
+    "NAME": "타격",
+    "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "theEphemeral:Defend": {
+    "NAME": "수비",
+    "DESCRIPTION": "방어도를 !B! 얻습니다."
+  },
+  "theEphemeral:ReadTheStars": {
+    "NAME": "별들의 계시",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL theephemeral:점술 을 !M! 얻습니다."
+  },
+  "theEphemeral:ThroughTheVeil": {
+    "NAME": "베일을 통해 보이는 것",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL theephemeral:숙명 : theephemeral:순간_회피 !M! 장을 얻습니다."
+  },
+
+  "theEphemeral:ThrowBones": {
+    "NAME": "뼈 던지기",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL theephemeral:점술 을 !M! 얻습니다."
+  },
+  "theEphemeral:StranglingMist": {
+    "NAME": "교살의 안개",
+    "DESCRIPTION": "휘발성. NL 피해를 !D! 줍니다. NL 뽑을 카드 더미에 어지러움 1 장을 넣습니다."
+  },
+  "theEphemeral:Silhouette": {
+    "NAME": "실루엣",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL theephemeral:순간_타격 !M! 장을 얻습니다."
+  },
+  "theEphemeral:ChillingTouch": {
+    "NAME": "으스스한 손길",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL theephemeral:계시 목록의 공격 카드 1장당, 약화를 1 부여합니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (약화를 !M! 부여합니다.)"
+    ]
+  },
+  "theEphemeral:PsychicStrike": {
+    "NAME": "영매 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL theephemeral:숙명 : theephemeral:순간_통찰 !M! 장을 얻습니다."
+  },
+  "theEphemeral:BlindSwipe": {
+    "NAME": "눈 먼 휩쓸기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 버린 카드 더미를 뽑을 카드 더미에 넣고 섞습니다."
+  },
+  "theEphemeral:SpectralGrasp": {
+    "NAME": "움켜쥐는 유령의 손",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL theephemeral:소실 !theEphemeral:SecondMagic!."
+  },
+  "theEphemeral:Omen": {
+    "NAME": "징조",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL theephemeral:숙명 : 취약을 !M! 부여합니다."
+  },
+  "theEphemeral:DrainSoul": {
+    "NAME": "영혼 흡수",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL theephemeral:계시 목록에 있는 모든 카드를 이번 전투 동안 강화합니다.",
+    "UPGRADE_DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 손패와 theephemeral:계시 목록에 있는 모든 카드를 이번 전투 동안 강화합니다."
+  },
+  "theEphemeral:Discord": {
+    "NAME": "불화",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL theephemeral:엔트로피."
+  },
+  "theEphemeral:VeiledEdge": {
+    "NAME": "베일로 덮인 날",
+    "DESCRIPTION": "손패, 또는 theephemeral:계시 목록에 휘발성 카드가 있을때 사용할 수 있습니다. NL 피해를 !D! 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      "휘발성 카드가 계시 목록 또는 손패에 없다."
+    ]
+  },
+
+  "theEphemeral:Phantaplasm": {
+    "NAME": "엑토플라즘",
+    "DESCRIPTION": "휘발성. NL 적 전체에게 피해를 !D! 줍니다. NL theephemeral:엔트로피."
+  },
+  "theEphemeral:PiercingMist": {
+    "NAME": "꿰뚫는 안개",
+    "DESCRIPTION": "휘발성. NL !D! 피해를 2 번 줍니다. NL 버린 카드 더미에 어지러움 2 장을 넣습니다."
+  },
+  "theEphemeral:Ambush": {
+    "NAME": "매복 강습",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL theephemeral:숙명 : 2배의 피해를 줍니다."
+  },
+  "theEphemeral:Cataclysm": {
+    "NAME": "대변동",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 뽑을 카드 더미 맨 위의 카드 3장을 버립니다."
+  },
+  "theEphemeral:CastStones": {
+    "NAME": "캐스트 스톤",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL theephemeral:점술 을 !M! 얻습니다. NL 뽑을 카드 더미 맨 위의 카드가 공격 이었다면, 그 카드를 사용합니다."
+  },
+  "theEphemeral:BlindFury": {
+    "NAME": "눈 먼 분노",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 버린 카드 더미를 뽑을 카드 더미에 넣고 섞습니다. 그 후 뽑을 카드 더미에 있는 무작위 공격 카드 1 장을 사용합니다."
+  },
+  "theEphemeral:SpectralThief": {
+    "NAME": "유령 도적질",
+    "DESCRIPTION": "무작위 적에게 !D! 피해를 2 번 줍니다. NL 치명타라면, 골드를 !M! 얻습니다. NL theephemeral:소실 !theEphemeral:SecondMagic!."
+  },
+  "theEphemeral:Degeneration": {
+    "NAME": "퇴화",
+    "DESCRIPTION": "!D! 피해를 2 번 줍니다. NL theephemeral:엔트로피."
+  },
+  "theEphemeral:Image": {
+    "NAME": "환상",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 턴에 theephemeral:숙명 효과를 발동했다면, [E] 를 얻고 카드를 1 장 뽑습니다."
+  },
+
+  "theEphemeral:Bladestorm": {
+    "NAME": "칼날 폭풍",
+    "DESCRIPTION": "적 전체에게 !D! 피해를 2 번 줍니다. NL theephemeral:숙명 : 이 카드의 공격 횟수가 2회 증가합니다."
+  },
+  "theEphemeral:SpiritStrike": {
+    "NAME": "영력 타격",
+    "DESCRIPTION": "!D! 피해를 !M! 번 줍니다. NL 카드를 1 장 뽑습니다. NL 카드를 1 장 버립니다. NL 이 카드가 어느 위치에서든 버려지면, 힘을 !theEphemeral:SecondMagic! 얻습니다."
+  },
+  "theEphemeral:RealityFracture": {
+    "NAME": "현실 균열",
+    "DESCRIPTION": "!D! 피해를 X+1 번 줍니다. NL theephemeral:엔트로피.",
+    "UPGRADE_DESCRIPTION": "!D! 피해를 X+2 번 줍니다. NL theephemeral:엔트로피."
+  },
+  "theEphemeral:Disaster": {
+    "NAME": "재앙",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 보유한 theephemeral:점술 수치가 7이라면, 피해량이 3배로 증가합니다."
+  },
+  "theEphemeral:BurningVengeance": {
+    "NAME": "불타오르는 복수",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다."
+  },
+  "theEphemeral:Subsume": {
+    "NAME": "공포의 포섭",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 치명타라면, 체력을 !M! 회복합니다."
+  },
+
+  "theEphemeral:TimeSkip": {
+    "NAME": "시간 가속",
+    "DESCRIPTION": "뽑을 카드 더미 맨 위의 카드를 사용합니다. NL 소멸. NL theephemeral:숙명 : [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "뽑을 카드 더미 맨 위의 카드를 사용합니다. NL theephemeral:숙명 : [E] 를 얻습니다."
+  },
+  "theEphemeral:Fade": {
+    "NAME": "희미함",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL theephemeral:엔트로피."
+  },
+  "theEphemeral:Pirouette": {
+    "NAME": "피루엣",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL theephemeral:순간_회피 !M! 장을 얻습니다."
+  },
+  "theEphemeral:Portent": {
+    "NAME": "불길한 징후",
+    "DESCRIPTION": "theephemeral:점술 을 !M! 얻습니다. NL theephemeral:숙명 : 카드를 2 장 뽑습니다."
+  },
+  "theEphemeral:Delay": {
+    "NAME": "지연",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 손패의 카드 1장을 선택해 뽑을 카드 더미 맨 위에 넣습니다."
+  },
+  "theEphemeral:Remembrance": {
+    "NAME": "추모",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 버린 카드 더미의 카드 1장을 선택해 뽑을 카드 더미 맨 위에 넣습니다."
+  },
+  "theEphemeral:SpiritGuide": {
+    "NAME": "영혼의 인도",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 1 장 뽑습니다. NL 카드를 1 장 버립니다."
+  },
+  "theEphemeral:SpectralWall": {
+    "NAME": "유령 장벽",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL theephemeral:소실 !theEphemeral:SecondMagic!."
+  },
+
+  "theEphemeral:LostToAges": {
+    "NAME": "스쳐가는 시대",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 손패의 카드 1장을 소멸시킵니다. NL 이 카드를 1 장 복사하여 버린 카드 더미에 넣습니다.",
+    "UPGRADE_DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 손패의 카드 1장을 소멸시킵니다. NL 이 카드를 1 장 복사하여 버린 카드 더미에 넣습니다."
+  },
+  "theEphemeral:BoonOfTheSpinner": {
+    "NAME": "방적기의 실",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 카드를 1 장 버립니다. NL 이 카드가 어느 위치에서든 버려지면, [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 카드를 1 장 버립니다. NL 이 카드가 어느 위치에서든 버려지면, [E] [E] 를 얻습니다."
+  },
+  "theEphemeral:BoonOfTheAlloter": {
+    "NAME": "분배의 실",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 카드를 1 장 버립니다. NL 이 카드가 어느 위치에서든 버려지면, 카드를 !M! 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 카드를 1 장 버립니다. NL 이 카드가 어느 위치에서든 버려지면, 카드를 !M! 장 뽑습니다."
+  },
+  "theEphemeral:BoonOfTheInflexible": {
+    "NAME": "확고함의 실",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 카드를 1 장 버립니다. NL 이 카드가 어느 위치에서든 버려지면, 이번 턴 동안 적 전체의 힘을 !M! 감소시킵니다."
+  },
+  "theEphemeral:BlindFaith": {
+    "NAME": "눈 먼 신앙",
+    "DESCRIPTION": "버린 카드 더미를 뽑을 카드 더미에 넣고 섞습니다. 그 후 theephemeral:순간_통찰 !M! 장을 얻습니다."
+  },
+  "theEphemeral:BlindingBlock": {
+    "NAME": "눈 먼 방어",
+    "DESCRIPTION": "버린 카드 더미를 뽑을 카드 더미에 넣고 섞습니다. 그 후 방어도를 !B! 얻습니다. NL theephemeral:숙명 : 이 카드의 방어도가 !M! 증가합니다."
+  },
+  "theEphemeral:Tasseomancy": {
+    "NAME": "찻잎점",
+    "DESCRIPTION": "theephemeral:점술 을 !M! 얻습니다. NL 뽑을 카드 더미 맨 위의 카드가 스킬 이었다면, 그 카드를 사용합니다. NL 소멸."
+  },
+  "theEphemeral:RecurringNightmare": {
+    "NAME": "반복되는 악몽",
+    "DESCRIPTION": "버린 카드 더미의 카드를 선택하여 사용합니다."
+  },
+  "theEphemeral:PeerThroughMists": {
+    "NAME": "투시의 안개",
+    "DESCRIPTION": "theephemeral:계시 목록 또는 손패에 있는 모든 상태이상과 저주 카드를 소멸시킵니다. 소멸시킨 카드 1장당, 방어도를 !B! 얻습니다."
+  },
+  "theEphemeral:Dowse": {
+    "NAME": "다우징",
+    "DESCRIPTION": "theephemeral:점술 을 2 얻습니다. NL theephemeral:순간_통찰 !M! 장을 얻습니다."
+  },
+  "theEphemeral:FrigidAura": {
+    "NAME": "냉랭의 오라",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL theephemeral:숙명 : 적 전체에게 약화를 !M! 부여합니다."
+  },
+  "theEphemeral:Premonition": {
+    "NAME": "불길한 예감",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL theephemeral:점술 을 !M! 얻습니다. NL theephemeral:숙명 : [E] 를 얻습니다."
+  },
+  "theEphemeral:Dissipate": {
+    "NAME": "흐트러짐",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL theephemeral:숙명 : 불가침 을 1 얻고 소멸합니다."
+  },
+  "theEphemeral:SpectralBinding": {
+    "NAME": "유령 구속",
+    "DESCRIPTION": "대상의 힘을 !M! 감소시킵니다. NL 약화와 취약을 !M! 부여합니다. NL theephemeral:소실 !theEphemeral:SecondMagic!."
+  },
+  "theEphemeral:Revelation": {
+    "NAME": "폭로",
+    "DESCRIPTION": "[E] [E] 를 얻습니다. NL 카드를 !M! 장 뽑습니다."
+  },
+  "theEphemeral:StrengthFromBeyond": {
+    "NAME": "저 너머의 힘",
+    "DESCRIPTION": "theephemeral:순간_타격 2 장을 얻습니다. NL 임시 힘을 !M! 얻습니다."
+  },
+  "theEphemeral:FortuneForetold": {
+    "NAME": "행운의 점술",
+    "DESCRIPTION": "보유한 theephemeral:점술 만큼 [E] 를 얻습니다."
+  },
+  "theEphemeral:Cartomancy": {
+    "NAME": "카드점",
+    "DESCRIPTION": "무작위 3장 중 1장의 카드를 선택해 뽑을 카드 더미 맨 위에 넣습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "무작위 3장 중 1장의 카드를 선택해 뽑을 카드 더미 맨 위에 넣습니다. NL 이번 전투 동안 그 카드의 비용이 0이 됩니다. NL 소멸."
+  },
+
+  "theEphemeral:Wasting": {
+    "NAME": "탈진력",
+    "DESCRIPTION": "보유한 theephemeral:점술 수치만큼 적의 힘을 감소시킵니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 보유한 theephemeral:점술 수치만큼 적의 힘을 감소시킵니다. NL 소멸."
+  },
+  "theEphemeral:TemptFate": {
+    "NAME": "운명에 도전하기",
+    "DESCRIPTION": "버린 카드 더미를 뽑을 카드 더미에 넣고 섞습니다. 카드를 !M! 장 뽑습니다. NL 소멸."
+  },
+  "theEphemeral:BrokenMirror": {
+    "NAME": "파괴된 거울",
+    "DESCRIPTION": "theephemeral:계시 목록의 카드 1 장을 선택합니다. 그 카드를 1 장 복사하여 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "theephemeral:계시 목록의 카드 1 장을 선택합니다. 그 카드를 1 장 복사하여 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "계시한 카드가 없다."
+    ]
+  },
+  "theEphemeral:Numerology": {
+    "NAME": "숫자점",
+    "DESCRIPTION": "카드 X 장을 뽑습니다. NL 이번 턴 동안 그 카드들의 비용이 X 감소합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "카드 X 장을 뽑습니다. NL 이번 턴 동안 그 카드들의 비용이 X 감소합니다. NL 소멸."
+  },
+  "theEphemeral:SpectralForge": {
+    "NAME": "유령 대장간",
+    "DESCRIPTION": "모든 카드를 이번 전투 동안 강화합니다. NL theephemeral:소실 !theEphemeral:SecondMagic!.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 모든 카드를 이번 전투 동안 강화합니다. NL theephemeral:소실 !theEphemeral:SecondMagic!.",
+    "EXTENDED_DESCRIPTION": [
+      "강화시킬 수 있는 카드가 없다."
+    ]
+  },
+  "theEphemeral:TemporalSurge": {
+    "NAME": "현세적 감정기복",
+    "DESCRIPTION": "theephemeral:계시 목록에 존재하는 공격 카드와 스킬 카드를 전부 사용합니다. NL 소멸."
+  },
+
+  "theEphemeral:Murmuration": {
+    "NAME": "찌르레기 떼",
+    "DESCRIPTION": "매 턴 시작시, theephemeral:점술 을 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": "매 턴 시작시, theephemeral:점술 을 !M! 얻습니다. 이 카드 사용시 효과를 즉시 발동합니다."
+  },
+  "theEphemeral:PhantomWings": {
+    "NAME": "환영 날개",
+    "DESCRIPTION": "턴 종료시, 보유한 theephemeral:점술 수치만큼 방어도를 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": "턴 종료시, 보유한 theephemeral:점술 수치만큼 방어도를 !M! 얻습니다. 이 카드 사용시 효과를 즉시 발동합니다."
+  },
+  "theEphemeral:Clairvoyance": {
+    "NAME": "총명",
+    "DESCRIPTION": "매 턴 시작시, theephemeral:순간_통찰 1 장을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "매 턴 시작시, theephemeral:순간_통찰 1 장을 얻습니다. 이 카드 사용시 효과를 즉시 발동합니다."
+  },
+  "theEphemeral:SwirlingMists": {
+    "NAME": "소용돌이치는 안개",
+    "DESCRIPTION": "휘발성 카드를 뽑거나 소멸시킬 때마다, 방어도를 !M! 얻습니다."
+  },
+  "theEphemeral:ReflectingPool": {
+    "NAME": "모든 것을 비추는 수면",
+    "DESCRIPTION": "소멸 효과가 없는 공격 카드를 사용할 때마다, theephemeral:순간_타격 1 장을 얻습니다."
+  },
+  "theEphemeral:Kismet": {
+    "NAME": "키스멧",
+    "DESCRIPTION": "뽑을 카드 더미를 섞을때마다, 카드를 1 장 뽑고 방어도를 !M! 얻습니다."
+  },
+  "theEphemeral:Maelstrom": {
+    "NAME": "대혼란",
+    "DESCRIPTION": "한 턴에 카드를 5장 사용할 때마다, 적 전체에게 약화와 취약을 1 부여합니다."
+  },
+  "theEphemeral:ImpendingDoom": {
+    "NAME": "종말 임박",
+    "DESCRIPTION": "턴 종료시, 보유한 theephemeral:점술 수치만큼 적 전체에게 피해를 줍니다.",
+    "UPGRADE_DESCRIPTION": "턴 종료시, 보유한 theephemeral:점술 수치만큼 적 전체에게 피해를 줍니다. 이 카드 사용시 효과를 즉시 발동합니다."
+  },
+  "theEphemeral:DarkContract": {
+    "NAME": "어둠의 계약",
+    "DESCRIPTION": "theephemeral:점술 을 얻을때마다, [E] 를 얻고 체력을 1 잃습니다."
+  },
+  "theEphemeral:Soothsayer": {
+    "NAME": "점술가",
+    "DESCRIPTION": "theephemeral:숙명 의 효과가 2배로 증가하고 숙명 발동 가능 횟수가 증가합니다."
+  },
+  "theEphemeral:GrimResolve": {
+    "NAME": "엄숙한 결의",
+    "DESCRIPTION": "체력을 잃으면, 체력을 !M! 만큼 덜 잃습니다."
+  },
+  "theEphemeral:ReturnToAether": {
+    "NAME": "하늘로 돌아가다",
+    "DESCRIPTION": "턴 종료시, 손패의 카드를 전부 소멸시킵니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 턴 종료시, 손패의 카드를 전부 소멸시킵니다."
+  },
+  "theEphemeral:ChaosRift": {
+    "NAME": "혼돈의 균열",
+    "DESCRIPTION": "theephemeral:엔트로피 의 피해량, 방어도 증가 수치가 !M! 증가합니다."
+  },
+  "theEphemeral:SpectralPhalanx": {
+    "NAME": "유령 집단",
+    "DESCRIPTION": "힘을 !M! 얻고 민첩을 !M! 얻습니다. NL theephemeral:소실 !theEphemeral:SecondMagic!."
+  },
+  "theEphemeral:HarbingerForm": {
+    "NAME": "선지자의 형상",
+    "DESCRIPTION": "휘발성. NL 턴 종료시 뽑을 카드 더미 맨 위의 카드를 사용합니다. 이 효과로 사용된 카드의 피해량과 방어도는 2배로 증가합니다.",
+    "UPGRADE_DESCRIPTION": "턴 종료시 뽑을 카드 더미 맨 위의 카드를 사용합니다. 이 효과로 사용된 카드의 피해량과 방어도는 2배로 증가합니다."
+  },
+
+  "theEphemeral:FleetingStrike": {
+    "NAME": "순간 타격",
+    "DESCRIPTION": "휘발성. NL 뽑을 카드 더미 맨 위의 카드 1 장을 버립니다. NL 피해를 !D! 줍니다. NL 소멸."
+  },
+  "theEphemeral:FleetingDodge": {
+    "NAME": "순간 회피",
+    "DESCRIPTION": "휘발성. NL 뽑을 카드 더미 맨 위의 카드 1 장을 버립니다. NL 방어도를 !B! 얻습니다. NL 소멸."
+  },
+  "theEphemeral:FleetingThought": {
+    "NAME": "순간 통찰",
+    "DESCRIPTION": "휘발성. NL 뽑을 카드 더미 맨 위의 카드 1 장을 버립니다. NL 카드를 1 장 뽑습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "휘발성. NL 뽑을 카드 더미 맨 위의 카드 1 장을 버립니다. NL 카드를 2 장 뽑습니다. NL 소멸."
+  }
+}
